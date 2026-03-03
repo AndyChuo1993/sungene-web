@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { fetchAllPostSlugs, fetchAllCaseStudySlugs, fetchAllPagePaths } from '@/lib/cms'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const STATIC_LAST_MOD = new Date('2025-01-01T00:00:00Z')
   const [pages, posts, cases] = await Promise.all([fetchAllPagePaths(), fetchAllPostSlugs(), fetchAllCaseStudySlugs()])
   

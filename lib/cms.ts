@@ -1,5 +1,9 @@
 const RAW_CMS_URL = process.env.NEXT_PUBLIC_CMS_URL
-const CMS_URL = RAW_CMS_URL ? RAW_CMS_URL.replace(/\/$/, '') : undefined
+const IS_PROD = process.env.NODE_ENV === 'production'
+// If in production and CMS_URL points to localhost, ignore it to fallback to mock data
+const CMS_URL = (RAW_CMS_URL && (!IS_PROD || !RAW_CMS_URL.includes('localhost'))) 
+  ? RAW_CMS_URL.replace(/\/$/, '') 
+  : undefined
 
 async function cmsJson(path: string) {
   if (!CMS_URL) return null

@@ -27,7 +27,7 @@ export async function generateMetadata() {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const lang = cookies().get('lang')?.value === 'en' ? 'en' : 'zh-Hant'
-  const site = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const logoUrl = `${site}/logo/sungene.png`
   
   const websiteSchema = {

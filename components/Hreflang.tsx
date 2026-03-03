@@ -2,7 +2,7 @@ import { headers } from 'next/headers'
 
 export default function Hreflang() {
   const h = headers()
-  const site = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const path = h.get('x-invoke-path') || '/'
   const links = [
     { href: `${site}${path}`, lang: 'zh-Hant' },
