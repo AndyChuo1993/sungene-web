@@ -1,6 +1,6 @@
 import { t } from '@/lib/i18n'
 import { getLang } from '@/lib/i18n-server'
-import { getCase } from '@/data/cases'
+import { getCase, getCases } from '@/data/cases'
 import type { Metadata } from 'next'
 import BreadcrumbJSONLD from '@/components/BreadcrumbJSONLD'
 import Image from 'next/image'
