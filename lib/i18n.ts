@@ -316,6 +316,7 @@ const dict: Record<Lang, Record<string, string>> = {
     
     // Footer
     brand_manifesto: '我們構建全球貿易增長的基礎設施。以自動化的精準，取代人工的不確定性。',
+    footer_alibaba_link: '阿里巴巴國際站 momas.en.com',
     footer_platform: '平台',
     footer_company: '公司',
     footer_solutions: '解決方案',
@@ -806,6 +807,7 @@ const dict: Record<Lang, Record<string, string>> = {
     
     // Footer
     brand_manifesto: 'We build the infrastructure for global trade growth. Replacing manual uncertainty with automated precision.',
+    footer_alibaba_link: 'Alibaba.com momas.en.com',
     footer_platform: 'Platform',
     footer_company: 'Company',
     footer_solutions: 'Solutions',

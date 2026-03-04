@@ -15,6 +15,20 @@ export default function Footer() {
               <Image src="/logo/sungene.png" alt="SunGene Co., LTD." width={32} height={32} />
               <div className="text-white font-bold text-xl tracking-wide">SunGene Co., LTD.</div>
             </div>
+            
+            <a 
+              href="https://momas.en.alibaba.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium transition group"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 group-hover:animate-pulse"></span>
+              <span className="border-b border-cyan-500/30 group-hover:border-cyan-400 pb-0.5">
+                {t(lang, 'footer_alibaba_link')}
+              </span>
+              <span className="text-xs group-hover:translate-x-1 transition">→</span>
+            </a>
+
             <p className="text-gray-400 leading-relaxed max-w-sm">
               {t(lang, 'brand_manifesto')}
             </p>
