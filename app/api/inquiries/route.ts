@@ -167,7 +167,9 @@ async function notify(item: Inquiry, meta: any, id: string, reqId?: string) {
   const host = process.env.MAIL_HOST || process.env.SMTP_HOST
   const port = Number(process.env.MAIL_PORT || process.env.SMTP_PORT || 587)
   const user = process.env.MAIL_USER || process.env.SMTP_USER
-  const pass = process.env.MAIL_PASS || process.env.SMTP_PASS
+  const rawPass = process.env.MAIL_PASS || process.env.SMTP_PASS
+  const pass = rawPass ? rawPass.replace(/\s+/g, '') : undefined
+  
   const to = 'andy@sungene.net'
   let transporter: any
   
@@ -205,7 +207,8 @@ UTM: ${JSON.stringify(meta.utm)}
 IP: ${meta.ip}
 時間: ${meta.time}
 `
-  const fromAddr = user || 'no-reply@example.com'
+  const fromName = process.env.MAIL_FROM || 'SunGene'
+  const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
   try {
     await transporter.sendMail({ to, from: fromAddr, subject, text: adminText, headers: { 'X-Request-ID': reqId || '' } })
   } catch (err) {
