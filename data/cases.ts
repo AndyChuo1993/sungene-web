@@ -24,22 +24,22 @@ const baseCovers: Record<string, string> = {
   dzics: '/cases/dzics/cover.png',
   erkang: '/cases/erkang/cover.png',
   // New Taiwan-specific cases placeholders (can be replaced with real images later)
-  hardware: '/cases/chemie/cover.png', // Reusing for now
-  electronics: '/cases/skyworth/cover.png',
-  packaging: '/cases/erkang/cover.png',
-  industrial: '/cases/dzics/cover.png',
+  hardware: '', // Empty to trigger fallback or use specific generic image
+  electronics: '',
+  packaging: '',
+  industrial: '',
 }
 
 const zh: Record<string, CaseContent> = {
   hardware: {
     slug: 'hardware',
-    title: '台灣五金工具製造商',
+    title: '五金工具製造企業',
     industry: '五金工具',
-    market: '德國 (Germany)',
+    market: '歐洲 (Europe)',
     serviceType: 'Lead Gen + Cold Email',
     duration: '3個月',
     cover: baseCovers.hardware,
-    summary: '三個月獲得 50–60 有效詢盤、成功進入歐洲市場',
+    summary: '協助企業建立海外買家名單並進行客戶開發，成功建立多個潛在客戶聯繫與合作機會。',
     result: '詢盤增長、市場拓展',
     highlights: [
       { num: '50-60', label: '有效詢盤' },
@@ -61,11 +61,11 @@ const zh: Record<string, CaseContent> = {
     slug: 'electronics',
     title: '電子零組件供應商',
     industry: '電子零組件',
-    market: '美國 (USA)',
+    market: '北美 (North America)',
     serviceType: 'LinkedIn + ABM',
     duration: '2個月',
     cover: baseCovers.electronics,
-    summary: '成功打入北美供應鏈、獲得樣品單',
+    summary: '透過海外客戶開發流程，協助企業接觸採購決策者並建立商務對話。',
     result: '供應鏈進入、決策人觸達',
     highlights: [
       { num: '100%', label: '決策人觸達' },
@@ -91,7 +91,7 @@ const zh: Record<string, CaseContent> = {
     serviceType: 'Localization + Outreach',
     duration: '4個月',
     cover: baseCovers.packaging,
-    summary: '日本市場開信率 45%、回覆率 8%',
+    summary: '日本市場開信率 45%、回覆率 8%，成功克服語言與文化壁壘。',
     result: '在地化深耕、高回覆率',
     highlights: [
       { num: '45%', label: '開信率' },
@@ -117,7 +117,7 @@ const zh: Record<string, CaseContent> = {
     serviceType: 'Technical Sales',
     duration: '6個月',
     cover: baseCovers.industrial,
-    summary: '觸達高層決策者、進入大型客戶評估流程',
+    summary: '觸達高層決策者、進入大型客戶評估流程，建立技術銷售渠道。',
     result: '技術銷售、大型專案',
     highlights: [
       { num: 'Top 20', label: '目標客戶觸達' },
@@ -168,13 +168,13 @@ const zh: Record<string, CaseContent> = {
 const en: Record<string, CaseContent> = {
   hardware: {
     slug: 'hardware',
-    title: 'Taiwan Hardware Manufacturer',
+    title: 'Hardware Manufacturer',
     industry: 'Hardware & Tools',
-    market: 'Germany',
+    market: 'Europe',
     serviceType: 'Lead Gen + Cold Email',
     duration: '3 Months',
     cover: baseCovers.hardware,
-    summary: '50–60 qualified inquiries in 3 months; Successful entry into Europe',
+    summary: 'Built precise buyer lists and executed outreach, successfully establishing multiple potential client connections.',
     result: 'Inquiry Growth, Market Expansion',
     highlights: [
       { num: '50-60', label: 'Qualified Inquiries' },
@@ -184,11 +184,11 @@ const en: Record<string, CaseContent> = {
     before: ['Relied on old clients', 'No export team', 'Declining exhibition ROI'],
     after: ['Targeted lists', 'Automated outreach', 'Stable inquiry flow'],
     sections: [
-      { heading: 'Background', paragraphs: ['A veteran Taiwanese hardware manufacturer with high-quality production capabilities but heavily reliant on trading companies and existing clients. They lacked the internal team to proactively develop the European market.'] },
+      { heading: 'Background', paragraphs: ['A veteran hardware manufacturer with high-quality production capabilities but heavily reliant on trading companies and existing clients. They lacked the internal team to proactively develop the European market.'] },
       { heading: 'Challenges', items: ['High cost and declining ROI from traditional exhibitions', 'No dedicated sales team to handle complex prospecting', 'Unfamiliar with European importer structures'] },
-      { heading: 'Our Strategy', paragraphs: ['SunGene implemented a full "Export Outsourcing" solution:'], items: ['Targeted mid-to-large hardware importers and wholesalers in Germany and Netherlands', 'Built a precise list of Purchasing Managers', 'Crafted cold emails highlighting "Made in Taiwan Quality" and "OEM Flexibility"'] },
+      { heading: 'Our Strategy', paragraphs: ['SunGene implemented a full "Export Outsourcing" solution:'], items: ['Targeted mid-to-large hardware importers and wholesalers in Germany and Netherlands', 'Built a precise list of Purchasing Managers', 'Crafted cold emails highlighting "Quality Manufacturing" and "OEM Flexibility"'] },
       { heading: 'Execution', items: ['Month 1: Built 500+ target list for initial testing', 'Month 2: Optimized subject lines and content, boosting open rates to 40%+', 'Month 3: Full automation with SunGene team filtering initial inquiries'] },
-      { heading: 'Results', items: ['Generated 50-60 qualified inquiries within 3 months', 'Received inquiries from well-known German tool brands', 'Over 10 prospects advanced to sampling and quotation stages'] },
+      { heading: 'Results', items: ['Generated 50-60 qualified inquiries within 3 months', 'Received inquiries from well-known European tool brands', 'Over 10 prospects advanced to sampling and quotation stages'] },
       { heading: 'Key Value', items: ['Launched overseas expansion without building a team', 'Rapidly validated European market acceptance', 'Established a replicable B2B sales SOP'] },
     ],
   },
@@ -196,11 +196,11 @@ const en: Record<string, CaseContent> = {
     slug: 'electronics',
     title: 'Electronics Component Supplier',
     industry: 'Electronics Components',
-    market: 'USA',
+    market: 'North America',
     serviceType: 'LinkedIn + ABM',
     duration: '2 Months',
     cover: baseCovers.electronics,
-    summary: 'Entered North American supply chain; Secured sample orders',
+    summary: 'Leveraged overseas client development workflows to help the company reach decision-makers and establish business dialogues.',
     result: 'Supply Chain Entry, Decision Maker Access',
     highlights: [
       { num: '100%', label: 'Decision Maker Reach' },
@@ -210,7 +210,7 @@ const en: Record<string, CaseContent> = {
     before: ['No decision maker access', 'Ignored emails', 'High competition'],
     after: ['Targeted executives', 'Multi-channel touch', 'Audit process entry'],
     sections: [
-      { heading: 'Background', paragraphs: ['A Taiwanese electronics component manufacturer aiming to enter the North American high-tech and automotive supply chains but blocked by closed procurement processes at major firms.'] },
+      { heading: 'Background', paragraphs: ['An electronics component manufacturer aiming to enter the North American high-tech and automotive supply chains but blocked by closed procurement processes at major firms.'] },
       { heading: 'Challenges', items: ['Extremely low response rates from generic info emails', 'Long decision chains involving engineering, procurement, and QC', 'Hard to differentiate technical advantages in a crowded market'] },
       { heading: 'Our Strategy', paragraphs: ['Adopted an "Account-Based Marketing (ABM)" approach:'], items: ['Simultaneously targeted Purchasing Managers, R&D Heads, and Supply Chain Directors', 'Multi-channel outreach via LinkedIn and Email', 'Used technical whitepapers and case studies as hooks'] },
       { heading: 'Execution', items: ['Mapped organizational charts of Top 50 target clients', 'Tailored communication scripts for engineers vs. buyers', 'Leveraged LinkedIn to build professional credibility'] },
@@ -226,7 +226,7 @@ const en: Record<string, CaseContent> = {
     serviceType: 'Localization + Outreach',
     duration: '4 Months',
     cover: baseCovers.packaging,
-    summary: '45% Open Rate, 8% Reply Rate in Japan',
+    summary: 'Achieved 45% open rate and 8% reply rate in Japan, successfully overcoming language and cultural barriers.',
     result: 'Localization, High Engagement',
     highlights: [
       { num: '45%', label: 'Open Rate' },
@@ -252,7 +252,7 @@ const en: Record<string, CaseContent> = {
     serviceType: 'Technical Sales',
     duration: '6 Months',
     cover: baseCovers.industrial,
-    summary: 'Reached C-level executives; Entered evaluation at major firms',
+    summary: 'Reached C-level executives and entered evaluation processes at major firms, establishing a technical sales channel.',
     result: 'Technical Sales, Large Contracts',
     highlights: [
       { num: 'Top 20', label: 'Target Reach' },

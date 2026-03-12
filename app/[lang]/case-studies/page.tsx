@@ -37,15 +37,15 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                       style={{ backgroundImage: `url(${item.cover})` }}
                     />
                  ) : (
-                    <div className="absolute inset-0 bg-blue-50 flex items-center justify-center text-blue-900 group-hover:scale-105 transition duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-500 group-hover:scale-105 transition duration-500">
                         <div className="text-center">
-                            <div className="text-6xl font-bold opacity-10 mb-2">{item.title.charAt(0)}</div>
+                            <div className="text-6xl font-bold opacity-10 mb-2">B2B</div>
                             <div className="font-bold text-lg uppercase tracking-wider">{item.industry}</div>
                         </div>
                     </div>
                  )}
-                 <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
-                    {lang === 'zh' ? '成功案例' : 'Case Study'}
+                 <div className="absolute top-4 right-4 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
+                    {lang === 'zh' ? '示意案例' : 'Representative Case'}
                  </div>
                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
                     <div className="text-white font-bold text-sm uppercase tracking-wide flex gap-4">

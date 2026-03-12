@@ -40,11 +40,11 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             
             {/* Trust Badges / Social Proof */}
             <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 text-gray-400 font-medium text-sm uppercase tracking-wider">
-                <span>{lang === 'zh' ? '服務超過 50+ 台灣工廠' : 'Serving 50+ Factories'}</span>
+                <span>{lang === 'zh' ? '服務超過 50+ 工廠' : 'Serving 50+ Factories'}</span>
                 <span className="hidden md:inline-block">•</span>
                 <span>{lang === 'zh' ? '專注 B2B 外貿開發' : 'Focus on B2B Export'}</span>
                 <span className="hidden md:inline-block">•</span>
-                <span>{lang === 'zh' ? '歐美日市場落地' : 'Global Market Reach'}</span>
+                <span>{lang === 'zh' ? '全球市場落地' : 'Global Market Reach'}</span>
             </div>
           </div>
         </div>

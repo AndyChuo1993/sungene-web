@@ -24,10 +24,10 @@ export default function CasePreview({ lang }: { lang: Lang }) {
                       style={{ backgroundImage: `url(${item.cover})` }}
                     />
                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200 flex items-center justify-center group-hover:scale-105 transition duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center group-hover:scale-105 transition duration-500">
                         <div className="text-center">
-                            <div className="text-6xl font-bold text-gray-200 mb-2">{item.title.charAt(0)}</div>
-                            <div className="font-bold text-lg text-gray-400 uppercase tracking-wider">{item.industry}</div>
+                            <div className="text-6xl font-bold text-gray-300 mb-2">B2B</div>
+                            <div className="font-bold text-lg text-gray-500 uppercase tracking-wider">{item.industry}</div>
                         </div>
                     </div>
                  )}

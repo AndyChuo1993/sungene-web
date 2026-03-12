@@ -16,62 +16,68 @@ export default function Page({ params }: { params: { lang: Lang } }) {
     {
       id: 'lead-gen',
       title: t(lang, 'service_lead_gen_title'),
-      desc: t(lang, 'service_lead_gen_desc'),
+      desc: lang === 'zh'
+        ? '幫助企業建立精準的海外買家名單，為後續客戶開發與市場拓展建立基礎。我們透過市場研究、進口數據與產業分析，找出潛在採購商與決策者。'
+        : 'Building precise overseas buyer lists to lay the foundation for market expansion. We identify potential buyers and decision-makers through market research, import data, and industry analysis.',
       imageIcon: (
         <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
       ),
       who: lang === 'zh' 
-        ? ['沒有海外業務團隊的工廠', '想開發新市場但不知道從哪開始的企業', '已經有產品但沒有穩定買家來源的供應商']
-        : ['Factories without an internal export sales team', 'Companies expanding to new markets', 'Suppliers with products but no stable buyer source'],
+        ? ['想拓展海外市場但沒有客戶資料的企業', '想建立完整買家資料庫的公司', '需要精準名單做開發信或業務拓展']
+        : ['Companies expanding overseas without client data', 'Firms wanting to build a complete buyer database', 'Businesses needing precise lists for outreach'],
       what: lang === 'zh'
-        ? ['目標市場分析', '海外買家名單建立', '公司資料與聯絡方式整理', '分層標註潛在客戶名單']
-        : ['Target market analysis', 'Overseas buyer list building', 'Company & contact data verification', 'Segmented prospect lists'],
+        ? ['海外買家名單建立', '進口商與採購商資料整理', '產業市場分析', '潛在客戶分類與標記']
+        : ['Overseas buyer list building', 'Importer & buyer data organization', 'Industry market analysis', 'Prospect segmentation & tagging'],
       deliverables: lang === 'zh'
         ? ['精準買家資料庫 (Excel/CRM)', '關鍵決策人聯絡方式', '市場競爭分析報告']
         : ['Verified Buyer Database (Excel/CRM)', 'Decision Maker Contacts', 'Market Intelligence Report'],
       result: lang === 'zh'
-        ? ['更快找到潛在買家', '更少浪費在低價值客戶', '建立後續開發信與跟進的基礎資料']
-        : ['Identify potential buyers faster', 'Reduce time on low-value leads', 'Solid foundation for outreach campaigns']
+        ? ['企業可獲得一份可直接用於開發的海外買家名單', '作為外貿開發的基礎資源', '大幅節省自行搜尋名單的時間']
+        : ['Acquire a ready-to-use overseas buyer list', 'Establish foundational resources for export growth', 'Save significant time on manual prospecting']
     },
     {
       id: 'outreach',
       title: t(lang, 'service_outreach_title'),
-      desc: t(lang, 'service_outreach_desc'),
+      desc: lang === 'zh'
+        ? '透過系統化的外貿開發流程，主動接觸海外買家並建立商務對話。SunGene 協助企業規劃客戶開發策略，並透過 Email、LinkedIn 等渠道進行客戶觸達。'
+        : 'Proactively engaging overseas buyers through systematic outreach. SunGene helps plan development strategies and reach clients via Email and LinkedIn to establish business dialogues.',
       imageIcon: (
         <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
       ),
       who: lang === 'zh'
-        ? ['有買家名單但不知道如何開發', '開發信回覆率低', '需要主動出擊 B2B 客戶']
-        : ['Have lists but unsure how to engage', 'Low cold email response rates', 'Need proactive B2B outreach'],
+        ? ['想主動開發海外客戶的企業', '想建立穩定詢盤來源的工廠', '想拓展新市場的供應商']
+        : ['Companies wanting to proactively find clients', 'Factories needing consistent inquiry sources', 'Suppliers aiming to enter new markets'],
       what: lang === 'zh'
-        ? ['客製化開發信撰寫', 'LinkedIn 社交開發', '多波段跟進策略', 'A/B 測試優化']
-        : ['Customized cold email copywriting', 'LinkedIn social outreach', 'Multi-touch follow-up strategy', 'A/B testing optimization'],
+        ? ['客戶開發策略制定', '開發信撰寫與優化', 'Email / LinkedIn 開發流程', '客戶回覆管理']
+        : ['Outreach strategy development', 'Cold email copywriting & optimization', 'Email / LinkedIn outreach workflows', 'Response management'],
       deliverables: lang === 'zh'
         ? ['開發信文案 (Email Scripts)', 'LinkedIn 訊息模版', '發送排程與數據報告']
         : ['Cold Email Scripts', 'LinkedIn Message Templates', 'Campaign Schedule & Data Reports'],
       result: lang === 'zh'
-        ? ['提高開信率與回覆率', '直接觸達關鍵決策人', '建立穩定的詢盤來源']
-        : ['Increase open & reply rates', 'Reach decision makers directly', 'Generate consistent inquiries']
+        ? ['持續接觸潛在買家並建立商務對話', '逐步累積海外客戶資源', '獲得高品質的商務詢盤']
+        : ['Consistent engagement with potential buyers', 'Accumulate overseas client resources', 'Generate high-quality business inquiries']
     },
     {
       id: 'outsourcing',
       title: t(lang, 'service_sales_title'),
-      desc: t(lang, 'service_sales_desc'),
+      desc: lang === 'zh'
+        ? 'SunGene 作為企業的外貿業務團隊，協助處理客戶開發與商務跟進。企業不需要自行建立完整外貿團隊，也能持續拓展海外市場。'
+        : 'Acting as your external export sales team to handle development and follow-up. Expand globally without building a full internal team from scratch.',
       imageIcon: (
         <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
       ),
       who: lang === 'zh'
-        ? ['詢盤量大但轉化率低', '缺乏英語談判人才', '需要長期維護客戶關係']
-        : ['High inquiry volume but low conversion', 'Lack English negotiation talent', 'Need long-term relationship management'],
+        ? ['沒有外貿團隊的工廠', '想降低外貿人力成本的企業', '希望快速拓展海外市場的公司']
+        : ['Factories without an export team', 'Companies looking to reduce labor costs', 'Firms wanting rapid market expansion'],
       what: lang === 'zh'
-        ? ['詢盤篩選與分級', '報價單製作與跟進', '樣品寄送安排', '商務談判支援']
-        : ['Inquiry screening & qualification', 'Quotation follow-up', 'Sample arrangement', 'Commercial negotiation support'],
+        ? ['海外客戶開發與跟進', '詢盤管理', '商務溝通協助', '客戶關係維護']
+        : ['Overseas client development & follow-up', 'Inquiry management', 'Business communication support', 'Customer relationship maintenance'],
       deliverables: lang === 'zh'
         ? ['詢盤處理週報', '潛在訂單進度表', '客戶反饋分析']
         : ['Weekly Inquiry Reports', 'Pipeline Status Sheet', 'Customer Feedback Analysis'],
       result: lang === 'zh'
-        ? ['提升訂單轉化率', '縮短成交週期', '降低業務溝通成本']
-        : ['Boost conversion rates', 'Shorten sales cycles', 'Lower communication costs']
+        ? ['透過外部專業團隊持續拓展海外市場', '建立穩定的客戶來源', '專注於生產與產品優化']
+        : ['Continuous market expansion via expert team', 'Establish stable client sources', 'Focus on production and product optimization']
     }
   ]
 
