@@ -14,6 +14,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
 
   const fields: FormField[] = [
     { name: 'name', label: t(lang, 'form_name'), type: 'text', required: true },
+    { name: 'phone', label: lang === 'zh' ? '手機號碼' : 'Phone Number', type: 'tel', required: true },
     { name: 'company', label: t(lang, 'form_company'), type: 'text', required: true },
     { name: 'email', label: t(lang, 'form_email'), type: 'email', required: true },
     { name: 'message', label: t(lang, 'form_message'), type: 'textarea', required: true, rows: 5 },

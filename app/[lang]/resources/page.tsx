@@ -1,6 +1,7 @@
 import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import { getArticles } from '@/data/articles'
+import Newsletter from '@/components/Newsletter'
 
 export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
@@ -15,7 +16,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
   const articles = getArticles(lang)
 
   const categories = [
-    { title: lang === 'zh' ? '外貿開發指南' : 'Export Guide', count: 2 },
+    { title: lang === 'zh' ? '外貿開發指南' : 'Export Guide', count: 3 },
     { title: lang === 'zh' ? '市場分析報告' : 'Market Analysis', count: 1 },
     { title: lang === 'zh' ? '成功案例解析' : 'Case Insights', count: 0 },
   ]
@@ -49,12 +50,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                     </ul>
                 </div>
                 
-                <div className="bg-blue-900 p-6 rounded-sm text-white">
-                    <h3 className="font-bold mb-2">{lang === 'zh' ? '訂閱電子報' : 'Subscribe'}</h3>
-                    <p className="text-sm text-blue-200 mb-4">{lang === 'zh' ? '每週獲取最新的外貿開發技巧。' : 'Get weekly export tips.'}</p>
-                    <input type="email" placeholder="Email" className="w-full px-3 py-2 rounded-sm text-gray-900 mb-2 text-sm" />
-                    <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 rounded-sm text-sm transition">{lang === 'zh' ? '訂閱' : 'Subscribe'}</button>
-                </div>
+                <Newsletter lang={lang} />
             </div>
 
             {/* Main Content */}
