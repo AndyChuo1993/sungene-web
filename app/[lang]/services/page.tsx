@@ -102,13 +102,22 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                 <div className="w-24 h-24 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-8">
                   {s.imageIcon}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{s.title}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                    <Link href={`/${lang}/services/${s.id === 'lead-gen' ? 'lead-generation' : s.id === 'outreach' ? 'cold-outreach' : 'sales-outsourcing'}`} className="hover:text-blue-600 transition">
+                        {s.title}
+                    </Link>
+                </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed border-l-4 border-blue-500 pl-4">
                   {s.desc}
                 </p>
-                <Link href={`/${lang}/contact`} className="inline-block bg-blue-900 text-white font-bold py-3 px-8 rounded-sm hover:bg-blue-800 transition duration-300">
-                  {lang === 'zh' ? '諮詢此服務' : 'Inquire Now'}
-                </Link>
+                <div className="flex flex-col gap-3">
+                    <Link href={`/${lang}/services/${s.id === 'lead-gen' ? 'lead-generation' : s.id === 'outreach' ? 'cold-outreach' : 'sales-outsourcing'}`} className="inline-block bg-white border border-blue-900 text-blue-900 font-bold py-3 px-8 rounded-sm hover:bg-blue-50 transition duration-300 text-center">
+                    {lang === 'zh' ? '了解更多' : 'Learn More'}
+                    </Link>
+                    <Link href={`/${lang}/contact`} className="inline-block bg-blue-900 text-white font-bold py-3 px-8 rounded-sm hover:bg-blue-800 transition duration-300 text-center">
+                    {lang === 'zh' ? '諮詢此服務' : 'Inquire Now'}
+                    </Link>
+                </div>
               </div>
 
               {/* Right Column: Detailed Breakdown */}

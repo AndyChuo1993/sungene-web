@@ -15,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/export-lead-generation',
     '/export-outsourcing',
     '/b2b-lead-generation',
+    '/services/lead-generation',
+    '/services/cold-outreach',
+    '/services/sales-outsourcing',
   ]
 
   const sitemap: MetadataRoute.Sitemap = []

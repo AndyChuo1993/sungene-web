@@ -60,7 +60,20 @@ export default function RootLayout({ children, params }: { children: ReactNode, 
       '@type': 'ContactPoint',
       telephone: '+886-4-37032705',
       contactType: 'sales',
-      areaServed: 'TW',
+      areaServed: [
+        'TW',
+        'CN',
+        'VN',
+        'TH',
+        'MY',
+        'ID',
+        'US',
+        'CA',
+        'DE',
+        'FR',
+        'NL',
+        'JP'
+      ],
       availableLanguage: ['en', 'zh-Hant']
     },
     sameAs: [
@@ -104,8 +117,15 @@ export default function RootLayout({ children, params }: { children: ReactNode, 
     areaServed: [
       'TW',
       'CN',
+      'VN',
+      'TH',
+      'MY',
+      'ID',
       'US',
+      'CA',
       'DE',
+      'FR',
+      'NL',
       'JP'
     ],
     priceRange: '$$'

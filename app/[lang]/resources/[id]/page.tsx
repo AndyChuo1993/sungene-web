@@ -11,6 +11,15 @@ export async function generateMetadata({ params }: { params: { lang: Lang, id: s
   return {
     title: `${article.title} | SunGene`,
     description: article.content[0]?.slice(0, 150) || '',
+    alternates: {
+      canonical: `/${lang}/resources/${id}`,
+    },
+    openGraph: {
+      title: `${article.title} | SunGene`,
+      description: article.content[0]?.slice(0, 150) || '',
+      type: 'article',
+      publishedTime: article.date,
+    }
   }
 }
 
@@ -22,8 +31,28 @@ export default function Page({ params }: { params: { lang: Lang, id: string } })
     notFound()
   }
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    datePublished: article.date,
+    author: {
+      '@type': 'Organization',
+      name: 'SunGene'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'SunGene',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo/sungene.png`
+      }
+    }
+  }
+
   return (
     <main className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Article Header */}
       <section className="bg-gray-50 py-24 border-b border-gray-100">
         <div className="mx-auto max-w-3xl px-6 text-center">

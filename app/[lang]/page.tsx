@@ -13,6 +13,12 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
     title: t(lang, 'meta_home_title'),
     description: t(lang, 'meta_home_desc'),
     keywords: t(lang, 'meta_keywords'),
+    openGraph: {
+      title: t(lang, 'meta_home_title'),
+      description: t(lang, 'meta_home_desc'),
+      type: 'website',
+      images: ['/og/og.png'],
+    },
   }
 }
 
