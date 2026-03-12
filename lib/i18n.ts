@@ -16,7 +16,7 @@ const dict: Record<Lang, Record<string, string>> = {
 
     // Hero
     hero_title: '幫台灣企業開發海外買家',
-    hero_subtitle: '從客戶名單建立、開發信，到詢盤跟進的外貿外包服務。',
+    hero_subtitle: '從客戶名單建立、開發信，到詢盤跟進與外貿支援，SunGene 提供可落地的外貿客戶開發服務。',
     hero_cta_start: '開始開發海外客戶',
     hero_cta_analysis: '免費市場分析',
 

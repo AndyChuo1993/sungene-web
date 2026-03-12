@@ -9,6 +9,7 @@ export type CaseContent = {
   serviceType: string
   duration: string
   cover?: string
+  proofImages?: string[]
   summary?: string
   result?: string
   sections: CaseSection[]
@@ -142,6 +143,7 @@ const zh: Record<string, CaseContent> = {
     serviceType: 'Full Outsourcing',
     duration: '12個月',
     cover: baseCovers.chemie,
+    proofImages: ['/cases/chemie/proof-1.png', '/cases/chemie/proof-2.png'],
     summary: '每週 10–20 詢盤、總詢盤額 3000 萬人民幣、3 天直達高層',
     result: '詢盤增長、決策鏈直達',
     highlights: [
@@ -276,6 +278,7 @@ const en: Record<string, CaseContent> = {
     serviceType: 'Full Outsourcing',
     duration: '12 Months',
     cover: baseCovers.chemie,
+    proofImages: ['/cases/chemie/proof-1.png', '/cases/chemie/proof-2.png'],
     summary: '10–20 weekly inquiries; RMB 30M+ pipeline; executive access in 3 days',
     result: 'Scalable acquisition, executive reach',
     highlights: [

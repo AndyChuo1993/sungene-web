@@ -34,6 +34,11 @@ export default function Page({ params }: { params: { lang: Lang } }) {
               ? 'SunGene 是一家專注於外貿增長的服務公司，我們不賣軟體，而是直接幫製造商找到買家。' 
               : 'SunGene is a specialized export growth partner. We don\'t sell software; we deliver buyers.'}
           </p>
+          <p className="text-lg text-gray-800 font-bold mb-8 p-6 bg-blue-50 border-l-4 border-blue-600">
+             {lang === 'zh' 
+                ? 'SunGene 不只是外貿服務供應商，我們正在建立一套可擴充的外貿增長系統。' 
+                : 'SunGene is not just a service provider; we are building a scalable export growth system.'}
+          </p>
           <p className="text-lg text-gray-600 leading-relaxed">
             {lang === 'zh'
               ? '透過精準的名單與專業的開發流程，我們協助台灣企業拓展全球市場。我們的團隊由資深外貿顧問、數據分析師與商務開發專家組成，致力於解決傳統外貿「找不到人、聯絡不上、談不下來」的痛點。'

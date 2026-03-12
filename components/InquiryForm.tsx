@@ -12,7 +12,7 @@ export type FormField = {
 
 interface InquiryFormProps {
   lang: Lang
-  type: 'Free Analysis' | 'Contact' | 'Lead Gen Service'
+  type: 'Free Analysis' | 'Contact' | 'Lead Generation' | 'Outreach Service' | 'Sales Outsourcing' | 'Partnership Inquiry'
   fields: FormField[]
   submitLabel: string
   successTitle?: string

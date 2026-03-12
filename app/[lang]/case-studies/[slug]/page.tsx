@@ -52,6 +52,19 @@ export default function Page({ params }: { params: { lang: Lang, slug: string } 
                 <span className="text-green-400 mr-2">●</span> {lang === 'zh' ? '執行週期' : 'Duration'}: {item.duration}
              </div>
           </div>
+          
+          {item.proofImages && item.proofImages.length > 0 && (
+            <div className="mt-12 grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+                {item.proofImages.map((img, idx) => (
+                    <div key={idx} className="relative aspect-video rounded-sm overflow-hidden border border-gray-700/50 shadow-2xl">
+                        <div 
+                            className="absolute inset-0 bg-cover bg-center hover:scale-105 transition duration-500"
+                            style={{ backgroundImage: `url(${img})` }}
+                        />
+                    </div>
+                ))}
+            </div>
+          )}
         </div>
       </section>
 

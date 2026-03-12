@@ -81,9 +81,14 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                 <div className="grid md:grid-cols-2 gap-8">
                     {featured.map((post, idx) => (
                         <div key={idx} className="bg-white border border-gray-200 rounded-sm hover:shadow-md transition duration-300 flex flex-col">
-                            <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400">
-                                {/* Placeholder for blog image */}
-                                <svg className="w-12 h-12 opacity-20" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" /></svg>
+                            <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400 relative overflow-hidden group">
+                                <div className="absolute inset-0 bg-blue-900/5 group-hover:bg-blue-900/10 transition"></div>
+                                <div className="text-center p-4">
+                                    <div className="text-4xl text-gray-300 font-serif mb-2 font-bold opacity-30">
+                                        {post.category === (lang === 'zh' ? '市場分析' : 'Market Analysis') ? 'DATA' : 'GUIDE'}
+                                    </div>
+                                    <div className="text-sm font-bold text-gray-400 uppercase tracking-widest">{post.category}</div>
+                                </div>
                             </div>
                             <div className="p-6 flex-grow flex flex-col">
                                 <div className="flex items-center gap-3 mb-3 text-xs">
