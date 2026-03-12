@@ -40,11 +40,13 @@ export default function Page({ params }: { params: { lang: Lang } }) {
              <div className="text-center">
                 <div className="font-bold text-gray-900 mb-1">{lang === 'zh' ? '即時聯絡' : 'Phone / LINE'}</div>
                 <div className="text-blue-600 font-medium">+886 43703 2705</div>
-                <div className="text-green-600 font-medium mt-1">LINE ID: @sungenelite</div>
+                <div className="text-green-600 font-medium mt-1">LINE ID: @sungene</div>
              </div>
-             <div className="text-center">
-                <div className="font-bold text-gray-900 mb-1">{lang === 'zh' ? '公司所在地' : 'Location'}</div>
-                <div className="text-gray-600">{lang === 'zh' ? '台中市中區光復路201號' : 'No. 201, Guangfu Rd., Central Dist., Taichung City, Taiwan'}</div>
+             <div className="text-center flex flex-col items-center">
+                <div className="font-bold text-gray-900 mb-2">WhatsApp</div>
+                <div className="w-24 h-24 bg-gray-100 rounded-sm overflow-hidden">
+                    <img src="/whatsapp-qr.png" alt="WhatsApp QR Code" className="w-full h-full object-cover" />
+                </div>
              </div>
           </div>
 

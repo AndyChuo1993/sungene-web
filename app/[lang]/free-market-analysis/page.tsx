@@ -15,6 +15,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
   const fields: FormField[] = [
     { name: 'company', label: t(lang, 'form_company'), type: 'text', required: true },
     { name: 'name', label: lang === 'zh' ? '聯絡人姓名' : 'Contact Person', type: 'text', required: true },
+    { name: 'phone', label: lang === 'zh' ? '手機號碼' : 'Phone Number', type: 'tel', required: true },
     { name: 'product', label: t(lang, 'form_product'), type: 'text', required: true },
     { name: 'market', label: t(lang, 'form_market'), type: 'text', required: true },
     { name: 'currentChannels', label: lang === 'zh' ? '目前主要出口方式' : 'Current Export Channels', type: 'text' },

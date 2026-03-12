@@ -1,5 +1,6 @@
 import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
+import { getArticles } from '@/data/articles'
 
 export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
@@ -11,32 +12,12 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
 
 export default function Page({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
+  const articles = getArticles(lang)
 
   const categories = [
-    { title: lang === 'zh' ? '外貿開發指南' : 'Export Guide', count: 3 },
-    { title: lang === 'zh' ? '市場分析報告' : 'Market Analysis', count: 2 },
-    { title: lang === 'zh' ? '成功案例解析' : 'Case Insights', count: 5 },
-  ]
-
-  const featured = [
-    {
-      title: lang === 'zh' ? '2026 德國五金市場採購趨勢報告' : '2026 German Hardware Market Procurement Trends',
-      desc: lang === 'zh' ? '深度解析德國前十大進口商的採購偏好與決策流程變遷。' : 'In-depth analysis of purchasing preferences and decision-making shifts of top 10 German importers.',
-      date: '2026-02-15',
-      category: lang === 'zh' ? '市場分析' : 'Market Analysis'
-    },
-    {
-      title: lang === 'zh' ? '開發信高回覆率的 5 個關鍵架構' : '5 Key Structures for High-Response Cold Emails',
-      desc: lang === 'zh' ? '為什麼你的開發信沒人回？拆解經過驗證的 B2B 開發信寫作邏輯。' : 'Why are your emails ignored? Deconstructing proven B2B cold email writing logic.',
-      date: '2026-01-20',
-      category: lang === 'zh' ? '外貿開發指南' : 'Export Guide'
-    },
-    {
-      title: lang === 'zh' ? '如何繞過總機找到採購決策人？' : 'How to Bypass Gatekeepers to Reach Decision Makers?',
-      desc: lang === 'zh' ? '實戰分享：利用 LinkedIn 與數位工具建立精準名單的技巧。' : 'Practical sharing: Techniques for building precise lists using LinkedIn and digital tools.',
-      date: '2026-01-10',
-      category: lang === 'zh' ? '外貿開發指南' : 'Export Guide'
-    }
+    { title: lang === 'zh' ? '外貿開發指南' : 'Export Guide', count: 2 },
+    { title: lang === 'zh' ? '市場分析報告' : 'Market Analysis', count: 1 },
+    { title: lang === 'zh' ? '成功案例解析' : 'Case Insights', count: 0 },
   ]
 
   return (
@@ -79,27 +60,29 @@ export default function Page({ params }: { params: { lang: Lang } }) {
             {/* Main Content */}
             <div className="lg:col-span-9">
                 <div className="grid md:grid-cols-2 gap-8">
-                    {featured.map((post, idx) => (
-                        <div key={idx} className="bg-white border border-gray-200 rounded-sm hover:shadow-md transition duration-300 flex flex-col">
-                            <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400 relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-blue-900/5 group-hover:bg-blue-900/10 transition"></div>
-                                <div className="text-center p-4">
-                                    <div className="text-4xl text-gray-300 font-serif mb-2 font-bold opacity-30">
-                                        {post.category === (lang === 'zh' ? '市場分析' : 'Market Analysis') ? 'DATA' : 'GUIDE'}
+                    {articles.map((post) => (
+                        <Link href={`/${lang}/resources/${post.id}`} key={post.id} className="block group">
+                            <div className="bg-white border border-gray-200 rounded-sm hover:shadow-md transition duration-300 flex flex-col h-full">
+                                <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400 relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-blue-900/5 group-hover:bg-blue-900/10 transition"></div>
+                                    <div className="text-center p-4">
+                                        <div className="text-4xl text-gray-300 font-serif mb-2 font-bold opacity-30">
+                                            {post.category === (lang === 'zh' ? '市場分析' : 'Market Analysis') ? 'DATA' : 'GUIDE'}
+                                        </div>
+                                        <div className="text-sm font-bold text-gray-400 uppercase tracking-widest">{post.category}</div>
                                     </div>
-                                    <div className="text-sm font-bold text-gray-400 uppercase tracking-widest">{post.category}</div>
+                                </div>
+                                <div className="p-6 flex-grow flex flex-col">
+                                    <div className="flex items-center gap-3 mb-3 text-xs">
+                                        <span className="bg-blue-50 text-blue-600 px-2 py-1 rounded-sm font-bold">{post.category}</span>
+                                        <span className="text-gray-400">{post.date}</span>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">{post.title}</h3>
+                                    <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{post.content[0]}</p>
+                                    <span className="text-blue-600 font-bold text-sm hover:underline">{lang === 'zh' ? '閱讀更多' : 'Read More'} →</span>
                                 </div>
                             </div>
-                            <div className="p-6 flex-grow flex flex-col">
-                                <div className="flex items-center gap-3 mb-3 text-xs">
-                                    <span className="bg-blue-50 text-blue-600 px-2 py-1 rounded-sm font-bold">{post.category}</span>
-                                    <span className="text-gray-400">{post.date}</span>
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition cursor-pointer">{post.title}</h3>
-                                <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{post.desc}</p>
-                                <span className="text-blue-600 font-bold text-sm cursor-pointer hover:underline">{lang === 'zh' ? '閱讀更多' : 'Read More'} →</span>
-                            </div>
-                        </div>
+                        </Link>
                     ))}
                     
                     {/* Coming Soon Card */}
