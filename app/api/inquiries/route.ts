@@ -6,7 +6,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 type Inquiry = {
-  type: 'Need Supplier' | 'Need Market' | 'Need AI' | 'Need Custom' | 'Free Analysis' | 'Contact' | 'Lead Gen Service' | 'Lead Generation' | 'Outreach Service' | 'Sales Outsourcing' | 'Partnership Inquiry'
+  type: 'Contact' | 'Free Analysis' | 'Lead Generation' | 'Outreach Service' | 'Sales Outsourcing' | 'Partnership Inquiry'
   name: string
   company?: string
   email: string
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
   }
   if (body.website) return Response.json({ ok: true })
   const type = body.type
-  if (!['Need Supplier', 'Need Market', 'Need AI', 'Need Custom', 'Free Analysis', 'Contact', 'Lead Gen Service', 'Lead Generation', 'Outreach Service', 'Sales Outsourcing', 'Partnership Inquiry'].includes(type)) return new Response('Bad Request', { status: 400 })
+  if (!['Contact', 'Free Analysis', 'Lead Generation', 'Outreach Service', 'Sales Outsourcing', 'Partnership Inquiry'].includes(type)) return new Response('Bad Request', { status: 400 })
   // Phone is optional to maximize conversion
   if (!body.name || !body.email) return new Response('Bad Request', { status: 400 })
   const item: Inquiry = {

@@ -174,6 +174,38 @@ export default function Page({ params }: { params: { lang: Lang } }) {
         ))}
       </div>
 
+      {/* FAQ Section */}
+      <section className="py-24 bg-gray-50 border-t border-gray-100">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">{lang === 'zh' ? '常見問題' : 'FAQ'}</h2>
+          <div className="space-y-6">
+            {[
+              { 
+                q: lang === 'zh' ? 'Q: SunGene 適合哪些類型的企業？' : 'Q: Who is SunGene suitable for?',
+                a: lang === 'zh' ? '我們最適合擁有成熟產品與製造能力，但缺乏海外業務團隊或希望加速外貿開發的製造商與供應商。' : 'We are best suited for manufacturers and suppliers with mature products but lacking an overseas sales team or wishing to accelerate export growth.'
+              },
+              { 
+                q: lang === 'zh' ? 'Q: 你們是代發信公司嗎？' : 'Q: Are you just an email blasting service?',
+                a: lang === 'zh' ? '不是。我們提供的是全流程的外貿開發服務，包含精準名單建立、決策人鎖定、客製化開發內容撰寫以及商務詢盤跟進。' : 'No. We provide full-cycle export development services, including precise list building, decision-maker targeting, customized outreach, and inquiry follow-up.'
+              },
+              { 
+                q: lang === 'zh' ? 'Q: 多久可以看到成效？' : 'Q: How long to see results?',
+                a: lang === 'zh' ? '通常在專案啟動後 1-2 個月內會開始收到潛在客戶的回覆與詢盤。具體時間取決於產品類型與目標市場的競爭程度。' : 'Typically, you will start receiving responses and inquiries within 1-2 months of project launch, depending on product type and market competition.'
+              },
+              { 
+                q: lang === 'zh' ? 'Q: 資料會保密嗎？會簽署 NDA 嗎？' : 'Q: Is my data confidential? Do you sign NDAs?',
+                a: lang === 'zh' ? '是的，我們非常重視客戶隱私。在合作開始前，我們會簽署保密協議 (NDA)，確保您的商業機密與客戶資料受到完整保護。' : 'Yes, we take privacy seriously. We sign an NDA before cooperation begins to ensure your trade secrets and client data are fully protected.'
+              }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white p-6 rounded-sm border border-gray-200">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{faq.q}</h3>
+                <p className="text-gray-600">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-blue-900 text-white text-center">
         <div className="mx-auto max-w-4xl px-6">

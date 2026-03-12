@@ -24,13 +24,34 @@ export default function Page({ params }: { params: { lang: Lang, slug: string } 
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gray-900 text-white py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <div className="inline-block bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-sm uppercase tracking-wide mb-6">
-            {item.industry}
+      <section className="bg-gray-900 text-white py-24 relative overflow-hidden">
+        {/* Background Image Overlay if available */}
+        {item.cover && (
+            <div 
+                className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm"
+                style={{ backgroundImage: `url(${item.cover})` }}
+            ></div>
+        )}
+        <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
+          <div className="inline-flex gap-2 mb-6">
+            <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
+                {item.industry}
+            </span>
+            <span className="bg-gray-700 text-white text-sm font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
+                {item.market}
+            </span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">{item.title}</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">{item.summary}</p>
+          
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-medium text-gray-400">
+             <div className="flex items-center bg-gray-800/50 px-4 py-2 rounded-full border border-gray-700">
+                <span className="text-blue-400 mr-2">●</span> {lang === 'zh' ? '服務類型' : 'Service'}: {item.serviceType}
+             </div>
+             <div className="flex items-center bg-gray-800/50 px-4 py-2 rounded-full border border-gray-700">
+                <span className="text-green-400 mr-2">●</span> {lang === 'zh' ? '執行週期' : 'Duration'}: {item.duration}
+             </div>
+          </div>
         </div>
       </section>
 

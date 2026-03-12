@@ -147,7 +147,9 @@ export default function InquiryForm({
       </div>
       
       <p className="text-xs text-center text-gray-400 mt-4">
-        By submitting this form, you agree to our privacy policy. We respect your data privacy.
+        {lang === 'zh' 
+          ? '提交表單即代表您同意我們的隱私權政策。我們尊重您的數據隱私。'
+          : 'By submitting this form, you agree to our privacy policy. We respect your data privacy.'}
       </p>
     </form>
   )

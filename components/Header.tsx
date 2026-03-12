@@ -9,8 +9,7 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/how-it-works`, label: t(lang, 'nav_process') },
     { href: `/${lang}/case-studies`, label: t(lang, 'nav_cases') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
-    // Placeholder for future Resources section
-    // { href: `/${lang}/resources`, label: lang === 'zh' ? '資源中心' : 'Resources' },
+    { href: `/${lang}/resources`, label: lang === 'zh' ? '資源中心' : 'Resources' },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
   return (
@@ -25,10 +24,6 @@ export default function Header({ lang }: { lang: Lang }) {
               {l.label}
             </Link>
           ))}
-          {/* Resources Link Placeholder - styled slightly differently to indicate it's new/different if uncommented later */}
-          <span className="text-gray-300 font-medium text-sm uppercase tracking-wide cursor-not-allowed hidden xl:inline-block" title="Coming Soon">
-             {lang === 'zh' ? '資源中心' : 'Resources'}
-          </span>
         </nav>
         <div className="flex items-center gap-4">
           <LanguageSwitcher lang={lang} />

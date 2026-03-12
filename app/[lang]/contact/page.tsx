@@ -38,8 +38,9 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                 <div className="text-blue-600 font-medium">contact@sungenelite.com</div>
              </div>
              <div className="text-center">
-                <div className="font-bold text-gray-900 mb-1">{lang === 'zh' ? '即時聯絡' : 'Phone'}</div>
+                <div className="font-bold text-gray-900 mb-1">{lang === 'zh' ? '即時聯絡' : 'Phone / LINE'}</div>
                 <div className="text-blue-600 font-medium">+886 43703 2705</div>
+                <div className="text-green-600 font-medium mt-1">LINE ID: @sungenelite</div>
              </div>
              <div className="text-center">
                 <div className="font-bold text-gray-900 mb-1">{lang === 'zh' ? '公司所在地' : 'Location'}</div>

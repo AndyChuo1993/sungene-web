@@ -18,6 +18,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             <div className="text-gray-400 text-sm space-y-2">
                <div>contact@sungenelite.com</div>
                <div>+886 43703 2705</div>
+               <div>LINE ID: @sungenelite</div>
                <div>{lang === 'zh' ? '台中市中區光復路201號' : 'No. 201, Guangfu Rd., Taichung City, Taiwan'}</div>
                <div>{lang === 'zh' ? '統一編號：94111922' : 'Tax ID: 94111922'}</div>
             </div>
