@@ -32,19 +32,19 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       {/* Contact Form */}
       <section className="py-24 bg-gray-50">
         <div className="mx-auto max-w-3xl px-6 bg-white p-10 md:p-16 rounded-sm shadow-lg border border-gray-100">
-          <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
-             <div className="text-center">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 md:gap-4 mb-12 max-w-2xl mx-auto">
+             <div className="text-center md:text-left flex-1">
                 <div className="font-bold text-gray-900 mb-1">{lang === 'zh' ? '商務合作信箱' : 'Business Email'}</div>
                 <div className="text-blue-600 font-medium">contact@sungenelite.com</div>
              </div>
-             <div className="text-center">
+             <div className="text-center md:text-left flex-1">
                 <div className="font-bold text-gray-900 mb-1">{lang === 'zh' ? '即時聯絡' : 'Phone / LINE'}</div>
                 <div className="text-blue-600 font-medium">+886 43703 2705</div>
                 <div className="text-green-600 font-medium mt-1">LINE ID: @sungene</div>
              </div>
-             <div className="text-center flex flex-col items-center">
+             <div className="text-center flex flex-col items-center flex-1 md:items-end">
                 <div className="font-bold text-gray-900 mb-2">WhatsApp</div>
-                <div className="w-24 h-24 bg-gray-100 rounded-sm overflow-hidden">
+                <div className="w-24 h-24 bg-gray-100 rounded-sm overflow-hidden border border-gray-200 shadow-sm">
                     <img src="/whatsapp-qr.png" alt="WhatsApp QR Code" className="w-full h-full object-cover" />
                 </div>
              </div>
