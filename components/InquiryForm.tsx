@@ -5,7 +5,7 @@ import { t, Lang } from '@/lib/i18n'
 export type FormField = {
   name: string
   label: string
-  type: 'text' | 'email' | 'textarea'
+  type: 'text' | 'email' | 'textarea' | 'tel'
   required?: boolean
   rows?: number
 }
@@ -32,7 +32,15 @@ export default function InquiryForm({
   errorDesc
 }: InquiryFormProps) {
   const [loading, setLoading] = useState(false)
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'email_error'>('idle')
+
+  const validateEmail = (email: string) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -45,6 +53,13 @@ export default function InquiryForm({
     fields.forEach(field => {
       data[field.name] = formData.get(field.name) as string
     })
+
+    // Validate email if present
+    if (data.email && !validateEmail(data.email)) {
+        setStatus('email_error')
+        setLoading(false)
+        return
+    }
 
     try {
       // Map form fields to API expected fields
@@ -116,7 +131,7 @@ export default function InquiryForm({
               name={field.name}
               rows={field.rows || 4}
               required={field.required}
-              className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-gray-900 bg-white"
             />
           ) : (
             <input
@@ -124,7 +139,7 @@ export default function InquiryForm({
               id={field.name}
               name={field.name}
               required={field.required}
-              className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-gray-900 bg-white"
             />
           )}
         </div>
@@ -133,6 +148,12 @@ export default function InquiryForm({
       {status === 'error' && (
         <div className="p-4 bg-red-50 text-red-700 rounded-sm border border-red-200">
           <strong>{errorTitle || t(lang, 'form_error_title')}</strong>: {errorDesc || t(lang, 'form_error_desc')}
+        </div>
+      )}
+
+      {status === 'email_error' && (
+        <div className="p-4 bg-yellow-50 text-yellow-800 rounded-sm border border-yellow-200">
+          <strong>{lang === 'zh' ? 'Email 格式錯誤' : 'Invalid Email'}</strong>: {lang === 'zh' ? '請輸入有效的電子郵件地址。' : 'Please enter a valid email address.'}
         </div>
       )}
 
