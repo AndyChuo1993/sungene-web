@@ -6,12 +6,12 @@ import ServiceComparison from '@/components/ServiceComparison'
 import { Users, FileSpreadsheet, Target, BarChart3, ShieldCheck, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: '客戶名單開發服務 | Lead Generation | SunGene',
-  description: '專業 B2B 海外買家名單建立服務。透過海關數據、產業資料庫與人工篩選，為您提供精準的決策者聯絡方式。',
-  keywords: '客戶名單開發, B2B名單, 海外買家資料, 決策人聯絡方式, 潛在客戶名單',
+  title: '目標客戶研究服務 | Target Customer Research | SunGene',
+  description: '建立精準海外潛在客戶資料庫，幫助業務團隊快速接觸目標買家。',
+  keywords: '目標客戶研究, 海外客戶名單, B2B名單, 採購決策人, 潛在客戶資料庫',
   openGraph: {
-    title: '客戶名單開發服務 | Lead Generation | SunGene',
-    description: '專業 B2B 海外買家名單建立服務。為您提供精準的決策者聯絡方式。',
+    title: '目標客戶研究服務 | Target Customer Research | SunGene',
+    description: '建立精準海外潛在客戶資料庫，幫助業務團隊快速接觸目標買家。',
     type: 'website',
   }
 }
@@ -25,15 +25,15 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       <section className="bg-gray-900 text-white py-24 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 relative z-10 text-center">
           <div className="inline-block bg-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
-             {lang === 'zh' ? '海外客戶名單開發服務' : 'Lead Generation Service'}
+             {lang === 'zh' ? '目標客戶研究服務' : 'Target Customer Research Service'}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {lang === 'zh' ? '不再為「找不到客戶」煩惱' : 'Stop Worrying About "Finding Clients"'}
+            {lang === 'zh' ? '目標客戶研究服務' : 'Target Customer Research Service'}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            {lang === 'zh' 
-              ? '我們交付可直接使用的海外客戶名單，包含寄信名單與開信名單（Excel）。' 
-              : 'We deliver ready-to-use overseas buyer lists, including sending lists and verified open lists (Excel).'}
+            {lang === 'zh'
+              ? '建立精準海外潛在客戶資料庫\n幫助業務團隊快速接觸目標買家'
+              : 'Build a precise overseas prospect database\nso your sales team can reach target buyers faster'}
           </p>
           <div className="flex justify-center gap-4">
             <Link href={`/${lang}/free-market-analysis`} className="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">
@@ -50,37 +50,64 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                  lang={lang} 
                  items={[
                      { label: lang === 'zh' ? '服務介紹' : 'Services', href: `/${lang}/services` },
-                     { label: lang === 'zh' ? '客戶名單開發' : 'Lead Generation', href: `/${lang}/services/lead-generation` }
+                     { label: lang === 'zh' ? '目標客戶研究服務' : 'Target Customer Research', href: `/${lang}/services/lead-generation` }
                  ]} 
              />
 
             <div className="grid lg:grid-cols-12 gap-16 mt-8">
                 <div className="lg:col-span-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '服務內容' : 'Service Details'}</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '我們做什麼' : 'What We Do'}</h2>
                 <div className="prose prose-lg text-gray-600 mb-12">
                     <p>
                         {lang === 'zh' 
-                         ? '許多企業在外貿開發時，花費大量時間在網路上搜尋客戶，卻往往只找到無效的 Info 信箱或總機電話。SunGene 的名單開發服務，結合了數據科技與人工驗證，協助您直接鎖定目標市場的潛在買家。'
-                         : 'Many companies waste time searching for clients online, only to find generic info emails. SunGene combines data technology with manual verification to help you target potential buyers directly.'}
+                         ? '我們為企業建立精準的海外潛在客戶資料庫。'
+                         : 'We build a precise overseas prospect database for manufacturers.'}
                     </p>
+                    <p>
+                        {lang === 'zh'
+                         ? '透過市場分析與多來源資料整合，篩選出符合產品定位的目標客戶與採購決策人。'
+                         : 'Through market analysis and multi-source data integration, we screen target customers and procurement decision-makers that match your positioning.'}
+                    </p>
+                    <p>
+                        {lang === 'zh'
+                         ? '所有資料經過人工與系統雙重驗證，確保客戶資料可直接用於業務開發。'
+                         : 'All records are double-verified by systems and manual checks so the database is ready for outbound use.'}
+                    </p>
+                </div>
+
+                <div className="mb-12">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '服務內容' : 'Service Scope'}</h3>
+                  <ul className="grid md:grid-cols-2 gap-4">
+                    {[ 
+                      lang === 'zh' ? '目標市場分析' : 'Target market analysis',
+                      lang === 'zh' ? '目標客戶篩選' : 'Target customer screening',
+                      lang === 'zh' ? '採購決策人識別' : 'Decision-maker identification',
+                      lang === 'zh' ? '客戶資料建立' : 'Customer database building',
+                    ].map((item) => (
+                      <li key={item} className="flex gap-3 items-start p-4 border border-gray-100 rounded-lg bg-gray-50">
+                        <span className="mt-1 text-blue-600">●</span>
+                        <span className="text-gray-700 font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 {/* Who it is for */}
                 <div className="mb-12">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '適合對象' : 'Who Is This For?'}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '適合對象' : 'Best Fit'}</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="flex gap-4 p-4 border border-gray-100 rounded-lg bg-gray-50">
                       <Users className="w-8 h-8 text-blue-600 flex-shrink-0" />
                       <div>
-                        <h4 className="font-bold text-gray-900">{lang === 'zh' ? '尋找經銷商的製造商' : 'Manufacturers Seeking Distributors'}</h4>
-                        <p className="text-sm text-gray-600 mt-1">{lang === 'zh' ? '需要快速建立當地通路名單。' : 'Need to quickly build local channel lists.'}</p>
+                        <h4 className="font-bold text-gray-900">{lang === 'zh' ? '已有業務團隊的企業' : 'Companies with Sales Teams'}</h4>
+                        <p className="text-sm text-gray-600 mt-1">{lang === 'zh' ? '缺乏精準海外客戶資料，導致開發效率低。' : 'Lack precise overseas data and struggle to scale outreach.'}</p>
                       </div>
                     </div>
                     <div className="flex gap-4 p-4 border border-gray-100 rounded-lg bg-gray-50">
                       <Target className="w-8 h-8 text-blue-600 flex-shrink-0" />
                       <div>
-                        <h4 className="font-bold text-gray-900">{lang === 'zh' ? '已有業務團隊的企業' : 'Companies with Sales Teams'}</h4>
-                        <p className="text-sm text-gray-600 mt-1">{lang === 'zh' ? '業務專注於開發，不該浪費時間找資料。' : 'Sales should focus on closing, not researching.'}</p>
+                        <h4 className="font-bold text-gray-900">{lang === 'zh' ? '需要快速接觸目標買家的企業' : 'Teams Needing Faster Buyer Access'}</h4>
+                        <p className="text-sm text-gray-600 mt-1">{lang === 'zh' ? '希望以資料庫方式快速觸達採購決策人。' : 'Need a database-driven way to reach decision-makers quickly.'}</p>
                       </div>
                     </div>
                   </div>
@@ -93,29 +120,49 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                     <div className="p-6 border-b border-gray-100 flex items-start gap-4">
                       <FileSpreadsheet className="w-10 h-10 text-green-600" />
                       <div>
-                        <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '精準買家名單 (Excel/CSV)' : 'Targeted Buyer List (Excel/CSV)'}</h4>
+                        <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '海外目標客戶資料庫（Excel）' : 'Overseas Target Customer Database (Excel)'}</h4>
                         <p className="text-gray-600 mt-2 text-sm">
-                          {lang === 'zh' ? '包含完整欄位：公司名稱、網址、國家、產業分類。' : 'Includes full fields: Company Name, Website, Country, Industry.'}
+                          {lang === 'zh' ? '資料包含：公司名稱、採購決策人、職位、Email、LinkedIn、公司網站。' : 'Includes: company name, decision-maker, title, email, LinkedIn, and website.'}
                         </p>
                       </div>
                     </div>
                     <div className="p-6 border-b border-gray-100 flex items-start gap-4">
                       <Users className="w-10 h-10 text-blue-600" />
                       <div>
-                        <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '關鍵決策人資訊' : 'Key Decision Maker Info'}</h4>
+                        <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '採購決策人識別' : 'Decision-maker Identification'}</h4>
                         <p className="text-gray-600 mt-2 text-sm">
-                          {lang === 'zh' ? '採購經理、CEO、產品經理的姓名與職稱。' : 'Names and titles of Purchasing Managers, CEOs, Product Managers.'}
+                          {lang === 'zh' ? '鎖定採購決策人與對應職位，提升觸達效率。' : 'Identify procurement decision-makers and relevant titles to improve reach.'}
                         </p>
                       </div>
                     </div>
                     <div className="p-6 flex items-start gap-4">
                       <ShieldCheck className="w-10 h-10 text-indigo-600" />
                       <div>
-                        <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '驗證過的聯絡方式' : 'Verified Contact Details'}</h4>
+                        <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '可直接用於開發的資料' : 'Outbound-ready Data'}</h4>
                         <p className="text-gray-600 mt-2 text-sm">
-                          {lang === 'zh' ? '直通 Email 與 LinkedIn 個人頁面連結（若有）。' : 'Direct Emails and LinkedIn Profile URLs (if available).'}
+                          {lang === 'zh' ? '資料經過人工與系統驗證，交付後可直接用於業務開發。' : 'Double-verified by systems and manual checks to be ready for outreach.'}
                         </p>
                       </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-12">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '合作流程' : 'Workflow'}</h3>
+                  <ol className="space-y-3 text-gray-700">
+                    <li className="flex gap-3"><span className="font-bold text-blue-600">1</span><span>{lang === 'zh' ? '客戶提供產品與目標市場' : 'You provide product info and target market(s)'}</span></li>
+                    <li className="flex gap-3"><span className="font-bold text-blue-600">2</span><span>{lang === 'zh' ? '我們建立客戶篩選條件' : 'We define screening criteria'}</span></li>
+                    <li className="flex gap-3"><span className="font-bold text-blue-600">3</span><span>{lang === 'zh' ? '客戶資料研究與驗證' : 'Research and verify customer records'}</span></li>
+                    <li className="flex gap-3"><span className="font-bold text-blue-600">4</span><span>{lang === 'zh' ? '海外客戶資料庫交付' : 'Deliver the overseas customer database'}</span></li>
+                  </ol>
+                </div>
+
+                <div className="mb-12 rounded-lg border border-gray-200 bg-white p-6">
+                  <div className="flex items-center gap-3">
+                    <Clock className="w-6 h-6 text-blue-600" />
+                    <div>
+                      <div className="font-bold text-gray-900">{lang === 'zh' ? '執行週期' : 'Duration'}</div>
+                      <div className="text-gray-600">{lang === 'zh' ? '一年' : '1 Year'}</div>
                     </div>
                   </div>
                 </div>
@@ -167,7 +214,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                             </span>
                         </summary>
                         <div className="text-gray-600 mt-0 group-open:animate-fadeIn p-4 pt-0">
-                            {lang === 'zh' ? '通常包含：公司名稱、網址、國家、聯絡人姓名、職稱、Email、LinkedIn 個人頁面連結（若有）。' : 'Typically includes: Company Name, Website, Country, Contact Person, Title, Email, LinkedIn Profile (if available).'}
+                            {lang === 'zh' ? '資料包含：公司名稱、採購決策人、職位、Email、LinkedIn、公司網站。' : 'Includes: company name, decision-maker, title, email, LinkedIn, and website.'}
                         </div>
                     </details>
                     <details className="group bg-white border border-gray-200 rounded-sm">

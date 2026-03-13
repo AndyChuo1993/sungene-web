@@ -6,12 +6,12 @@ import ServiceComparison from '@/components/ServiceComparison'
 import { UserCheck, MessageSquare, Briefcase, TrendingDown, Clock, Globe, FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: '外貿外包服務 | Sales Outsourcing | SunGene',
-  description: '專業的外貿業務外包團隊，提供海外客戶開發、詢盤處理、報價跟進等完整服務，協助企業低成本拓展全球市場。',
-  keywords: '外貿外包, 外貿業務代工, 海外業務外包, 詢盤處理外包',
+  title: '外貿業務外包服務 | Sales Outsourcing | SunGene',
+  description: '讓專業團隊負責海外客戶開發與業務跟進，企業專注產品與交付。',
+  keywords: '外貿業務外包, 外貿外包, 海外客戶開發, 詢盤處理, 客戶跟進',
   openGraph: {
-    title: '外貿外包服務 | Sales Outsourcing | SunGene',
-    description: '專業的外貿業務外包團隊，協助企業低成本拓展全球市場。',
+    title: '外貿業務外包服務 | Sales Outsourcing | SunGene',
+    description: '讓專業團隊負責海外客戶開發與業務跟進，企業專注產品與交付。',
     type: 'website',
   }
 }
@@ -25,15 +25,15 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       <section className="bg-gray-900 text-white py-24 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 relative z-10 text-center">
           <div className="inline-block bg-indigo-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
-             {lang === 'zh' ? '外貿外包服務' : 'Sales Outsourcing'}
+             {lang === 'zh' ? '外貿業務外包服務' : 'Sales Outsourcing'}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {lang === 'zh' ? '無需自建團隊，即刻擁有專業外貿戰力' : 'Instant Pro Sales Team, No Hiring Required'}
+            {lang === 'zh' ? '外貿業務外包服務' : 'Sales Outsourcing Service'}
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 whitespace-pre-line">
             {lang === 'zh' 
-              ? '企業只需負責報價、出貨，其餘外貿工作由我們完成。' 
-              : 'You handle quotation and shipping; we take care of all other export sales activities.'}
+              ? '讓專業團隊負責海外客戶開發與業務跟進\n企業專注產品與交付' 
+              : 'We handle overseas development and follow-ups\nso you can focus on product and delivery'}
           </p>
           <div className="flex justify-center gap-4">
             <Link href={`/${lang}/contact`} className="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">
@@ -50,19 +50,33 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                  lang={lang} 
                  items={[
                      { label: lang === 'zh' ? '服務介紹' : 'Services', href: `/${lang}/services` },
-                     { label: lang === 'zh' ? '外貿外包服務' : 'Sales Outsourcing', href: `/${lang}/services/sales-outsourcing` }
+                     { label: lang === 'zh' ? '外貿業務外包服務' : 'Sales Outsourcing', href: `/${lang}/services/sales-outsourcing` }
                  ]} 
              />
 
             <div className="grid lg:grid-cols-12 gap-16 mt-8">
                 <div className="lg:col-span-8">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '服務內容' : 'Service Details'}</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '我們做什麼' : 'What We Do'}</h2>
                     <div className="prose prose-lg text-gray-600 mb-12">
                         <p>
                             {lang === 'zh' 
-                             ? '招聘與培訓外貿業務不僅成本高，而且管理困難。人員流動率高往往導致客戶流失。SunGene 的外貿外包服務，提供穩定、專業且可擴充的業務支援，讓您專注於產品研發與製造。'
-                             : 'Hiring and training export sales is costly and hard to manage. High turnover often leads to client loss. SunGene provides stable, professional, and scalable sales support, letting you focus on R&D and manufacturing.'}
+                             ? '我們作為企業的外貿業務團隊，負責海外客戶開發與業務跟進。'
+                             : 'We act as your export sales team, handling overseas development and follow-ups.'}
                         </p>
+                        <p>
+                            {lang === 'zh'
+                             ? '企業只需負責：報價、出貨；其餘外貿業務工作由我們完成。'
+                             : 'You only handle: quotation and shipping. We take care of the rest.'}
+                        </p>
+                    </div>
+
+                    <div className="mb-12 rounded-lg border border-indigo-100 bg-indigo-50 p-6">
+                      <div className="font-bold text-indigo-900 mb-3">{lang === 'zh' ? '企業只需負責' : 'You Only Handle'}</div>
+                      <ul className="space-y-2 text-indigo-900">
+                        <li className="flex gap-2"><span>●</span><span>{lang === 'zh' ? '報價' : 'Quotation'}</span></li>
+                        <li className="flex gap-2"><span>●</span><span>{lang === 'zh' ? '出貨' : 'Shipping'}</span></li>
+                      </ul>
+                      <div className="mt-3 text-indigo-800 text-sm">{lang === 'zh' ? '其餘外貿業務工作由我們完成。' : 'All other export sales work is handled by our team.'}</div>
                     </div>
 
                     {/* Who it is for */}
@@ -93,29 +107,45 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                         <div className="p-6 border-b border-gray-100 flex items-start gap-4">
                           <Briefcase className="w-10 h-10 text-indigo-600" />
                           <div>
-                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '專屬業務代表' : 'Dedicated Sales Rep'}</h4>
+                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '外貿業務外包（除報價與出貨外）' : 'Export Sales Outsourcing (Except Quotation & Shipping)'}</h4>
                             <p className="text-gray-600 mt-2 text-sm">
-                              {lang === 'zh' ? '配置一位熟悉您產品的資深業務，代表您與客戶溝通。' : 'A senior sales rep familiar with your product communicates on your behalf.'}
+                              {lang === 'zh'
+                                ? '除報價與出貨外的所有外貿業務行為。'
+                                : 'All export sales activities except quotation and shipping.'}
                             </p>
                           </div>
                         </div>
                         <div className="p-6 border-b border-gray-100 flex items-start gap-4">
                           <MessageSquare className="w-10 h-10 text-blue-600" />
                           <div>
-                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '詢盤處理與跟進' : 'Inquiry Handling & Follow-up'}</h4>
+                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '外貿業務執行範圍' : 'Scope Included'}</h4>
                             <p className="text-gray-600 mt-2 text-sm">
-                              {lang === 'zh' ? '24小時內回覆詢盤，並持續跟進直到成交或結案。' : 'Reply within 24h and follow up until closed or lost.'}
+                              {lang === 'zh'
+                                ? '客戶開發、郵件溝通、詢盤管理、客戶跟進、潛在客戶管理。'
+                                : 'Prospecting, email communication, inquiry handling, customer follow-ups, and pipeline management.'}
                             </p>
                           </div>
                         </div>
                         <div className="p-6 flex items-start gap-4">
                           <FileText className="w-10 h-10 text-green-600" />
                           <div>
-                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '訂單與樣品管理' : 'Order & Sample Management'}</h4>
+                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '商機整理與交付' : 'Opportunity Consolidation & Handoff'}</h4>
                             <p className="text-gray-600 mt-2 text-sm">
-                              {lang === 'zh' ? '協助安排樣品寄送、報價單製作與合約確認。' : 'Assist with sampling, quotations, and contract confirmation.'}
+                              {lang === 'zh'
+                                ? '整理對話、需求與進度，交付企業做報價與出貨決策。'
+                                : 'Consolidate conversations, requirements, and pipeline for your team to quote and ship.'}
                             </p>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mb-12 rounded-lg border border-gray-200 bg-white p-6">
+                      <div className="flex items-center gap-3">
+                        <Clock className="w-6 h-6 text-indigo-600" />
+                        <div>
+                          <div className="font-bold text-gray-900">{lang === 'zh' ? '執行週期' : 'Duration'}</div>
+                          <div className="text-gray-600">{lang === 'zh' ? '一年以上' : '1 Year+'}</div>
                         </div>
                       </div>
                     </div>

@@ -15,69 +15,90 @@ export default function Page({ params }: { params: { lang: Lang } }) {
   const services = [
     {
       id: 'lead-gen',
-      title: t(lang, 'service_lead_gen_title'),
-      desc: lang === 'zh'
-        ? '幫助企業建立精準的海外買家名單，為後續客戶開發與市場拓展建立基礎。我們透過市場研究、進口數據與產業分析，找出潛在採購商與決策者。'
-        : 'Building precise overseas buyer lists to lay the foundation for market expansion. We identify potential buyers and decision-makers through market research, import data, and industry analysis.',
+      title: lang === 'zh' ? '目標客戶研究' : 'Target Customer Research',
+      desc:
+        lang === 'zh'
+          ? '建立精準的海外潛在客戶資料庫，幫助業務團隊快速接觸目標買家。'
+          : 'Build a precise overseas prospect database so your sales team can reach target buyers faster.',
       imageIcon: (
         <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
       ),
       who: lang === 'zh' 
-        ? ['想拓展海外市場但沒有客戶資料的企業', '想建立完整買家資料庫的公司', '需要精準名單做開發信或業務拓展']
-        : ['Companies expanding overseas without client data', 'Firms wanting to build a complete buyer database', 'Businesses needing precise lists for outreach'],
+        ? ['已有業務團隊，但缺乏精準海外客戶資料的企業']
+        : ['Companies with a sales team but lacking precise overseas customer data'],
       what: lang === 'zh'
-        ? ['海外買家名單建立', '進口商與採購商資料整理', '產業市場分析', '潛在客戶分類與標記']
-        : ['Overseas buyer list building', 'Importer & buyer data organization', 'Industry market analysis', 'Prospect segmentation & tagging'],
+        ? ['目標市場分析', '目標客戶篩選', '採購決策人識別', '客戶資料建立']
+        : ['Target market analysis', 'Target customer screening', 'Procurement decision-maker identification', 'Customer data building'],
       deliverables: lang === 'zh'
-        ? ['精準買家資料庫 (Excel/CRM)', '關鍵決策人聯絡方式', '市場競爭分析報告']
-        : ['Verified Buyer Database (Excel/CRM)', 'Decision Maker Contacts', 'Market Intelligence Report'],
+        ? [
+            '海外目標客戶資料庫（Excel）',
+            '資料包含：公司名稱、採購決策人、職位、Email、LinkedIn、公司網站',
+          ]
+        : [
+            'Overseas target customer database (Excel)',
+            'Includes: company name, decision-maker, title, email, LinkedIn, website',
+          ],
       result: lang === 'zh'
-        ? ['企業可獲得一份可直接用於開發的海外買家名單', '作為外貿開發的基礎資源', '大幅節省自行搜尋名單的時間']
-        : ['Acquire a ready-to-use overseas buyer list', 'Establish foundational resources for export growth', 'Save significant time on manual prospecting']
+        ? ['建立可直接使用的海外客戶資料庫', '幫助業務團隊快速接觸目標買家']
+        : ['Deliver a ready-to-use overseas prospect database', 'Help your sales team reach target buyers faster'],
     },
     {
       id: 'outreach',
-      title: t(lang, 'service_outreach_title'),
-      desc: lang === 'zh'
-        ? '透過系統化的外貿開發流程，主動接觸海外買家並建立商務對話。SunGene 協助企業規劃客戶開發策略，並透過 Email、LinkedIn 等渠道進行客戶觸達。'
-        : 'Proactively engaging overseas buyers through systematic outreach. SunGene helps plan development strategies and reach clients via Email and LinkedIn to establish business dialogues.',
+      title: lang === 'zh' ? '海外客戶開發' : 'Outbound Customer Development',
+      desc:
+        lang === 'zh'
+          ? '建立穩定運作的海外客戶開發流程，持續獲取潛在客戶詢盤。'
+          : 'Build a stable outbound process that continuously generates overseas inquiries.',
       imageIcon: (
         <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
       ),
       who: lang === 'zh'
-        ? ['想主動開發海外客戶的企業', '想建立穩定詢盤來源的工廠', '想拓展新市場的供應商']
-        : ['Companies wanting to proactively find clients', 'Factories needing consistent inquiry sources', 'Suppliers aiming to enter new markets'],
+        ? ['希望持續獲得海外詢盤的企業']
+        : ['Companies that want a steady flow of overseas inquiries'],
       what: lang === 'zh'
-        ? ['客戶開發策略制定', '開發信撰寫與優化', 'Email / LinkedIn 開發流程', '客戶回覆管理']
-        : ['Outreach strategy development', 'Cold email copywriting & optimization', 'Email / LinkedIn outreach workflows', 'Response management'],
+        ? ['海外客戶開發策略', '客戶開發郵件撰寫', '郵件發送與跟進', '客戶回覆處理', '詢盤整理與交付']
+        : ['Outbound strategy', 'Email copywriting', 'Sending & follow-ups', 'Reply handling', 'Inquiry consolidation & delivery'],
       deliverables: lang === 'zh'
-        ? ['開發信文案 (Email Scripts)', 'LinkedIn 訊息模版', '發送排程與數據報告']
-        : ['Cold Email Scripts', 'LinkedIn Message Templates', 'Campaign Schedule & Data Reports'],
+        ? [
+            '海外客戶詢盤',
+            '每個詢盤包含：客戶公司、聯絡方式、需求資訊、對話記錄',
+          ]
+        : [
+            'Overseas customer inquiries',
+            'Each inquiry includes: company, contact, requirements, conversation record',
+          ],
       result: lang === 'zh'
-        ? ['持續接觸潛在買家並建立商務對話', '逐步累積海外客戶資源', '獲得高品質的商務詢盤']
-        : ['Consistent engagement with potential buyers', 'Accumulate overseas client resources', 'Generate high-quality business inquiries']
+        ? ['持續獲取海外客戶詢盤', '將有效需求整理並交付企業跟進']
+        : ['Continuously generate overseas inquiries', 'Deliver organized and actionable conversations'],
     },
     {
       id: 'outsourcing',
-      title: t(lang, 'service_sales_title'),
-      desc: lang === 'zh'
-        ? 'SunGene 作為企業的外貿業務團隊，協助處理客戶開發與商務跟進。企業不需要自行建立完整外貿團隊，也能持續拓展海外市場。'
-        : 'Acting as your external export sales team to handle development and follow-up. Expand globally without building a full internal team from scratch.',
+      title: lang === 'zh' ? '外貿業務外包' : 'Sales Outsourcing',
+      desc:
+        lang === 'zh'
+          ? '由專業團隊負責海外客戶開發與業務跟進，企業只需專注產品與交付。'
+          : 'A professional team runs outbound and follow-ups so you can focus on product and delivery.',
       imageIcon: (
         <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
       ),
       who: lang === 'zh'
-        ? ['沒有外貿團隊的工廠', '想降低外貿人力成本的企業', '希望快速拓展海外市場的公司']
-        : ['Factories without an export team', 'Companies looking to reduce labor costs', 'Firms wanting rapid market expansion'],
+        ? ['沒有外貿團隊', '外貿人手不足', '希望解放業務團隊專注成交的企業']
+        : ['No export team', 'Understaffed export function', 'Want to free up sales to focus on closing'],
       what: lang === 'zh'
-        ? ['海外客戶開發與跟進', '詢盤管理', '商務溝通協助', '客戶關係維護']
-        : ['Overseas client development & follow-up', 'Inquiry management', 'Business communication support', 'Customer relationship maintenance'],
+        ? ['客戶開發', '郵件溝通', '詢盤處理', '客戶跟進', '潛在客戶管理']
+        : ['Outbound prospecting', 'Email communication', 'Inquiry handling', 'Customer follow-up', 'Pipeline management'],
       deliverables: lang === 'zh'
-        ? ['詢盤處理週報', '潛在訂單進度表', '客戶反饋分析']
-        : ['Weekly Inquiry Reports', 'Pipeline Status Sheet', 'Customer Feedback Analysis'],
+        ? [
+            '除報價與出貨外的所有外貿業務行為',
+            '包括：客戶開發、客戶跟進、郵件往來、詢盤管理、潛在客戶管理',
+          ]
+        : [
+            'All export sales activities except quotation and shipping',
+            'Includes: prospecting, follow-ups, emails, inquiry handling, pipeline management',
+          ],
       result: lang === 'zh'
-        ? ['透過外部專業團隊持續拓展海外市場', '建立穩定的客戶來源', '專注於生產與產品優化']
-        : ['Continuous market expansion via expert team', 'Establish stable client sources', 'Focus on production and product optimization']
+        ? ['企業只需負責報價與出貨，其餘外貿工作由我們完成', '建立可持續的海外客戶開發與跟進系統']
+        : ['You handle quotation and shipping; we run everything else', 'Build a sustainable export development system'],
     }
   ]
 
@@ -86,12 +107,11 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       {/* Hero */}
       <section className="bg-gray-900 text-white py-24">
         <div className="mx-auto max-w-7xl px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t(lang, 'service_title')}</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t(lang, 'hero_subtitle')}</p>
-          <p className="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">
-            {lang === 'zh' 
-              ? '從客戶名單到詢盤獲取，再到完整外貿外包，我們提供不同階段的海外客戶開發方案。' 
-              : 'From lead lists to inquiry generation and full export outsourcing, we offer solutions for every stage of overseas development.'}
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '海外客戶開發解決方案' : 'Overseas Customer Development Solutions'}</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto whitespace-pre-line">
+            {lang === 'zh'
+              ? '從目標市場研究到客戶開發，再到完整外貿業務外包，\n我們幫助企業建立可持續的海外客戶開發系統。'
+              : 'From target market research to outbound customer development and full sales outsourcing,\nwe help you build a sustainable overseas customer development system.'}
           </p>
         </div>
       </section>
@@ -114,13 +134,13 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                         <tr className="bg-gray-50 border-b-2 border-gray-200">
                             <th className="p-4 md:p-6 font-bold text-gray-900 w-1/4"></th>
                             <th className="p-4 md:p-6 font-bold text-blue-900 text-lg w-1/4 text-center border-l border-gray-200 bg-blue-50/50">
-                                {lang === 'zh' ? '客戶名單開發' : 'Lead Generation'}
+                                {lang === 'zh' ? '目標客戶研究' : 'Target Customer Research'}
                             </th>
                             <th className="p-4 md:p-6 font-bold text-green-900 text-lg w-1/4 text-center border-l border-gray-200 bg-green-50/50">
-                                {lang === 'zh' ? '海外客戶開發' : 'Cold Outreach'}
+                                {lang === 'zh' ? '海外客戶開發' : 'Outbound Customer Development'}
                             </th>
                             <th className="p-4 md:p-6 font-bold text-indigo-900 text-lg w-1/4 text-center border-l border-gray-200 bg-indigo-50/50">
-                                {lang === 'zh' ? '外貿外包服務' : 'Sales Outsourcing'}
+                                {lang === 'zh' ? '外貿業務外包' : 'Sales Outsourcing'}
                             </th>
                         </tr>
                     </thead>
@@ -128,21 +148,21 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                         {[
                             {
                                 label: lang === 'zh' ? '適合對象' : 'Best For',
-                                c1: lang === 'zh' ? '有業務團隊，缺名單' : 'Has Sales Team, Needs Leads',
-                                c2: lang === 'zh' ? '想主動開發，缺方法' : 'Wants Outreach, Needs Strategy',
-                                c3: lang === 'zh' ? '沒有外貿團隊、缺人手，或希望解放現有業務團隊的企業' : 'No export team, understaffed, or want to free up current sales team'
+                                c1: lang === 'zh' ? '已有業務團隊，但缺乏精準海外客戶資料的企業' : 'Has sales team, lacks precise overseas data',
+                                c2: lang === 'zh' ? '希望持續獲得海外詢盤的企業' : 'Wants steady overseas inquiries',
+                                c3: lang === 'zh' ? '沒有外貿團隊／人手不足／希望解放業務團隊專注成交的企業' : 'No team / understaffed / free up sales to close'
                             },
                             {
                                 label: lang === 'zh' ? '核心價值' : 'Core Value',
-                                c1: lang === 'zh' ? '省去 80% 找客戶時間' : 'Save 80% Research Time',
-                                c2: lang === 'zh' ? '建立主動獲客系統' : 'Build Outreach System',
-                                c3: lang === 'zh' ? '立即擁有專業團隊' : 'Instant Pro Team'
+                                c1: lang === 'zh' ? '建立精準的海外潛在客戶資料庫，幫助業務快速接觸目標買家' : 'Build a precise prospect database for faster reach',
+                                c2: lang === 'zh' ? '建立穩定運作的海外客戶開發流程，持續獲取詢盤' : 'Build a stable outbound process to generate inquiries',
+                                c3: lang === 'zh' ? '專業團隊負責開發與跟進，企業專注產品與交付' : 'We run outbound & follow-up; you focus on delivery'
                             },
                             {
                                 label: lang === 'zh' ? '交付內容' : 'Deliverables',
-                                c1: lang === 'zh' ? '寄信名單與開信名單（Excel 交付）' : 'Sending List & Open List (Excel)',
-                                c2: lang === 'zh' ? '海外客戶詢價' : 'Overseas Inquiries',
-                                c3: lang === 'zh' ? '除報價與出貨外的所有外貿業務行為（客戶開發、郵件往來、詢盤處理、客戶跟進）' : 'All export sales activities except quotation and shipping'
+                                c1: lang === 'zh' ? '海外目標客戶資料庫（Excel）' : 'Overseas target customer database (Excel)',
+                                c2: lang === 'zh' ? '海外客戶詢盤（含對話記錄）' : 'Overseas inquiries (with conversation records)',
+                                c3: lang === 'zh' ? '除報價與出貨外的所有外貿業務行為' : 'All export sales activities except quotation and shipping'
                             },
                             {
                                 label: lang === 'zh' ? '執行週期' : 'Duration',

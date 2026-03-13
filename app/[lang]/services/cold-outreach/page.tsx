@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ServiceComparison from '@/components/ServiceComparison'
-import { Send, BarChart3, MessageCircle, FileText, TrendingUp } from 'lucide-react'
+import { Send, BarChart3, MessageCircle, FileText, TrendingUp, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: '海外客戶開發服務 | Cold Outreach | SunGene',
-  description: '系統化的外貿客戶開發服務，透過高回覆率的開發信 (Cold Email) 與 LinkedIn 社交銷售，協助企業建立商務對話。',
-  keywords: '海外客戶開發, 外貿開發信, Cold Email, LinkedIn開發, 主動式銷售',
+  title: '海外客戶開發服務 | Outbound Customer Development | SunGene',
+  description: '持續為企業獲取海外客戶詢盤。',
+  keywords: '海外客戶開發, 外貿開發, Cold Email, 詢盤獲取, 客戶跟進',
   openGraph: {
-    title: '海外客戶開發服務 | Cold Outreach | SunGene',
-    description: '系統化的外貿客戶開發服務，透過高回覆率的開發信 (Cold Email) 與 LinkedIn 社交銷售。',
+    title: '海外客戶開發服務 | Outbound Customer Development | SunGene',
+    description: '持續為企業獲取海外客戶詢盤。',
     type: 'website',
   }
 }
@@ -25,15 +25,15 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       <section className="bg-gray-900 text-white py-24 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 relative z-10 text-center">
           <div className="inline-block bg-green-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
-             {lang === 'zh' ? '交付海外客戶詢盤' : 'Deliver Overseas Inquiries'}
+             {lang === 'zh' ? '海外客戶開發服務' : 'Outbound Customer Development Service'}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {lang === 'zh' ? '主動出擊，建立商務連結' : 'Proactive Outreach, Building Connections'}
+            {lang === 'zh' ? '海外客戶開發服務' : 'Outbound Customer Development Service'}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            {lang === 'zh' 
-              ? '我們持續進行海外客戶開發，並將客戶詢盤交付給企業跟進。' 
-              : 'We continuously conduct overseas outreach and deliver qualified inquiries for you to follow up.'}
+            {lang === 'zh'
+              ? '持續為企業獲取海外客戶詢盤'
+              : 'Continuously generate overseas customer inquiries'}
           </p>
           <div className="flex justify-center gap-4">
             <Link href={`/${lang}/free-market-analysis`} className="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">
@@ -56,13 +56,41 @@ export default function Page({ params }: { params: { lang: Lang } }) {
 
             <div className="grid lg:grid-cols-12 gap-16 mt-8">
                 <div className="lg:col-span-8">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '服務內容' : 'Service Details'}</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '我們做什麼' : 'What We Do'}</h2>
                     <div className="prose prose-lg text-gray-600 mb-12">
                         <p>
                             {lang === 'zh' 
-                             ? '開發信寄出後石沉大海？這是大多數外貿企業的痛點。SunGene 的開發服務不僅僅是發送郵件，而是透過精心設計的文案、多波段跟進策略以及 A/B 測試，找出最有效的溝通方式。'
-                             : 'Cold emails ignored? SunGene goes beyond sending emails. We use crafted copy, multi-touch follow-ups, and A/B testing to find the most effective communication strategy.'}
+                             ? '我們為企業建立海外客戶開發流程。'
+                             : 'We build a repeatable outbound customer development process.'}
                         </p>
+                        <p>
+                            {lang === 'zh'
+                             ? '透過精準客戶資料與開發郵件策略，持續接觸潛在買家並獲取客戶回覆。'
+                             : 'Using precise customer data and email strategy, we consistently reach prospects and generate replies.'}
+                        </p>
+                        <p>
+                            {lang === 'zh'
+                             ? '所有有效客戶需求將整理為詢盤交付企業。'
+                             : 'All qualified buyer needs are consolidated and delivered as inquiries for your follow-up.'}
+                        </p>
+                    </div>
+
+                    <div className="mb-12">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-6">{lang === 'zh' ? '服務內容' : 'Service Scope'}</h3>
+                      <ul className="grid md:grid-cols-2 gap-4">
+                        {[
+                          lang === 'zh' ? '海外客戶開發策略' : 'Outbound strategy',
+                          lang === 'zh' ? '開發郵件撰寫' : 'Email copywriting',
+                          lang === 'zh' ? '郵件發送與跟進' : 'Sending & follow-up',
+                          lang === 'zh' ? '客戶回覆處理' : 'Reply handling',
+                          lang === 'zh' ? '詢盤整理' : 'Inquiry consolidation',
+                        ].map((item) => (
+                          <li key={item} className="flex gap-3 items-start p-4 border border-gray-100 rounded-lg bg-gray-50">
+                            <span className="mt-1 text-green-600">●</span>
+                            <span className="text-gray-700 font-medium">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
                     {/* Who it is for */}
@@ -93,29 +121,45 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                         <div className="p-6 border-b border-gray-100 flex items-start gap-4">
                           <FileText className="w-10 h-10 text-blue-600" />
                           <div>
-                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '客製化開發信序列' : 'Custom Email Sequences'}</h4>
+                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '海外客戶詢盤' : 'Overseas Customer Inquiries'}</h4>
                             <p className="text-gray-600 mt-2 text-sm">
-                              {lang === 'zh' ? '針對不同客群撰寫 4-7 封高轉換文案。' : '4-7 high-converting emails tailored to segments.'}
+                              {lang === 'zh'
+                                ? '每個詢盤包含：客戶公司、聯絡方式、需求資訊、對話記錄。'
+                                : 'Each inquiry includes: company, contact, requirements, and conversation records.'}
                             </p>
                           </div>
                         </div>
                         <div className="p-6 border-b border-gray-100 flex items-start gap-4">
                           <Send className="w-10 h-10 text-green-600" />
                           <div>
-                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '自動化發送與跟進' : 'Automated Sending & Follow-up'}</h4>
+                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '持續開發與跟進' : 'Continuous Outreach & Follow-up'}</h4>
                             <p className="text-gray-600 mt-2 text-sm">
-                              {lang === 'zh' ? '設定發信系統，確保信件送達並自動跟進。' : 'Setup sending infrastructure, ensure delivery and auto follow-up.'}
+                              {lang === 'zh'
+                                ? '持續接觸潛在買家、處理回覆並整理有效需求。'
+                                : 'Continuously reach prospects, handle replies, and consolidate qualified needs.'}
                             </p>
                           </div>
                         </div>
                         <div className="p-6 flex items-start gap-4">
                           <BarChart3 className="w-10 h-10 text-indigo-600" />
                           <div>
-                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '詳細成效報告' : 'Detailed Performance Reports'}</h4>
+                            <h4 className="font-bold text-lg text-gray-900">{lang === 'zh' ? '詢盤整理與交付' : 'Inquiry Consolidation & Delivery'}</h4>
                             <p className="text-gray-600 mt-2 text-sm">
-                              {lang === 'zh' ? '每週提供開信率、回覆率與潛在客戶名單。' : 'Weekly stats on Open Rate, Reply Rate, and Leads.'}
+                              {lang === 'zh'
+                                ? '將有效對話整理成詢盤交付企業跟進。'
+                                : 'Deliver organized inquiries and conversation context for your team to follow up.'}
                             </p>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mb-12 rounded-lg border border-gray-200 bg-white p-6">
+                      <div className="flex items-center gap-3">
+                        <Clock className="w-6 h-6 text-green-600" />
+                        <div>
+                          <div className="font-bold text-gray-900">{lang === 'zh' ? '執行週期' : 'Duration'}</div>
+                          <div className="text-gray-600">{lang === 'zh' ? '一年' : '1 Year'}</div>
                         </div>
                       </div>
                     </div>
