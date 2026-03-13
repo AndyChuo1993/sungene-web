@@ -6,6 +6,7 @@ import process from 'process'
 import fs from 'node:fs'
 import path from 'node:path'
 import { cookies } from 'next/headers'
+import { appendInquiry, isSheetsConfigured, listInquiries } from '@/lib/googleSheets'
 
 type Inquiry = {
   id?: string
@@ -74,8 +75,8 @@ export async function POST(req: Request) {
   }
   
   const reqId = `REQ-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`
-  const result = await persist(item)
   const meta = collectMeta(req)
+  const result = await persist(item, meta)
   const id = result.id || `TMP-${Date.now()}`
   
   try {
@@ -96,6 +97,12 @@ export async function GET() {
   }
 
   try {
+      if (isSheetsConfigured()) {
+        const rows = await listInquiries()
+        const sorted = rows.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        return NextResponse.json(sorted)
+      }
+
       const filePath = path.join(process.cwd(), 'data/inquiries.json')
       if (!fs.existsSync(filePath)) return NextResponse.json([])
       const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
@@ -105,31 +112,63 @@ export async function GET() {
   }
 }
 
-async function persist(item: Inquiry): Promise<{ ok: boolean; id?: string }> {
+async function persist(item: Inquiry, meta: { ref: string; lang: string; ip: string; utm: Record<string, string>; time: string }): Promise<{ ok: boolean; id?: string }> {
   try {
+    const newRecord: Inquiry = {
+      id: `REQ-${Date.now()}`,
+      date: new Date().toISOString(),
+      ...item
+    }
+
+    if (isSheetsConfigured()) {
+      await appendInquiry({
+        id: newRecord.id!,
+        date: newRecord.date!,
+        type: newRecord.type,
+        name: newRecord.name,
+        company: newRecord.company,
+        email: newRecord.email,
+        phone: newRecord.phone,
+        message: newRecord.message,
+        productName: newRecord.productName,
+        quantity: newRecord.quantity,
+        incoterms: newRecord.incoterms,
+        targetCountry: newRecord.targetCountry,
+        targetMarket: newRecord.targetMarket,
+        currentChannels: newRecord.currentChannels,
+        goals: newRecord.goals,
+        topic: newRecord.topic,
+        integrationType: newRecord.integrationType,
+        details: newRecord.details,
+        scope: newRecord.scope,
+        budget: newRecord.budget,
+        timeline: newRecord.timeline,
+        pageSource: (item as any).pageSource,
+        lang: (item as any).lang,
+        utm_source: (item as any).utm_source,
+        utm_medium: (item as any).utm_medium,
+        utm_campaign: (item as any).utm_campaign,
+        ref: meta.ref,
+        ip: meta.ip,
+      })
+      return { ok: true, id: newRecord.id }
+    }
+
     const filePath = path.join(process.cwd(), 'data/inquiries.json')
     let currentData: Inquiry[] = []
-    
-    // Ensure data directory exists
+
     const dir = path.dirname(filePath)
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
 
     if (fs.existsSync(filePath)) {
-       const fileContent = fs.readFileSync(filePath, 'utf-8')
-       try {
-         currentData = JSON.parse(fileContent)
-       } catch (e) {
-         currentData = []
-       }
+      const fileContent = fs.readFileSync(filePath, 'utf-8')
+      try {
+        currentData = JSON.parse(fileContent)
+      } catch {
+        currentData = []
+      }
     }
-    
-    const newRecord: Inquiry = {
-        id: `REQ-${Date.now()}`,
-        date: new Date().toISOString(),
-        ...item
-    }
-    
-    // Add to top
+
     currentData.unshift(newRecord)
     fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2))
     return { ok: true, id: newRecord.id }
@@ -193,7 +232,7 @@ UTM: ${JSON.stringify(meta.utm)}
 IP: ${meta.ip}
 時間: ${meta.time}
 `
-  const fromName = process.env.MAIL_FROM || 'SunGene Export Growth Team'
+  const fromName = process.env.MAIL_FROM || 'SunGene 服務團隊'
   const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
   try {
     await transporter.sendMail({ to, from: fromAddr, subject, text: adminText, headers: { 'X-Request-ID': reqId || '' } })
@@ -202,15 +241,33 @@ IP: ${meta.ip}
   }
   // 自動回覆給客戶
   if (item.email) {
-    const ackSubj = `我們已收到您的詢盤（編號 ${id}）`
+    const ackSubj = `我們已收到您的詢盤（編號 ${id}） | We received your inquiry (${id})`
+    const contactEmail = 'contact@sungenelite.com'
+    const contactPhone = '+886 4 3703 2705'
     const ackText =
 `您好 ${item.name}：
 
 我們已收到您的詢盤（編號 ${id}），專員將在 1–2 個工作日內與您聯繫。
-如需補充資訊，直接回覆此信即可。
+如需補充資訊，歡迎直接回覆此信，或聯繫我們：
+
+Email: ${contactEmail}
+Tel: ${contactPhone}
 
 此致
-SunGene Export Growth Team`
+SunGene 服務團隊
+
+---
+
+Hi ${item.name},
+
+We’ve received your inquiry (Ref: ${id}). Our team will get back to you within 1–2 business days.
+If you’d like to add more information, you can reply to this email or contact us:
+
+Email: ${contactEmail}
+Tel: ${contactPhone}
+
+Best regards,
+SunGene Service Team`
     try {
       await transporter.sendMail({ to: item.email, from: fromAddr, subject: ackSubj, text: ackText, headers: { 'X-Request-ID': reqId || '' } })
     } catch {}

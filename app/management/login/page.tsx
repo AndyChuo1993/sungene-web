@@ -21,24 +21,24 @@ export default function LoginPage() {
       // Force hard navigation to ensure cookie is picked up by middleware
       window.location.href = '/management/dashboard'
     } else {
-      setError('Invalid password')
+      setError('密碼錯誤')
     }
   }
 
   return (
     <div className="flex min-h-screen items-center justify-center">
       <form onSubmit={handleSubmit} className="p-8 bg-white rounded shadow-md w-96">
-        <h1 className="text-xl font-bold mb-4">Admin Login</h1>
+        <h1 className="text-xl font-bold mb-4">管理後台登入</h1>
         {error && <p className="text-red-500 mb-2">{error}</p>}
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-2 border rounded mb-4"
-          placeholder="Password"
+          placeholder="管理密碼"
         />
         <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded">
-          Login
+          登入
         </button>
       </form>
     </div>

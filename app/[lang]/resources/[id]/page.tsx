@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params }: { params: { lang: Lang, id: string } }) {
   const { lang, id } = params
-  const article = getArticle(lang, id)
+  const article = await getArticle(lang, id)
   if (!article) return { title: 'Not Found' }
   
   return {
@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: { params: { lang: Lang, id: s
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang, id: string } }) {
+export default async function Page({ params }: { params: { lang: Lang, id: string } }) {
   const { lang, id } = params
-  const article = getArticle(lang, id)
+  const article = await getArticle(lang, id)
 
   if (!article) {
     notFound()

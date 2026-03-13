@@ -17,11 +17,11 @@ export default function Dashboard() {
   return (
     <div className="max-w-6xl mx-auto p-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">Inquiries</h1>
+        <h1 className="text-2xl font-bold">詢盤列表</h1>
         <div className="space-x-4">
-             <Link href="/" className="text-gray-600 hover:underline" target="_blank">View Site</Link>
+             <Link href="/" className="text-gray-600 hover:underline" target="_blank">查看官網</Link>
              <Link href="/management/write" className="bg-green-600 text-white px-4 py-2 rounded">
-              Write Article
+              發布文章
             </Link>
         </div>
       </div>
@@ -29,12 +29,12 @@ export default function Dashboard() {
         <table className="w-full text-left">
           <thead className="bg-gray-100">
             <tr>
-              <th className="p-4">Date</th>
-              <th className="p-4">Name</th>
-              <th className="p-4">Company</th>
+              <th className="p-4">日期</th>
+              <th className="p-4">姓名</th>
+              <th className="p-4">公司</th>
               <th className="p-4">Email</th>
-              <th className="p-4">Type</th>
-              <th className="p-4">Message</th>
+              <th className="p-4">類型</th>
+              <th className="p-4">內容</th>
             </tr>
           </thead>
           <tbody>
@@ -50,7 +50,7 @@ export default function Dashboard() {
             ))}
             {inquiries.length === 0 && (
               <tr>
-                <td colSpan={6} className="p-8 text-center text-gray-500">No inquiries yet</td>
+                <td colSpan={6} className="p-8 text-center text-gray-500">目前尚無詢盤</td>
               </tr>
             )}
           </tbody>
