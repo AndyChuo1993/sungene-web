@@ -1,3 +1,4 @@
+
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -11,10 +12,15 @@ export default function LoginPage() {
     e.preventDefault()
     const res = await fetch('/api/admin/login', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ password }),
     })
+    
     if (res.ok) {
-      router.push('/management/dashboard')
+      // Force hard navigation to ensure cookie is picked up by middleware
+      window.location.href = '/management/dashboard'
     } else {
       setError('Invalid password')
     }

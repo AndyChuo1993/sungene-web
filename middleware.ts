@@ -1,3 +1,4 @@
+
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
@@ -15,7 +16,7 @@ export function middleware(request: NextRequest) {
     }
     
     const cookie = request.cookies.get("admin")
-    if (!cookie) {
+    if (cookie?.value !== 'true') {
       const url = request.nextUrl.clone()
       url.pathname = '/management/login'
       return NextResponse.redirect(url)

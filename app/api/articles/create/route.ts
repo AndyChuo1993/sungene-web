@@ -1,3 +1,4 @@
+
 import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
@@ -7,7 +8,7 @@ export async function POST(req: Request) {
   const cookieStore = cookies()
   const adminCookie = cookieStore.get('admin')
   
-  if (!adminCookie) {
+  if (adminCookie?.value !== 'true') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

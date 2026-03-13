@@ -1,3 +1,4 @@
+
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import { rateLimit } from '@/lib/rateLimit'
@@ -90,7 +91,7 @@ export async function GET() {
   const cookieStore = cookies()
   const adminCookie = cookieStore.get('admin')
   
-  if (!adminCookie) {
+  if (adminCookie?.value !== 'true') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
