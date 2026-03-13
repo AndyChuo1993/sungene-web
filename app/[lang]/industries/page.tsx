@@ -23,11 +23,6 @@ export default function Page({ params }: { params: { lang: Lang } }) {
     <main className="pt-28">
       <div className="mx-auto max-w-6xl px-6">
         <h1 className="text-4xl font-bold text-gray-900">{lang === 'zh' ? '產業解決方案' : 'Industries'}</h1>
-        <p className="mt-4 text-gray-600 max-w-3xl">
-          {lang === 'zh'
-            ? '依產業建立內容架構與開發策略，讓買家更快理解你的產品定位並留下詢盤。'
-            : 'Industry-specific content and outreach strategy that helps buyers understand your positioning and respond faster.'}
-        </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {seoIndustries.map((i) => (
@@ -42,4 +37,3 @@ export default function Page({ params }: { params: { lang: Lang } }) {
     </main>
   )
 }
-

@@ -97,7 +97,14 @@ export default function InquiryForm({
         body: JSON.stringify(payload)
       })
 
-      if (!res.ok) throw new Error('Submission failed')
+      let json: any = null
+      try {
+        json = await res.clone().json()
+      } catch {
+        json = null
+      }
+
+      if (!res.ok && !json?.ok) throw new Error('Submission failed')
 
       setStatus('success')
       // Reset form

@@ -32,9 +32,8 @@ export async function POST(req: Request) {
   const rl = rateLimit(ip, 10, 60_000)
   if (!rl.ok) return new Response('Too Many Requests', { status: 429 })
   const body = await req.json()
-  if (process.env.RECAPTCHA_SECRET) {
+  if (process.env.RECAPTCHA_SECRET && body.recaptchaToken) {
     const token = body.recaptchaToken
-    if (!token) return new Response('Captcha Required', { status: 400 })
     const vr = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services',
     '/industries',
     '/markets',
-    '/blog',
     '/how-it-works',
     '/case-studies',
     '/about',
@@ -119,7 +118,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   langs.forEach(lang => {
     posts.forEach(p => {
       sitemap.push({
-        url: `${baseUrl}/${lang}/blog/${p.slug}`,
+        url: `${baseUrl}/${lang}/resources/blog/${p.slug}`,
         lastModified: new Date(p.date),
         changeFrequency: 'monthly',
         priority: 0.7,

@@ -12,7 +12,6 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/case-studies`, label: t(lang, 'nav_cases') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/resources`, label: lang === 'zh' ? '資源中心' : 'Resources' },
-    { href: `/${lang}/blog`, label: t(lang, 'nav_blog') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
   return (

@@ -1,6 +1,7 @@
 import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import { getArticles } from '@/data/articles'
+import { getBlogPosts } from '@/data/blog'
 import Newsletter from '@/components/Newsletter'
 
 export async function generateMetadata({ params }: { params: { lang: Lang } }) {
@@ -19,11 +20,36 @@ export default function Page({
   searchParams: { category?: string } 
 }) {
   const lang = params.lang
-  const allArticles = getArticles(lang)
+  const resourceArticles = getArticles(lang)
+  const blogPosts = getBlogPosts()
+
+  const blogItems = blogPosts.map((p) => ({
+    id: `blog-${p.slug}`,
+    href: `/${lang}/resources/blog/${p.slug}`,
+    title: p.title[lang],
+    category: lang === 'zh' ? '指南文章' : 'Guides',
+    date: p.date,
+    excerpt: p.description[lang],
+    image: p.heroImage,
+  }))
+
+  const articleItems = resourceArticles.map((a) => ({
+    id: a.id,
+    href: `/${lang}/resources/${a.id}`,
+    title: a.title,
+    category: a.category,
+    date: a.date,
+    excerpt: a.content[0] || '',
+    image: a.image,
+  }))
+
+  const allItems = [...blogItems, ...articleItems].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  )
 
   // 1. Get unique categories and their counts
-  const categoryCounts = allArticles.reduce((acc, article) => {
-    acc[article.category] = (acc[article.category] || 0) + 1
+  const categoryCounts = allItems.reduce((acc, item) => {
+    acc[item.category] = (acc[item.category] || 0) + 1
     return acc
   }, {} as Record<string, number>)
 
@@ -34,11 +60,11 @@ export default function Page({
 
   // 2. Handle filtering
   const currentCategory = searchParams.category
-  const filteredArticles = currentCategory
-    ? allArticles.filter(a => a.category === currentCategory)
-    : allArticles
+  const filteredItems = currentCategory
+    ? allItems.filter(a => a.category === currentCategory)
+    : allItems
 
-  const allCount = allArticles.length
+  const allCount = allItems.length
 
   return (
     <main className="min-h-screen bg-white">
@@ -92,25 +118,15 @@ export default function Page({
             {/* Main Content */}
             <div className="lg:col-span-9">
                 <div className="grid md:grid-cols-2 gap-8">
-                    {filteredArticles.length > 0 ? (
-                        filteredArticles.map((post) => (
-                            <Link href={`/${lang}/resources/${post.id}`} key={post.id} className="block group">
+                    {filteredItems.length > 0 ? (
+                        filteredItems.map((post) => (
+                            <Link href={post.href} key={post.id} className="block group">
                                 <div className="bg-white border border-gray-200 rounded-sm hover:shadow-md transition duration-300 flex flex-col h-full">
                                     <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400 relative overflow-hidden group">
                                         <div 
                                           className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition duration-500"
                                           style={{ 
-                                            backgroundImage: post.id === 'german-hardware-2026' 
-                                              ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Modern industrial hardware factory in Germany, automated production line, high tech, blue and white tone, photorealistic')}&image_size=landscape_16_9)`
-                                              : post.id === 'cold-email-structure'
-                                              ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Professional business email communication, laptop on desk, modern office, focus on screen, blue theme, photorealistic')}&image_size=landscape_16_9)`
-                                              : post.id === 'finding-buyers'
-                                              ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Global trade map connection, business handshake, international logistics, blue technology style, photorealistic')}&image_size=landscape_16_9)`
-                                              : post.id === 'export-dev-guide-2026'
-                                              ? `url(https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent('Strategic business planning, compass and charts on table, export growth concept, blue professional style, photorealistic')}&image_size=landscape_16_9)`
-                                              : post.image 
-                                              ? `url(${post.image})` 
-                                              : 'none'
+                                            backgroundImage: post.image ? `url(${post.image})` : 'none'
                                           }}
                                         >
                                           <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-blue-900/0 transition"></div>
@@ -128,7 +144,7 @@ export default function Page({
                                             <span className="text-gray-400">{post.date}</span>
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">{post.title}</h3>
-                                        <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{post.content[0]}</p>
+                                        <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{post.excerpt}</p>
                                         <span className="text-blue-600 font-bold text-sm hover:underline">{lang === 'zh' ? '閱讀更多' : 'Read More'} →</span>
                                     </div>
                                 </div>

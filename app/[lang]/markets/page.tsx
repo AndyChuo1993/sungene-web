@@ -23,11 +23,6 @@ export default function Page({ params }: { params: { lang: Lang } }) {
     <main className="pt-28">
       <div className="mx-auto max-w-6xl px-6">
         <h1 className="text-4xl font-bold text-gray-900">{lang === 'zh' ? '市場策略' : 'Markets'}</h1>
-        <p className="mt-4 text-gray-600 max-w-3xl">
-          {lang === 'zh'
-            ? '不同市場的買家關心點與通路結構不同。用正確的內容與開發節奏，讓詢盤更穩定。'
-            : 'Buyer priorities and channel structures differ by market. Use the right content and cadence to stabilize inbound inquiries.'}
-        </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {seoMarkets.map((m) => (
@@ -42,4 +37,3 @@ export default function Page({ params }: { params: { lang: Lang } }) {
     </main>
   )
 }
-

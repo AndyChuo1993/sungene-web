@@ -3,8 +3,6 @@ export async function GET() {
   const body = [
     '# llms.txt',
     '',
-    'Allow: /zh/blog/',
-    'Allow: /en/blog/',
     'Allow: /zh/resources/',
     'Allow: /en/resources/',
     'Allow: /zh/industries/',
@@ -24,4 +22,3 @@ export async function GET() {
     },
   })
 }
-
