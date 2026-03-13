@@ -40,7 +40,14 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
         }),
       })
 
-      if (!res.ok) {
+      let json: any = null
+      try {
+        json = await res.clone().json()
+      } catch {
+        json = null
+      }
+
+      if (!res.ok && !json?.ok) {
         setStatus('error')
         return
       }
