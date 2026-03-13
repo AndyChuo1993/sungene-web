@@ -9,6 +9,8 @@ export type ServiceSeo = {
   title: Record<Lang, string>
   description: Record<Lang, string>
   h1: Record<Lang, string>
+  heroSubtitle?: Record<Lang, string>
+  whoFor?: Record<Lang, string[]>
   problem: Record<Lang, string[]>
   solution: Record<Lang, string[]>
   whatIs: Record<Lang, string[]>
@@ -19,11 +21,17 @@ export type ServiceSeo = {
   results: Record<Lang, { label: string; value: string; desc: string }[]>
   funnel: Record<Lang, { label: string; value: string }[]>
   workflow?: Record<Lang, string[]>
+  marketMap?: Record<Lang, string[]>
   industries: Record<Lang, string[]>
   caseStudy: { title: Record<Lang, string>; desc: Record<Lang, string>; link: string }
+  caseStudyStats?: Record<Lang, { label: string; value: string }[]>
+  caseStudySections?: { title: Record<Lang, string>; content: Record<Lang, string[]> }[]
   faq: { q: Record<Lang, string>; a: Record<Lang, string> }[]
   ctaTitle: Record<Lang, string>
   ctaDesc: Record<Lang, string>
+  ctaButtons?: { primary?: { label: Record<Lang, string>; href: string }; secondary?: { label: Record<Lang, string>; href: string }; tertiary?: { label: Record<Lang, string>; href: string } }
+  seoSections?: { id: string; title: Record<Lang, string>; content: Record<Lang, string[]>; bullets?: Record<Lang, string[]> }[]
+  geoSections?: { id: string; title: Record<Lang, string>; items: Record<Lang, string[]>; note?: Record<Lang, string> }[]
   relatedLinks?: { label: Record<Lang, string>; href: string }[]
 }
 
@@ -81,22 +89,43 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         <JsonLd data={[breadcrumbSchema, faqSchema, serviceSchema]} />
         <header className="mb-10">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">{service.h1[lang]}</h1>
-          <p className="mt-4 text-lg text-gray-600">{service.description[lang]}</p>
+          <p className="mt-4 text-lg text-gray-600">{service.heroSubtitle?.[lang] ?? service.description[lang]}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition"
-            >
-              {lang === 'zh' ? '聯絡我們' : 'Contact'}
-            </Link>
-            <Link
-              href={`/${lang}/free-market-analysis`}
-              className="inline-flex items-center justify-center rounded-sm border border-blue-900 px-5 py-2.5 text-blue-900 font-medium text-sm hover:bg-blue-50 transition"
-            >
-              {lang === 'zh' ? '免費市場分析' : 'Free Market Analysis'}
-            </Link>
+            {service.ctaButtons?.primary ? (
+              <Link href={`/${lang}${service.ctaButtons.primary.href}`} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition">
+                {service.ctaButtons.primary.label[lang]}
+              </Link>
+            ) : (
+              <Link href={`/${lang}/contact`} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition">
+                {lang === 'zh' ? '聯絡我們' : 'Contact'}
+              </Link>
+            )}
+            {service.ctaButtons?.secondary ? (
+              <Link href={`/${lang}${service.ctaButtons.secondary.href}`} className="inline-flex items-center justify-center rounded-sm border border-blue-900 px-5 py-2.5 text-blue-900 font-medium text-sm hover:bg-blue-50 transition">
+                {service.ctaButtons.secondary.label[lang]}
+              </Link>
+            ) : (
+              <Link href={`/${lang}/export-market-analysis`} className="inline-flex items-center justify-center rounded-sm border border-blue-900 px-5 py-2.5 text-blue-900 font-medium text-sm hover:bg-blue-50 transition">
+                {lang === 'zh' ? '免費出口市場分析' : 'Free Export Market Analysis'}
+              </Link>
+            )}
           </div>
         </header>
+
+        {service.whoFor?.[lang] && service.whoFor[lang].length > 0 && (
+          <Section title={lang === 'zh' ? 'Who This Service Is For（適用對象）' : 'Who this service is for'}>
+            <div className="rounded-xl border border-gray-200 bg-white p-6">
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '最適合' : 'Best fit for'}</div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {service.whoFor[lang].map((x, i) => (
+                  <span key={i} className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">
+                    {x}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Section>
+        )}
 
         <Section title={lang === 'zh' ? '你可能遇到的問題' : 'The problem'}>
           <div className="grid gap-6 md:grid-cols-2">
@@ -199,6 +228,24 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           </div>
         </Section>
 
+        {service.marketMap?.[lang] && service.marketMap[lang].length > 0 && (
+          <Section title={lang === 'zh' ? '市場地圖（Market Map）' : 'Market map'}>
+            <div className="rounded-xl border border-gray-200 bg-white p-6">
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '我們常見的市場區域' : 'Common regions we work with'}</div>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {service.marketMap[lang].map((x, i) => (
+                  <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <div className="font-semibold text-gray-900">{x}</div>
+                    <div className="mt-2 text-sm text-gray-600">
+                      {lang === 'zh' ? '市場研究、名單、開發與推進' : 'Research, lists, outreach, and progression'}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+        )}
+
         <Section title={lang === 'zh' ? '交付與成果' : 'Deliverables & results'}>
           <div className="grid gap-6 md:grid-cols-3">
             {service.results[lang].map((x, i) => (
@@ -236,6 +283,33 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           <div className="rounded-xl border border-gray-200 bg-white p-6">
             <div className="text-lg font-bold text-gray-900">{service.caseStudy.title[lang]}</div>
             <div className="mt-2 text-gray-700 leading-7">{service.caseStudy.desc[lang]}</div>
+
+            {service.caseStudyStats?.[lang] && service.caseStudyStats[lang].length > 0 && (
+              <div className="mt-6 grid gap-3 sm:grid-cols-4">
+                {service.caseStudyStats[lang].map((s, i) => (
+                  <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <div className="text-2xl font-bold text-gray-900">{s.value}</div>
+                    <div className="mt-1 text-sm text-gray-600">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {service.caseStudySections && service.caseStudySections.length > 0 && (
+              <div className="mt-6 space-y-6">
+                {service.caseStudySections.map((sec, i) => (
+                  <div key={i} className="rounded-lg border border-gray-200 p-5">
+                    <div className="text-sm font-semibold text-gray-900">{sec.title[lang]}</div>
+                    <div className="mt-2 space-y-3 text-gray-700 leading-7">
+                      {sec.content[lang].map((p, j) => (
+                        <p key={j}>{p}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <div className="mt-4">
               <Link href={service.caseStudy.link} className="text-blue-900 font-medium hover:underline">
                 {lang === 'zh' ? '查看成功案例 →' : 'View case study →'}
@@ -243,6 +317,53 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
             </div>
           </div>
         </Section>
+
+        {service.seoSections && service.seoSections.length > 0 && (
+          <Section title={lang === 'zh' ? 'SEO 深度內容（Definitions / Framework / Steps）' : 'SEO depth (definitions, frameworks, steps)'}>
+            <div className="space-y-8">
+              {service.seoSections.map((s) => (
+                <div key={s.id} className="rounded-xl border border-gray-200 bg-white p-6">
+                  <div className="text-lg font-bold text-gray-900">{s.title[lang]}</div>
+                  <div className="mt-4 space-y-4 text-gray-700 leading-7">
+                    {s.content[lang].map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                  {s.bullets?.[lang] && s.bullets[lang].length > 0 && (
+                    <ul className="mt-5 space-y-2 text-gray-700">
+                      {s.bullets[lang].map((b, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-900" />
+                          <span className="leading-7">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {service.geoSections && service.geoSections.length > 0 && (
+          <Section title={lang === 'zh' ? 'GEO（AI 搜尋）內容' : 'GEO (AI search) content'}>
+            <div className="space-y-6">
+              {service.geoSections.map((g) => (
+                <div key={g.id} className="rounded-xl border border-gray-200 bg-white p-6">
+                  <div className="text-lg font-bold text-gray-900">{g.title[lang]}</div>
+                  {g.note?.[lang] && <p className="mt-2 text-gray-600">{g.note[lang]}</p>}
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {g.items[lang].map((x, i) => (
+                      <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-gray-800">
+                        {x}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Section>
+        )}
 
         {service.relatedLinks && service.relatedLinks.length > 0 && (
           <Section title={lang === 'zh' ? '延伸閱讀與內部連結' : 'Related links'}>
@@ -272,18 +393,29 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           <h2 className="text-2xl font-bold">{service.ctaTitle[lang]}</h2>
           <p className="mt-2 text-slate-200">{service.ctaDesc[lang]}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center rounded-sm bg-blue-500 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-400 transition"
-            >
-              {lang === 'zh' ? '立即諮詢' : 'Get a Consultation'}
-            </Link>
-            <Link
-              href={`/${lang}/export-market-analysis`}
-              className="inline-flex items-center justify-center rounded-sm border border-white/50 px-5 py-2.5 text-white font-medium text-sm hover:bg-white/10 transition"
-            >
-              {lang === 'zh' ? '免費出口市場分析' : 'Free Export Market Analysis'}
-            </Link>
+            {service.ctaButtons?.primary ? (
+              <Link href={`/${lang}${service.ctaButtons.primary.href}`} className="inline-flex items-center justify-center rounded-sm bg-blue-500 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-400 transition">
+                {service.ctaButtons.primary.label[lang]}
+              </Link>
+            ) : (
+              <Link href={`/${lang}/contact`} className="inline-flex items-center justify-center rounded-sm bg-blue-500 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-400 transition">
+                {lang === 'zh' ? '立即諮詢' : 'Get a Consultation'}
+              </Link>
+            )}
+            {service.ctaButtons?.secondary ? (
+              <Link href={`/${lang}${service.ctaButtons.secondary.href}`} className="inline-flex items-center justify-center rounded-sm border border-white/50 px-5 py-2.5 text-white font-medium text-sm hover:bg-white/10 transition">
+                {service.ctaButtons.secondary.label[lang]}
+              </Link>
+            ) : (
+              <Link href={`/${lang}/export-market-analysis`} className="inline-flex items-center justify-center rounded-sm border border-white/50 px-5 py-2.5 text-white font-medium text-sm hover:bg-white/10 transition">
+                {lang === 'zh' ? '免費出口市場分析' : 'Free Export Market Analysis'}
+              </Link>
+            )}
+            {service.ctaButtons?.tertiary && (
+              <Link href={`/${lang}${service.ctaButtons.tertiary.href}`} className="inline-flex items-center justify-center rounded-sm border border-white/50 px-5 py-2.5 text-white font-medium text-sm hover:bg-white/10 transition">
+                {service.ctaButtons.tertiary.label[lang]}
+              </Link>
+            )}
           </div>
         </section>
       </div>

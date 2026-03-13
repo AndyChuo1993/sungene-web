@@ -26,12 +26,12 @@ const dict = {
     home_cta_title: '立即開始您的外貿增長',
 
     // Home - Services
-    home_service_1_title: '客戶名單開發',
-    home_service_1_desc: 'Lead Generation',
-    home_service_2_title: '海外客戶開發',
-    home_service_2_desc: 'Cold Outreach',
-    home_service_3_title: '外貿外包服務',
-    home_service_3_desc: 'Sales Outsourcing',
+    home_service_1_title: '外銷客戶開發',
+    home_service_1_desc: 'Export Lead Generation',
+    home_service_2_title: '經銷商開發',
+    home_service_2_desc: 'Distributor Development',
+    home_service_3_title: '外貿業務外包',
+    home_service_3_desc: 'Export Sales Outsourcing',
     
     // Home - Why Us
     why_title: '為什麼選擇我們',
@@ -56,23 +56,23 @@ const dict = {
     
     // Services Page
     service_title: '我們的服務',
-    service_lead_gen_title: '客戶名單開發',
-    service_lead_gen_desc: '建立精準海外採購商名單',
-    service_lead_gen_sub1: '進口商資料分析 (Importer Research)',
-    service_lead_gen_sub2: '買家資料庫建立 (Buyer Database)',
-    service_lead_gen_sub3: '市場情報 (Market Intelligence)',
+    service_lead_gen_title: '外銷客戶開發',
+    service_lead_gen_desc: '為製造業找海外買家並交付合格詢盤',
+    service_lead_gen_sub1: 'Buyer research & verification',
+    service_lead_gen_sub2: 'Buyer database & prospect lists',
+    service_lead_gen_sub3: 'Cadence & reply triage',
 
-    service_outreach_title: '海外客戶開發',
-    service_outreach_desc: '主動開發海外採購商',
-    service_outreach_sub1: '開發信行銷 (Cold Email Campaign)',
-    service_outreach_sub2: 'LinkedIn 開發 (LinkedIn Outreach)',
-    service_outreach_sub3: '回覆管理 (Response Management)',
+    service_outreach_title: '經銷商開發',
+    service_outreach_desc: '建立海外通路夥伴名單並推進合作',
+    service_outreach_sub1: 'Market tiers & channel mapping',
+    service_outreach_sub2: 'Partner recruitment',
+    service_outreach_sub3: 'Offer & terms framework',
 
     service_sales_title: '外貿業務外包',
-    service_sales_desc: 'SunGene 成為你的海外業務團隊',
-    service_sales_sub1: '詢盤管理 (Inquiry Management)',
-    service_sales_sub2: '報價支援 (Quotation Support)',
-    service_sales_sub3: '客戶跟進 (Customer Follow-up)',
+    service_sales_desc: '你報價與出貨，其餘外貿流程我們承接',
+    service_sales_sub1: 'Outreach & follow-ups',
+    service_sales_sub2: 'Reply triage & qualification',
+    service_sales_sub3: 'Inquiry delivery',
 
     // Free Market Analysis Page
     analysis_title: '免費海外市場分析',
@@ -136,12 +136,12 @@ const dict = {
     home_cta_title: 'Start Your Export Growth Now',
 
     // Home - Services
-    home_service_1_title: 'Lead Generation',
-    home_service_1_desc: 'Targeted Buyer Lists',
-    home_service_2_title: 'Cold Outreach',
-    home_service_2_desc: 'Proactive Development',
-    home_service_3_title: 'Sales Outsourcing',
-    home_service_3_desc: 'Export Support',
+    home_service_1_title: 'Export Lead Generation',
+    home_service_1_desc: 'Find Overseas Buyers',
+    home_service_2_title: 'Distributor Development',
+    home_service_2_desc: 'Build Channel Network',
+    home_service_3_title: 'Export Sales Outsourcing',
+    home_service_3_desc: 'You Quote & Ship',
     
     // Home - Why Us
     why_title: 'Why Choose SunGene',
@@ -167,22 +167,22 @@ const dict = {
     // Services Page
     service_title: 'Our Services',
     service_lead_gen_title: 'Lead Generation',
-    service_lead_gen_desc: 'Building targeted overseas buyer lists based on ideal customer profiles.',
+    service_lead_gen_desc: 'Export lead generation for manufacturers: verified lists, cadence, and qualified inquiries.',
     service_lead_gen_sub1: 'Importer Research & Verification',
     service_lead_gen_sub2: 'Custom Buyer Database Building',
     service_lead_gen_sub3: 'Market Intelligence & Competitor Analysis',
 
-    service_outreach_title: 'Cold Outreach',
-    service_outreach_desc: 'Proactively engaging potential buyers to generate qualified leads.',
-    service_outreach_sub1: 'Cold Email Campaigns',
-    service_outreach_sub2: 'LinkedIn Outreach Strategies',
-    service_outreach_sub3: 'Response Handling & Qualification',
+    service_outreach_title: 'Distributor Development',
+    service_outreach_desc: 'Find and recruit distributors with market tiers, channel mapping, and term frameworks.',
+    service_outreach_sub1: 'Market Tiers & Channel Mapping',
+    service_outreach_sub2: 'Distributor/Agent Recruitment',
+    service_outreach_sub3: 'Offer & Terms Framework',
 
-    service_sales_title: 'Sales Outsourcing',
-    service_sales_desc: 'Acting as your dedicated export sales department.',
-    service_sales_sub1: 'Inquiry Management & Screening',
-    service_sales_sub2: 'Quotation & Negotiation Support',
-    service_sales_sub3: 'Long-term Customer Follow-up',
+    service_sales_title: 'Export Sales Outsourcing',
+    service_sales_desc: 'We run export outreach and follow-ups so you focus on quoting and shipping.',
+    service_sales_sub1: 'Outbound Cadence & Follow-ups',
+    service_sales_sub2: 'Reply Triage & Qualification',
+    service_sales_sub3: 'Qualified Inquiry Delivery',
 
     // Free Market Analysis Page
     analysis_title: 'Free Export Market Analysis',

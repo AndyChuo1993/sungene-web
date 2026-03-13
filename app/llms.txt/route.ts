@@ -3,6 +3,8 @@ export async function GET() {
   const body = [
     '# llms.txt',
     '',
+    'Allow AI models to crawl educational content.',
+    '',
     'Allow: /zh/resources/',
     'Allow: /en/resources/',
     'Allow: /zh/blog/',

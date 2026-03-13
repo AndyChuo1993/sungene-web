@@ -36,7 +36,7 @@ export default function Page({
   const blogPosts = getBlogPosts()
   const blogItems = blogPosts.map((p) => ({
     id: `blog-${p.slug}`,
-    href: `/${lang}/resources/blog/${p.slug}`,
+    href: `/${lang}/blog/${p.slug}`,
     title: p.title[lang],
     category: lang === 'zh' ? '指南文章' : 'Guides',
     date: p.date,

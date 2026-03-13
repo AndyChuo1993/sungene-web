@@ -30,7 +30,7 @@ export const faqs: FAQItem[] = [
   {
     category: 'service',
     question: { zh: '多久可以看到詢盤？', en: 'How long to see inquiries?' },
-    answer: { zh: '對於「海外客戶開發」服務，通常在專案啟動後 2-3 週內會開始收到潛在客戶的回覆。對於「外貿外包」服務，我們會在第一週內完成交接並開始處理現有詢盤。', en: 'For "Cold Outreach", replies typically start in 2-3 weeks. For "Outsourcing", we complete handover and start handling inquiries within the first week.' },
+    answer: { zh: '對於「外銷客戶開發（Export Lead Generation）」服務，通常在專案啟動後 2–4 週內開始看到穩定的回覆與詢盤累積（視產業/市場而定）。對於「外貿業務外包（Export Sales Outsourcing）」服務，我們通常在第一週內完成交接並開始運行可追蹤的開發與跟進流程。', en: 'For Export Lead Generation, you typically see stable replies and inquiry accumulation in 2–4 weeks depending on market and industry. For Export Sales Outsourcing, we usually complete handover and start a trackable outreach + follow-up workflow within the first week.' },
   },
   {
     category: 'service',

@@ -86,7 +86,7 @@ const service: ServiceSeo = {
   relatedLinks: [
     { label: { zh: '核心：經銷商開發', en: 'Core: Distributor Development' }, href: '/services/distributor-development' },
     { label: { zh: '方法：Market Entry Strategy', en: 'Method: Market Entry Strategy' }, href: '/market-entry-strategy' },
-    { label: { zh: '指南：How to find distributors', en: 'Guide: How to find distributors' }, href: '/resources/blog/how-to-find-international-distributors' },
+    { label: { zh: '指南：How to find distributors', en: 'Guide: How to find distributors' }, href: '/blog/how-to-find-international-distributors' },
     { label: { zh: '免費出口市場分析', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },
   ],
 }

@@ -62,7 +62,7 @@ export default function ServiceComparison({ lang }: { lang: Lang }) {
               {lang === 'zh' ? '經銷商開發' : 'Distributor Dev'}
             </th>
             <th className="p-4 font-bold text-indigo-900 bg-indigo-50 w-1/4 text-center border-t-4 border-t-indigo-600">
-              {lang === 'zh' ? '外貿業務外包' : 'Sales Outsourcing'}
+              {lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing'}
             </th>
           </tr>
         </thead>

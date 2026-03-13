@@ -93,7 +93,7 @@ const service: ServiceSeo = {
   ctaTitle: { zh: '把網站做成 inbound 產生器', en: 'Turn your site into an inbound machine' },
   ctaDesc: { zh: '從頁面結構、文章群集到 schema 與內鏈，我們幫你把增長流程做成可持續的系統。', en: 'From architecture and clusters to schema and internal links, we turn growth into a repeatable system.' },
   relatedLinks: [
-    { label: { zh: '外貿資源：How to find overseas buyers', en: 'Guide: How to find overseas buyers' }, href: '/resources/blog/how-to-find-overseas-buyers' },
+    { label: { zh: '外貿資源：How to find overseas buyers', en: 'Guide: How to find overseas buyers' }, href: '/blog/how-to-find-overseas-buyers' },
     { label: { zh: '外貿客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
     { label: { zh: '成功案例（證據）', en: 'Case Studies (Proof)' }, href: '/case-studies' },
     { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },

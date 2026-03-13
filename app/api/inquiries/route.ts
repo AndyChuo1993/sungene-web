@@ -6,7 +6,16 @@ import process from 'process'
 type Inquiry = {
   id?: string
   date?: string
-  type: 'Contact' | 'Free Analysis' | 'Lead Generation' | 'Outreach Service' | 'Sales Outsourcing' | 'Partnership Inquiry'
+  type:
+    | 'Contact'
+    | 'Free Analysis'
+    | 'Export Lead Generation'
+    | 'Distributor Development'
+    | 'Export Sales Outsourcing'
+    | 'Partnership Inquiry'
+    | 'Lead Generation'
+    | 'Outreach Service'
+    | 'Sales Outsourcing'
   name: string
   company?: string
   email: string
@@ -43,7 +52,19 @@ export async function POST(req: Request) {
   }
   if (body.website) return Response.json({ ok: true })
   const type = body.type
-  if (!['Contact', 'Free Analysis', 'Lead Generation', 'Outreach Service', 'Sales Outsourcing', 'Partnership Inquiry'].includes(type)) return new Response('Bad Request', { status: 400 })
+  if (![
+    'Contact',
+    'Free Analysis',
+    'Export Lead Generation',
+    'Distributor Development',
+    'Export Sales Outsourcing',
+    'Partnership Inquiry',
+    'Lead Generation',
+    'Outreach Service',
+    'Sales Outsourcing',
+  ].includes(type)) {
+    return new Response('Bad Request', { status: 400 })
+  }
   // Phone is optional to maximize conversion
   if (!body.name || !body.email) return new Response('Bad Request', { status: 400 })
   const item: Inquiry = {

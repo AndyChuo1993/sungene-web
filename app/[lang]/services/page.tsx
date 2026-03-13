@@ -42,52 +42,11 @@ export default function Page({ params }: { params: { lang: Lang } }) {
     },
     {
       href: `/${lang}/services/export-sales-outsourcing`,
-      title: lang === 'zh' ? '外貿業務外包（Export Sales Outsourcing）' : 'Export Sales Outsourcing',
+      title: lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing',
       desc: lang === 'zh'
         ? '你只需報價與出貨；其餘外貿開發與跟進由我們完成。'
         : 'You quote and ship; we run outreach and follow-ups end-to-end.',
       tags: lang === 'zh' ? ['不擴編', 'SOP', '交付'] : ['No hiring', 'SOP', 'Delivery'],
-    },
-  ]
-
-  const methods: Card[] = [
-    {
-      href: `/${lang}/buyer-database-building`,
-      title: lang === 'zh' ? 'Buyer Database Building' : 'Buyer Database Building',
-      desc: lang === 'zh' ? '建立可直接使用的海外買家名單與決策人資料。' : 'Build ready-to-use overseas buyer lists with decision-makers.',
-    },
-    {
-      href: `/${lang}/cold-email-outreach`,
-      title: lang === 'zh' ? 'Cold Email Outreach' : 'Cold Email Outreach',
-      desc: lang === 'zh' ? '開發信框架 + 4–6 次跟進節奏，穩定獲取回覆。' : 'Framework + 4–6 follow-ups to generate replies consistently.',
-    },
-    {
-      href: `/${lang}/linkedin-prospecting`,
-      title: lang === 'zh' ? 'LinkedIn Prospecting' : 'LinkedIn Prospecting',
-      desc: lang === 'zh' ? '多點觸達決策鏈，突破大廠封閉採購流程。' : 'Multi-touch decision chains to break into closed procurement.',
-    },
-    {
-      href: `/${lang}/market-entry-strategy`,
-      title: lang === 'zh' ? 'Market Entry Strategy' : 'Market Entry Strategy',
-      desc: lang === 'zh' ? '市場分層、通路角色與切入假設，降低試錯成本。' : 'Tiers, roles, and hypotheses to reduce trial-and-error.',
-    },
-  ]
-
-  const outcomes: Card[] = [
-    {
-      href: `/${lang}/overseas-buyer-lists`,
-      title: lang === 'zh' ? 'Overseas Buyer Lists' : 'Overseas Buyer Lists',
-      desc: lang === 'zh' ? '寄信名單 + 開信名單（Excel）交付。' : 'Sent list + opens list delivered as Excel.',
-    },
-    {
-      href: `/${lang}/qualified-b2b-leads`,
-      title: lang === 'zh' ? 'Qualified B2B Leads' : 'Qualified B2B Leads',
-      desc: lang === 'zh' ? '將有效回覆整理成可交付詢盤。' : 'Replies triaged into sales-ready inquiries.',
-    },
-    {
-      href: `/${lang}/distributor-network`,
-      title: lang === 'zh' ? 'Distributor Network' : 'Distributor Network',
-      desc: lang === 'zh' ? '建立可推進的海外經銷/代理網絡。' : 'Build a progressable distributor/agent network.',
     },
   ]
 
@@ -96,18 +55,18 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       {/* Hero */}
       <section className="bg-gray-900 text-white py-24">
         <div className="mx-auto max-w-7xl px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '外貿服務架構：核心 / 方法 / 成果' : 'Service Architecture: Core / Methods / Outcomes'}</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto whitespace-pre-line">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '三個清晰服務：外銷開發／經銷商開發／外貿外包' : 'Three clear services: lead gen, distributors, and outsourcing'}</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {lang === 'zh'
-              ? '概念不重疊、對訪客更清楚：\n先選「你要的成果」，再看「方法」，最後選「最適合的核心服務」。'
-              : 'No overlapping concepts: pick your outcome, review the methods, then choose the best-fit core service.'}
+              ? '我們把容易混淆的概念拆清楚，讓訪客一眼看懂差異，也讓 Google 清楚理解每個頁面主題。'
+              : 'We separate overlapping concepts so users self-select fast and search engines understand each page topic.'}
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <Link href={`/${lang}/export-market-analysis`} className="bg-white text-blue-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">
-              {lang === 'zh' ? '取得出口市場分析' : 'Get Export Market Analysis'}
+            <Link href={`/${lang}/contact`} className="bg-white text-blue-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">
+              {lang === 'zh' ? '預約諮詢' : 'Book Consultation'}
             </Link>
-            <Link href={`/${lang}/case-studies`} className="bg-transparent border border-white/40 text-white font-bold py-3 px-8 rounded-sm hover:bg-white/10 transition">
-              {lang === 'zh' ? '查看成功案例' : 'View Case Studies'}
+            <Link href={`/${lang}/export-market-analysis`} className="bg-transparent border border-white/40 text-white font-bold py-3 px-8 rounded-sm hover:bg-white/10 transition">
+              {lang === 'zh' ? '免費出口市場分析' : 'Free Export Market Analysis'}
             </Link>
           </div>
         </div>
@@ -116,25 +75,21 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       <section className="py-20 bg-white border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-6 lg:grid-cols-3">
-            {[{ title: lang === 'zh' ? '核心服務' : 'Core services', items: core }, { title: lang === 'zh' ? '方法' : 'Methods', items: methods }, { title: lang === 'zh' ? '成果' : 'Outcomes', items: outcomes }].map((group, idx) => (
-              <div key={idx} className="rounded-xl border border-gray-200 bg-white p-6">
-                <div className="text-sm font-semibold text-gray-900">{group.title}</div>
-                <div className="mt-4 space-y-4">
-                  {group.items.map((x, i) => (
-                    <Link key={i} href={x.href} className="block rounded-lg border border-gray-200 bg-gray-50 p-4 hover:shadow-md transition">
-                      <div className="font-bold text-gray-900">{x.title}</div>
-                      <div className="mt-1 text-sm text-gray-600 leading-6">{x.desc}</div>
-                      {x.tags && (
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {x.tags.map((t, j) => (
-                            <span key={j} className="rounded-full bg-white px-3 py-1 text-xs text-gray-700 border border-gray-200">{t}</span>
-                          ))}
-                        </div>
-                      )}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+            {core.map((x, i) => (
+              <Link key={i} href={x.href} className="block rounded-xl border border-gray-200 bg-white p-6 hover:shadow-md transition">
+                <div className="text-lg font-bold text-gray-900">{x.title}</div>
+                <div className="mt-2 text-gray-600 leading-7">{x.desc}</div>
+                {x.tags && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {x.tags.map((t, j) => (
+                      <span key={j} className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <div className="mt-6 text-blue-900 font-medium">{lang === 'zh' ? '了解更多 →' : 'Learn more →'}</div>
+              </Link>
             ))}
           </div>
         </div>
@@ -170,18 +125,18 @@ export default function Page({ params }: { params: { lang: Lang } }) {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 lg:grid-cols-2 items-start">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '從「成果」開始選服務' : 'Start with outcomes'}</h2>
+              <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '不確定選哪個？先看差異表' : 'Not sure which one? Start with the comparison'}</h2>
               <p className="mt-4 text-gray-600 leading-7">
                 {lang === 'zh'
-                  ? '如果你要的是「名單」，先看 Overseas Buyer Lists；如果你要的是「詢盤」，看 Qualified B2B Leads；如果你要的是「通路」，看 Distributor Network。'
-                  : 'If you need lists, start with Overseas Buyer Lists. If you need inquiries, start with Qualified B2B Leads. If you need channels, start with Distributor Network.'}
+                  ? 'Export Lead Generation 解決「海外買家名單與詢盤交付」；Distributor Development 解決「通路夥伴與經銷合作」；Export Sales Outsourcing 解決「不擴編也能穩定開發與跟進」。'
+                  : 'Lead gen delivers buyer lists and qualified inquiries. Distributor development builds partner pipelines. Sales outsourcing runs end-to-end outreach and follow-ups without hiring.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href={`/${lang}/resources`} className="inline-flex items-center justify-center rounded-sm bg-white border border-gray-200 px-5 py-2.5 text-gray-900 font-medium text-sm hover:bg-gray-50 transition">
-                  {lang === 'zh' ? '外貿資源（指南與清單）' : 'Export Resources (Guides)'}
+                <Link href={core[0].href} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition">
+                  {lang === 'zh' ? '看外銷客戶開發' : 'Export Lead Gen'}
                 </Link>
-                <Link href={`/${lang}/contact`} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition">
-                  {lang === 'zh' ? '描述你的目標，我們給建議' : 'Tell us your goal'}
+                <Link href={core[1].href} className="inline-flex items-center justify-center rounded-sm border border-gray-200 bg-white px-5 py-2.5 text-gray-900 font-medium text-sm hover:bg-gray-50 transition">
+                  {lang === 'zh' ? '看經銷商開發' : 'Distributor Dev'}
                 </Link>
               </div>
             </div>
@@ -189,11 +144,11 @@ export default function Page({ params }: { params: { lang: Lang } }) {
               <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '你可能在找' : 'You may be searching for'}</div>
               <ul className="mt-4 space-y-2 text-gray-700">
                 {[
-                  'how to find overseas buyers',
-                  'find international buyers',
-                  'how to find distributors',
+                  'export lead generation',
+                  'find overseas buyers',
+                  'find distributors',
+                  'international buyers',
                   'b2b export marketing',
-                  'how to export products',
                 ].map((k) => (
                   <li key={k} className="flex gap-2">
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-900" />
@@ -202,7 +157,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                 ))}
               </ul>
               <div className="mt-6">
-                <Link href={`/${lang}/resources/blog/how-to-find-overseas-buyers`} className="text-blue-900 font-medium hover:underline">
+                <Link href={`/${lang}/blog/how-to-find-overseas-buyers`} className="text-blue-900 font-medium hover:underline">
                   {lang === 'zh' ? '先看指南文章 →' : 'Read the guide →'}
                 </Link>
               </div>

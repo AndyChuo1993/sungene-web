@@ -9,6 +9,7 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/case-studies`, label: t(lang, 'nav_cases') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/resources`, label: lang === 'zh' ? '外貿資源' : 'Export Resources' },
+    { href: `/${lang}/blog`, label: lang === 'zh' ? '部落格' : 'Blog' },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
 
