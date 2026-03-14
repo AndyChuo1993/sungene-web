@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   return {
     title: service.title[lang],
     description: service.description[lang],
-    alternates: { canonical: `/${lang}/cold-email-outreach`, languages: { zh: '/zh/cold-email-outreach', en: '/en/cold-email-outreach' } },
+    alternates: { canonical: `/${lang}/cold-email-outreach`, languages: { zh: '/zh/cold-email-outreach', en: '/en/cold-email-outreach', 'x-default': '/en/cold-email-outreach' } },
   }
 }
 

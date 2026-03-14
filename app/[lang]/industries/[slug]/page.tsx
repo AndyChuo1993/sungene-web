@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang; slug:
       languages: {
         zh: `/zh/industries/${slug}`,
         en: `/en/industries/${slug}`,
+        'x-default': `/en/industries/${slug}`,
       },
     },
     openGraph: { title: page.title[lang], description: page.description[lang], type: 'article' },
@@ -48,4 +49,3 @@ export default function Page({ params }: { params: { lang: Lang; slug: string } 
     </>
   )
 }
-

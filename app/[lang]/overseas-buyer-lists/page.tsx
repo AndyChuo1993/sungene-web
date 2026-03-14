@@ -96,7 +96,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   return {
     title: service.title[lang],
     description: service.description[lang],
-    alternates: { canonical: `/${lang}/overseas-buyer-lists`, languages: { zh: '/zh/overseas-buyer-lists', en: '/en/overseas-buyer-lists' } },
+    alternates: { canonical: `/${lang}/overseas-buyer-lists`, languages: { zh: '/zh/overseas-buyer-lists', en: '/en/overseas-buyer-lists', 'x-default': '/en/overseas-buyer-lists' } },
     robots: { index: false, follow: true },
   }
 }

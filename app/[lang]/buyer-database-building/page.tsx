@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   return {
     title: service.title[lang],
     description: service.description[lang],
-    alternates: { canonical: `/${lang}/buyer-database-building`, languages: { zh: '/zh/buyer-database-building', en: '/en/buyer-database-building' } },
+    alternates: { canonical: `/${lang}/buyer-database-building`, languages: { zh: '/zh/buyer-database-building', en: '/en/buyer-database-building', 'x-default': '/en/buyer-database-building' } },
   }
 }
 

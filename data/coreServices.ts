@@ -591,7 +591,7 @@ export const coreServices = {
         { region: '美國', note: '垂直通路多，適合用產品線與應用場景找合作夥伴。' },
         { region: '德國', note: '重視合規與文件，offer 要能讓對方快速評估風險。' },
         { region: '日本', note: '信任建立需要時間，節奏式跟進與資料完整度很關鍵。' },
-        { region: '中東', note: '決策快但條件敏感，MOQ/交期/區域要清楚。' },
+        { region: '中東', note: '決策快但條件敏感，最小訂購量/交期/區域要清楚。' },
         { region: '東南亞', note: '常見多層代理，需把角色與層級拆解避免談錯對象。' },
       ],
       en: [
@@ -981,7 +981,7 @@ export const coreServices = {
     industries: { zh: ['機械設備', '電子零組件', '塑膠/材料', '工業設備'], en: ['Machinery', 'Electronics', 'Plastics/Materials', 'Industrial Equipment'] },
     caseStudy: {
       title: { zh: '工業零組件：不擴編也能穩定交付詢盤', en: 'Industrial components: consistent inquiries without hiring' },
-      desc: { zh: '用名單＋節奏＋回覆分類，把外貿開發變成可追蹤 pipeline，讓企業只需專注報價與出貨。', en: 'We ran lists, cadence, and reply triage to deliver a trackable pipeline so the client focused on quoting and shipping.' },
+      desc: { zh: '用名單＋節奏＋回覆分類，把外貿開發變成可追蹤的開發管線，讓企業只需專注報價與出貨。', en: 'We ran lists, cadence, and reply triage to deliver a trackable pipeline so the client focused on quoting and shipping.' },
       link: '/case-studies/components',
     },
     caseStudyStats: {

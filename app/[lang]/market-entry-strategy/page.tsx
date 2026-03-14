@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   return {
     title: service.title[lang],
     description: service.description[lang],
-    alternates: { canonical: `/${lang}/market-entry-strategy`, languages: { zh: '/zh/market-entry-strategy', en: '/en/market-entry-strategy' } },
+    alternates: { canonical: `/${lang}/market-entry-strategy`, languages: { zh: '/zh/market-entry-strategy', en: '/en/market-entry-strategy', 'x-default': '/en/market-entry-strategy' } },
   }
 }
 

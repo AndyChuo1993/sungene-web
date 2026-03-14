@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }): 
       lang === 'zh'
         ? '提交產品與目標市場，我們提供出口市場與買家通路的初步分析建議。'
         : 'Submit your product and target markets. We’ll reply with an initial export market and channel analysis.',
-    alternates: { canonical: `/${lang}/export-market-analysis`, languages: { zh: '/zh/export-market-analysis', en: '/en/export-market-analysis' } },
+    alternates: { canonical: `/${lang}/export-market-analysis`, languages: { zh: '/zh/export-market-analysis', en: '/en/export-market-analysis', 'x-default': '/en/export-market-analysis' } },
     robots: { index: false, follow: true },
   }
 }
