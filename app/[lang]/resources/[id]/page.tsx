@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { getArticle } from '@/data/articles'
 import { notFound } from 'next/navigation'
 
-export async function generateMetadata({ params }: { params: { lang: Lang, id: string } }) {
-  const { lang, id } = params
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; id: string }> }) {
+  const { lang, id } = await params
   const article = getArticle(lang, id)
   if (!article) return { title: 'Not Found' }
   
@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: { params: { lang: Lang, id: s
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang, id: string } }) {
-  const { lang, id } = params
+export default async function Page({ params }: { params: Promise<{ lang: Lang; id: string }> }) {
+  const { lang, id } = await params
   const article = getArticle(lang, id)
 
   if (!article) {

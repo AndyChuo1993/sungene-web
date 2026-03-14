@@ -55,18 +55,18 @@ export const coreServices = {
     },
     typicalResults: {
       zh: [
-        { label: '研究公司', value: '3000' },
-        { label: '潛在買家', value: '400' },
-        { label: '已觸達', value: '120' },
-        { label: '有效回覆', value: '20' },
-        { label: '會議', value: '5' },
+        { label: '研究公司', value: '1500–3000' },
+        { label: '已觸達', value: '200–600' },
+        { label: '有效回覆率', value: '5–15%' },
+        { label: '會議率', value: '2–5%' },
+        { label: '會議/樣品/報價', value: '3–10' },
       ],
       en: [
-        { label: 'Companies researched', value: '3000' },
-        { label: 'Potential buyers identified', value: '400' },
-        { label: 'Prospects contacted', value: '120' },
-        { label: 'Replies', value: '20' },
-        { label: 'Meetings booked', value: '5' },
+        { label: 'Companies researched', value: '1500–3000' },
+        { label: 'Prospects contacted', value: '200–600' },
+        { label: 'Reply rate', value: '5–15%' },
+        { label: 'Meeting conversion', value: '2–5%' },
+        { label: 'Meetings/samples/quotes', value: '3–10' },
       ],
     },
     problem: {
@@ -220,12 +220,20 @@ export const coreServices = {
       zh: [
         {
           title: '買家名單樣張（匿名化）',
-          caption: '欄位包含：公司/國家/買家角色/網站/職稱/電子郵件狀態',
+          caption: '更接近實際匯出：包含來源、最後驗證與備註欄位',
           lines: [
-            '公司\t國家\t角色\t網站\t職稱\t電子郵件狀態',
-            'ACME Industrial\t美國\t進口商\thttps://acme.example\t採購經理\t可投遞',
-            'NordWerk GmbH\t德國\t經銷商\thttps://nordwerk.example\t業務總監\t可投遞',
-            'Kanto Trading\t日本\t進口商\thttps://kanto.example\t採購負責人\t需人工確認',
+            '公司\t國家\t角色\t網站\t對口職稱\t來源\t最後驗證\t狀態\t備註',
+            'ACME Industrial\t美國\t進口商\thttps://acme.example\t採購經理\t展會名單\t2026-02-07\t可投遞\t偏好 OEM 供應',
+            'NordWerk GmbH\t德國\t經銷商\thttps://nordwerk.example\t業務總監\t產業目錄\t2026-02-05\t可投遞\t已回覆：需規格/認證',
+            'Kanto Trading\t日本\t進口商\thttps://kanto.example\t採購負責人\t領英\t2026-02-03\t需人工確認\tcatch-all；先補第二對口',
+            'BlueRiver Supply\t美國\t經銷商\thttps://blueriver.example\t採購\t搜尋引擎\t2026-02-01\t可投遞\t產品線相近，需確認應用',
+          ],
+        },
+        {
+          title: '開發電子郵件樣張（匿名化）',
+          caption: '用「證據點＋單一步驟」提高回覆率，並方便你方接手推進',
+          lines: [
+            '主旨: {公司}｜{產品類別} 是否適用於 {應用情境}？\n收件人: 採購/產品/供應鏈負責人\n開場: 我們協助製造業在 {市場} 找到進口商/經銷商買家，想確認你們是否有採購 {產品類別}。\n證據點: 30 秒規格摘要（最小訂購量/交期/認證/案例）→ {連結或附件}\n提問: 若你是對口，方便回覆「是/否」或指引正確負責人嗎？\n下一步: 若合適，我們安排 15–20 分鐘確認規格與採購節奏。',
           ],
         },
         {
@@ -239,12 +247,20 @@ export const coreServices = {
       en: [
         {
           title: 'Buyer list sample (anonymized)',
-          caption: 'Fields: company/country/role/site/title/email status',
+          caption: 'Closer to real exports: includes source, last verified, and notes',
           lines: [
-            'Company\t\tCountry\tRole\t\tSite\t\t\t\tTitle\t\t\tEmail',
-            'ACME Industrial\tUS\tImporter\thttps://acme.example\tPurchasing Manager\tvalid',
-            'NordWerk GmbH\tDE\tDistributor\thttps://nordwerk.example\tSales Director\tvalid',
-            'Kanto Trading\tJP\tImporter\thttps://kanto.example\tSourcing Lead\tcatch-all',
+            'Company\tCountry\tRole\tSite\tTitle\tSource\tLast verified\tStatus\tNotes',
+            'ACME Industrial\tUS\tImporter\thttps://acme.example\tPurchasing Manager\tTrade show\t2026-02-07\tvalid\tPrefers OEM supply',
+            'NordWerk GmbH\tDE\tDistributor\thttps://nordwerk.example\tSales Director\tDirectory\t2026-02-05\tvalid\tReplied: requests specs/certs',
+            'Kanto Trading\tJP\tImporter\thttps://kanto.example\tSourcing Lead\tLinkedIn\t2026-02-03\tcatch-all\tAdd 2nd contact before sending',
+            'BlueRiver Supply\tUS\tDistributor\thttps://blueriver.example\tPurchasing\tSearch\t2026-02-01\tvalid\tNeed use-case confirmation',
+          ],
+        },
+        {
+          title: 'Outreach email sample (anonymized)',
+          caption: 'Proof points + one replyable next step to increase replies and clean handoffs',
+          lines: [
+            'Subject: {Company} — quick check on {product category} for {use case}?\nTo: Purchasing / Product / Supply Chain\nOpener: We help manufacturers find importers and distributors in {market}. Quick check: do you source {product category}?\nProof: 30-second spec snapshot (MOQ/lead time/certs/case) → {link or attachment}\nQuestion: If you are the right contact, can you reply “yes/no” (or point me to the right owner)?\nNext step: If relevant, we can do a 15–20 min call to confirm specs and buying cadence.',
           ],
         },
         {
@@ -495,18 +511,18 @@ export const coreServices = {
     },
     typicalResults: {
       zh: [
-        { label: '研究公司', value: '2000' },
-        { label: '候選通路', value: '350' },
-        { label: '已觸達', value: '150' },
-        { label: '有效回覆', value: '27' },
-        { label: '商務會議', value: '9' },
+        { label: '研究公司', value: '1200–2500' },
+        { label: '已觸達', value: '80–200' },
+        { label: '有效回覆率', value: '5–12%' },
+        { label: '會議率', value: '2–6%' },
+        { label: '商務會議/試單', value: '3–12' },
       ],
       en: [
-        { label: 'Companies researched', value: '2000' },
-        { label: 'Potential partners identified', value: '350' },
-        { label: 'Partners contacted', value: '150' },
-        { label: 'Replies', value: '27' },
-        { label: 'Meetings booked', value: '9' },
+        { label: 'Companies researched', value: '1200–2500' },
+        { label: 'Partners contacted', value: '80–200' },
+        { label: 'Reply rate', value: '5–12%' },
+        { label: 'Meeting conversion', value: '2–6%' },
+        { label: 'Meetings / trials', value: '3–12' },
       ],
     },
     problem: {
@@ -659,12 +675,20 @@ export const coreServices = {
       zh: [
         {
           title: '經銷候選名單樣張（匿名化）',
-          caption: '欄位包含：公司/國家/角色/覆蓋區域/主力產品/決策職稱',
+          caption: '更接近實際匯出：含角色、覆蓋、來源、分級與推進狀態',
           lines: [
-            '公司\t國家\t角色\t覆蓋區域\t主力產品\t決策職稱',
-            'RheinTech\t德國\t系統整合商\tDACH\t自動化\t業務總監',
-            'EuroMach\t荷蘭\t經銷商\tBenelux\t工具機\t採購',
-            'NordicSys\t瑞典\t系統整合商\tNordics\t工業 4.0\t商務開發經理',
+            '公司\t國家\t角色\t覆蓋區域\t主力產品\t來源\t分級\t最後動作\t狀態',
+            'RheinTech\t德國\t系統整合商\tDACH\t自動化\t協會名錄\tA\t2026-02-06\t已回覆：安排會議',
+            'EuroMach\t荷蘭\t經銷商\tBenelux\t工具機\t展會名單\tB\t2026-02-04\t待跟進：第 2 次邀約',
+            'NordicSys\t瑞典\t系統整合商\tNordics\t工業 4.0\t產業目錄\tA\t2026-02-02\t已回覆：索取條款',
+            'Anatolia Trade\t土耳其\t經銷商\tTR\t工業設備\t搜尋引擎\tC\t2026-01-31\t未回覆：需換對口',
+          ],
+        },
+        {
+          title: '通路邀約訊息樣張（匿名化）',
+          caption: '把合作條件講清楚，降低對方評估成本，讓回覆更有方向',
+          lines: [
+            '主旨: {公司}｜{產品線} 通路合作（{區域}）\n對象: 代理/經銷負責人或 BD\n合作定位: 我們在找 {區域} 的 {角色}（經銷商/代理商/系統整合商）\n條件摘要: 最小訂購量 {MOQ}｜區域 {Territory}｜價格層級 {Tiers}｜支援 {Support}\n提問: 你們目前是否有覆蓋 {應用/客群}？若合適，可以回覆 2 個可通話時段\n下一步: 15–20 分鐘對齊產品線與合作里程碑（試單 → 量 → 區域保護）。',
           ],
         },
         {
@@ -678,12 +702,20 @@ export const coreServices = {
       en: [
         {
           title: 'Distributor shortlist sample (anonymized)',
-          caption: 'Fields: company/country/role/coverage/products/title',
+          caption: 'Closer to real exports: roles, coverage, source, tiering, and pipeline status',
           lines: [
-            'Company\t\tCountry\tRole\t\tCoverage\t\tProducts\t\tTitle',
-            'RheinTech\tDE\tIntegrator\tDACH\t\tAutomation\t\tSales Director',
-            'EuroMach\tNL\tDistributor\tBenelux\tMachine tools\tPurchasing',
-            'NordicSys\tSE\tIntegrator\tNordics\tIndustry 4.0\tBD Manager',
+            'Company\tCountry\tRole\tCoverage\tProducts\tSource\tTier\tLast touch\tStatus',
+            'RheinTech\tDE\tIntegrator\tDACH\tAutomation\tAssociation\tA\t2026-02-06\tReplied: meeting booked',
+            'EuroMach\tNL\tDistributor\tBenelux\tMachine tools\tTrade show\tB\t2026-02-04\tFollow-up #2 pending',
+            'NordicSys\tSE\tIntegrator\tNordics\tIndustry 4.0\tDirectory\tA\t2026-02-02\tReplied: asks for terms',
+            'Anatolia Trade\tTR\tDistributor\tTR\tIndustrial supply\tSearch\tC\t2026-01-31\tNo reply: find owner',
+          ],
+        },
+        {
+          title: 'Partner outreach sample (anonymized)',
+          caption: 'Clear terms reduce evaluation friction and drive directional replies',
+          lines: [
+            'Subject: {Company} — channel partnership for {product line} in {region}\nTo: Channel lead / BD\nPositioning: We are recruiting {role} partners (distributor/agent/integrator) for {region}\nTerms: MOQ {X} | Territory {Y} | Tiers {A/B/C} | Support {demo kit, training, leads}\nQuestion: Do you currently cover {use case/customer segment}? If yes, reply with 2 time slots for a quick call\nNext step: 15–20 min alignment on milestones (trial → volume → territory protection).',
           ],
         },
         {
@@ -870,18 +902,18 @@ export const coreServices = {
     },
     typicalResults: {
       zh: [
-        { label: '研究公司', value: '1500' },
-        { label: '寄送', value: '600' },
-        { label: '有效回覆', value: '35' },
-        { label: '合格詢盤', value: '12' },
-        { label: '會議/樣品', value: '5' },
+        { label: '已觸達', value: '300–900' },
+        { label: '有效回覆率', value: '5–15%' },
+        { label: '合格率（回覆中）', value: '20–40%' },
+        { label: '會議率', value: '2–5%' },
+        { label: '合格詢盤', value: '8–25' },
       ],
       en: [
-        { label: 'Companies researched', value: '1500' },
-        { label: 'Prospects contacted', value: '600' },
-        { label: 'Replies', value: '35' },
-        { label: 'Qualified inquiries', value: '12' },
-        { label: 'Meetings / samples', value: '5' },
+        { label: 'Prospects contacted', value: '300–900' },
+        { label: 'Reply rate', value: '5–15%' },
+        { label: 'Qualified share (of replies)', value: '20–40%' },
+        { label: 'Meeting conversion', value: '2–5%' },
+        { label: 'Qualified inquiries', value: '8–25' },
       ],
     },
     problem: {

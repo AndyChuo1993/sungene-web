@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { faqs, FAQCategory } from '@/data/faqs'
 
-export async function generateMetadata({ params }: { params: { lang: Lang } }): Promise<Metadata> {
-  const lang = params.lang
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
+  const { lang } = await params
   const isZh = lang === 'zh'
   const title = isZh ? '常見問題｜SunGene' : 'FAQ | SunGene'
   const description = isZh
@@ -18,11 +18,12 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }): 
       : 'faq, export lead generation, process, pricing, confidentiality',
     alternates: { canonical: `/${lang}/faq`, languages: { zh: '/zh/faq', en: '/en/faq', 'x-default': '/en/faq' } },
     openGraph: { title, description, type: 'website' },
+    robots: { index: false, follow: true },
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
 
   const categories: { key: FAQCategory; label: { zh: string; en: string } }[] = [
     { key: 'general', label: { zh: '一般問題', en: 'General' } },

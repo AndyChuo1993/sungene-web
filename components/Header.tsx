@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { t, Lang } from '@/lib/i18n'
 import LanguageSwitcher from './LanguageSwitcher'
 
@@ -68,7 +69,9 @@ export default function Header({ lang }: { lang: Lang }) {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
-          <LanguageSwitcher lang={lang} />
+          <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'zh' ? 'EN' : '繁中'}</span>}>
+            <LanguageSwitcher lang={lang} />
+          </Suspense>
           <Link href={`/${lang}/export-market-analysis`} className="inline-flex rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-800">
             {t(lang, 'nav_free_analysis')}
           </Link>
@@ -81,7 +84,9 @@ export default function Header({ lang }: { lang: Lang }) {
           </summary>
           <div className="absolute right-0 mt-3 w-[min(22rem,calc(100vw-3rem))] rounded-xl border border-gray-200 bg-white p-4 shadow-xl">
             <div className="mb-4 flex items-center justify-between border-b border-gray-100 pb-4">
-              <LanguageSwitcher lang={lang} />
+              <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'zh' ? 'EN' : '繁中'}</span>}>
+                <LanguageSwitcher lang={lang} />
+              </Suspense>
               <Link href={`/${lang}/export-market-analysis`} className="inline-flex rounded-sm bg-blue-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-800">
                 {t(lang, 'nav_free_analysis')}
               </Link>

@@ -7,8 +7,8 @@ export async function generateStaticParams() {
   return seoIndustries.map(i => ({ slug: i.slug }))
 }
 
-export async function generateMetadata({ params }: { params: { lang: Lang; slug: string } }) {
-  const { lang, slug } = params
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
+  const { lang, slug } = await params
   const page = getSeoIndustry(slug)
   if (!page) return { title: 'Not Found' }
   return {
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: { params: { lang: Lang; slug:
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang; slug: string } }) {
-  const { lang, slug } = params
+export default async function Page({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
+  const { lang, slug } = await params
   const page = getSeoIndustry(slug)
   if (!page) return null
 

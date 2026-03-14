@@ -7,8 +7,8 @@ import { seoMarkets } from '@/data/seoMarkets'
 import Newsletter from '@/components/Newsletter'
 import { LayoutGrid, Globe, FileText } from 'lucide-react'
 
-export async function generateMetadata({ params, searchParams }: { params: { lang: Lang }, searchParams: { tab?: string } }) {
-  const lang = params.lang
+export async function generateMetadata({ params, searchParams }: { params: Promise<{ lang: Lang }>; searchParams: { tab?: string } }) {
+  const { lang } = await params
   const tab = searchParams.tab || 'articles'
   
   let title = lang === 'zh' ? '外貿資源' : 'Export Resources'
@@ -21,14 +21,14 @@ export async function generateMetadata({ params, searchParams }: { params: { lan
   }
 }
 
-export default function Page({ 
-  params, 
-  searchParams 
-}: { 
-  params: { lang: Lang }, 
-  searchParams: { category?: string, tab?: string } 
+export default async function Page({
+  params,
+  searchParams
+}: {
+  params: Promise<{ lang: Lang }>
+  searchParams: { category?: string; tab?: string }
 }) {
-  const lang = params.lang
+  const { lang } = await params
   const tab = searchParams.tab || 'articles'
   
   // Data for Articles

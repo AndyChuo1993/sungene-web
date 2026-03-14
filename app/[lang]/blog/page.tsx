@@ -2,8 +2,8 @@ import { Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import { getBlogPosts } from '@/data/blog'
 
-export async function generateMetadata({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
   return {
     title: (lang === 'zh' ? '部落格' : 'Blog') + ' | SunGene',
     description: lang === 'zh' ? '外銷開發、找海外買家與經銷商的實作指南與清單。' : 'Practical guides on export lead generation, overseas buyers, and distributor development.',
@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
   const posts = getBlogPosts().slice().sort((a, b) => (a.date > b.date ? -1 : 1))
 
   return (

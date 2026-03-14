@@ -97,17 +97,18 @@ const service: ServiceSeo = {
   ],
 }
 
-export async function generateMetadata({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
   return {
     title: service.title[lang],
     description: service.description[lang],
     alternates: { canonical: `/${lang}/cold-email-outreach`, languages: { zh: '/zh/cold-email-outreach', en: '/en/cold-email-outreach', 'x-default': '/en/cold-email-outreach' } },
+    robots: { index: false, follow: true },
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
   const withLang = {
     ...service,
     caseStudy: { ...service.caseStudy, link: `/${lang}${service.caseStudy.link}` },
