@@ -10,7 +10,7 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}/industries`, label: t(lang, 'nav_industries') },
     { href: `/${lang}/markets`, label: t(lang, 'nav_markets') },
     { href: `/${lang}/case-studies`, label: t(lang, 'nav_cases') },
-    { href: `/${lang}/resources`, label: lang === 'zh' ? '外貿資源' : 'Export Resources' },
+    { href: `/${lang}/resources`, label: lang === 'zh' ? '資源中心' : 'Resources' },
     { href: `/${lang}/blog`, label: lang === 'zh' ? '部落格' : 'Blog' },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]

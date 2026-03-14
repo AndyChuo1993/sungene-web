@@ -225,7 +225,7 @@ export default async function Page({
                       {mkt.description[lang]}
                     </p>
                     <div className="flex items-center text-green-600 font-bold text-sm">
-                      {lang === 'zh' ? '查看指南' : 'View Guide'} 
+                      {lang === 'zh' ? '查看市場頁' : 'View page'} 
                       <span className="ml-2 group-hover:translate-x-1 transition">→</span>
                     </div>
                   </div>

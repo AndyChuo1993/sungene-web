@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
   const core: Card[] = [
     {
       href: `/${lang}/services/export-lead-generation`,
-      title: lang === 'zh' ? '外貿客戶開發（Export Lead Generation）' : 'Export Lead Generation',
+      title: lang === 'zh' ? '外貿客戶開發' : 'Export Lead Generation',
       desc: lang === 'zh'
         ? '為製造業找海外買家：名單 + 節奏 + 詢盤交付。'
         : 'Find overseas buyers with lists, cadence, and qualified inquiry delivery.',
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     },
     {
       href: `/${lang}/services/distributor-development`,
-      title: lang === 'zh' ? '經銷商開發（Distributor Development）' : 'Distributor Development',
+      title: lang === 'zh' ? '經銷商開發' : 'Distributor Development',
       desc: lang === 'zh'
         ? '市場分層 + 通路策略 + 合作條件，建立可推進的通路 pipeline。'
         : 'Market tiers, channel strategy, and term frameworks to build a partner pipeline.',
@@ -128,7 +128,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '不確定選哪個？先看差異表' : 'Not sure which one? Start with the comparison'}</h2>
               <p className="mt-4 text-gray-600 leading-7">
                 {lang === 'zh'
-                  ? 'Export Lead Generation 解決「海外買家名單與詢盤交付」；Distributor Development 解決「通路夥伴與經銷合作」；Export Sales Outsourcing 解決「不擴編也能穩定開發與跟進」。'
+                  ? '外貿客戶開發解決「海外買家名單與詢盤交付」；經銷商開發解決「通路夥伴與經銷合作」；外貿業務外包解決「不擴編也能穩定開發與跟進」。'
                   : 'Lead gen delivers buyer lists and qualified inquiries. Distributor development builds partner pipelines. Sales outsourcing runs end-to-end outreach and follow-ups without hiring.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

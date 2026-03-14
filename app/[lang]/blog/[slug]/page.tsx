@@ -206,8 +206,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                               <Link href={caseHref} className="text-blue-900 font-medium hover:underline">case studies</Link>
                               and use the{' '}
                               <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">free export market analysis</Link>
-                              . Also add a market/industry context page (e.g.,{' '}
-                              <Link href={marketIndustryHref} className="text-blue-900 font-medium hover:underline">Machinery industry</Link>
+                              . Also add a market/industry context page (for example,{' '}
+                              <Link href={marketIndustryHref} className="text-blue-900 font-medium hover:underline">the machinery industry page</Link>
                               ) to match buyer intent.
                             </>
                           )}
@@ -230,11 +230,11 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                             <>
                               If you are considering channels or market entry, connect this guide to{' '}
                               <Link href={distributorServiceHref} className="text-blue-900 font-medium hover:underline">Distributor Development</Link>
-                              , then browse{' '}
-                              <Link href={marketsIndexHref} className="text-blue-900 font-medium hover:underline">Markets</Link>
-                              and{' '}
-                              <Link href={industriesIndexHref} className="text-blue-900 font-medium hover:underline">Industries</Link>
-                              to match buyer intent by region and vertical.
+                              , then browse the{' '}
+                              <Link href={marketsIndexHref} className="text-blue-900 font-medium hover:underline">market pages</Link>
+                              {' '}and{' '}
+                              <Link href={industriesIndexHref} className="text-blue-900 font-medium hover:underline">industry pages</Link>
+                              {' '}to match buyer intent by region and vertical.
                             </>
                           )}
                         </p>
