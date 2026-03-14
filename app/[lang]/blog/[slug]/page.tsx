@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Lang } from '@/lib/i18n'
 import { getBlogPost, getBlogPosts } from '@/data/blog'
 import JsonLd from '@/components/JsonLd'
@@ -10,6 +11,14 @@ function slugifyAnchor(s: string) {
     .replace(/[^a-z0-9\u4e00-\u9fa5\s-]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
+}
+
+function estimateReadTime(text: string) {
+  const asciiWords = (text.match(/[A-Za-z0-9]+/g) || []).length
+  const cjkChars = (text.match(/[\u4e00-\u9fa5]/g) || []).length
+  const wordLike = asciiWords + Math.ceil(cjkChars / 2)
+  const minutes = Math.max(3, Math.ceil(wordLike / 200))
+  return minutes
 }
 
 export async function generateStaticParams() {
@@ -31,7 +40,14 @@ export async function generateMetadata({ params }: { params: { lang: Lang; slug:
         'x-default': `/en/blog/${slug}`,
       },
     },
-    openGraph: { title: post.title[lang], description: post.description[lang], type: 'article' },
+    openGraph: {
+      title: post.title[lang],
+      description: post.description[lang],
+      type: 'article',
+      url: `/${lang}/blog/${slug}`,
+      images: [{ url: post.heroImage, width: 1200, height: 630, alt: post.title[lang] }],
+    },
+    twitter: { card: 'summary_large_image', title: post.title[lang], description: post.description[lang], images: [post.heroImage] },
   }
 }
 
@@ -43,7 +59,7 @@ export default function Page({ params }: { params: { lang: Lang; slug: string } 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const url = `${baseUrl}/${lang}/blog/${slug}`
   const anchors = post.sections.map((s) => ({ id: s.id, label: s.heading[lang], anchor: slugifyAnchor(s.heading[lang]) }))
-  const related = getBlogPosts().filter((p) => p.slug !== post.slug).slice(0, 2)
+  const related = getBlogPosts().filter((p) => p.slug !== post.slug).slice(0, 3)
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -79,6 +95,13 @@ export default function Page({ params }: { params: { lang: Lang; slug: string } 
   const serviceHref = `/${lang}${post.internalLinks.servicePath}`
   const caseHref = `/${lang}${post.internalLinks.caseStudyPath}`
   const magnetHref = `/${lang}${post.internalLinks.leadMagnetPath}`
+  const marketIndustryHref = `/${lang}${post.internalLinks.marketOrIndustryPath ?? '/industries/machinery'}`
+
+  const combinedText = [post.title[lang], post.description[lang], ...post.sections.flatMap((s) => s.content[lang])].join(' ')
+  const readMinutes = estimateReadTime(combinedText)
+  const dateIso = new Date(post.date).toISOString().slice(0, 10)
+  const author = lang === 'zh' ? 'SunGene 研究團隊' : 'SunGene Research Team'
+  const reviewer = lang === 'zh' ? 'SunGene 外銷顧問' : 'SunGene Export Advisors'
 
   return (
     <main className="pt-28">
@@ -100,9 +123,20 @@ export default function Page({ params }: { params: { lang: Lang; slug: string } 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <article>
             <header>
-              <div className="text-sm text-gray-500">{new Date(post.date).toISOString().slice(0, 10)}</div>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500">
+                <div>{lang === 'zh' ? `更新：${dateIso}` : `Updated: ${dateIso}`}</div>
+                <div>·</div>
+                <div>{lang === 'zh' ? `閱讀時間：約 ${readMinutes} 分鐘` : `Read time: ~${readMinutes} min`}</div>
+                <div>·</div>
+                <div>{author}</div>
+                <div>·</div>
+                <div>{lang === 'zh' ? `審稿：${reviewer}` : `Reviewed by ${reviewer}`}</div>
+              </div>
               <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900">{post.title[lang]}</h1>
               <p className="mt-4 text-lg text-gray-600">{post.description[lang]}</p>
+              <div className="mt-8 overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
+                <Image src={post.heroImage} alt={post.title[lang]} width={1200} height={630} className="h-auto w-full" priority />
+              </div>
             </header>
 
             <section className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
@@ -119,7 +153,7 @@ export default function Page({ params }: { params: { lang: Lang; slug: string } 
             </section>
 
             <div className="mt-10 space-y-12">
-              {post.sections.map((s) => {
+              {post.sections.map((s, idx) => {
                 const anchor = slugifyAnchor(s.heading[lang])
                 return (
                   <section key={s.id} id={anchor} className="scroll-mt-28">
@@ -128,6 +162,80 @@ export default function Page({ params }: { params: { lang: Lang; slug: string } 
                       {s.content[lang].map((p, i) => (
                         <p key={i}>{p}</p>
                       ))}
+
+                      {idx === 1 && (
+                        <p>
+                          {lang === 'zh' ? (
+                            <>
+                              如果你想把本文的框架落地，可以先看核心服務{' '}
+                              <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">外銷客戶開發</Link>
+                              ，再搭配{' '}
+                              <Link href={caseHref} className="text-blue-900 font-medium hover:underline">成功案例</Link>
+                              與{' '}
+                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">免費出口市場分析</Link>
+                              。同時也建議讀一個市場/產業頁，建立買家語境（例如{' '}
+                              <Link href={marketIndustryHref} className="text-blue-900 font-medium hover:underline">機械產業</Link>
+                              ）。
+                            </>
+                          ) : (
+                            <>
+                              If you want to implement this framework, start with the core service{' '}
+                              <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">Export Lead Generation</Link>
+                              , then review{' '}
+                              <Link href={caseHref} className="text-blue-900 font-medium hover:underline">case studies</Link>
+                              and use the{' '}
+                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">free export market analysis</Link>
+                              . Also add a market/industry context page (e.g.,{' '}
+                              <Link href={marketIndustryHref} className="text-blue-900 font-medium hover:underline">Machinery industry</Link>
+                              ) to match buyer intent.
+                            </>
+                          )}
+                        </p>
+                      )}
+
+                      {idx % 2 === 1 && (
+                        <div className="rounded-xl border border-gray-200 bg-white p-6">
+                          <div className="text-sm font-bold text-gray-900">{lang === 'zh' ? '示意表：從名單到會議的最小流程' : 'Example table: minimal list-to-meeting workflow'}</div>
+                          <div className="mt-4 overflow-auto">
+                            <table className="w-full text-sm">
+                              <thead>
+                                <tr className="text-left text-gray-500">
+                                  <th className="py-2 pr-4">{lang === 'zh' ? '階段' : 'Stage'}</th>
+                                  <th className="py-2 pr-4">{lang === 'zh' ? '輸入' : 'Input'}</th>
+                                  <th className="py-2">{lang === 'zh' ? '輸出' : 'Output'}</th>
+                                </tr>
+                              </thead>
+                              <tbody className="text-gray-800">
+                                <tr className="border-t">
+                                  <td className="py-2 pr-4 font-semibold">{lang === 'zh' ? '理想買家' : 'ICP'}</td>
+                                  <td className="py-2 pr-4">{lang === 'zh' ? '市場/產業/角色/規模' : 'market/industry/role/size'}</td>
+                                  <td className="py-2">{lang === 'zh' ? '買家畫像與篩選規則' : 'buyer profile and filters'}</td>
+                                </tr>
+                                <tr className="border-t">
+                                  <td className="py-2 pr-4 font-semibold">{lang === 'zh' ? '名單' : 'List'}</td>
+                                  <td className="py-2 pr-4">{lang === 'zh' ? '多來源蒐集 + 驗證' : 'multi-source + validation'}</td>
+                                  <td className="py-2">{lang === 'zh' ? '可投遞聯絡方式' : 'deliverable contacts'}</td>
+                                </tr>
+                                <tr className="border-t">
+                                  <td className="py-2 pr-4 font-semibold">{lang === 'zh' ? '訊息' : 'Message'}</td>
+                                  <td className="py-2 pr-4">{lang === 'zh' ? '痛點 + 證據 + CTA' : 'pain + proof + CTA'}</td>
+                                  <td className="py-2">{lang === 'zh' ? '可回覆的問題' : 'replyable question'}</td>
+                                </tr>
+                                <tr className="border-t">
+                                  <td className="py-2 pr-4 font-semibold">{lang === 'zh' ? '跟進' : 'Follow-up'}</td>
+                                  <td className="py-2 pr-4">{lang === 'zh' ? '4–6 次節奏' : '4–6 touches'}</td>
+                                  <td className="py-2">{lang === 'zh' ? '有效回覆與分類' : 'replies + triage'}</td>
+                                </tr>
+                                <tr className="border-t">
+                                  <td className="py-2 pr-4 font-semibold">{lang === 'zh' ? '推進' : 'Progress'}</td>
+                                  <td className="py-2 pr-4">{lang === 'zh' ? '需求摘要/下一步' : 'summary/next steps'}</td>
+                                  <td className="py-2">{lang === 'zh' ? '會議/樣品/報價' : 'meetings/samples/quotes'}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </section>
                 )
@@ -165,7 +273,7 @@ export default function Page({ params }: { params: { lang: Lang; slug: string } 
 
             <section className="mt-12 mb-16">
               <h2 className="text-2xl font-bold text-gray-900">{lang === 'zh' ? '相關內容' : 'Related content'}</h2>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="mt-6 grid gap-4 md:grid-cols-3">
                 {related.map((r) => (
                   <Link key={r.slug} href={`/${lang}/blog/${r.slug}`} className="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-md transition">
                     <div className="text-sm text-gray-500">{new Date(r.date).toISOString().slice(0, 10)}</div>

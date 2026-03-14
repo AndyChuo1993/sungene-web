@@ -12,30 +12,38 @@ interface DownloadFormProps {
 
 export default function DownloadForm({ dict, lang, resourceId }: DownloadFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorCode, setErrorCode] = useState<string | null>(null)
+  const [startedAt] = useState(() => Date.now())
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     product: '',
     targetMarket: '',
+    website: '',
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('submitting')
+    setErrorCode(null)
 
     try {
       const res = await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          type: 'Free Analysis',
+          type: 'Lead Magnet',
           name: formData.name,
           email: formData.email,
           company: formData.company,
           productName: formData.product,
           targetMarket: formData.targetMarket,
           message: `Lead Magnet Request: ${resourceId}`,
+          topic: `lead-magnet:${resourceId}`,
+          website: formData.website,
+          clientTimeMs: Date.now() - startedAt,
+          pagePath: typeof window !== 'undefined' ? window.location.pathname : '',
           lang,
         }),
       })
@@ -48,6 +56,7 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
       }
 
       if (!res.ok && !json?.ok) {
+        setErrorCode(String(res.status || 'error'))
         setStatus('error')
         return
       }
@@ -65,7 +74,7 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
           <CheckCircle className="w-8 h-8 text-green-600" />
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          {dict.success_title || "Success!"}
+          {dict.success_title || (lang === 'zh' ? '提交成功' : 'Request Received')}
         </h3>
         <p className="text-gray-600 mb-6">
           {dict.success_message || (lang === 'zh' ? '我們已收到您的資訊，將寄送至您的信箱。' : 'We received your request and will send it to your email.')}
@@ -92,6 +101,15 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
       </div>
 
       <div className="space-y-4">
+        <input
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.website}
+          onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+          className="hidden"
+          aria-hidden="true"
+        />
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             {lang === 'zh' ? '姓名' : 'Full Name'} <span className="text-red-500">*</span>
@@ -168,7 +186,9 @@ export default function DownloadForm({ dict, lang, resourceId }: DownloadFormPro
 
         {status === 'error' && (
           <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-            {dict.form_error_desc || (lang === 'zh' ? '提交失敗，請稍候再試，或是直接聯繫我們。' : 'Submission failed. Please try again later or contact us.')}
+            {errorCode === '429'
+              ? (lang === 'zh' ? '送出太頻繁，請稍候 1 分鐘後再試。' : 'Too many requests. Please try again in 1 minute.')
+              : (dict.form_error_desc || (lang === 'zh' ? '提交失敗，請稍候再試，或是直接聯繫我們。' : 'Submission failed. Please try again later or contact us.'))}
           </div>
         )}
 

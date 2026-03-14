@@ -3,8 +3,9 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { t, Lang } from '@/lib/i18n'
 
-export async function generateMetadata({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params
+  const lang = (rawLang === 'zh' ? 'zh' : 'en') as Lang
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'),
     title: t(lang, 'meta_home_title'),
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   }
 }
 
-export default function RootLayout({ children, params }: { children: ReactNode, params: { lang: Lang } }) {
-  const lang = params.lang
+export default async function RootLayout({ children, params }: { children: ReactNode; params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params
+  const lang = (rawLang === 'zh' ? 'zh' : 'en') as Lang
   
   const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const logoUrl = `${site}/logo/sungene.png`
@@ -34,11 +36,6 @@ export default function RootLayout({ children, params }: { children: ReactNode, 
     '@type': 'WebSite',
     name: 'SunGene Co., LTD.',
     url: site,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${site}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string'
-    }
   }
 
   const org = {

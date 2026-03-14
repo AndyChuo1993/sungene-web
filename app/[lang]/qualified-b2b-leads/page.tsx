@@ -97,6 +97,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
     title: service.title[lang],
     description: service.description[lang],
     alternates: { canonical: `/${lang}/qualified-b2b-leads`, languages: { zh: '/zh/qualified-b2b-leads', en: '/en/qualified-b2b-leads' } },
+    robots: { index: false, follow: true },
   }
 }
 

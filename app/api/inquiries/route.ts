@@ -16,6 +16,7 @@ type Inquiry = {
     | 'Lead Generation'
     | 'Outreach Service'
     | 'Sales Outsourcing'
+    | 'Lead Magnet'
   name: string
   company?: string
   email: string
@@ -62,6 +63,7 @@ export async function POST(req: Request) {
     'Lead Generation',
     'Outreach Service',
     'Sales Outsourcing',
+    'Lead Magnet',
   ].includes(type)) {
     return new Response('Bad Request', { status: 400 })
   }

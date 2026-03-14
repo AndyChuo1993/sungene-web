@@ -3,14 +3,22 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { Check, Database, Send, Briefcase } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: '服務價格 | Pricing | SunGene',
-  description: '透明的外貿服務價格方案：名單買斷、專案開發、外貿外包。選擇最適合您的合作模式，低成本啟動海外市場開發。',
-  keywords: '外貿服務價格, 買家名單費用, 開發信代發費用, 外貿外包收費',
-  openGraph: {
-    title: '服務價格 | Pricing | SunGene',
-    description: '透明的外貿服務價格方案，選擇最適合您的合作模式。',
-    type: 'website',
+export async function generateMetadata({ params }: { params: { lang: Lang } }): Promise<Metadata> {
+  const lang = params.lang
+  const isZh = lang === 'zh'
+  const title = isZh ? '服務價格｜SunGene' : 'Pricing | SunGene'
+  const description = isZh
+    ? '透明的服務方案：名單交付、專案開發、外貿業務外包。選擇最適合的合作模式，低成本啟動海外市場開發。'
+    : 'Transparent plans for manufacturers: buyer lists, outreach projects, and export sales outsourcing.'
+  return {
+    title,
+    description,
+    keywords: isZh
+      ? '外貿服務價格, 買家名單費用, 外貿業務外包收費, 海外客戶開發'
+      : 'pricing, buyer list cost, export lead generation, export sales outsourcing',
+    alternates: { canonical: `/${lang}/pricing`, languages: { zh: '/zh/pricing', en: '/en/pricing' } },
+    robots: { index: false, follow: true },
+    openGraph: { title, description, type: 'website' },
   }
 }
 

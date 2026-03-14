@@ -1,12 +1,20 @@
-import { Metadata } from 'next'
 import Image from 'next/image'
 import { getDictionary } from '@/lib/i18n'
 import DownloadForm from '@/components/DownloadForm'
 import { Check, FileText, Target, Shield, HelpCircle } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Export Lead Generation Checklist | 2025 Edition',
-  description: 'Download the ultimate guide to finding and converting international buyers. A step-by-step checklist for B2B exporters.',
+export async function generateMetadata({ params }: { params: { lang: 'en' | 'zh' } }) {
+  const lang = params.lang
+  const isZh = lang === 'zh'
+  const title = isZh ? '外貿客戶開發檢查表｜2025 版' : 'Export Lead Generation Checklist | 2025 Edition'
+  const description = isZh
+    ? '下載可落地的外貿客戶開發檢查表：從買家畫像、名單建立、開發信到跟進節奏，讓開發更可追蹤。'
+    : 'Download a practical checklist to find and convert international buyers: ICP, list building, outreach, and follow-ups.'
+  return {
+    title,
+    description,
+    alternates: { canonical: `/${lang}/resources/export-lead-generation-checklist`, languages: { zh: '/zh/resources/export-lead-generation-checklist', en: '/en/resources/export-lead-generation-checklist' } },
+  }
 }
 
 export default async function LeadMagnetPage({

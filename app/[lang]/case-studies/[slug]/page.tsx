@@ -163,7 +163,7 @@ export default function Page({ params }: { params: { lang: Lang, slug: string } 
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">{t(lang, 'hero_cta_start')}</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href={`/${lang}/free-market-analysis`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
+            <Link href={`/${lang}/export-market-analysis`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
                 {t(lang, 'cta_analysis')}
             </Link>
             <Link href={`/${lang}/contact`} className="inline-block bg-transparent border border-white text-white font-bold py-4 px-10 rounded-sm hover:bg-white hover:text-blue-900 transition duration-300 text-lg">

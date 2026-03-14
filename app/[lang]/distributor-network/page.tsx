@@ -97,6 +97,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
     title: service.title[lang],
     description: service.description[lang],
     alternates: { canonical: `/${lang}/distributor-network`, languages: { zh: '/zh/distributor-network', en: '/en/distributor-network' } },
+    robots: { index: false, follow: true },
   }
 }
 

@@ -10,7 +10,12 @@ export type ServiceSeo = {
   description: Record<Lang, string>
   h1: Record<Lang, string>
   heroSubtitle?: Record<Lang, string>
+  heroPromise?: Record<Lang, string>
+  heroBestFor?: Record<Lang, string>
+  heroDeliverablesLine?: Record<Lang, string>
   whoFor?: Record<Lang, string[]>
+  whatYouGet?: Record<Lang, string[]>
+  typicalResults?: Record<Lang, { label: string; value: string }[]>
   problem: Record<Lang, string[]>
   solution: Record<Lang, string[]>
   whatIs: Record<Lang, string[]>
@@ -22,10 +27,14 @@ export type ServiceSeo = {
   funnel: Record<Lang, { label: string; value: string }[]>
   workflow?: Record<Lang, string[]>
   marketMap?: Record<Lang, string[]>
+  marketMapItems?: Record<Lang, { region: string; note: string }[]>
   industries: Record<Lang, string[]>
   caseStudy: { title: Record<Lang, string>; desc: Record<Lang, string>; link: string }
+  caseStudyEvidence?: Record<Lang, { label: string; value: string }[]>
+  caseStudyBeforeAfter?: Record<Lang, { before: string[]; after: string[] }>
   caseStudyStats?: Record<Lang, { label: string; value: string }[]>
   caseStudySections?: { title: Record<Lang, string>; content: Record<Lang, string[]> }[]
+  proofArtifacts?: Record<Lang, { title: string; caption?: string; lines: string[] }[]>
   faq: { q: Record<Lang, string>; a: Record<Lang, string> }[]
   ctaTitle: Record<Lang, string>
   ctaDesc: Record<Lang, string>
@@ -44,6 +53,72 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
+function StatGrid({ items }: { items: { label: string; value: string }[] }) {
+  return (
+    <div className="grid gap-3 sm:grid-cols-5">
+      {items.map((x, i) => (
+        <div key={i} className="rounded-sm bg-gray-50 border border-gray-200 p-4">
+          <div className="text-2xl font-bold text-gray-900">{x.value}</div>
+          <div className="mt-1 text-sm text-gray-600">{x.label}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function FunnelViz({ items }: { items: { label: string; value: string }[] }) {
+  const widths = items.map((_, i) => 100 - i * (60 / Math.max(1, items.length - 1)))
+  return (
+    <div className="space-y-3">
+      {items.map((x, i) => (
+        <div key={`${x.label}-${i}`} className="flex items-center gap-3">
+          <div className="w-28 shrink-0 text-sm text-gray-700">{x.label}</div>
+          <div className="flex-1">
+            <div className="h-10 rounded-sm border border-gray-200 bg-gray-50 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-blue-900 to-blue-600 px-3 flex items-center justify-between"
+                style={{ width: `${widths[i]}%` }}
+              >
+                <div className="text-sm font-semibold text-white">{x.value}</div>
+                <div className="text-xs text-white/80">{Math.round(widths[i])}%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function WorkflowViz({ steps }: { steps: string[] }) {
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-6">
+      <div className="grid gap-3 md:grid-cols-5">
+        {steps.map((s, i) => (
+          <div key={`${s}-${i}`} className="relative rounded-lg border border-gray-200 bg-gray-50 p-4">
+            <div className="text-xs font-semibold text-blue-900">{String(i + 1).padStart(2, '0')}</div>
+            <div className="mt-2 font-semibold text-gray-900">{s}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function ArtifactPreview({ title, caption, lines }: { title: string; caption?: string; lines: string[] }) {
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-6">
+      <div className="text-sm font-semibold text-gray-900">{title}</div>
+      {caption && <div className="mt-1 text-sm text-gray-600">{caption}</div>}
+      <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4 overflow-auto">
+        <pre className="text-xs leading-5 text-gray-800 whitespace-pre">
+          {lines.join('\n')}
+        </pre>
+      </div>
+    </div>
+  )
+}
+
 export default function ServiceSeoPage({ lang, service }: { lang: Lang; service: ServiceSeo }) {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const canonicalPath = service.path ? `/${lang}${service.path}` : `/${lang}/${service.slug}`
@@ -52,6 +127,12 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
       ? ['市場研究', '目標買家清單', '線索資格審核', '主動開發', '會議']
       : ['Market Research', 'Target Buyer List', 'Lead Qualification', 'Cold Outreach', 'Meetings']
   )
+
+  const heroRows = [
+    service.heroPromise?.[lang] ? { k: lang === 'zh' ? '承諾' : 'Promise', v: service.heroPromise[lang] } : null,
+    service.heroBestFor?.[lang] ? { k: lang === 'zh' ? '適合誰' : 'Best for', v: service.heroBestFor[lang] } : null,
+    service.heroDeliverablesLine?.[lang] ? { k: lang === 'zh' ? '交付' : 'Deliverables', v: service.heroDeliverablesLine[lang] } : null,
+  ].filter(Boolean) as { k: string; v: string }[]
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -90,6 +171,16 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         <header className="mb-10">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">{service.h1[lang]}</h1>
           <p className="mt-4 text-lg text-gray-600">{service.heroSubtitle?.[lang] ?? service.description[lang]}</p>
+          {heroRows.length > 0 && (
+            <div className="mt-6 grid gap-3 md:grid-cols-3">
+              {heroRows.map((x) => (
+                <div key={x.k} className="rounded-xl border border-gray-200 bg-white p-5">
+                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">{x.k}</div>
+                  <div className="mt-2 text-gray-900 font-semibold leading-6">{x.v}</div>
+                </div>
+              ))}
+            </div>
+          )}
           <div className="mt-6 flex flex-wrap gap-3">
             {service.ctaButtons?.primary ? (
               <Link href={`/${lang}${service.ctaButtons.primary.href}`} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition">
@@ -113,7 +204,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         </header>
 
         {service.whoFor?.[lang] && service.whoFor[lang].length > 0 && (
-          <Section title={lang === 'zh' ? 'Who This Service Is For（適用對象）' : 'Who this service is for'}>
+          <Section title={lang === 'zh' ? '適用對象' : 'Who this service is for'}>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '最適合' : 'Best fit for'}</div>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -121,6 +212,21 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
                   <span key={i} className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">
                     {x}
                   </span>
+                ))}
+              </div>
+            </div>
+          </Section>
+        )}
+
+        {service.whatYouGet?.[lang] && service.whatYouGet[lang].length > 0 && (
+          <Section title={lang === 'zh' ? '你會拿到什麼' : 'What you will get'}>
+            <div className="rounded-xl border border-gray-200 bg-white p-6">
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '交付成果' : 'Deliverables'}</div>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {service.whatYouGet[lang].map((x, i) => (
+                  <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-gray-800">
+                    {x}
+                  </div>
                 ))}
               </div>
             </div>
@@ -164,7 +270,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '定義（Definition）' : 'Definition'}</div>
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '定義' : 'Definition'}</div>
               <div className="mt-3 space-y-3 text-gray-700 leading-7">
                 {service.whatIs[lang].map((p, i) => (
                   <p key={i}>{p}</p>
@@ -182,7 +288,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           </div>
         </Section>
 
-        <Section title={lang === 'zh' ? '流程（Process）' : 'Process'}>
+        <Section title={lang === 'zh' ? '開發流程' : 'Process'}>
           <ol className="space-y-3 text-gray-700">
             {service.process[lang].map((x, i) => (
               <li key={i} className="flex gap-3">
@@ -192,19 +298,14 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
             ))}
           </ol>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '流程圖（Workflow）' : 'Workflow diagram'}</div>
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                {workflow.map((s, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <div className="rounded-sm border border-gray-200 bg-gray-50 px-3 py-2 text-sm font-medium text-gray-800">{s}</div>
-                    {idx !== workflow.length - 1 && <div className="text-gray-400">→</div>}
-                  </div>
-                ))}
+            <div>
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '流程圖' : 'Workflow'}</div>
+              <div className="mt-3">
+                <WorkflowViz steps={workflow} />
               </div>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '工具（Tools）' : 'Tools we use'}</div>
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '工具與資料來源' : 'Tools we use'}</div>
               <ul className="mt-3 space-y-2 text-gray-700">
                 {service.tools[lang].map((x, i) => (
                   <li key={i} className="flex gap-2">
@@ -214,7 +315,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
                 ))}
               </ul>
               <div className="mt-6 rounded-lg bg-blue-50 p-4">
-                <div className="text-sm font-semibold text-blue-900">{lang === 'zh' ? 'Checklist' : 'Checklist'}</div>
+                <div className="text-sm font-semibold text-blue-900">{lang === 'zh' ? '檢查清單' : 'Checklist'}</div>
                 <ul className="mt-2 space-y-1 text-sm text-blue-900/90">
                   {service.checklist[lang].map((x, i) => (
                     <li key={i} className="flex gap-2">
@@ -229,19 +330,30 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         </Section>
 
         {service.marketMap?.[lang] && service.marketMap[lang].length > 0 && (
-          <Section title={lang === 'zh' ? '市場地圖（Market Map）' : 'Market map'}>
+          <Section title={lang === 'zh' ? '市場地圖' : 'Market map'}>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
               <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '我們常見的市場區域' : 'Common regions we work with'}</div>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {service.marketMap[lang].map((x, i) => (
-                  <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <div className="font-semibold text-gray-900">{x}</div>
-                    <div className="mt-2 text-sm text-gray-600">
-                      {lang === 'zh' ? '市場研究、名單、開發與推進' : 'Research, lists, outreach, and progression'}
+              {service.marketMapItems?.[lang] && service.marketMapItems[lang].length > 0 ? (
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {service.marketMapItems[lang].map((x, i) => (
+                    <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                      <div className="font-semibold text-gray-900">{x.region}</div>
+                      <div className="mt-2 text-sm text-gray-600">{x.note}</div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {service.marketMap[lang].map((x, i) => (
+                    <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                      <div className="font-semibold text-gray-900">{x}</div>
+                      <div className="mt-2 text-sm text-gray-600">
+                        {lang === 'zh' ? '市場研究、名單、開發與推進' : 'Research, lists, outreach, and progression'}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </Section>
         )}
@@ -256,15 +368,27 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
               </div>
             ))}
           </div>
-          <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6">
-            <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? 'Lead Funnel（示意）' : 'Lead funnel (example)'} </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-5">
-              {service.funnel[lang].map((x, i) => (
-                <div key={i} className="rounded-sm bg-gray-50 border border-gray-200 p-4">
-                  <div className="text-2xl font-bold text-gray-900">{x.value}</div>
-                  <div className="mt-1 text-sm text-gray-600">{x.label}</div>
-                </div>
-              ))}
+        </Section>
+
+        {service.typicalResults?.[lang] && service.typicalResults[lang].length > 0 && (
+          <Section title={lang === 'zh' ? '常見數據' : 'Typical lead generation results'}>
+            <div className="rounded-xl border border-gray-200 bg-white p-6">
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '範例數據（非保證）' : 'Example metrics (not guaranteed)'}</div>
+              <div className="mt-4">
+                <StatGrid items={service.typicalResults[lang]} />
+              </div>
+            </div>
+          </Section>
+        )}
+
+        <Section title={lang === 'zh' ? '流量漏斗' : 'Lead generation funnel'}>
+          <div className="rounded-xl border border-gray-200 bg-white p-6">
+            <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '從市場到會議的轉換示意' : 'Example conversion from market to meetings'}</div>
+            <div className="mt-4">
+              <FunnelViz items={service.funnel[lang]} />
+            </div>
+            <div className="mt-6">
+              <StatGrid items={service.funnel[lang]} />
             </div>
           </div>
         </Section>
@@ -279,10 +403,58 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           </div>
         </Section>
 
+        {service.proofArtifacts?.[lang] && service.proofArtifacts[lang].length > 0 && (
+          <Section title={lang === 'zh' ? '交付樣本（匿名化）' : 'Delivery samples (anonymized)'}>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {service.proofArtifacts[lang].map((a, i) => (
+                <ArtifactPreview key={i} title={a.title} caption={a.caption} lines={a.lines} />
+              ))}
+            </div>
+          </Section>
+        )}
+
         <Section title={lang === 'zh' ? '案例' : 'Case study'}>
           <div className="rounded-xl border border-gray-200 bg-white p-6">
             <div className="text-lg font-bold text-gray-900">{service.caseStudy.title[lang]}</div>
             <div className="mt-2 text-gray-700 leading-7">{service.caseStudy.desc[lang]}</div>
+
+            {service.caseStudyEvidence?.[lang] && service.caseStudyEvidence[lang].length > 0 && (
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {service.caseStudyEvidence[lang].map((x, i) => (
+                  <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide">{x.label}</div>
+                    <div className="mt-1 text-lg font-bold text-gray-900">{x.value}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {service.caseStudyBeforeAfter?.[lang] && (
+              <div className="mt-6 grid gap-6 lg:grid-cols-2">
+                <div className="rounded-lg border border-gray-200 p-5">
+                  <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '合作前' : 'Before'}</div>
+                  <ul className="mt-3 space-y-2 text-gray-700">
+                    {service.caseStudyBeforeAfter[lang].before.map((x, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-900" />
+                        <span className="leading-7">{x}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-lg border border-gray-200 p-5">
+                  <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '合作後' : 'After'}</div>
+                  <ul className="mt-3 space-y-2 text-gray-700">
+                    {service.caseStudyBeforeAfter[lang].after.map((x, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-900" />
+                        <span className="leading-7">{x}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
 
             {service.caseStudyStats?.[lang] && service.caseStudyStats[lang].length > 0 && (
               <div className="mt-6 grid gap-3 sm:grid-cols-4">
@@ -319,7 +491,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         </Section>
 
         {service.seoSections && service.seoSections.length > 0 && (
-          <Section title={lang === 'zh' ? 'SEO 深度內容（Definitions / Framework / Steps）' : 'SEO depth (definitions, frameworks, steps)'}>
+          <Section title={lang === 'zh' ? 'SEO 深度內容' : 'SEO depth (definitions, frameworks, steps)'}>
             <div className="space-y-8">
               {service.seoSections.map((s) => (
                 <div key={s.id} className="rounded-xl border border-gray-200 bg-white p-6">
@@ -346,7 +518,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         )}
 
         {service.geoSections && service.geoSections.length > 0 && (
-          <Section title={lang === 'zh' ? 'GEO（AI 搜尋）內容' : 'GEO (AI search) content'}>
+          <Section title={lang === 'zh' ? 'AI 搜尋友善內容' : 'GEO (AI search) content'}>
             <div className="space-y-6">
               {service.geoSections.map((g) => (
                 <div key={g.id} className="rounded-xl border border-gray-200 bg-white p-6">

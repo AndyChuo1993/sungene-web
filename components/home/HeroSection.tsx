@@ -25,7 +25,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link 
-                href={`/${lang}/free-market-analysis`} 
+                href={`/${lang}/export-market-analysis`} 
                 className="inline-flex justify-center items-center px-8 py-4 bg-blue-900 text-white font-bold rounded-sm hover:bg-blue-800 transition duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 {t(lang, 'cta_analysis')}

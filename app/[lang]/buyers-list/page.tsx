@@ -12,6 +12,7 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }): 
         ? '留下你的產品與目標市場，我們提供 100 位潛在海外買家名單（依情況調整）。'
         : 'Share your product and target market. We’ll send a list of 100 potential overseas buyers (depending on feasibility).',
     alternates: { canonical: `/${lang}/buyers-list`, languages: { zh: '/zh/buyers-list', en: '/en/buyers-list' } },
+    robots: { index: false, follow: true },
   }
 }
 
@@ -52,4 +53,3 @@ export default async function Page({ params }: { params: { lang: Lang } }) {
     </main>
   )
 }
-

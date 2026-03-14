@@ -36,7 +36,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
           <p className="mt-4 text-lg text-gray-600">{page.description[lang]}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href={`/${lang}/free-market-analysis`}
+              href={`/${lang}/export-market-analysis`}
               className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition"
             >
               {lang === 'zh' ? '免費市場分析' : 'Free Market Analysis'}
@@ -101,7 +101,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
           <p className="mt-2 text-slate-200">{page.ctaDesc[lang]}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href={`/${lang}/free-market-analysis`}
+              href={`/${lang}/export-market-analysis`}
               className="inline-flex items-center justify-center rounded-sm bg-blue-500 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-400 transition"
             >
               {lang === 'zh' ? '立即取得分析' : 'Get Free Analysis'}
@@ -130,4 +130,3 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
     </main>
   )
 }
-

@@ -37,7 +37,7 @@ export default function Footer({ lang }: { lang: Lang }) {
             <h4 className="text-lg font-semibold mb-6">{t(lang, 'contact_title')}</h4>
             <ul className="space-y-3 text-gray-400">
               <li><Link href={`/${lang}/contact`} className="hover:text-white transition">{t(lang, 'nav_contact')}</Link></li>
-              <li><Link href={`/${lang}/free-market-analysis`} className="hover:text-white transition">{t(lang, 'nav_free_analysis')}</Link></li>
+              <li><Link href={`/${lang}/export-market-analysis`} className="hover:text-white transition">{t(lang, 'nav_free_analysis')}</Link></li>
             </ul>
           </div>
         </div>

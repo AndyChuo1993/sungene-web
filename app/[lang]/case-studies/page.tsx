@@ -86,7 +86,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
       <section className="py-24 bg-gray-50 text-center">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">{t(lang, 'hero_cta_start')}</h2>
-          <Link href={`/${lang}/free-market-analysis`} className="inline-block bg-blue-900 text-white font-bold py-4 px-10 rounded-sm hover:bg-blue-800 transition duration-300 shadow-lg text-lg">
+          <Link href={`/${lang}/export-market-analysis`} className="inline-block bg-blue-900 text-white font-bold py-4 px-10 rounded-sm hover:bg-blue-800 transition duration-300 shadow-lg text-lg">
             {t(lang, 'cta_analysis')}
           </Link>
         </div>

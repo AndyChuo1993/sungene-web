@@ -61,7 +61,7 @@ export default function Header({ lang }: { lang: Lang }) {
         </nav>
         <div className="flex items-center gap-4">
           <LanguageSwitcher lang={lang} />
-          <Link href={`/${lang}/free-market-analysis`} className="hidden md:inline-flex rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition shadow-sm">
+          <Link href={`/${lang}/export-market-analysis`} className="hidden md:inline-flex rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition shadow-sm">
             {t(lang, 'nav_free_analysis')}
           </Link>
         </div>

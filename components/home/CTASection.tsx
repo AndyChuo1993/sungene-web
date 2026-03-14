@@ -15,7 +15,7 @@ export default function CTASection({ lang }: { lang: Lang }) {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link 
-              href={`/${lang}/free-market-analysis`} 
+              href={`/${lang}/export-market-analysis`} 
               className="inline-flex justify-center items-center px-8 py-4 bg-white text-blue-900 font-bold rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg transform hover:-translate-y-0.5"
             >
               {t(lang, 'cta_analysis')}

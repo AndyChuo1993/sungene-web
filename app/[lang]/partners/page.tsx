@@ -3,14 +3,22 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { Handshake, Users, PieChart, Briefcase } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: '合作夥伴計劃 | Partners | SunGene',
-  description: '加入 SunGene 合作夥伴生態系，無論您是顧問、海外代理商或市場研究機構，我們都能共同為企業創造價值。',
-  keywords: '外貿顧問合作, 海外代理招募, B2B合作夥伴, 市場研究合作',
-  openGraph: {
-    title: '合作夥伴計劃 | Partners | SunGene',
-    description: '加入 SunGene 合作夥伴生態系，共同開拓全球市場。',
-    type: 'website',
+export async function generateMetadata({ params }: { params: { lang: Lang } }): Promise<Metadata> {
+  const lang = params.lang
+  const isZh = lang === 'zh'
+  const title = isZh ? '合作夥伴計劃｜SunGene' : 'Partners | SunGene'
+  const description = isZh
+    ? '加入 SunGene 合作夥伴生態系：顧問、海外在地代理、與市場研究機構皆可合作，共同為製造業創造價值。'
+    : 'Join SunGene partners: consultants, overseas agents, and research firms collaborating to create value for manufacturers.'
+  return {
+    title,
+    description,
+    keywords: isZh
+      ? '外貿顧問合作, 海外代理合作, 合作夥伴計劃, 市場研究合作'
+      : 'partners, referral program, overseas agents, market research partners',
+    alternates: { canonical: `/${lang}/partners`, languages: { zh: '/zh/partners', en: '/en/partners' } },
+    robots: { index: false, follow: true },
+    openGraph: { title, description, type: 'website' },
   }
 }
 

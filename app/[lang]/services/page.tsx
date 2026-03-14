@@ -175,7 +175,7 @@ export default function Page({ params }: { params: { lang: Lang } }) {
               ? '提交產品與目標市場，我們回覆市場切入、買家角色與可行的 lead generation 路徑。'
               : 'Submit your product and markets. We’ll reply with entry approach, buyer roles, and a feasible lead-gen path.'}
           </p>
-          <Link href={`/${lang}/free-market-analysis`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
+          <Link href={`/${lang}/export-market-analysis`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
             {t(lang, 'cta_analysis')}
           </Link>
         </div>

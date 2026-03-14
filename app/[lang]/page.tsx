@@ -45,8 +45,8 @@ export default function Page({ params }: { params: { lang: Lang } }) {
                 <Link href={`/${lang}/contact`} className="bg-white text-blue-900 border border-blue-200 font-bold py-3 px-6 rounded-sm hover:bg-blue-50 transition">
                     {lang === 'zh' ? '索取示意案例 PDF' : 'Get Case Study PDF'}
                 </Link>
-                <Link href={`/${lang}/free-market-analysis`} className="bg-blue-600 text-white font-bold py-3 px-6 rounded-sm hover:bg-blue-500 transition shadow-md">
-                    {lang === 'zh' ? '免費市場分析' : 'Free Market Analysis'}
+                <Link href={`/${lang}/export-market-analysis`} className="bg-blue-600 text-white font-bold py-3 px-6 rounded-sm hover:bg-blue-500 transition shadow-md">
+                    {lang === 'zh' ? '免費出口市場分析' : 'Free Export Market Analysis'}
                 </Link>
             </div>
         </div>

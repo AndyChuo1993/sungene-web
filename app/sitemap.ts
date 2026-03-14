@@ -1,6 +1,4 @@
 import { MetadataRoute } from 'next'
-import { markets } from '@/data/markets'
-import { industries } from '@/data/industries'
 import { getArticles } from '@/data/articles'
 import { getCases } from '@/data/cases'
 import { seoMarkets } from '@/data/seoMarkets'
@@ -21,25 +19,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/case-studies',
     '/about',
     '/contact',
-    '/free-market-analysis',
-    '/buyers-list',
-    '/distributor-list',
     '/export-market-analysis',
     '/resources',
     '/services/export-lead-generation',
     '/services/distributor-development',
     '/services/export-sales-outsourcing',
-    '/export-marketing',
     '/buyer-database-building',
     '/cold-email-outreach',
     '/linkedin-prospecting',
     '/market-entry-strategy',
-    '/overseas-buyer-lists',
-    '/qualified-b2b-leads',
-    '/distributor-network',
-    '/b2b-lead-generation',
-    '/partners',
-    '/pricing',
     '/faq',
     '/resources/export-lead-generation-checklist',
   ]
@@ -58,18 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // 2. Market Pages
-  markets.forEach(m => {
-    langs.forEach(lang => {
-      sitemap.push({
-        url: `${baseUrl}/${lang}/market/${m.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.8,
-      })
-    })
-  })
-
+  // 2. Market Pages (canonical)
   seoMarkets.forEach(m => {
     langs.forEach(lang => {
       sitemap.push({
@@ -81,18 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
-  // 3. Industry Pages
-  industries.forEach(i => {
-    langs.forEach(lang => {
-      sitemap.push({
-        url: `${baseUrl}/${lang}/industry/${i.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.8,
-      })
-    })
-  })
-
+  // 3. Industry Pages (canonical)
   seoIndustries.forEach(i => {
     langs.forEach(lang => {
       sitemap.push({

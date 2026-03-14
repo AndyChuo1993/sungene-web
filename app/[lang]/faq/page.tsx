@@ -3,14 +3,21 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { faqs, FAQCategory } from '@/data/faqs'
 
-export const metadata: Metadata = {
-  title: '常見問題 | FAQ | SunGene',
-  description: '關於 SunGene 外貿服務的常見問題解答，包含服務流程、收費模式、保密協定等相關資訊。',
-  keywords: '外貿常見問題, B2B開發問題, SunGene FAQ, 外貿顧問諮詢',
-  openGraph: {
-    title: '常見問題 | FAQ | SunGene',
-    description: '關於 SunGene 外貿服務的常見問題解答。',
-    type: 'website',
+export async function generateMetadata({ params }: { params: { lang: Lang } }): Promise<Metadata> {
+  const lang = params.lang
+  const isZh = lang === 'zh'
+  const title = isZh ? '常見問題｜SunGene' : 'FAQ | SunGene'
+  const description = isZh
+    ? '彙整 SunGene 服務流程、收費模式、保密與合作條款等常見問題。'
+    : 'Answers to common questions about SunGene: process, pricing, confidentiality, and engagement terms.'
+  return {
+    title,
+    description,
+    keywords: isZh
+      ? '外貿常見問題, 海外客戶開發, 服務流程, 收費模式'
+      : 'faq, export lead generation, process, pricing, confidentiality',
+    alternates: { canonical: `/${lang}/faq`, languages: { zh: '/zh/faq', en: '/en/faq' } },
+    openGraph: { title, description, type: 'website' },
   }
 }
 

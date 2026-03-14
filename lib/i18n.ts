@@ -27,11 +27,11 @@ const dict = {
 
     // Home - Services
     home_service_1_title: '外銷客戶開發',
-    home_service_1_desc: 'Export Lead Generation',
+    home_service_1_desc: '協助你持續獲取海外買家詢盤',
     home_service_2_title: '經銷商開發',
-    home_service_2_desc: 'Distributor Development',
+    home_service_2_desc: '建立海外通路夥伴名單並推進合作',
     home_service_3_title: '外貿業務外包',
-    home_service_3_desc: 'Export Sales Outsourcing',
+    home_service_3_desc: '你只需報價與出貨，其餘我們承接',
     
     // Home - Why Us
     why_title: '為什麼選擇我們',
@@ -42,13 +42,13 @@ const dict = {
     // Home - Process
     process_title: '合作流程',
     process_1_title: '市場分析',
-    process_1_desc: 'Market Research',
+    process_1_desc: '市場研究與優先順序',
     process_2_title: '買家識別',
-    process_2_desc: 'Buyer Identification',
+    process_2_desc: '建立可投遞的買家名單',
     process_3_title: '開發活動',
-    process_3_desc: 'Outreach Campaign',
+    process_3_desc: '多觸點開發與跟進',
     process_4_title: '詢盤交付',
-    process_4_desc: 'Lead Delivery',
+    process_4_desc: '交付可推進的合格詢盤',
 
     // Home - Cases
     case_title: '成功案例',
@@ -58,21 +58,21 @@ const dict = {
     service_title: '我們的服務',
     service_lead_gen_title: '外銷客戶開發',
     service_lead_gen_desc: '為製造業找海外買家並交付合格詢盤',
-    service_lead_gen_sub1: 'Buyer research & verification',
-    service_lead_gen_sub2: 'Buyer database & prospect lists',
-    service_lead_gen_sub3: 'Cadence & reply triage',
+    service_lead_gen_sub1: '買家研究與資料驗證',
+    service_lead_gen_sub2: '買家資料庫與可用名單',
+    service_lead_gen_sub3: '節奏式跟進與回覆分類',
 
     service_outreach_title: '經銷商開發',
     service_outreach_desc: '建立海外通路夥伴名單並推進合作',
-    service_outreach_sub1: 'Market tiers & channel mapping',
-    service_outreach_sub2: 'Partner recruitment',
-    service_outreach_sub3: 'Offer & terms framework',
+    service_outreach_sub1: '市場分層與通路地圖',
+    service_outreach_sub2: '夥伴招募與初步篩選',
+    service_outreach_sub3: '合作條件與方案框架',
 
     service_sales_title: '外貿業務外包',
     service_sales_desc: '你報價與出貨，其餘外貿流程我們承接',
-    service_sales_sub1: 'Outreach & follow-ups',
-    service_sales_sub2: 'Reply triage & qualification',
-    service_sales_sub3: 'Inquiry delivery',
+    service_sales_sub1: '開發與跟進節奏',
+    service_sales_sub2: '回覆分類與需求確認',
+    service_sales_sub3: '合格詢盤交付',
 
     // Free Market Analysis Page
     analysis_title: '免費海外市場分析',
@@ -99,17 +99,17 @@ const dict = {
     contact_subtitle: '有具體合作需求？歡迎直接與我們聯繫。',
     form_name: '聯絡人姓名',
     form_message: '諮詢內容',
-    contact_email: 'Email',
-    contact_whatsapp: 'WhatsApp',
+    contact_email: '電子郵件',
+    contact_whatsapp: '即時通訊',
     contact_submit: '發送訊息',
 
     // SEO
     meta_home_title: 'SunGene 外貿客戶開發與外貿外包服務 | 台灣外貿拓展專家',
     meta_home_desc: 'SunGene 幫助台灣企業開發海外客戶，提供從客戶名單建立、開發信撰寫到詢盤跟進的完整外貿外包服務。',
-    meta_keywords: '外貿客戶開發, 外貿外包, 海外客戶開發, B2B業務外包',
+    meta_keywords: '外貿客戶開發, 外貿外包, 海外客戶開發, 企業對企業業務外包',
     
     // Footer
-    footer_copyright: '© 2026 SunGene. All rights reserved.',
+    footer_copyright: '© 2026 SunGene 版權所有。',
   },
   'en': {
     // Navigation

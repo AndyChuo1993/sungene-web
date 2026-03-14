@@ -20,6 +20,7 @@ export type BlogPost = {
     servicePath: string
     caseStudyPath: string
     leadMagnetPath: string
+    marketOrIndustryPath?: string
   }
 }
 
@@ -29,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     date: '2026-03-13',
     heroImage: '/articles/lead-gen-guide.svg',
     title: {
-      zh: '如何找到海外買家：7 種方法＋工具＋完整流程（製造業 B2B）',
+      zh: '如何找到海外買家：7 種方法＋工具＋完整流程（製造業）',
       en: 'How to Find Overseas Buyers: 7 Methods, Tools, and a Step-by-step Process',
     },
     description: {
@@ -39,10 +40,10 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         id: 'summary',
-        heading: { zh: '摘要（Summary）', en: 'Summary' },
+        heading: { zh: '摘要', en: 'Summary' },
         content: {
           zh: [
-            '要找到海外買家，關鍵不是「寄更多信」，而是用正確的買家畫像（ICP）與可驗證的價值主張，建立一套從名單到跟進的流程。',
+            '要找到海外買家，關鍵不是「寄更多信」，而是用正確的買家畫像與可驗證的價值主張，建立一套從名單到跟進的流程。',
             '本文提供 7 種常見且可落地的方法，並附上工具、範例與清單，讓製造業能更快獲得可追蹤的詢盤。',
           ],
           en: [
@@ -53,10 +54,10 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'definition',
-        heading: { zh: '什麼是海外買家（Definition）', en: 'What Are Overseas Buyers (Definition)' },
+        heading: { zh: '什麼是海外買家', en: 'What Are Overseas Buyers (Definition)' },
         content: {
           zh: [
-            '海外買家通常包含：進口商、經銷商、品牌商（Private Label/OEM）、系統整合商、以及終端工廠採購。',
+            '海外買家通常包含：進口商、經銷商、品牌商（代工或貼牌）、系統整合商、以及終端工廠採購。',
             '不同買家角色的採購標準不同：進口商重視供應穩定與毛利，品牌商重視差異化與交期，終端工廠重視規格與導入成本。',
           ],
           en: [
@@ -67,13 +68,13 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'framework',
-        heading: { zh: '框架（Framework）：ICP → 清單 → 訊息 → 跟進 → 轉化', en: 'Framework: ICP → List → Message → Follow-up → Conversion' },
+        heading: { zh: '框架：理想買家 → 清單 → 訊息 → 跟進 → 轉化', en: 'Framework: ICP → List → Message → Follow-up → Conversion' },
         content: {
           zh: [
             '你可以用 5 個步驟做成一個可複製的開發系統：',
-            '1) ICP：定義理想買家（國家、產業、通路角色、規模、採購方式）。',
-            '2) 清單：用多來源蒐集，並做資料驗證（網站、職位、Email）。',
-            '3) 訊息：一封信只講一個痛點＋一個證據＋一個 CTA。',
+            '1) 理想買家：定義理想客戶（國家、產業、通路角色、規模、採購方式）。',
+            '2) 清單：用多來源蒐集，並做資料驗證（網站、職位、電子郵件）。',
+            '3) 訊息：一封信只講一個痛點＋一個證據＋一個下一步。',
             '4) 跟進：4–6 次節奏式跟進，避免一次寄完就放棄。',
             '5) 轉化：把回覆分類與下一步（報價/樣品/會議）標準化。',
           ],
@@ -92,12 +93,12 @@ export const blogPosts: BlogPost[] = [
         heading: { zh: '7 種方法找海外買家', en: '7 Methods to Find Overseas Buyers' },
         content: {
           zh: [
-            '方法 1：Google 搜尋（用「產品＋角色＋國家」組合關鍵字）。',
-            '方法 2：LinkedIn（以職位與產業篩選採購角色）。',
+            '方法 1：搜尋引擎搜尋（用「產品＋角色＋國家」組合關鍵字）。',
+            '方法 2：領英（以職位與產業篩選採購角色）。',
             '方法 3：展會名單（展前邀約與展後跟進）。',
             '方法 4：產業目錄與協會網站（建立候選名單）。',
             '方法 5：競品的合作通路（找分銷/代理版圖）。',
-            '方法 6：B2B 市集（用於驗證需求，但不建議只靠平台）。',
+            '方法 6：企業採購平台（用於驗證需求，但不建議只靠平台）。',
             '方法 7：海關/進出口資料（針對有持續進口紀錄的買家）。',
           ],
           en: [
@@ -113,12 +114,12 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'tools',
-        heading: { zh: '工具（Tools）', en: 'Tools' },
+        heading: { zh: '工具', en: 'Tools' },
         content: {
           zh: [
-            '資料蒐集：Google、LinkedIn、產業目錄、展會網站。',
-            'Email 驗證：用工具驗證格式與可投遞性（避免跳退）。',
-            '追蹤與管理：用簡單 CRM 或表格記錄狀態（已寄/已回/待跟進）。',
+            '資料蒐集：搜尋引擎、領英、產業目錄、展會網站。',
+            '電子郵件驗證：用工具驗證格式與可投遞性（避免跳退）。',
+            '追蹤與管理：用簡單的客戶管理系統或表格記錄狀態（已寄/已回/待跟進）。',
           ],
           en: [
             'Sourcing: Google, LinkedIn, directories, trade fair sites.',
@@ -129,12 +130,12 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'examples',
-        heading: { zh: '範例（Examples）', en: 'Examples' },
+        heading: { zh: '範例', en: 'Examples' },
         content: {
           zh: [
-            '開發信主旨範例：「{產品} for {應用} – quick question」',
+            '開發信主旨範例：「{產品} 用於 {應用}－想請教一個問題」',
             '開頭範例：一句話說明你是誰＋你解決什麼問題。',
-            'CTA 範例：只問一個可回覆的問題（例如：你們是否有在找替代供應商？）。',
+            '下一步範例：只問一個可回覆的問題（例如：你們是否有在找替代供應商？）。',
           ],
           en: [
             'Subject example: “{Product} for {Use Case} – quick question”',
@@ -145,12 +146,12 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'checklist',
-        heading: { zh: '清單（Checklist）', en: 'Checklist' },
+        heading: { zh: '清單', en: 'Checklist' },
         content: {
           zh: [
-            '定義 ICP（市場/產業/角色/規模）。',
-            '建立 100–300 家候選清單並驗證 Email。',
-            '準備 1 頁產品摘要（規格/差異點/交期/MOQ）。',
+            '定義理想客戶（市場/產業/角色/規模）。',
+            '建立 100–300 家候選清單並驗證電子郵件。',
+            '準備一頁式產品摘要（規格/差異點/交期/最小訂購量）。',
             '設計 4–6 次跟進節奏與回覆分類規則。',
           ],
           en: [
@@ -165,7 +166,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       {
         q: { zh: '沒有買家名單也能開始嗎？', en: 'Can we start without a buyer list?' },
-        a: { zh: '可以，但你需要先定義 ICP，並從 2–3 個來源建立一份小清單做驗證。', en: 'Yes. Start with ICP clarity and build a small list from 2–3 sources for validation.' },
+        a: { zh: '可以，但你需要先定義理想客戶，並從 2–3 個來源建立一份小清單做驗證。', en: 'Yes. Start with ICP clarity and build a small list from 2–3 sources for validation.' },
       },
       {
         q: { zh: '跟進要寄幾次？', en: 'How many follow-ups should we send?' },
@@ -189,13 +190,13 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何找到海外經銷商：通路地圖、篩選方法與合作條件', en: 'How to Find International Distributors: Mapping, Vetting, and Partnership Terms' },
     description: { zh: '用可落地的通路策略找經銷商：怎麼找、怎麼篩、怎麼談合作條件與區域。', en: 'A practical channel strategy to find and vet distributors and negotiate partnership terms.' },
     sections: [
-      { id: 'summary', heading: { zh: '摘要（Summary）', en: 'Summary' }, content: { zh: ['經銷商開發不是寄更多信，而是先把市場分層、把合作條件說清楚，讓對方算得出利潤。'], en: ['Distributor outreach works when you segment markets and present clear partnership economics.'] } },
-      { id: 'definition', heading: { zh: '定義（Definition）', en: 'Definition' }, content: { zh: ['經銷商通常擁有當地客戶關係與銷售/售後能力，能加速你進入市場。'], en: ['Distributors provide local relationships and sales/service capacity to accelerate market entry.'] } },
-      { id: 'framework', heading: { zh: '框架（Framework）', en: 'Framework' }, content: { zh: ['市場分層 → 通路角色拆解 → 名單 → 合作 Offer → 跟進與簽約'], en: ['Market segmentation → channel roles → list → offer → follow-ups and agreement'] } },
-      { id: 'step-by-step', heading: { zh: '步驟（Step-by-step guide）', en: 'Step-by-step guide' }, content: { zh: ['步驟 1：決定哪些產品線適合通路。', '步驟 2：定義經銷商類型（Importer/Distributor/Agent/Integrator）。', '步驟 3：建立候選名單並驗證。', '步驟 4：設計合作條件（MOQ、區域、價格層級、支援）。', '步驟 5：節奏式跟進推進試單。'], en: ['1) Choose products suitable for channels.', '2) Define partner types.', '3) Build and verify the list.', '4) Design terms (MOQ, territory, tiers, support).', '5) Follow up to drive trial orders.'] } },
-      { id: 'tools', heading: { zh: '工具（Tools）', en: 'Tools' }, content: { zh: ['Google/LinkedIn/展會名單/協會目錄。', '用表格或 CRM 記錄合作進度。'], en: ['Google, LinkedIn, trade fairs, associations.', 'Track progress in a spreadsheet or CRM.'] } },
-      { id: 'examples', heading: { zh: '範例（Examples）', en: 'Examples' }, content: { zh: ['合作提案可用 3 句話說清楚：你賣什麼、你要找誰、你提供什麼支援。'], en: ['Use a 3-sentence pitch: what you sell, who you want, what support you provide.'] } },
-      { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['市場分層完成。', '合作條件草案完成。', '建立 100 家候選名單。', '安排 4 次跟進節奏。'], en: ['Market tiers done.', 'Draft partnership terms.', 'List of 100 candidates.', '4 follow-ups scheduled.'] } },
+      { id: 'summary', heading: { zh: '摘要', en: 'Summary' }, content: { zh: ['經銷商開發不是寄更多信，而是先把市場分層、把合作條件說清楚，讓對方算得出利潤。'], en: ['Distributor outreach works when you segment markets and present clear partnership economics.'] } },
+      { id: 'definition', heading: { zh: '定義', en: 'Definition' }, content: { zh: ['經銷商通常擁有當地客戶關係與銷售與售後能力，能加速你進入市場。'], en: ['Distributors provide local relationships and sales/service capacity to accelerate market entry.'] } },
+      { id: 'framework', heading: { zh: '框架', en: 'Framework' }, content: { zh: ['市場分層 → 通路角色拆解 → 名單 → 合作方案 → 跟進與簽約'], en: ['Market segmentation → channel roles → list → offer → follow-ups and agreement'] } },
+      { id: 'step-by-step', heading: { zh: '步驟教學', en: 'Step-by-step guide' }, content: { zh: ['步驟 1：決定哪些產品線適合通路。', '步驟 2：定義經銷商類型（進口商/經銷商/代理商/系統整合商）。', '步驟 3：建立候選名單並驗證。', '步驟 4：設計合作條件（最小訂購量、區域、價格層級、支援）。', '步驟 5：節奏式跟進推進試單。'], en: ['1) Choose products suitable for channels.', '2) Define partner types.', '3) Build and verify the list.', '4) Design terms (MOQ, territory, tiers, support).', '5) Follow up to drive trial orders.'] } },
+      { id: 'tools', heading: { zh: '工具', en: 'Tools' }, content: { zh: ['搜尋引擎/領英/展會名單/協會目錄。', '用表格或客戶管理系統記錄合作進度。'], en: ['Google, LinkedIn, trade fairs, associations.', 'Track progress in a spreadsheet or CRM.'] } },
+      { id: 'examples', heading: { zh: '範例', en: 'Examples' }, content: { zh: ['合作提案可用 3 句話說清楚：你賣什麼、你要找誰、你提供什麼支援。'], en: ['Use a 3-sentence pitch: what you sell, who you want, what support you provide.'] } },
+      { id: 'checklist', heading: { zh: '清單', en: 'Checklist' }, content: { zh: ['市場分層完成。', '合作條件草案完成。', '建立 100 家候選名單。', '安排 4 次跟進節奏。'], en: ['Market tiers done.', 'Draft partnership terms.', 'List of 100 candidates.', '4 follow-ups scheduled.'] } },
     ],
     faq: [
       { q: { zh: '要先給獨家嗎？', en: 'Should we offer exclusivity?' }, a: { zh: '不建議。可用里程碑換取區域保護，先以試單驗證能力。', en: 'Avoid upfront exclusivity; use milestones and start with trial orders.' } },
@@ -210,11 +211,11 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '製造業如何外銷：從市場選擇到第一筆訂單的完整流程', en: 'How Manufacturers Export Products: A Practical Step-by-step Playbook' },
     description: { zh: '用框架拆解外銷流程：市場分層、買家角色、開發節奏、樣品/報價、付款與出貨，降低試錯成本。', en: 'A practical framework for exporting: market tiers, buyer roles, outreach cadence, samples/quotes, payment, and shipping.' },
     sections: [
-      { id: 'summary', heading: { zh: '摘要（Summary）', en: 'Summary' }, content: { zh: ['外銷不是一次性的找客戶，而是一套可複製流程：先定市場與角色，再用名單與節奏獲取詢盤，最後用標準化成交流程提高轉化。'], en: ['Exporting is not a one-off campaign. It is a repeatable system: pick markets and buyer roles, generate inquiries via lists and cadence, and close with standardized execution.'] } },
-      { id: 'definition', heading: { zh: '定義（Definition）', en: 'Definition' }, content: { zh: ['外銷的本質是建立跨國供應關係：你提供可交付的價值（規格/品質/交期/服務），買家以可預期的採購節奏回報。'], en: ['Exporting builds cross-border supply relationships where you deliver consistent value (specs, quality, lead time, service) and buyers purchase with predictable cycles.'] } },
-      { id: 'framework', heading: { zh: '框架（Framework）', en: 'Framework' }, content: { zh: ['市場分層 → 買家角色 → Offer 與證據 → 名單與節奏 → 會議/樣品 → 報價/談判 → 付款/出貨。'], en: ['Market tiers → buyer roles → offer & proof → lists & cadence → meetings/samples → quoting/negotiation → payment/shipping.'] } },
-      { id: 'steps', heading: { zh: '步驟（Steps）', en: 'Steps' }, content: { zh: ['步驟 1：選 1–2 個優先市場與清楚買家角色。', '步驟 2：準備一頁式產品摘要（規格/差異點/交期/MOQ/認證）。', '步驟 3：建立 100–300 家驗證名單並啟動 4–6 次跟進節奏。', '步驟 4：回覆分類與下一步標準化（會議/樣品/報價）。'], en: ['1) Choose 1–2 priority markets and buyer roles.', '2) Prepare a one-page product brief (specs, proof, lead time, MOQ, certs).', '3) Build 100–300 verified prospects and run a 4–6 touch cadence.', '4) Triage replies and standardize next steps (call/sample/quote).'] } },
-      { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['一頁式產品摘要', '目標市場與買家角色', '可接受條件（付款/交期/MOQ）', '可追蹤名單與跟進節奏'], en: ['One-page product brief', 'Markets and buyer roles', 'Acceptable terms (payment, lead time, MOQ)', 'Trackable list and cadence'] } },
+      { id: 'summary', heading: { zh: '摘要', en: 'Summary' }, content: { zh: ['外銷不是一次性的找客戶，而是一套可複製流程：先定市場與角色，再用名單與節奏獲取詢盤，最後用標準化成交流程提高轉化。'], en: ['Exporting is not a one-off campaign. It is a repeatable system: pick markets and buyer roles, generate inquiries via lists and cadence, and close with standardized execution.'] } },
+      { id: 'definition', heading: { zh: '定義', en: 'Definition' }, content: { zh: ['外銷的本質是建立跨國供應關係：你提供可交付的價值（規格/品質/交期/服務），買家以可預期的採購節奏回報。'], en: ['Exporting builds cross-border supply relationships where you deliver consistent value (specs, quality, lead time, service) and buyers purchase with predictable cycles.'] } },
+      { id: 'framework', heading: { zh: '框架', en: 'Framework' }, content: { zh: ['市場分層 → 買家角色 → 合作條件與證據 → 名單與節奏 → 會議/樣品 → 報價/談判 → 付款/出貨。'], en: ['Market tiers → buyer roles → offer & proof → lists & cadence → meetings/samples → quoting/negotiation → payment/shipping.'] } },
+      { id: 'steps', heading: { zh: '步驟', en: 'Steps' }, content: { zh: ['步驟 1：選 1–2 個優先市場與清楚買家角色。', '步驟 2：準備一頁式產品摘要（規格/差異點/交期/最小訂購量/認證）。', '步驟 3：建立 100–300 家驗證名單並啟動 4–6 次跟進節奏。', '步驟 4：回覆分類與下一步標準化（會議/樣品/報價）。'], en: ['1) Choose 1–2 priority markets and buyer roles.', '2) Prepare a one-page product brief (specs, proof, lead time, MOQ, certs).', '3) Build 100–300 verified prospects and run a 4–6 touch cadence.', '4) Triage replies and standardize next steps (call/sample/quote).'] } },
+      { id: 'checklist', heading: { zh: '清單', en: 'Checklist' }, content: { zh: ['一頁式產品摘要', '目標市場與買家角色', '可接受條件（付款/交期/最小訂購量）', '可追蹤名單與跟進節奏'], en: ['One-page product brief', 'Markets and buyer roles', 'Acceptable terms (payment, lead time, MOQ)', 'Trackable list and cadence'] } },
     ],
     faq: [
       { q: { zh: '先做哪個市場比較好？', en: 'Which market should we start with?' }, a: { zh: '從你最有證據與交付優勢的市場開始：已有客戶/案例、運輸可行、競品定位清楚的市場通常更快出結果。', en: 'Start where you have proof and delivery advantage—existing customers/cases, feasible logistics, and clear competitive positioning. That usually yields faster results.' } },
@@ -229,11 +230,11 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何建立經銷商網路：通路地圖、篩選與合作條件（可落地）', en: 'How to Build a Distributor Network: Mapping, Vetting, and Partnership Terms' },
     description: { zh: '用市場分層＋通路角色拆解，建立可推進的經銷 pipeline，並用條款框架加速簽約與試單。', en: 'Build a progressable distributor pipeline with market tiers, channel mapping, and a clear terms framework.' },
     sections: [
-      { id: 'summary', heading: { zh: '摘要（Summary）', en: 'Summary' }, content: { zh: ['建立經銷網路的關鍵是「可計算的 Offer」與「可追蹤的推進節奏」。沒有合作條件框架，就算找到名單也很難談成。'], en: ['Distributor networks are built with a calculable offer and a trackable cadence. Without a terms framework, lists rarely turn into agreements.'] } },
-      { id: 'definition', heading: { zh: '定義（Definition）', en: 'Definition' }, content: { zh: ['經銷商（Distributor）通常具備當地客戶關係、銷售與售後能力，能加速市場覆蓋與出貨。'], en: ['Distributors provide local relationships, selling capacity, and service coverage to accelerate market penetration.'] } },
-      { id: 'framework', heading: { zh: '框架（Framework）', en: 'Framework' }, content: { zh: ['市場分層 → 通路角色（Importer/Distributor/Agent/Integrator）→ 夥伴名單 → Offer/條款 → 節奏式跟進 → 會議/試單 → 合作。'], en: ['Market tiers → roles → shortlist → offer/terms → cadence → meetings/trials → agreement.'] } },
-      { id: 'steps', heading: { zh: '步驟（Steps）', en: 'Steps' }, content: { zh: ['步驟 1：決定哪些產品線適合通路合作。', '步驟 2：建立通路角色地圖與篩選條件。', '步驟 3：建立候選名單並驗證。', '步驟 4：設計合作條件（MOQ/區域/價格層級/支援）。', '步驟 5：多觸點推進會議與試單。'], en: ['1) Choose channel-suitable product lines.', '2) Map roles and vetting criteria.', '3) Build and validate a shortlist.', '4) Design terms (MOQ, territory, tiers, support).', '5) Use multi-touch cadence to drive meetings and trials.'] } },
-      { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['市場分層完成', '合作條款草案', '100 家候選名單', '4 次跟進節奏', '試單與里程碑'], en: ['Market tiers', 'Draft terms', '100 candidates', '4-touch cadence', 'Trial + milestones'] } },
+      { id: 'summary', heading: { zh: '摘要', en: 'Summary' }, content: { zh: ['建立經銷網路的關鍵是「可計算的合作方案」與「可追蹤的推進節奏」。沒有合作條件框架，就算找到名單也很難談成。'], en: ['Distributor networks are built with a calculable offer and a trackable cadence. Without a terms framework, lists rarely turn into agreements.'] } },
+      { id: 'definition', heading: { zh: '定義', en: 'Definition' }, content: { zh: ['經銷商通常具備當地客戶關係、銷售與售後能力，能加速市場覆蓋與出貨。'], en: ['Distributors provide local relationships, selling capacity, and service coverage to accelerate market penetration.'] } },
+      { id: 'framework', heading: { zh: '框架', en: 'Framework' }, content: { zh: ['市場分層 → 通路角色 → 夥伴名單 → 合作條款 → 節奏式跟進 → 會議/試單 → 合作。'], en: ['Market tiers → roles → shortlist → offer/terms → cadence → meetings/trials → agreement.'] } },
+      { id: 'steps', heading: { zh: '步驟', en: 'Steps' }, content: { zh: ['步驟 1：決定哪些產品線適合通路合作。', '步驟 2：建立通路角色地圖與篩選條件。', '步驟 3：建立候選名單並驗證。', '步驟 4：設計合作條件（最小訂購量/區域/價格層級/支援）。', '步驟 5：多觸點推進會議與試單。'], en: ['1) Choose channel-suitable product lines.', '2) Map roles and vetting criteria.', '3) Build and validate a shortlist.', '4) Design terms (MOQ, territory, tiers, support).', '5) Use multi-touch cadence to drive meetings and trials.'] } },
+      { id: 'checklist', heading: { zh: '清單', en: 'Checklist' }, content: { zh: ['市場分層完成', '合作條款草案', '100 家候選名單', '4 次跟進節奏', '試單與里程碑'], en: ['Market tiers', 'Draft terms', '100 candidates', '4-touch cadence', 'Trial + milestones'] } },
     ],
     faq: [
       { q: { zh: '要先給獨家嗎？', en: 'Should we offer exclusivity upfront?' }, a: { zh: '通常不建議。可以用里程碑（達成量/覆蓋/推廣）換取區域保護，先用試單驗證能力。', en: 'Usually no. Use milestones (volume, coverage, promotion) to earn territory protection and validate with trials first.' } },
@@ -248,11 +249,11 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何產生 B2B 外銷詢盤：流程、節奏與可交付成果', en: 'How to Generate B2B Export Leads: Process, Cadence, and Deliverables' },
     description: { zh: '把外銷開發做成系統：從 ICP、名單驗證、訊息框架到 4–6 次跟進，最後交付可追蹤詢盤。', en: 'Turn export outreach into a system: ICP, list validation, messaging, 4–6 follow-ups, and trackable inquiry delivery.' },
     sections: [
-      { id: 'definition', heading: { zh: '定義（Definition）', en: 'Definition' }, content: { zh: ['B2B 外銷詢盤（Export leads）指的是已完成初步需求確認、具備可跟進上下文的商機，而不是只有一個 Email。'], en: ['B2B export leads are not just emails. They are inquiries with initial qualification and context that your sales team can follow up effectively.'] } },
-      { id: 'process', heading: { zh: '流程（Process）', en: 'Process' }, content: { zh: ['Market Research → Target Buyer List → Lead Qualification → Cold Outreach → Meetings。每一步都要有輸出物與追蹤指標。'], en: ['Market Research → Target Buyer List → Lead Qualification → Cold Outreach → Meetings. Each step needs deliverables and measurable metrics.'] } },
-      { id: 'cadence', heading: { zh: '節奏（Cadence）', en: 'Cadence' }, content: { zh: ['常見有效做法是 4–6 次跟進、間隔 3–7 天，每次加入不同證據點（案例/規格/應用）。'], en: ['A practical cadence is 4–6 follow-ups, 3–7 days apart, each adding different proof points (cases, specs, applications).'] } },
-      { id: 'deliverables', heading: { zh: '交付（Deliverables）', en: 'Deliverables' }, content: { zh: ['寄信名單＋開信名單（Excel）、回覆分類（合格/培育/不匹配）、詢盤摘要與對話紀錄、下一步建議。'], en: ['Sent list + opens list (Excel), reply triage (qualified/nurture/no-fit), inquiry summaries and logs, next-step suggestions.'] } },
-      { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['ICP 清晰', '名單驗證', '訊息框架', '跟進節奏', '回覆分類', '交付格式'], en: ['ICP clarity', 'List validation', 'Messaging framework', 'Cadence', 'Reply triage', 'Delivery format'] } },
+      { id: 'definition', heading: { zh: '定義', en: 'Definition' }, content: { zh: ['企業外銷詢盤指的是已完成初步需求確認、具備可跟進上下文的商機，而不是只有一個聯絡信箱。'], en: ['B2B export leads are not just emails. They are inquiries with initial qualification and context that your sales team can follow up effectively.'] } },
+      { id: 'process', heading: { zh: '流程', en: 'Process' }, content: { zh: ['市場研究 → 目標買家清單 → 線索資格審核 → 主動開發 → 會議。每一步都要有輸出物與追蹤指標。'], en: ['Market Research → Target Buyer List → Lead Qualification → Cold Outreach → Meetings. Each step needs deliverables and measurable metrics.'] } },
+      { id: 'cadence', heading: { zh: '節奏', en: 'Cadence' }, content: { zh: ['常見有效做法是 4–6 次跟進、間隔 3–7 天，每次加入不同證據點（案例/規格/應用）。'], en: ['A practical cadence is 4–6 follow-ups, 3–7 days apart, each adding different proof points (cases, specs, applications).'] } },
+      { id: 'deliverables', heading: { zh: '交付', en: 'Deliverables' }, content: { zh: ['寄信名單＋開信名單（試算表）、回覆分類（合格/培育/不匹配）、詢盤摘要與對話紀錄、下一步建議。'], en: ['Sent list + opens list (Excel), reply triage (qualified/nurture/no-fit), inquiry summaries and logs, next-step suggestions.'] } },
+      { id: 'checklist', heading: { zh: '清單', en: 'Checklist' }, content: { zh: ['理想客戶清晰', '名單驗證', '訊息框架', '跟進節奏', '回覆分類', '交付格式'], en: ['ICP clarity', 'List validation', 'Messaging framework', 'Cadence', 'Reply triage', 'Delivery format'] } },
     ],
     faq: [
       { q: { zh: '為什麼寄了很多信還是沒回覆？', en: 'Why do we get no replies even after sending many emails?' }, a: { zh: '通常是三個原因：名單角色不對、訊息沒有證據點、或跟進節奏不連續。先把這三件事做成可追蹤流程。', en: 'Usually three reasons: wrong roles, no proof in messaging, or inconsistent follow-ups. Fix these with a trackable system first.' } },
