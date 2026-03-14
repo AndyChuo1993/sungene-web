@@ -2,8 +2,8 @@ import { Lang } from '@/lib/i18n'
 import ServiceSeoPage from '@/components/ServiceSeoPage'
 import { coreServices } from '@/data/coreServices'
 
-export async function generateMetadata({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
   const service = coreServices.exportSalesOutsourcing
   const path = service.path || '/services/export-sales-outsourcing'
   return {
@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: { lang: Lang } }) {
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
   const service = coreServices.exportSalesOutsourcing
   const withLang = {
     ...service,
@@ -30,4 +30,3 @@ export default function Page({ params }: { params: { lang: Lang } }) {
   }
   return <ServiceSeoPage lang={lang} service={withLang} />
 }
-

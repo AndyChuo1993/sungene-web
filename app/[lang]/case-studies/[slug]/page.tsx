@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { getCase } from '@/data/cases'
 import { notFound } from 'next/navigation'
 
-export async function generateMetadata({ params }: { params: { lang: Lang, slug: string } }) {
-  const { lang, slug } = params
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
+  const { lang, slug } = await params
   const item = getCase(lang, slug)
   if (!item) return { title: 'Not Found' }
   return {
@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: { lang: Lang, slug:
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang, slug: string } }) {
-  const { lang, slug } = params
+export default async function Page({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
+  const { lang, slug } = await params
   const item = getCase(lang, slug)
 
   if (!item) {
