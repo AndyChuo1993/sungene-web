@@ -1,164 +1,117 @@
-import { t, Lang } from '@/lib/i18n'
+import Image from 'next/image'
 import Link from 'next/link'
+import { Lang } from '@/lib/i18n'
 
-export async function generateMetadata({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
   return {
-    title: t(lang, 'about_title') + ' | SunGene',
-    description: t(lang, 'meta_home_desc'),
+    title: `${lang === 'zh' ? '關於我們' : 'About Us'} | SunGene`,
+    description:
+      lang === 'zh'
+        ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外貿成交流程。'
+        : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
   }
 }
 
-export default function Page({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
+export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
+  const { lang } = await params
+
+  const pillars = [
+    {
+      title: lang === 'zh' ? '買家名單與資料驗證' : 'Buyer lists and contact validation',
+      desc:
+        lang === 'zh'
+          ? '我們先把名單做對，再談開發效率。從公司、角色到可投遞聯絡方式，都會先整理清楚。'
+          : 'We start with list quality before outreach volume: companies, roles, and deliverable contacts are clarified first.',
+    },
+    {
+      title: lang === 'zh' ? '主動開發與持續跟進' : 'Outbound outreach and steady follow-up',
+      desc:
+        lang === 'zh'
+          ? '我們用多次跟進節奏，而不是只寄一封信就結束。讓外貿開發變成可追蹤流程。'
+          : 'We run structured follow-up cadences instead of one-off outreach, making export development trackable.',
+    },
+    {
+      title: lang === 'zh' ? '詢盤整理與成交支援' : 'Inquiry triage and sales support',
+      desc:
+        lang === 'zh'
+          ? '把回覆整理成可跟進的詢盤與下一步，讓你的團隊專注報價、樣品與出貨。'
+          : 'We package replies into followable opportunities so your team can focus on quoting, samples, and shipment.',
+    },
+  ]
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-gray-900 text-white py-24">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t(lang, 'about_title')}</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t(lang, 'hero_subtitle')}</p>
+      <section className="relative overflow-hidden bg-gray-900 py-24 text-white">
+        <Image src="/banner/banner1.png" alt="SunGene team and export workflow" fill className="object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gray-950/70" />
+        <div className="relative mx-auto max-w-6xl px-6">
+          <div className="max-w-3xl">
+            <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
+              {lang === 'zh' ? '關於 SunGene' : 'About SunGene'}
+            </div>
+            <h1 className="mb-6 text-4xl font-bold md:text-6xl">{lang === 'zh' ? '我們幫製造商把外貿開發做成一套可持續的系統' : 'We turn export development into a sustainable system for manufacturers'}</h1>
+            <p className="text-xl leading-relaxed text-gray-200">
+              {lang === 'zh'
+                ? 'SunGene 不是單純賣名單，也不是只寫幾封開發信。我們的角色，是幫你把海外買家開發、經銷商開發與詢盤跟進，整理成一套能持續運作的商務流程。'
+                : 'SunGene is not just a list vendor or an email-writing shop. We help manufacturers turn buyer discovery, distributor development, and inquiry follow-up into a repeatable commercial workflow.'}
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 1. Who We Are */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">
-            {lang === 'zh' ? '我們是誰' : 'Who We Are'}
-          </div>
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            {lang === 'zh' ? '我們是誰' : 'Who We Are'}
-          </h2>
-          <p className="text-xl text-gray-600 leading-relaxed mb-8">
-            {lang === 'zh' 
-              ? 'SunGene 是一家專注於外貿增長的服務公司，我們不賣軟體，而是直接幫製造商找到買家。' 
-              : 'SunGene is a specialized export growth partner. We don\'t sell software; we deliver buyers.'}
-          </p>
-          <p className="text-lg text-gray-800 font-bold mb-8 p-6 bg-blue-50 border-l-4 border-blue-600">
-             {lang === 'zh' 
-                ? 'SunGene 不只是外貿服務供應商，我們正在建立一套可擴充的外貿增長系統。' 
-                : 'SunGene is not just a service provider; we are building a scalable export growth system.'}
-          </p>
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">{lang === 'zh' ? '我們的服務範圍' : 'Our Service Coverage'}</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 p-6 rounded-sm border border-gray-100">
-                    <div className="font-bold text-blue-600 mb-2">{lang === 'zh' ? '主要服務客戶' : 'We Serve'}</div>
-                    <ul className="text-gray-600 space-y-1">
-                        <li>• {lang === 'zh' ? '台灣製造商與供應商' : 'Taiwan Manufacturers'}</li>
-                        <li>• {lang === 'zh' ? '中國工廠與外貿企業' : 'China Factories'}</li>
-                        <li>• {lang === 'zh' ? '東南亞供應鏈企業' : 'Southeast Asia Suppliers'}</li>
-                    </ul>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-sm border border-gray-100">
-                    <div className="font-bold text-green-600 mb-2">{lang === 'zh' ? '協助開發市場' : 'Target Markets'}</div>
-                    <ul className="text-gray-600 space-y-1">
-                        <li>• {lang === 'zh' ? '歐洲 (德國/英國/荷蘭)' : 'Europe (Germany/UK/Netherlands)'}</li>
-                        <li>• {lang === 'zh' ? '北美 (美國/加拿大)' : 'North America (USA/Canada)'}</li>
-                        <li>• {lang === 'zh' ? '日本與全球市場' : 'Japan & Global Markets'}</li>
-                    </ul>
-                </div>
+      <section className="py-20">
+        <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-3">
+          {pillars.map((item) => (
+            <div key={item.title} className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900">{item.title}</h2>
+              <p className="mt-4 leading-7 text-gray-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-gray-100 bg-gray-50 py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '我們服務哪些客戶' : 'Who we work with'}</h2>
+            <p className="mt-4 leading-7 text-gray-600">
+              {lang === 'zh'
+                ? '我們主要服務有產品、有工廠、有交付能力，但缺少穩定海外開發流程的製造商與供應商。特別適合正在拓展歐洲、北美、日本與東南亞市場的團隊。'
+                : 'We mainly work with manufacturers and suppliers that already have product and production capacity, but need a steadier export development process—especially for Europe, North America, Japan, and Southeast Asia.'}
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-lg bg-white p-5 shadow-sm">
+                <div className="font-bold text-blue-700">{lang === 'zh' ? '典型客戶' : 'Typical clients'}</div>
+                <div className="mt-2 text-gray-600">{lang === 'zh' ? '機械、五金、電子零組件、包材、工業材料' : 'Machinery, hardware, electronics, packaging, and industrial materials'}</div>
+              </div>
+              <div className="rounded-lg bg-white p-5 shadow-sm">
+                <div className="font-bold text-blue-700">{lang === 'zh' ? '常見需求' : 'Common goals'}</div>
+                <div className="mt-2 text-gray-600">{lang === 'zh' ? '找買家、找經銷商、穩定詢盤、不擴編也能持續開發' : 'Find buyers, build channels, stabilize inquiries, and keep growing without hiring first'}</div>
+              </div>
             </div>
           </div>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <Image src="/banner/banner2.png" alt="Global market collaboration" fill className="object-cover" />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '我們相信好的外貿，不該只靠運氣' : 'We believe export growth should not rely on luck'}</h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
             {lang === 'zh'
-              ? '透過精準的名單與專業的開發流程，我們協助企業拓展全球市場。我們的團隊由資深外貿顧問、數據分析師與商務開發專家組成，致力於解決傳統外貿「找不到人、聯絡不上、談不下來」的痛點。'
-              : 'By combining data-driven prospecting with professional outreach, we help manufacturers expand their global footprint efficiently. Our team consists of export consultants, data analysts, and business development experts dedicated to solving the core challenges of "finding, reaching, and closing" overseas buyers.'}
+              ? '展會、平台、舊客戶介紹都能帶來機會，但如果沒有一套可複製的方法，團隊很難持續擴大。SunGene 的價值，就是把這些零散動作整理成一條清楚的路。'
+              : 'Trade fairs, marketplaces, and referrals all help—but without a repeatable system, teams struggle to scale. SunGene turns scattered export activities into a clearer path.'}
           </p>
-        </div>
-      </section>
-
-      {/* 2. What We Believe */}
-      <section className="py-24 bg-gray-50 border-y border-gray-100">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">
-            {lang === 'zh' ? '我們的信念' : 'Our Belief'}
-          </div>
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">
-            {lang === 'zh' ? '我們相信什麼' : 'What We Believe'}
-          </h2>
-          <div className="bg-white p-8 rounded-sm border-l-4 border-blue-600 shadow-sm">
-             <p className="text-2xl text-gray-800 font-serif italic leading-relaxed mb-6">
-                "{lang === 'zh' ? '好產品不該被埋沒，外貿開發應該更科學、更精準。' : 'Great products shouldn\'t go unnoticed. Export sales should be scientific and precise.'}"
-             </p>
-             <p className="text-gray-600 text-lg">
-                {lang === 'zh'
-                  ? '傳統的「參展等待」與「亂槍打鳥」已經失效。我們相信，透過數據驅動的主動開發，任何有競爭力的製造商都能直接與全球買家建立連結。'
-                  : 'Traditional "wait-and-see" exhibition strategies are obsolete. We believe that through Data-Driven Outreach, any competitive manufacturer can establish direct connections with global buyers.'}
-             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. How We Do It (Methodology) */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-600 font-bold mb-4 uppercase tracking-wide">
-            {lang === 'zh' ? '我們的方法' : 'Our Methodology'}
-          </div>
-          <h2 className="text-3xl font-bold mb-12 text-gray-900">
-            {lang === 'zh' ? '我們怎麼做外貿增長' : 'Our Growth Methodology'}
-          </h2>
-          
-          <div className="space-y-12 relative">
-             {/* Vertical Line */}
-             <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200"></div>
-
-             {[
-                { title: lang === 'zh' ? 'Buyer Data (名單數據)' : 'Buyer Data', desc: lang === 'zh' ? '建立精準的決策人資料庫，而非泛泛的企業名單。' : 'Building precise decision-maker databases, not generic lists.' },
-                { title: lang === 'zh' ? 'Outreach Execution (開發執行)' : 'Outreach Execution', desc: lang === 'zh' ? '高客製化的開發信與多點觸達策略。' : 'Highly customized cold emails and multi-touch strategies.' },
-                { title: lang === 'zh' ? 'Sales Support (商務支援)' : 'Sales Support', desc: lang === 'zh' ? '專業的詢盤處理與談判建議，確保轉化。' : 'Professional inquiry handling and negotiation support to ensure conversion.' },
-                { title: lang === 'zh' ? 'Export Growth (外貿增長)' : 'Export Growth', desc: lang === 'zh' ? '建立可複製、可預測的訂單來源。' : 'Establishing a replicable and predictable source of orders.' }
-             ].map((step, idx) => (
-                <div key={idx} className="relative flex items-start pl-20">
-                    <div className="absolute left-0 w-16 h-16 bg-white border-2 border-blue-600 rounded-full flex items-center justify-center font-bold text-blue-600 z-10">
-                        {idx + 1}
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-bold mb-2 text-gray-900">{step.title}</h3>
-                        <p className="text-gray-600 text-lg">{step.desc}</p>
-                    </div>
-                </div>
-             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Vision & Mission */}
-      <section className="py-24 bg-blue-900 text-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-blue-300 font-bold mb-4 uppercase tracking-wide">
-            {lang === 'zh' ? '我們的願景' : 'Our Vision'}
-          </div>
-          <h2 className="text-3xl font-bold mb-12 text-white">
-            {lang === 'zh' ? '我們的願景與使命' : 'Our Vision & Mission'}
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-                <h3 className="text-xl font-bold mb-4 text-blue-200">{lang === 'zh' ? '公司使命' : 'Mission'}</h3>
-                <p className="text-lg text-blue-100 leading-relaxed mb-8">
-                  {lang === 'zh' 
-                    ? '建立可規模化的外貿增長系統，讓每一個好產品都能找到對的國際買家。' 
-                    : 'To build a scalable export growth system where every quality product finds its right international buyer.'}
-                </p>
-            </div>
-            <div>
-                <h3 className="text-xl font-bold mb-4 text-blue-200">{lang === 'zh' ? '未來願景' : 'Vision'}</h3>
-                <p className="text-lg text-blue-100 leading-relaxed mb-8">
-                  {lang === 'zh' 
-                    ? '成為亞洲製造商進入全球市場的基礎設施，從數據、工具到服務，打造完整的外貿生態系。' 
-                    : 'To become the infrastructure for Asian manufacturers entering global markets, building a complete export ecosystem from data and tools to services.'}
-                </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12 pt-12 border-t border-blue-800">
-             <Link href={`/${lang}/contact`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
-                {t(lang, 'cta_start')}
-             </Link>
+          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link href={`/${lang}/services`} className="rounded-sm bg-blue-900 px-8 py-4 font-bold text-white transition hover:bg-blue-800">
+              {lang === 'zh' ? '看服務內容' : 'View services'}
+            </Link>
+            <Link href={`/${lang}/contact`} className="rounded-sm border border-gray-300 px-8 py-4 font-bold text-gray-900 transition hover:border-blue-900 hover:text-blue-900">
+              {lang === 'zh' ? '直接聯絡我們' : 'Talk to us'}
+            </Link>
           </div>
         </div>
       </section>

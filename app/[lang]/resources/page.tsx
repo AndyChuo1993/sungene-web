@@ -73,9 +73,9 @@ export default async function Page({
       <section className="bg-gray-900 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="mx-auto max-w-7xl px-6 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '外貿資源中心' : 'Export Resource Center'}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '資源中心' : 'Resource Center'}</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {lang === 'zh' ? '這裡放可下載或可直接使用的外貿資源。產業頁與市場頁請到各自分頁瀏覽，部落格則保留給教學與觀點文章。' : 'This area is for reusable export resources. Industry and market pages are separated into their own tabs, while the blog stays focused on guides and insights.'}
+            {lang === 'zh' ? '把外貿開發常用的指南、檢查表與市場素材集中在這裡。部落格偏教學與觀點；產業頁與市場頁則用來承接特定搜尋意圖。' : 'This area centralizes reusable export guides, checklists, and market assets. The blog focuses on education and commentary, while industry and market pages capture specific search intent.'}
           </p>
         </div>
       </section>
@@ -146,6 +146,14 @@ export default async function Page({
 
               {/* Articles Grid */}
               <div className="lg:col-span-9">
+                <div className="mb-8 rounded-xl border border-blue-100 bg-blue-50 p-6 text-blue-950">
+                  <div className="text-sm font-bold uppercase tracking-wide text-blue-700">{lang === 'zh' ? '本區定位' : 'What belongs here'}</div>
+                  <p className="mt-3 leading-7">
+                    {lang === 'zh'
+                      ? '資源中心放的是可直接拿來使用的內容，例如開發流程指南、買家名單建立方法、冷開發信範例、以及市場研究素材。若你只是想看觀點文章，請去部落格。'
+                      : 'The resource center is for reusable assets: process guides, buyer-list methods, cold email examples, and market research materials. If you want commentary or educational posts, go to the blog.'}
+                  </p>
+                </div>
                 <div className="grid md:grid-cols-2 gap-8">
                   {filteredArticles.length > 0 ? (
                     filteredArticles.map((post) => (

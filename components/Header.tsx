@@ -6,6 +6,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Header({ lang }: { lang: Lang }) {
   const links = [
+    { href: `/${lang}`, label: t(lang, 'nav_home') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/industries`, label: t(lang, 'nav_industries') },
     { href: `/${lang}/markets`, label: t(lang, 'nav_markets') },

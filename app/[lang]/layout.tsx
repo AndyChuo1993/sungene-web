@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       languages: {
         'en': '/en',
         'zh': '/zh',
-        'x-default': '/en',
+        'x-default': '/zh',
       },
     },
   }

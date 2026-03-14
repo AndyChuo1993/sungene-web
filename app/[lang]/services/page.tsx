@@ -28,24 +28,24 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       href: `/${lang}/services/export-lead-generation`,
       title: lang === 'zh' ? '外貿客戶開發' : 'Export Lead Generation',
       desc: lang === 'zh'
-        ? '為製造業找海外買家：名單 + 節奏 + 詢盤交付。'
-        : 'Find overseas buyers with lists, cadence, and qualified inquiry delivery.',
+        ? '一年期合作，持續為製造業建立海外買家名單、開發節奏與合格詢盤。'
+        : 'A one-year engagement to build overseas buyer lists, outreach cadence, and qualified inquiries for manufacturers.',
       tags: lang === 'zh' ? ['製造業', '海外買家', '詢盤'] : ['Manufacturers', 'Overseas buyers', 'Leads'],
     },
     {
       href: `/${lang}/services/distributor-development`,
       title: lang === 'zh' ? '經銷商開發' : 'Distributor Development',
       desc: lang === 'zh'
-        ? '市場分層 + 通路策略 + 合作條件，建立可推進的通路 pipeline。'
-        : 'Market tiers, channel strategy, and term frameworks to build a partner pipeline.',
+        ? '一年期合作，持續建立海外經銷商名單、合作條件與市場推進節奏。'
+        : 'A one-year engagement to build distributor lists, channel terms, and market-entry progression.',
       tags: lang === 'zh' ? ['通路', '代理', '市場落地'] : ['Channels', 'Partners', 'Market entry'],
     },
     {
       href: `/${lang}/services/export-sales-outsourcing`,
       title: lang === 'zh' ? '外貿業務外包' : 'Export Sales Outsourcing',
       desc: lang === 'zh'
-        ? '你只需報價與出貨；其餘外貿開發與跟進由我們完成。'
-        : 'You quote and ship; we run outreach and follow-ups end-to-end.',
+        ? '一年期合作，你專注報價與出貨，其餘外貿開發與跟進由我們持續執行。'
+        : 'A one-year engagement where you focus on quoting and shipping while we run outreach and follow-ups.',
       tags: lang === 'zh' ? ['不擴編', 'SOP', '交付'] : ['No hiring', 'SOP', 'Delivery'],
     },
   ]
@@ -99,11 +99,11 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 lg:grid-cols-12 items-start">
             <div className="lg:col-span-4">
-              <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '三個服務，不重疊' : 'Three services, no overlap'}</h2>
+              <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '先確認你目前最需要哪一種合作' : 'Start with the service that fits your current stage'}</h2>
               <p className="mt-4 text-gray-600 leading-7">
                 {lang === 'zh'
-                  ? '我們把常見混淆（名單、開發、外包）拆成三個可獨立排名的服務頁，讓訪客快速自我篩選，Google 也能清楚理解每頁主題。'
-                  : 'We split list building, channel development, and managed sales ops into three pages so users self-select fast and search engines understand each topic.'}
+                  ? '如果你缺的是穩定買家來源，就先看外貿客戶開發；如果你想找在地通路，就看經銷商開發；如果你缺的是整體執行人力，就看外貿業務外包。'
+                  : 'If you need a steadier flow of buyers, start with export lead generation. If you need local channel partners, review distributor development. If execution bandwidth is the gap, look at sales outsourcing.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href={core[0].href} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition">
@@ -141,7 +141,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </div>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '你可能在找' : 'You may be searching for'}</div>
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '常見需求關鍵字' : 'Common search intents'}</div>
               <ul className="mt-4 space-y-2 text-gray-700">
                 {[
                   'export lead generation',
@@ -172,7 +172,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{lang === 'zh' ? '先拿一份出口市場分析，再決定怎麼做' : 'Get a market analysis first, then decide your plan'}</h2>
           <p className="text-slate-200 max-w-2xl mx-auto mb-10">
             {lang === 'zh'
-              ? '提交產品與目標市場，我們回覆市場切入、買家角色與可行的 lead generation 路徑。'
+              ? '提交產品與目標市場，我們會回覆市場切入方式、買家角色與可行的開發路徑。'
               : 'Submit your product and markets. We’ll reply with entry approach, buyer roles, and a feasible lead-gen path.'}
           </p>
           <Link href={`/${lang}/export-market-analysis`} className="inline-block bg-white text-blue-900 font-bold py-4 px-10 rounded-sm hover:bg-gray-100 transition duration-300 shadow-lg text-lg">
