@@ -11,10 +11,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   const routes = [
     '',
+    '/about',
+    '/contact',
+    '/faq',
     '/services',
     '/services/export-lead-generation',
     '/services/distributor-development',
     '/services/export-sales-outsourcing',
+    '/export-market-analysis',
+    '/free-market-analysis',
     '/industries',
     '/markets',
     '/case-studies',

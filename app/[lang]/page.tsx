@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import JsonLd from '@/components/JsonLd'
 import { t, Lang } from '@/lib/i18n'
 import HeroSection from '@/components/home/HeroSection'
 import ServicesPreview from '@/components/home/ServicesPreview'
@@ -13,6 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: t(lang, 'meta_home_title'),
     description: t(lang, 'meta_home_desc'),
     keywords: t(lang, 'meta_keywords'),
+    alternates: {
+      canonical: `/${lang}`,
+      languages: {
+        zh: '/zh',
+        en: '/en',
+        'x-default': '/en',
+      },
+    },
     openGraph: {
       title: t(lang, 'meta_home_title'),
       description: t(lang, 'meta_home_desc'),

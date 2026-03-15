@@ -1,5 +1,6 @@
 import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
+import JsonLd from '@/components/JsonLd'
 import ServiceComparison from '@/components/ServiceComparison'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
@@ -7,6 +8,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   return {
     title: t(lang, 'service_title') + ' | SunGene',
     description: t(lang, 'meta_home_desc'),
+    keywords:
+      lang === 'zh'
+        ? ['外銷客戶開發', '經銷商開發', '外貿業務外包', '海外買家名單', '出口市場分析']
+        : ['export lead generation', 'distributor development', 'export sales outsourcing', 'overseas buyers', 'market analysis'],
+    openGraph: {
+      title: t(lang, 'service_title') + ' | SunGene',
+      description: t(lang, 'meta_home_desc'),
+      images: ['/og/og.png'],
+    },
     alternates: {
       canonical: `/${lang}/services`,
       languages: {
@@ -20,6 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 
 export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
+  const pageUrl = `${baseUrl}/${lang}/services`
 
   type Card = { href: string; title: string; desc: string; tags?: string[] }
 
@@ -58,8 +70,22 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       ? ['外貿客戶開發', '如何找到海外買家', '如何找到經銷商', '國際買家名單', '外銷內容行銷']
       : ['export lead generation', 'find overseas buyers', 'find distributors', 'international buyers', 'b2b export marketing']
 
+  const servicesSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: lang === 'zh' ? '外銷服務總覽' : 'Export Services Overview',
+    url: pageUrl,
+    hasPart: core.map((item) => ({
+      '@type': 'Service',
+      name: item.title,
+      url: `${baseUrl}${item.href}`,
+      description: item.desc,
+    })),
+  }
+
   return (
     <main className="min-h-screen bg-white">
+      <JsonLd data={servicesSchema} />
       <section className="bg-gray-900 py-24 text-white">
         <div className="mx-auto max-w-7xl px-6 text-center">
           <h1 className="mb-6 text-4xl font-bold md:text-5xl">

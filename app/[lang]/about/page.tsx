@@ -10,6 +10,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       lang === 'zh'
         ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外貿成交流程。'
         : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
+    openGraph: {
+      title: `${lang === 'zh' ? '關於我們' : 'About Us'} | SunGene`,
+      description:
+        lang === 'zh'
+          ? 'SunGene 專注於協助製造商建立海外買家名單、主動開發節奏與外貿成交流程。'
+          : 'SunGene helps manufacturers build buyer lists, outbound cadences, and export sales workflows.',
+      images: ['/og/og.png'],
+    },
   }
 }
 
