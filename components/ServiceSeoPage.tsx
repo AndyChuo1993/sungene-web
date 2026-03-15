@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { Lang } from '@/lib/i18n'
@@ -182,6 +183,12 @@ function ArtifactPreview({ title, caption, lines }: { title: string; caption?: s
 }
 
 export default function ServiceSeoPage({ lang, service }: { lang: Lang; service: ServiceSeo }) {
+  const serviceIllustration =
+    service.slug === 'export-lead-generation'
+      ? '/illustrations/service-export-leads.svg'
+      : service.slug === 'distributor-development'
+        ? '/illustrations/service-distributor.svg'
+        : '/illustrations/service-outsourcing.svg'
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const canonicalPath = service.path ? `/${lang}${service.path}` : `/${lang}/${service.slug}`
   const workflow = service.workflow?.[lang] ?? (
@@ -225,13 +232,15 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
       url: base,
     },
     areaServed: ['Worldwide'],
+    audience: lang === 'zh' ? '製造業與外銷團隊' : 'Manufacturers and export teams',
   }
 
   return (
     <main className="pt-28">
       <div className="mx-auto max-w-5xl px-6">
         <JsonLd data={[breadcrumbSchema, faqSchema, serviceSchema]} />
-        <header className="mb-10">
+        <header className="mb-10 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">{service.h1[lang]}</h1>
           <p className="mt-4 text-lg text-gray-600">{service.heroSubtitle?.[lang] ?? service.description[lang]}</p>
           {heroRows.length > 0 && (
@@ -263,6 +272,12 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
                 {lang === 'zh' ? '免費出口市場分析' : 'Free Export Market Analysis'}
               </Link>
             )}
+          </div>
+          </div>
+          <div className="hidden lg:block">
+            <div className="overflow-hidden rounded-[2rem] border border-blue-100 bg-white p-4 shadow-xl">
+              <Image src={serviceIllustration} alt={service.h1[lang]} width={1200} height={720} className="h-auto w-full rounded-[1.5rem]" priority />
+            </div>
           </div>
         </header>
 

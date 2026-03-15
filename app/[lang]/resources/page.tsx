@@ -18,6 +18,11 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
   return {
     title: `${title} | SunGene`,
     description: t(lang, 'meta_home_desc'),
+    openGraph: {
+      title: `${title} | SunGene`,
+      description: t(lang, 'meta_home_desc'),
+      images: ['/og/og.png'],
+    },
   }
 }
 
@@ -72,11 +77,16 @@ export default async function Page({
       {/* Hero */}
       <section className="bg-gray-900 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        <div className="mx-auto max-w-7xl px-6 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '資源中心' : 'Resource Center'}</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {lang === 'zh' ? '把外貿開發常用的指南、檢查表與市場素材集中在這裡，方便快速找到可直接參考與使用的內容。' : 'This area centralizes reusable export guides, checklists, and market assets. The blog focuses on education and commentary, while industry and market pages capture specific search intent.'}
-          </p>
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 text-center relative z-10 lg:grid-cols-[0.95fr_1.05fr] lg:text-left">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '資源中心' : 'Resource Center'}</h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto lg:mx-0">
+              {lang === 'zh' ? '把外貿開發常用的指南、檢查表與市場素材集中在這裡，方便快速找到可直接參考與使用的內容。' : 'This area centralizes reusable export guides, checklists, and market assets. The blog focuses on education and commentary, while industry and market pages capture specific search intent.'}
+            </p>
+          </div>
+          <div className="hidden lg:block">
+            <Image src="/illustrations/resource-library.svg" alt={lang === 'zh' ? '資源中心示意圖' : 'Resource center illustration'} width={1200} height={720} className="h-auto w-full rounded-[1.75rem] border border-white/10 shadow-2xl" />
+          </div>
         </div>
       </section>
 

@@ -19,6 +19,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       type: 'website',
       images: ['/og/og.png'],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: t(lang, 'meta_home_title'),
+      description: t(lang, 'meta_home_desc'),
+      images: ['/og/og.png'],
+    },
   }
 }
 
