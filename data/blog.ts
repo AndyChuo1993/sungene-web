@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'tools',
-        heading: { zh: '工具', en: 'Tools' },
+        heading: { zh: '工具與資料來源', en: 'Tools' },
         content: {
           zh: [
             '資料蒐集：搜尋引擎、領英、產業目錄、展會網站。',
@@ -130,7 +130,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'examples',
-        heading: { zh: '範例', en: 'Examples' },
+        heading: { zh: '範例說明', en: 'Examples' },
         content: {
           zh: [
             '開發信主旨範例：「{產品} 用於 {應用}－想請教一個問題」',
@@ -146,7 +146,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'checklist',
-        heading: { zh: '清單', en: 'Checklist' },
+        heading: { zh: '檢查清單', en: 'Checklist' },
         content: {
           zh: [
             '定義理想客戶（市場/產業/角色/規模）。',
@@ -228,7 +228,7 @@ export const blogPosts: BlogPost[] = [
     date: '2026-03-13',
     heroImage: '/articles/market-eu.svg',
     title: { zh: '如何建立經銷商網路：通路地圖、篩選與合作條件（可落地）', en: 'How to Build a Distributor Network: Mapping, Vetting, and Partnership Terms' },
-    description: { zh: '用市場分層＋通路角色拆解，建立可推進的經銷 pipeline，並用條款框架加速簽約與試單。', en: 'Build a progressable distributor pipeline with market tiers, channel mapping, and a clear terms framework.' },
+    description: { zh: '用市場分層與通路角色拆解，建立可推進的經銷開發管線，並用條款框架加速簽約與試單。', en: 'Build a progressable distributor pipeline with market tiers, channel mapping, and a clear terms framework.' },
     sections: [
       { id: 'summary', heading: { zh: '摘要', en: 'Summary' }, content: { zh: ['建立經銷網路的關鍵是「可計算的合作方案」與「可追蹤的推進節奏」。沒有合作條件框架，就算找到名單也很難談成。'], en: ['Distributor networks are built with a calculable offer and a trackable cadence. Without a terms framework, lists rarely turn into agreements.'] } },
       { id: 'definition', heading: { zh: '定義', en: 'Definition' }, content: { zh: ['經銷商通常具備當地客戶關係、銷售與售後能力，能加速市場覆蓋與出貨。'], en: ['Distributors provide local relationships, selling capacity, and service coverage to accelerate market penetration.'] } },
@@ -246,14 +246,14 @@ export const blogPosts: BlogPost[] = [
     slug: 'how-to-generate-b2b-export-leads',
     date: '2026-03-13',
     heroImage: '/articles/lead-gen-guide.svg',
-    title: { zh: '如何產生 B2B 外銷詢盤：流程、節奏與可交付成果', en: 'How to Generate B2B Export Leads: Process, Cadence, and Deliverables' },
-    description: { zh: '把外銷開發做成系統：從 ICP、名單驗證、訊息框架到 4–6 次跟進，最後交付可追蹤詢盤。', en: 'Turn export outreach into a system: ICP, list validation, messaging, 4–6 follow-ups, and trackable inquiry delivery.' },
+    title: { zh: '如何產生企業客戶外銷詢問：流程、節奏與交付內容', en: 'How to Generate B2B Export Leads: Process, Cadence, and Deliverables' },
+    description: { zh: '把外銷開發做成系統：從理想客戶定義、名單驗證、訊息框架到 4–6 次跟進，最後交付可追蹤的詢問。', en: 'Turn export outreach into a system: ICP, list validation, messaging, 4–6 follow-ups, and trackable inquiry delivery.' },
     sections: [
       { id: 'definition', heading: { zh: '定義', en: 'Definition' }, content: { zh: ['企業外銷詢盤指的是已完成初步需求確認、具備可跟進上下文的商機，而不是只有一個聯絡信箱。'], en: ['B2B export leads are not just emails. They are inquiries with initial qualification and context that your sales team can follow up effectively.'] } },
       { id: 'process', heading: { zh: '流程', en: 'Process' }, content: { zh: ['市場研究 → 目標買家清單 → 線索資格審核 → 主動開發 → 會議。每一步都要有輸出物與追蹤指標。'], en: ['Market Research → Target Buyer List → Lead Qualification → Cold Outreach → Meetings. Each step needs deliverables and measurable metrics.'] } },
       { id: 'cadence', heading: { zh: '節奏', en: 'Cadence' }, content: { zh: ['常見有效做法是 4–6 次跟進、間隔 3–7 天，每次加入不同證據點（案例/規格/應用）。'], en: ['A practical cadence is 4–6 follow-ups, 3–7 days apart, each adding different proof points (cases, specs, applications).'] } },
-      { id: 'deliverables', heading: { zh: '交付', en: 'Deliverables' }, content: { zh: ['寄信名單＋開信名單（試算表）、回覆分類（合格/培育/不匹配）、詢盤摘要與對話紀錄、下一步建議。'], en: ['Sent list + opens list (Excel), reply triage (qualified/nurture/no-fit), inquiry summaries and logs, next-step suggestions.'] } },
-      { id: 'checklist', heading: { zh: '清單', en: 'Checklist' }, content: { zh: ['理想客戶清晰', '名單驗證', '訊息框架', '跟進節奏', '回覆分類', '交付格式'], en: ['ICP clarity', 'List validation', 'Messaging framework', 'Cadence', 'Reply triage', 'Delivery format'] } },
+      { id: 'deliverables', heading: { zh: '交付', en: 'Deliverables' }, content: { zh: ['寄信名單與開信名單（試算表）、回覆分類（合格、待培養、不匹配）、詢問摘要與對話紀錄、下一步建議。'], en: ['Sent list + opens list (Excel), reply triage (qualified/nurture/no-fit), inquiry summaries and logs, next-step suggestions.'] } },
+      { id: 'checklist', heading: { zh: '檢查清單', en: 'Checklist' }, content: { zh: ['理想客戶清晰', '名單驗證', '訊息框架', '跟進節奏', '回覆分類', '交付格式'], en: ['ICP clarity', 'List validation', 'Messaging framework', 'Cadence', 'Reply triage', 'Delivery format'] } },
     ],
     faq: [
       { q: { zh: '為什麼寄了很多信還是沒回覆？', en: 'Why do we get no replies even after sending many emails?' }, a: { zh: '通常是三個原因：名單角色不對、訊息沒有證據點、或跟進節奏不連續。先把這三件事做成可追蹤流程。', en: 'Usually three reasons: wrong roles, no proof in messaging, or inconsistent follow-ups. Fix these with a trackable system first.' } },
@@ -267,10 +267,10 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何外銷到美國：買家角色、通路選擇與開發清單', en: 'How to Export to the USA: Buyer Roles, Channels, and a Practical Checklist' },
     description: { zh: '針對美國市場的外銷開發：常見買家角色、通路策略、以及可落地的開發與跟進流程。', en: 'A practical USA export guide: buyer roles, channels, and a step-by-step outreach checklist.' },
     sections: [
-      { id: 'roles', heading: { zh: '美國常見買家角色', en: 'Common buyer roles in the USA' }, content: { zh: ['常見角色包含：Distributor、Importer、Brand、OEM buyer 與 Industrial integrator。不同角色的採購節奏與決策鏈不同。'], en: ['Common roles include distributors, importers, brands, OEM buyers, and industrial integrators. Each role has different buying cycles and decision chains.'] } },
-      { id: 'channels', heading: { zh: '通路策略', en: 'Channel strategy' }, content: { zh: ['若要快速覆蓋，可以優先找區域型 Distributor；若要掌握定價與品牌，則可直接找品牌商或大型終端客戶。'], en: ['For faster coverage, prioritize regional distributors. For pricing and brand control, target brands or large end customers directly.'] } },
+      { id: 'roles', heading: { zh: '美國常見買家角色', en: 'Common buyer roles in the USA' }, content: { zh: ['常見角色包含：經銷商、進口商、品牌商、代工買家與工業整合商。不同角色的採購節奏與決策鏈不同。'], en: ['Common roles include distributors, importers, brands, OEM buyers, and industrial integrators. Each role has different buying cycles and decision chains.'] } },
+      { id: 'channels', heading: { zh: '通路策略', en: 'Channel strategy' }, content: { zh: ['若要快速擴大市場涵蓋，可以優先找區域型經銷商；若要掌握定價與品牌，則可直接找品牌商或大型終端客戶。'], en: ['For faster coverage, prioritize regional distributors. For pricing and brand control, target brands or large end customers directly.'] } },
       { id: 'steps', heading: { zh: '開發流程', en: 'Outreach flow' }, content: { zh: ['Market research → target list → qualification → outreach → meetings。建議先做小規模訊息測試，再放大名單。'], en: ['Market research → target list → qualification → outreach → meetings. Start with small message tests before scaling lists.'] } },
-      { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['產品摘要（英語）', '合規/認證整理', 'MOQ/交期/付款條件', '100 家驗證名單', '4–6 次跟進節奏'], en: ['English product brief', 'Compliance/certs', 'MOQ/lead time/payment terms', '100 verified prospects', '4–6 follow-ups'] } },
+      { id: 'checklist', heading: { zh: '檢查清單', en: 'Checklist' }, content: { zh: ['英文產品摘要', '合規與認證整理', '最低訂購量、交期與付款條件', '100 家驗證名單', '4–6 次跟進節奏'], en: ['English product brief', 'Compliance/certs', 'MOQ/lead time/payment terms', '100 verified prospects', '4–6 follow-ups'] } },
     ],
     faq: [
       { q: { zh: '要先找經銷商還是終端客戶？', en: 'Should we start with distributors or end customers?' }, a: { zh: '看你的目標：要覆蓋就找經銷商；要毛利與長期合作就找品牌或終端。也可兩條線並行但要分開訊息與條件。', en: 'Depends on goals: distributors for coverage; brands/end customers for margin and long-term accounts. You can run both, but separate messaging and terms.' } },
@@ -284,8 +284,8 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何外銷到德國：工業買家、經銷通路與合作條件要點', en: 'How to Export to Germany: Industrial Buyers, Distributors, and Partnership Terms' },
     description: { zh: '德國市場重視規格、認證與交付穩定。本文提供買家角色、通路策略與可落地的開發清單。', en: 'Germany values specs, certifications, and stable delivery. This guide covers buyer roles, channels, and a practical checklist.' },
     sections: [
-      { id: 'buyers', heading: { zh: '德國買家與通路角色', en: 'Buyer and channel roles in Germany' }, content: { zh: ['常見包含：Industrial distributors、System integrators、Brand/OEM buyers。重點是證據點（規格、認證、案例）要準備齊全。'], en: ['Common roles include industrial distributors, system integrators, and brand/OEM buyers. Proof points (specs, certs, cases) matter.'] } },
-      { id: 'terms', heading: { zh: '合作條件要點', en: 'Key partnership terms' }, content: { zh: ['建議準備：MOQ、交期、售後支援、價格層級、以及區域合作條件。用可計算的條款讓對方能評估利潤。'], en: ['Prepare MOQ, lead time, service support, pricing tiers, and territory terms. Calculable terms help partners evaluate profitability.'] } },
+      { id: 'buyers', heading: { zh: '德國買家與通路角色', en: 'Buyer and channel roles in Germany' }, content: { zh: ['常見包含：工業經銷商、系統整合商，以及品牌商或代工買家。重點是證據資料，例如規格、認證與案例，都要準備齊全。'], en: ['Common roles include industrial distributors, system integrators, and brand/OEM buyers. Proof points (specs, certs, cases) matter.'] } },
+      { id: 'terms', heading: { zh: '合作條件要點', en: 'Key partnership terms' }, content: { zh: ['建議準備：最低訂購量、交期、售後支援、價格層級，以及區域合作條件。用可計算的條款讓對方能評估利潤。'], en: ['Prepare MOQ, lead time, service support, pricing tiers, and territory terms. Calculable terms help partners evaluate profitability.'] } },
       { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['德英版產品摘要', '規格/認證', '案例或應用證據', '100 家驗證名單', '多觸點跟進節奏'], en: ['DE/EN product brief', 'Specs/certs', 'Proof assets', '100 verified prospects', 'Multi-touch cadence'] } },
     ],
     faq: [
@@ -300,9 +300,9 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何外銷到日本：買家角色、合作節奏與信任建立', en: 'How to Export to Japan: Buyer Roles, Cadence, and Trust-building' },
     description: { zh: '日本市場重視信任與交付穩定。本文提供買家角色拆解、開發節奏與合作條件準備清單。', en: 'Japan values trust and delivery stability. This guide covers roles, cadence, and a preparation checklist.' },
     sections: [
-      { id: 'roles', heading: { zh: '日本買家角色', en: 'Buyer roles in Japan' }, content: { zh: ['常見角色：Trading company、Distributor、Brand/OEM buyer。不同角色需要不同證據與合作條件說法。'], en: ['Common roles include trading companies, distributors, and brand/OEM buyers. Each needs different proof and terms framing.'] } },
+      { id: 'roles', heading: { zh: '日本買家角色', en: 'Buyer roles in Japan' }, content: { zh: ['常見角色包括貿易商、經銷商，以及品牌商或代工買家。不同角色需要不同的證據資料與合作條件表述方式。'], en: ['Common roles include trading companies, distributors, and brand/OEM buyers. Each needs different proof and terms framing.'] } },
       { id: 'cadence', heading: { zh: '節奏與信任建立', en: 'Cadence and trust-building' }, content: { zh: ['建議採多觸點與較長節奏：先以資料與規格建立可信度，再逐步推進會議與樣品。'], en: ['Use multi-touch and longer cadence: build credibility with data/specs first, then progress to calls and samples.'] } },
-      { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['日英版產品摘要', '規格/認證/品質文件', '樣品政策與交期', '目標名單與跟進節奏'], en: ['JP/EN brief', 'Specs/certs/quality docs', 'Sample policy and lead time', 'Target list and cadence'] } },
+      { id: 'checklist', heading: { zh: '檢查清單', en: 'Checklist' }, content: { zh: ['日文與英文版產品摘要', '規格、認證與品質文件', '樣品政策與交期', '目標名單與跟進節奏'], en: ['JP/EN brief', 'Specs/certs/quality docs', 'Sample policy and lead time', 'Target list and cadence'] } },
     ],
     faq: [
       { q: { zh: '需要日文開發信嗎？', en: 'Do we need Japanese outreach emails?' }, a: { zh: '不一定。可先用英文＋清晰規格與證據點；若鎖定日系通路或採購，日文版本會提高回覆率與信任感。', en: 'Not always. English with clear specs and proof can work, but Japanese versions often improve trust and replies for local decision-makers.' } },
@@ -313,13 +313,13 @@ export const blogPosts: BlogPost[] = [
     slug: 'b2b-cold-email-outreach-framework',
     date: '2026-03-13',
     heroImage: '/articles/cold-email-mistakes.svg',
-    title: { zh: 'B2B 外銷開發信框架：主旨、內容、跟進節奏與範例', en: 'B2B Export Cold Email Framework: Subject, Copy, Follow-ups, and Examples' },
-    description: { zh: '一封信只講一個痛點＋一個證據＋一個 CTA。本文提供可套用框架、跟進節奏與範例。', en: 'One pain point, one proof, one CTA. Templates, cadence, and examples you can reuse.' },
+    title: { zh: '企業客戶外銷開發信框架：主旨、內容、跟進節奏與範例', en: 'B2B Export Cold Email Framework: Subject, Copy, Follow-ups, and Examples' },
+    description: { zh: '一封信只講一個痛點、一個證據與一個明確下一步。本文提供可直接套用的框架、跟進節奏與範例。', en: 'One pain point, one proof, one CTA. Templates, cadence, and examples you can reuse.' },
     sections: [
-      { id: 'framework', heading: { zh: '框架（Framework）', en: 'Framework' }, content: { zh: ['主旨：簡短、具體、像真人。開頭：你是誰＋為何找他。正文：一個痛點＋一個證據。CTA：一個可回覆問題。'], en: ['Subject: short, specific, human. Opening: who you are + why them. Body: one pain point + one proof. CTA: one replyable question.'] } },
-      { id: 'cadence', heading: { zh: '跟進節奏（Cadence）', en: 'Cadence' }, content: { zh: ['建議 4–6 封、間隔 3–7 天，每封加入不同證據點（案例/規格/應用/影片）。'], en: ['Run 4–6 emails, 3–7 days apart. Add different proof points each time (case, specs, use cases, demo).'] } },
-      { id: 'examples', heading: { zh: '範例（Examples）', en: 'Examples' }, content: { zh: ['主旨："{Product} for {Use case} – quick question"', 'CTA："Are you currently evaluating alternative suppliers for {category}?"'], en: ['Subject: “{Product} for {Use case} – quick question”', 'CTA: “Are you evaluating alternative suppliers for {category}?”'] } },
-      { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['名單角色正確', '無附件', '寄送量控制', '內容真實具體', '回覆分類與下一步'], en: ['Right roles', 'No attachments', 'Controlled sending volume', 'Specific and real content', 'Reply triage + next steps'] } },
+      { id: 'framework', heading: { zh: '開發信框架', en: 'Framework' }, content: { zh: ['主旨要簡短、具體、像真人撰寫。開頭說明你是誰與為何聯絡對方；正文聚焦一個痛點與一個證據；最後只提出一個可回覆的問題。'], en: ['Subject: short, specific, human. Opening: who you are + why them. Body: one pain point + one proof. CTA: one replyable question.'] } },
+      { id: 'cadence', heading: { zh: '跟進節奏', en: 'Cadence' }, content: { zh: ['建議 4–6 封、間隔 3–7 天，每封加入不同證據點，例如案例、規格、應用情境或示範影片。'], en: ['Run 4–6 emails, 3–7 days apart. Add different proof points each time (case, specs, use cases, demo).'] } },
+      { id: 'examples', heading: { zh: '範例', en: 'Examples' }, content: { zh: ['主旨範例："{產品} 用於 {應用情境}，想請教一個問題"', '下一步範例："你們目前是否正在評估 {類別} 的替代供應商？"'], en: ['Subject: “{Product} for {Use case} – quick question”', 'CTA: “Are you evaluating alternative suppliers for {category}?”'] } },
+      { id: 'checklist', heading: { zh: '檢查清單', en: 'Checklist' }, content: { zh: ['名單角色正確', '避免使用附件', '寄送量控制得宜', '內容真實具體', '回覆分類與下一步明確'], en: ['Right roles', 'No attachments', 'Controlled sending volume', 'Specific and real content', 'Reply triage + next steps'] } },
     ],
     faq: [
       { q: { zh: '開發信要多長？', en: 'How long should the email be?' }, a: { zh: '越短越好但要具體：通常 80–140 字（英文）就足夠，重點是證據點與一個可回覆 CTA。', en: 'Short but specific. Often 80–140 words is enough. Focus on proof and one replyable CTA.' } },
@@ -330,12 +330,12 @@ export const blogPosts: BlogPost[] = [
     slug: 'importers-vs-distributors',
     date: '2026-03-13',
     heroImage: '/articles/industry-hardware.svg',
-    title: { zh: '進口商 vs 經銷商：差異、合作方式與開發重點', en: 'Importers vs Distributors: Differences, Terms, and Outreach Tips' },
+    title: { zh: '進口商與經銷商的差異：合作方式與開發重點', en: 'Importers vs Distributors: Differences, Terms, and Outreach Tips' },
     description: { zh: '拆解兩種通路角色差異，並提供合作條件與開發訊息的實作重點。', en: 'A practical breakdown of importer vs distributor roles with terms and outreach tips.' },
     sections: [
-      { id: 'definition', heading: { zh: '差異（Differences）', en: 'Differences' }, content: { zh: ['進口商偏供應鏈與採購；經銷商偏市場覆蓋與銷售/售後。你要提供的證據點與條件也會不同。'], en: ['Importers focus on supply chain and buying; distributors focus on coverage and selling/service. Your proof and terms should match the role.'] } },
-      { id: 'terms', heading: { zh: '合作條件（Terms）', en: 'Terms' }, content: { zh: ['進口商常重視交期、品質與價格層級；經銷商常重視區域、毛利、行銷支援與售後。'], en: ['Importers care about lead time, quality, and tiers; distributors care about territory, margin, marketing support, and service.'] } },
-      { id: 'outreach', heading: { zh: '開發重點（Outreach）', en: 'Outreach' }, content: { zh: ['一開始就把對方角色講清楚：你找的是進口合作，還是通路合作；並用一個證據點（案例/規格/認證）提高可信度。'], en: ['State the role you are targeting (import vs channel) and add one proof point (case, specs, certifications) to improve credibility.'] } },
+      { id: 'definition', heading: { zh: '角色差異', en: 'Differences' }, content: { zh: ['進口商偏向供應鏈與採購；經銷商則更重視市場布局、銷售與售後服務。你提供的證據資料與合作條件也會因此不同。'], en: ['Importers focus on supply chain and buying; distributors focus on coverage and selling/service. Your proof and terms should match the role.'] } },
+      { id: 'terms', heading: { zh: '合作條件', en: 'Terms' }, content: { zh: ['進口商常重視交期、品質與價格層級；經銷商則更重視區域安排、利潤空間、行銷支援與售後服務。'], en: ['Importers care about lead time, quality, and tiers; distributors care about territory, margin, marketing support, and service.'] } },
+      { id: 'outreach', heading: { zh: '開發重點', en: 'Outreach' }, content: { zh: ['一開始就把對方角色講清楚：你要談的是進口合作，還是通路合作；並用一個明確證據，例如案例、規格或認證，提高可信度。'], en: ['State the role you are targeting (import vs channel) and add one proof point (case, specs, certifications) to improve credibility.'] } },
     ],
     faq: [
       { q: { zh: '我應該先找哪一種？', en: 'Which should we target first?' }, a: { zh: '如果目標是快速覆蓋與落地，通常先找經銷商；若你已能直接服務大客戶或品牌，則可先找終端/品牌＋進口端。', en: 'For faster coverage, start with distributors. If you can serve large accounts directly, start with brands/end customers plus import-side partners.' } },
@@ -349,12 +349,12 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何審核外銷詢盤：篩選標準、回覆分類與交付格式', en: 'How to Qualify Export Leads: Criteria, Reply Triage, and Delivery Format' },
     description: { zh: '把回覆做前段分類（合格/培育/不匹配），並用一致格式交付，讓業務更快進入報價與成交。', en: 'Triage replies (qualified/nurture/no-fit) and deliver standardized lead packages for faster closing.' },
     sections: [
-      { id: 'criteria', heading: { zh: '篩選標準（Criteria）', en: 'Criteria' }, content: { zh: ['常見篩選包含：買家角色、需求清晰度、數量/交期、是否符合 MOQ、是否有應用場景與採購時間表。'], en: ['Common criteria: buyer role, clarity of requirements, quantity/lead time, MOQ fit, use case, and buying timeline.'] } },
-      { id: 'triage', heading: { zh: '回覆分類（Triage）', en: 'Reply triage' }, content: { zh: ['合格：需求清楚可進入報價；培育：需求不完整需補資料；不匹配：角色不對或條件不符。'], en: ['Qualified: ready to quote; Nurture: needs more information; No-fit: wrong role or misaligned terms.'] } },
-      { id: 'delivery', heading: { zh: '交付格式（Delivery）', en: 'Delivery format' }, content: { zh: ['每筆詢盤包含：公司/聯絡方式/需求摘要/對話紀錄/下一步建議，讓業務不需要重做功課。'], en: ['Each lead includes company, contacts, requirement summary, conversation logs, and next-step suggestions.'] } },
+      { id: 'criteria', heading: { zh: '篩選標準', en: 'Criteria' }, content: { zh: ['常見篩選條件包含：買家角色、需求清晰度、數量與交期、是否符合最低訂購量，以及是否有應用情境與採購時間表。'], en: ['Common criteria: buyer role, clarity of requirements, quantity/lead time, MOQ fit, use case, and buying timeline.'] } },
+      { id: 'triage', heading: { zh: '回覆分類', en: 'Reply triage' }, content: { zh: ['合格：需求清楚，可進入報價；待培養：需求還不完整，需要補資料；不匹配：角色不對或條件不符。'], en: ['Qualified: ready to quote; Nurture: needs more information; No-fit: wrong role or misaligned terms.'] } },
+      { id: 'delivery', heading: { zh: '交付格式', en: 'Delivery format' }, content: { zh: ['每筆詢問都包含公司、聯絡方式、需求摘要、對話紀錄與下一步建議，讓業務不需要重新整理背景。'], en: ['Each lead includes company, contacts, requirement summary, conversation logs, and next-step suggestions.'] } },
     ],
     faq: [
-      { q: { zh: '沒有數量或規格的回覆要算詢盤嗎？', en: 'Do replies without specs/quantity count as leads?' }, a: { zh: '通常先歸為培育（nurture）。用 1–2 個追問把需求補齊，再判定是否合格。', en: 'Treat them as nurture leads. Ask 1–2 follow-up questions to confirm requirements before qualifying.' } },
+      { q: { zh: '沒有數量或規格的回覆要算詢問嗎？', en: 'Do replies without specs/quantity count as leads?' }, a: { zh: '通常先歸為待培養。用 1 至 2 個追問把需求補齊，再判定是否屬於合格詢問。', en: 'Treat them as nurture leads. Ask 1–2 follow-up questions to confirm requirements before qualifying.' } },
     ],
     internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
   },

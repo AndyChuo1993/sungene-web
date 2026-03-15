@@ -8,17 +8,17 @@ const service: ServiceSeo = {
     en: 'Export Marketing | Content-led Growth for Overseas Buyers',
   },
   description: {
-    zh: '用 SEO + GEO 的內容架構，搭配高品質落地頁與內部連結，讓你的網站變成可持續獲客的 inbound 機器。',
-    en: 'Turn your site into an inbound machine with SEO + AI-search (GEO) content architecture, landing pages, and internal links.',
+    zh: '用 SEO + 內容架構，搭配高品質落地頁與內部連結，讓你的網站變成可持續獲客的 inbound 機器。',
+    en: 'Turn your site into an inbound machine with SEO-driven content architecture, landing pages, and internal links.',
   },
-  h1: { zh: '出口行銷服務', en: 'Export Marketing (SEO + GEO) for Manufacturers' },
+  h1: { zh: '出口行銷服務', en: 'Export Marketing for Manufacturers' },
   problem: {
-    zh: ['你的服務頁太像銷售頁：缺 framework、lists、guides、data，AI 搜尋難引用。', '關鍵字覆蓋太少：只吃到少數詞，缺乏長尾流量（how to / tools / checklist）。', '內部連結規則不清楚，文章與服務、案例、資源磁鐵之間沒有形成集群。'],
-    en: ['Your pages read like sales pages: missing frameworks, lists, guides, and data for AI search to cite.', 'Keyword coverage is too narrow: you miss long-tail “how-to”, tools, and checklist queries.', 'Internal linking is weak: blog, services, cases, and magnets are not clustered.'],
+    zh: ['你的服務頁太像銷售頁：缺清楚的說明、清單、指南與數據，買家看完不容易理解差異與下一步。', '關鍵字覆蓋太少：只吃到少數詞，缺乏長尾流量（how to / tools / checklist）。', '內部連結規則不清楚，文章與服務、案例、資源磁鐵之間沒有形成集群。'],
+    en: ['Your pages read like sales pages: they lack clear explanations, lists, guides, and proof—buyers can’t decide fast.', 'Keyword coverage is too narrow: you miss long-tail “how-to”, tools, and checklist queries.', 'Internal linking is weak: blog, services, cases, and magnets are not clustered.'],
   },
   solution: {
-    zh: ['我們用「頁型架構 + 內容模板 + Schema + 內鏈規則」把網站做成可持續獲客的系統，而不是一次性的文章堆疊。', '內容以 GEO 結構寫法（Definition / Methods / Tools / Step-by-step / Checklist / FAQ）讓 AI 搜尋更容易引用與摘要。'],
-    en: ['We build a sustainable acquisition system via architecture, templates, schema, and standardized internal linking.', 'We write with GEO structures (definition, methods, tools, step-by-step, checklist, FAQ) so AI search can cite and summarize.'],
+    zh: ['我們用「頁型架構 + 內容模板 + Schema + 內鏈規則」把網站做成可持續獲客的系統，而不是一次性的文章堆疊。', '內容用清楚的結構（定義 / 方法 / 工具 / 步驟 / 清單 / FAQ）讓買家更快看懂、比較並採取行動。'],
+    en: ['We build a sustainable acquisition system via architecture, templates, schema, and standardized internal linking.', 'We structure content with definitions, steps, tools, checklists, and FAQs so buyers can understand and act faster.'],
   },
   whatIs: {
     zh: ['出口行銷是以海外買家搜尋意圖為核心，透過內容、落地頁、結構化資料與內部連結，把自然流量轉成可追蹤的詢盤。'],
@@ -33,8 +33,8 @@ const service: ServiceSeo = {
     en: ['Plan keyword clusters and page types (services, markets, industries, blog, magnets).', 'Ship conversion-first templates: TOC, FAQ, proof, CTA.', 'Implement schema: Article, FAQ, Breadcrumb, Organization.', 'Standardize internal linking: blog → service → case → magnet.', 'Iterate weekly: 2 posts/week plus refreshes and internal links.'],
   },
   tools: {
-    zh: ['關鍵字研究：以主題群集（Topic Cluster）拆解成服務/方法/成果/產業/市場。', '內容模板：Definition/Framework/Methods/Tools/Checklist/FAQ。', '技術 SEO：sitemap、canonical、hreflang、Schema（FAQ/Article/Breadcrumb）。'],
-    en: ['Keyword research: topic clusters mapped into service/method/outcome/industry/market pages.', 'Templates: definition, framework, methods, tools, checklist, FAQ.', 'Technical SEO: sitemap, canonical, hreflang, schema (FAQ/Article/Breadcrumb).'],
+    zh: ['關鍵字研究：以主題群集（Topic Cluster）拆解成服務/方法/成果/產業/市場。', '內容模板：定義/方法/工具/步驟/清單/FAQ。', '技術 SEO：sitemap、canonical、hreflang、Schema（FAQ/Article/Breadcrumb）。'],
+    en: ['Keyword research: topic clusters mapped into service/method/outcome/industry/market pages.', 'Templates: definitions, methods, tools, steps, checklists, and FAQs.', 'Technical SEO: sitemap, canonical, hreflang, schema (FAQ/Article/Breadcrumb).'],
   },
   checklist: {
     zh: ['完成 1 個核心服務頁（含 FAQ schema + 內鏈）。', '完成 1 篇權威文章（3000 字以上）並加 TOC 與 Checklist。', '每篇文章至少連到：服務 + 案例 + 資源磁鐵。', '每週固定產出與回補舊文，維持節奏。'],
@@ -43,12 +43,12 @@ const service: ServiceSeo = {
   results: {
     zh: [
       { label: '長尾曝光', value: '持續累積', desc: '以 how-to / tools / checklist 擴大關鍵字覆蓋。' },
-      { label: '可引用內容', value: 'GEO 結構', desc: 'AI 搜尋更容易抓到 framework 與清單。' },
+      { label: '清楚的服務架構', value: '內容結構', desc: '讓買家更快理解差異、成本與下一步。' },
       { label: '轉換導流', value: '內鏈系統', desc: '文章→服務→案例→磁鐵，形成可追蹤路徑。' },
     ],
     en: [
       { label: 'Long-tail reach', value: 'Compounds', desc: 'Expand coverage via how-to, tools, and checklist queries.' },
-      { label: 'Citable structure', value: 'GEO', desc: 'Frameworks and lists are easier for AI search to quote.' },
+      { label: 'Clear structure', value: 'Content architecture', desc: 'Help buyers understand options and decide faster.' },
       { label: 'Conversion paths', value: 'Linking', desc: 'Blog → service → case → magnet pathways become trackable.' },
     ],
   },
@@ -82,8 +82,8 @@ const service: ServiceSeo = {
   },
   faq: [
     {
-      q: { zh: 'GEO 是什麼？', en: 'What is GEO?' },
-      a: { zh: 'GEO 是針對 AI 搜尋（ChatGPT/Perplexity/Google AI）偏好的結構化內容寫法，讓內容更容易被引用與摘要。', en: 'GEO optimizes content structure for AI search engines so pages are easier to cite and summarize.' },
+      q: { zh: '內容架構是什麼？', en: 'What is content architecture?' },
+      a: { zh: '內容架構是把買家常問的問題，用一致的段落與順序說清楚（定義、適用情境、流程、交付、FAQ），讓人一眼看懂差異並知道下一步。', en: 'Content architecture organizes buyer questions into a consistent structure (definition, fit, process, deliverables, FAQ) so visitors can compare and take action faster.' },
     },
     {
       q: { zh: '多久能看到流量？', en: 'How soon will we see traffic?' },

@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">{lang === 'zh' ? '產業頁總覽' : 'Industry Pages'}</h1>
           <p className="mt-4 max-w-3xl text-lg text-gray-600">
             {lang === 'zh'
-              ? '這裡是依產業切分的內容頁，適合讓買家快速理解你所在產業的常見採購情境、風險與切入方式。和部落格不同，這些頁面偏向產業定位；和資源頁不同，這裡不是下載內容。'
+              ? '這裡依產業整理常見的採購情境、風險與切入方式，方便快速找到更貼近你產品與買家的參考內容。'
               : 'These pages are organized by industry so buyers can quickly understand typical sourcing context, risks, and entry points. Unlike the blog, these are positioning pages; unlike resources, they are not downloads.'}
           </p>
         </div>

@@ -10,25 +10,25 @@ interface ComparisonRow {
 
 const rows: ComparisonRow[] = [
   {
-    feature: { zh: '目標（Goal）', en: 'Goal' },
+    feature: { zh: '目標', en: 'Goal' },
     leadGen: { zh: '找到海外買家並產出合格詢盤', en: 'Find overseas buyers and generate qualified inquiries' },
     distributor: { zh: '找到並簽下通路夥伴，建立覆蓋', en: 'Recruit channel partners and build market coverage' },
     outsourcing: { zh: '把外貿開發與跟進做成可交付系統', en: 'Run export sales operations as a deliverable system' },
   },
   {
-    feature: { zh: '流程（Process）', en: 'Process' },
-    leadGen: { zh: 'ICP → 名單 → 訊息 → 跟進節奏 → 回覆分類', en: 'ICP → list → message → cadence → reply triage' },
-    distributor: { zh: '市場分層 → 通路地圖 → 夥伴名單 → Offer → 推進簽約', en: 'Market tiers → channel map → shortlist → offer → agreement' },
+    feature: { zh: '流程', en: 'Process' },
+    leadGen: { zh: '理想客戶 → 名單 → 訊息 → 跟進節奏 → 回覆分類', en: 'ICP → list → message → cadence → reply triage' },
+    distributor: { zh: '市場分層 → 通路地圖 → 夥伴名單 → 合作方案 → 推進簽約', en: 'Market tiers → channel map → shortlist → offer → agreement' },
     outsourcing: { zh: '名單＋開發＋跟進＋初步資格審核＋詢盤交付', en: 'Lists + outreach + follow-ups + qualification + inquiry hand-off' },
   },
   {
-    feature: { zh: '交付（Output）', en: 'Output' },
+    feature: { zh: '交付內容', en: 'Output' },
     leadGen: { zh: '可用名單（Excel）＋詢盤整理', en: 'Usable lists (Excel) + inquiry summaries' },
     distributor: { zh: '可追蹤通路名單＋合作條件框架＋會議', en: 'Trackable shortlist + term framework + meetings' },
     outsourcing: { zh: '合格詢盤持續交付＋可追蹤 pipeline', en: 'Ongoing qualified inquiries + trackable pipeline' },
   },
   {
-    feature: { zh: '時間線（Timeframe）', en: 'Timeframe' },
+    feature: { zh: '時間安排', en: 'Timeframe' },
     leadGen: { zh: '2–8 週（視市場/產業）', en: '2–8 weeks (market/industry dependent)' },
     distributor: { zh: '4–12 週（找人＋談條件）', en: '4–12 weeks (shortlist + terms + meetings)' },
     outsourcing: { zh: '持續交付（常見 3–6 個月起）', en: 'Ongoing delivery (often 3–6 months+)' },

@@ -30,7 +30,6 @@ export default async function RootLayout({ children, params }: { children: React
 
   const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
   const logoUrl = `${site}/logo/sungene.png`
-  const htmlLang = lang === 'zh' ? 'zh-Hant' : 'en'
 
   const websiteSchema = {
     '@context': 'https://schema.org',
@@ -131,11 +130,6 @@ export default async function RootLayout({ children, params }: { children: React
 
   return (
     <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.documentElement.lang = ${JSON.stringify(htmlLang)};`,
-        }}
-      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />

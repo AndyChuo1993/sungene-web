@@ -362,7 +362,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
               </div>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '製造業怎麼找到海外買家' : 'How manufacturers find overseas buyers'}</div>
+              <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '製造業如何找到海外買家' : 'How manufacturers find overseas buyers'}</div>
               <div className="mt-3 space-y-3 text-gray-700 leading-7">
                 {service.howWorks[lang].map((p, i) => (
                   <p key={i}>{p}</p>
@@ -470,7 +470,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           </Section>
         )}
 
-        <Section title={lang === 'zh' ? '流量漏斗' : 'Lead generation funnel'}>
+        <Section title={lang === 'zh' ? '開發漏斗' : 'Lead generation funnel'}>
           <div className="rounded-xl border border-gray-200 bg-white p-6">
             <div className="text-sm font-semibold text-gray-900">{lang === 'zh' ? '從市場到會議的轉換示意' : 'Example conversion from market to meetings'}</div>
             <div className="mt-4">
@@ -579,35 +579,8 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
           </div>
         </Section>
 
-        {service.seoSections && service.seoSections.length > 0 && (
-          <Section title={lang === 'zh' ? 'SEO 深度內容' : 'SEO depth (definitions, frameworks, steps)'}>
-            <div className="space-y-8">
-              {service.seoSections.map((s) => (
-                <div key={s.id} className="rounded-xl border border-gray-200 bg-white p-6">
-                  <div className="text-lg font-bold text-gray-900">{s.title[lang]}</div>
-                  <div className="mt-4 space-y-4 text-gray-700 leading-7">
-                    {s.content[lang].map((p, i) => (
-                      <p key={i}>{p}</p>
-                    ))}
-                  </div>
-                  {s.bullets?.[lang] && s.bullets[lang].length > 0 && (
-                    <ul className="mt-5 space-y-2 text-gray-700">
-                      {s.bullets[lang].map((b, i) => (
-                        <li key={i} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-900" />
-                          <span className="leading-7">{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </Section>
-        )}
-
         {service.geoSections && service.geoSections.length > 0 && (
-          <Section title={service.geoGroupTitle?.[lang] ?? (lang === 'zh' ? '方法與框架' : 'Methods & frameworks')}>
+          <Section title={service.geoGroupTitle?.[lang] ?? (lang === 'zh' ? '我們怎麼做' : 'How we work')}>
             <div className="space-y-6">
               {service.geoSections.map((g) => (
                 <div key={g.id} className="rounded-xl border border-gray-200 bg-white p-6">
@@ -627,12 +600,12 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
         )}
 
         {service.relatedLinks && service.relatedLinks.length > 0 && (
-          <Section title={lang === 'zh' ? '延伸閱讀與內部連結' : 'Related links'}>
+          <Section title={lang === 'zh' ? '延伸閱讀' : 'Related links'}>
             <div className="grid gap-4 md:grid-cols-2">
               {service.relatedLinks.map((l, i) => (
                 <Link key={i} href={l.href} className="rounded-xl border border-gray-200 bg-white p-6 hover:shadow-md transition">
                   <div className="font-semibold text-gray-900">{l.label[lang]}</div>
-                  <div className="mt-2 text-sm text-gray-600">{lang === 'zh' ? '查看內容與下一步 →' : 'Open and continue →'}</div>
+                  <div className="mt-2 text-sm text-gray-600">{lang === 'zh' ? '查看內容 →' : 'Open and continue →'}</div>
                 </Link>
               ))}
             </div>

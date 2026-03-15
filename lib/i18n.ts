@@ -1,4 +1,4 @@
-﻿﻿export type Lang = 'zh' | 'en'
+﻿﻿﻿﻿export type Lang = 'zh' | 'en'
 
 const dict = {
   'zh': {
@@ -23,7 +23,7 @@ const dict = {
     hero_description: 'SunGene 協助製造商建立海外買家名單、持續獲取合格詢盤，並打造海外經銷通路網絡。',
     hero_cta_start: '開始開發海外客戶',
     hero_cta_analysis: '免費市場分析',
-    home_cta_title: '立即開始您的外貿增長',
+    home_cta_title: '立即開始你的外貿成長',
 
     // Home - Services
     home_service_1_title: '外銷客戶開發',

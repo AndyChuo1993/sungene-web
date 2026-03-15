@@ -39,7 +39,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
               href={`/${lang}/export-market-analysis`}
               className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-800 transition"
             >
-              {lang === 'zh' ? '免費市場分析' : 'Free Market Analysis'}
+              {lang === 'zh' ? '免費出口市場分析' : 'Free Market Analysis'}
             </Link>
             <Link
               href={`/${lang}/contact`}
@@ -85,7 +85,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
         </section>
 
         <section className="rounded-xl border border-gray-200 bg-white p-6 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">{lang === 'zh' ? 'Lead Generation 策略' : 'Lead Generation Strategy'}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">{lang === 'zh' ? '外銷開發策略' : 'Lead Generation Strategy'}</h2>
           <ol className="space-y-3 text-gray-700">
             {page.strategy[lang].map((x, i) => (
               <li key={i} className="flex gap-3">

@@ -20,7 +20,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       desc: t(lang, 'process_2_desc'),
       week: lang === 'zh' ? '第 2 週' : 'Week 2',
       details: lang === 'zh' 
-        ? ['我們做什麼：決策人識別與資料驗證', '客戶需提供：目標客戶類型 (ICP)', '交付內容：精準決策人名單 (Excel)'] 
+        ? ['我們做什麼：決策人識別與資料驗證', '客戶需提供：理想客戶條件', '交付內容：精準決策人名單（試算表）'] 
         : ['We do: Decision Maker ID & Verification', 'You provide: Ideal Customer Profile', 'Deliverable: Verified Contact List (Excel)'],
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
@@ -32,7 +32,7 @@ export default function ProcessSection({ lang }: { lang: Lang }) {
       desc: t(lang, 'process_3_desc'),
       week: lang === 'zh' ? '第 3-6 週' : 'Week 3-6',
       details: lang === 'zh' 
-        ? ['我們做什麼：多波段開發信與 LinkedIn 觸達', '客戶需提供：產品優勢與案例素材', '交付內容：每週開發進度報告'] 
+        ? ['我們做什麼：多階段開發信與商務社群接觸', '客戶需提供：產品優勢與案例素材', '交付內容：每週開發進度報告'] 
         : ['We do: Multi-touch Email & LinkedIn Outreach', 'You provide: USP & Case Studies', 'Deliverable: Weekly Progress Reports'],
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>

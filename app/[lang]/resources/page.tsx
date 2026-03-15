@@ -75,7 +75,7 @@ export default async function Page({
         <div className="mx-auto max-w-7xl px-6 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{lang === 'zh' ? '資源中心' : 'Resource Center'}</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {lang === 'zh' ? '把外貿開發常用的指南、檢查表與市場素材集中在這裡。部落格偏教學與觀點；產業頁與市場頁則用來承接特定搜尋意圖。' : 'This area centralizes reusable export guides, checklists, and market assets. The blog focuses on education and commentary, while industry and market pages capture specific search intent.'}
+            {lang === 'zh' ? '把外貿開發常用的指南、檢查表與市場素材集中在這裡，方便快速找到可直接參考與使用的內容。' : 'This area centralizes reusable export guides, checklists, and market assets. The blog focuses on education and commentary, while industry and market pages capture specific search intent.'}
           </p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export default async function Page({
                   <div className="text-sm font-bold uppercase tracking-wide text-blue-700">{lang === 'zh' ? '本區定位' : 'What belongs here'}</div>
                   <p className="mt-3 leading-7">
                     {lang === 'zh'
-                      ? '資源中心放的是可直接拿來使用的內容，例如開發流程指南、買家名單建立方法、冷開發信範例、以及市場研究素材。若你只是想看觀點文章，請去部落格。'
+                      ? '資源中心整理的是可直接參考與應用的內容，例如開發流程指南、買家名單建立方法、開發信範例與市場研究素材。'
                       : 'The resource center is for reusable assets: process guides, buyer-list methods, cold email examples, and market research materials. If you want commentary or educational posts, go to the blog.'}
                   </p>
                 </div>

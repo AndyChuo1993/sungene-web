@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">{lang === 'zh' ? '市場頁總覽' : 'Market Pages'}</h1>
           <p className="mt-4 max-w-3xl text-lg text-gray-600">
             {lang === 'zh'
-              ? '這裡是依地區與市場切分的內容頁，重點在買家角色、通路模式與該市場的開發邏輯。它和部落格教學不同，也不該和資源頁混在一起。'
+              ? '這裡依不同地區與市場整理買家角色、通路模式與市場切入重點，方便快速掌握各市場的合作方向。'
               : 'These pages are organized by geography and market logic, focusing on buyer roles, channels, and entry approaches. They are distinct from blog tutorials and resource downloads.'}
           </p>
         </div>

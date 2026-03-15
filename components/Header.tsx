@@ -19,7 +19,7 @@ export default function Header({ lang }: { lang: Lang }) {
   const serviceLinks = [
     {
       href: `/${lang}/services/export-lead-generation`,
-      label: lang === 'zh' ? '外貿客戶開發' : 'Export Lead Generation',
+      label: lang === 'zh' ? '外銷客戶開發' : 'Export Lead Generation',
     },
     {
       href: `/${lang}/services/distributor-development`,

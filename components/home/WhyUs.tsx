@@ -13,7 +13,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     {
       id: 2,
       title: t(lang, 'why_2'),
-      desc: lang === 'zh' ? '主動出擊而非被動等待。透過開發信與 LinkedIn 多管道觸達，直接將產品推送到買家面前。' : 'Proactive outreach, not passive waiting. We put your products directly in front of buyers via Email and LinkedIn.',
+      desc: lang === 'zh' ? '主動開發，而不是被動等待。透過開發信與商務社群多管道接觸，直接把產品資訊送到潛在買家面前。' : 'Proactive outreach, not passive waiting. We put your products directly in front of buyers via Email and LinkedIn.',
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
       )
@@ -21,7 +21,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     {
       id: 3,
       title: t(lang, 'why_3'),
-      desc: lang === 'zh' ? '從詢盤篩選、樣品寄送、報價談判到訂單成交，我們是您最專業的外貿業務夥伴。' : 'From inquiry screening to negotiation and closing, we act as your professional export sales partner.',
+      desc: lang === 'zh' ? '從詢問篩選、樣品安排、報價溝通到後續推進，我們協助你把外貿流程做得更穩定、更可追蹤。' : 'From inquiry screening to negotiation and closing, we act as your professional export sales partner.',
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
       )
@@ -39,7 +39,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                     {lang === 'zh' 
-                        ? 'SunGene 專注於製造業 B2B 外貿開發。我們不主打花俏工具，而是把名單、開發、跟進與詢盤交付做成一套可持續的流程。' 
+                        ? 'SunGene 專注於製造業外貿開發。我們重視的是可執行的流程：從名單、開發、跟進到詢問交付，建立一套可持續運作的系統。' 
                         : 'SunGene focuses on B2B export growth for manufacturers. We do not sell tool hype. We build a repeatable system for list building, outreach, follow-ups, and inquiry delivery.'}
                 </p>
                 <div className="h-1 w-24 bg-blue-600 rounded-full"></div>

@@ -1,4 +1,4 @@
-# AI Trade Web (Next.js 14, App Router)
+# AI Trade Web (Next.js App Router)
 
 ## 啟動方式（本機）
 1. 安裝依賴
@@ -24,6 +24,10 @@
   - `_NEXT_PUBLIC_SITE_URL`
   - `_NEXT_PUBLIC_CMS_URL`
   - `_NEXT_PUBLIC_RECAPTCHA_SITE_KEY`（可留空）
+
+## 打包/交付注意
+- 交付/部署請只包含原始碼與必要設定（app、components、data、lib、public、package.json/lock）。
+- 請勿把敏感或雜項一起打包：`.env*`、`.git`、`.next`、`node_modules`、`reports`、`*.log`、`*.zip`。
 
 ## SEO 與 Sitemap/Robots
 - `/sitemap.xml`：包含 CMS pages + Blog + Case Studies（lastModified 依 CMS updatedAt/publishedAt）

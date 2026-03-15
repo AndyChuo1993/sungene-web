@@ -87,12 +87,13 @@ export default function InquiryForm({
       
       const payload = {
         type,
-        name: data.name || data.company || 'Anonymous', // Fallback for name if not present (e.g. Free Analysis only asks Company)
+        name: data.name || data.company || 'Anonymous',
         email: data.email,
         company: data.company,
         productName: data.product,
         targetMarket: data.market,
         message: data.message,
+        website: (formData.get('website') as string) || '',
         pageSource: pathname,
         lang: lang,
         utm_source: searchParams.get('utm_source') || '',
@@ -116,7 +117,9 @@ export default function InquiryForm({
         json = null
       }
 
-      if (!res.ok && !json?.ok) throw new Error('Submission failed')
+      if (!res.ok || json?.ok === false) {
+        throw new Error(json?.error || 'Submission failed')
+      }
 
       setStatus('success')
       // Reset form
@@ -147,6 +150,14 @@ export default function InquiryForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
       {fields.map((field) => (
         <div key={field.name}>
           <label htmlFor={field.name} className="block text-sm font-medium text-gray-700 mb-1">
@@ -185,7 +196,7 @@ export default function InquiryForm({
 
       {status === 'email_error' && (
         <div className="p-4 bg-yellow-50 text-yellow-800 rounded-sm border border-yellow-200">
-          <strong>{lang === 'zh' ? 'Email 格式錯誤' : 'Invalid Email'}</strong>: {lang === 'zh' ? '請輸入有效的電子郵件地址。' : 'Please enter a valid email address.'}
+          <strong>{lang === 'zh' ? '電子郵件格式錯誤' : 'Invalid Email'}</strong>: {lang === 'zh' ? '請輸入有效的電子郵件地址。' : 'Please enter a valid email address.'}
         </div>
       )}
 
@@ -201,7 +212,7 @@ export default function InquiryForm({
       
       <p className="text-xs text-center text-gray-400 mt-4">
         {lang === 'zh' 
-          ? '提交表單即代表您同意我們的隱私權政策。我們尊重您的數據隱私。'
+          ? '提交表單即代表您同意我們的隱私權政策。我們尊重您的資料隱私。'
           : 'By submitting this form, you agree to our privacy policy. We respect your data privacy.'}
       </p>
     </form>

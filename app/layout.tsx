@@ -1,9 +1,10 @@
 import '../styles/globals.css'
 import React from 'react'
+import { headers } from 'next/headers'
 
 export const metadata = {
-  title: 'SunGene',
-  description: 'SunGene website',
+  title: 'SunGene | 外銷客戶開發與海外市場拓展',
+  description: 'SunGene 協助製造業開發海外買家、建立經銷通路，並把外貿開發流程做得更穩定、更可追蹤。',
 }
 
 export default async function RootLayout({
@@ -11,8 +12,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const h = await headers()
+  const lang = h.get('x-lang')
+  const htmlLang = lang === 'en' ? 'en' : 'zh-Hant'
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={htmlLang} suppressHydrationWarning>
       <body className="min-h-screen bg-white font-sans text-gray-900 antialiased">{children}</body>
     </html>
   )

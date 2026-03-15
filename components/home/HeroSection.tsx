@@ -46,7 +46,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
           </div>
 
           <div className="mt-16 flex flex-col items-center justify-center gap-8 border-t border-gray-100 pt-8 text-sm font-medium uppercase tracking-wider text-gray-400 md:flex-row md:gap-16">
-            <span>{lang === 'zh' ? '服務超過 50+ 工廠' : 'Serving 50+ Factories'}</span>
+            <span>{lang === 'zh' ? '已服務超過 50 家工廠' : 'Serving 50+ Factories'}</span>
             <span className="hidden md:inline-block">•</span>
             <span>{lang === 'zh' ? '專注 B2B 外貿開發' : 'Focus on B2B Export'}</span>
             <span className="hidden md:inline-block">•</span>

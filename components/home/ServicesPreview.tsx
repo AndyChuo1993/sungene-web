@@ -12,7 +12,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
           : 'Verified buyer lists and qualified inquiries for manufacturers',
       items:
         lang === 'zh'
-          ? ['買家名單整理與驗證', '電子郵件／LinkedIn 開發節奏', '合格詢盤交付']
+          ? ['買家名單整理與驗證', '電子郵件與商務社群開發節奏', '合格詢盤交付']
           : ['Verified buyer list building', 'Email / LinkedIn cadence', 'Qualified inquiry handoff'],
       link: `/${lang}/services/export-lead-generation`,
       icon: (
@@ -48,7 +48,7 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
           : 'You quote and ship. We run the outreach and follow-up system.',
       items:
         lang === 'zh'
-          ? ['前段開發與跟進外包', '回覆分類與需求整理', '建立可複製 SOP']
+          ? ['前段開發與跟進外包', '回覆分類與需求整理', '建立可複製的標準作業流程']
           : ['Managed outreach and follow-ups', 'Reply triage and qualification', 'Repeatable SOP'],
       link: `/${lang}/services/export-sales-outsourcing`,
       icon: (

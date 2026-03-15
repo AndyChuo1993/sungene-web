@@ -49,17 +49,19 @@ function getText(value: unknown, max = 2000) {
   return trimmed.slice(0, max)
 }
 
-function sanitizeBody(body: Record<string, unknown>) {
+type SanitizeResult = { item: Inquiry } | { error: string }
+
+function sanitizeBody(body: Record<string, unknown>): SanitizeResult {
   const type = getText(body.type, 80)
   const name = getText(body.name, 120)
   const email = getText(body.email, 200)?.toLowerCase()
 
   if (!type || !allowedTypes.includes(type as (typeof allowedTypes)[number])) {
-    return { error: 'Invalid inquiry type' as const }
+    return { error: 'Invalid inquiry type' }
   }
 
   if (!name || !email || !emailRegex.test(email)) {
-    return { error: 'Missing or invalid contact fields' as const }
+    return { error: 'Missing or invalid contact fields' }
   }
 
   const item: Inquiry = {
@@ -87,11 +89,23 @@ function sanitizeBody(body: Record<string, unknown>) {
   return { item }
 }
 
+function jsonFail(status: number, error: string, extra?: Record<string, unknown>) {
+  return Response.json({ ok: false, error, ...(extra || {}) }, { status })
+}
+
 export async function POST(req: Request) {
   const ip = (req.headers.get('x-forwarded-for') || '').split(',')[0] || 'unknown'
+  const reqId = `REQ-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`
   const rl = rateLimit(ip, 10, 60_000)
-  if (!rl.ok) return new Response('Too Many Requests', { status: 429 })
-  const body = await req.json()
+  if (!rl.ok) return jsonFail(429, 'Too Many Requests', { reqId })
+
+  let body: any
+  try {
+    body = await req.json()
+  } catch {
+    return jsonFail(400, 'Invalid JSON body', { reqId })
+  }
+
   if (process.env.RECAPTCHA_SECRET && body.recaptchaToken) {
     const token = body.recaptchaToken
     const vr = await fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -99,28 +113,47 @@ export async function POST(req: Request) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ secret: process.env.RECAPTCHA_SECRET, response: token })
     }).then(r => r.json()).catch(() => null)
-    if (!vr || !vr.success) return new Response('Captcha Failed', { status: 400 })
+    if (!vr || !vr.success) return jsonFail(400, 'Captcha Failed', { reqId })
   }
-  if (body.website) return Response.json({ ok: true })
+  if (body.website) return Response.json({ ok: true, reqId })
 
   const sanitized = sanitizeBody(body)
   if ('error' in sanitized) {
-    return Response.json({ ok: false, error: sanitized.error }, { status: 400 })
+    return jsonFail(400, sanitized.error, { reqId })
   }
 
   const item = sanitized.item
 
-  const reqId = `REQ-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`
   const meta = collectMeta(req)
   const id = `REQ-${Date.now().toString(36)}`
 
   try {
-    const { adminOk, ackOk } = await notify(item, body, meta, id, reqId)
-    if (!adminOk) return new Response('Email Send Failed', { status: 500 })
-    return Response.json({ ok: true, id, ackOk })
+    const { transporter, fromAddr, to } = getTransporter()
+    const adminOk = await sendAdminEmail({ transporter, fromAddr, to, item, rawBody: body, meta, id, reqId })
+
+    if (!adminOk) {
+      console.error('[inquiries]', { reqId, adminOk: false, ackOk: false, id })
+      return jsonFail(500, 'Email Send Failed', { reqId })
+    }
+
+    if (item.email) {
+      void sendAckEmail({ transporter, fromAddr, item, id, reqId })
+        .then((ackOk) => {
+          console.info('[inquiries]', { reqId, adminOk: true, ackOk, id })
+        })
+        .catch((err) => {
+          console.error('[inquiries] ack send failed:', err)
+          console.info('[inquiries]', { reqId, adminOk: true, ackOk: false, id })
+        })
+    } else {
+      console.info('[inquiries]', { reqId, adminOk: true, ackOk: true, id })
+    }
+
+    return Response.json({ ok: true, id, ackOk: null, ackQueued: Boolean(item.email), reqId })
   } catch (err) {
     console.error('[inquiries] email send failed:', err)
-    return new Response('Email Send Failed', { status: 500 })
+    console.error('[inquiries]', { reqId, adminOk: false, ackOk: false, id })
+    return jsonFail(500, 'Email Send Failed', { reqId })
   }
 }
 
@@ -133,7 +166,7 @@ function collectMeta(req: Request) {
   return { ref, lang, ip, utm, time: new Date().toISOString() }
 }
 
-async function notify(item: Inquiry, rawBody: any, meta: any, id: string, reqId?: string): Promise<{ adminOk: boolean; ackOk: boolean }> {
+function getTransporter() {
   const url = process.env.SMTP_URL
   const host = process.env.MAIL_HOST || process.env.SMTP_HOST
   const port = Number(process.env.MAIL_PORT || process.env.SMTP_PORT || 587)
@@ -149,7 +182,10 @@ async function notify(item: Inquiry, rawBody: any, meta: any, id: string, reqId?
       host,
       port,
       secure: false, // 587 = STARTTLS
-      auth: { user, pass }
+      auth: { user, pass },
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 10_000,
     })
   } else if (url) {
     transporter = nodemailer.createTransport(url)
@@ -157,6 +193,23 @@ async function notify(item: Inquiry, rawBody: any, meta: any, id: string, reqId?
     throw new Error('SMTP not configured')
   }
 
+  const fromName = process.env.MAIL_FROM || 'SunGene 服務團隊'
+  const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
+
+  return { transporter, fromAddr, to }
+}
+
+async function sendAdminEmail(args: {
+  transporter: any
+  fromAddr: string
+  to: string
+  item: Inquiry
+  rawBody: any
+  meta: any
+  id: string
+  reqId?: string
+}): Promise<boolean> {
+  const { transporter, fromAddr, to, item, rawBody, meta, id, reqId } = args
   const subject = `新詢盤#${id} ${item.type} - ${item.name}`
   const adminText =
 `新詢盤編號: ${id}
@@ -173,9 +226,6 @@ UTM: ${JSON.stringify(meta.utm)}
 IP: ${meta.ip}
 時間: ${meta.time}
 `
-  const fromName = process.env.MAIL_FROM || 'SunGene 服務團隊'
-  const fromAddr = user ? `"${fromName}" <${user}>` : 'no-reply@example.com'
-
   try {
     await transporter.sendMail({
       to,
@@ -185,16 +235,26 @@ IP: ${meta.ip}
       replyTo: item.email,
       headers: { 'X-Request-ID': reqId || '' },
     })
+    return true
   } catch {
-    return { adminOk: false, ackOk: false }
+    return false
   }
+}
+
+async function sendAckEmail(args: {
+  transporter: any
+  fromAddr: string
+  item: Inquiry
+  id: string
+  reqId?: string
+}): Promise<boolean> {
+  const { transporter, fromAddr, item, id, reqId } = args
 
   // 自動回覆給客戶
-  if (item.email) {
-    const ackSubj = `我們已收到您的詢盤（編號 ${id}） | We received your inquiry (${id})`
-    const contactEmail = 'contact@sungenelite.com'
-    const contactPhone = '+886 4 3703 2705'
-    const ackText =
+  const ackSubj = `我們已收到您的詢盤（編號 ${id}） | We received your inquiry (${id})`
+  const contactEmail = 'contact@sungenelite.com'
+  const contactPhone = '+886 4 3703 2705'
+  const ackText =
 `您好 ${item.name}：
 
 我們已收到您的詢盤（編號 ${id}），專員將在 1-2 個工作日內與您聯繫。
@@ -218,19 +278,17 @@ Tel: ${contactPhone}
 
 Best regards,
 SunGene Service Team`
-    try {
-      await transporter.sendMail({
-        to: item.email,
-        from: fromAddr,
-        subject: ackSubj,
-        text: ackText,
-        headers: { 'X-Request-ID': reqId || '' },
-      })
-      return { adminOk: true, ackOk: true }
-    } catch {
-      return { adminOk: true, ackOk: false }
-    }
-  }
 
-  return { adminOk: true, ackOk: true }
+  try {
+    await transporter.sendMail({
+      to: item.email,
+      from: fromAddr,
+      subject: ackSubj,
+      text: ackText,
+      headers: { 'X-Request-ID': reqId || '' },
+    })
+    return true
+  } catch {
+    return false
+  }
 }

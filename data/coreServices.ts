@@ -21,7 +21,7 @@ export const coreServices = {
       en: 'We help manufacturers identify overseas buyers and generate qualified export inquiries.',
     },
     heroBestFor: {
-      zh: '最適合製造商、OEM/ODM 工廠、工業供應商，切入新市場。',
+      zh: '最適合製造商、代工工廠與工業供應商，用於切入新市場。',
       en: 'Best for manufacturers, OEM/ODM factories, and industrial suppliers entering new markets.',
     },
     heroDeliverablesLine: {
@@ -29,12 +29,12 @@ export const coreServices = {
       en: 'Deliverables: verified buyer lists, qualified replies, and meeting-ready handoffs.',
     },
     heroTrustSignal: {
-      zh: '適用於市場切入、經銷商搜尋與可複製的主動開發增長。',
+      zh: '適用於市場切入、經銷商搜尋與可複製的主動開發成長。',
       en: 'Used for market entry, distributor search, and repeatable outbound growth.',
     },
     h1: { zh: '外銷客戶開發（製造業）', en: 'Export Lead Generation for Manufacturers' },
     whoFor: {
-      zh: ['製造業', 'OEM/ODM 工廠', '工業品公司', '以外銷為主的企業'],
+      zh: ['製造業', '代工工廠', '工業品公司', '以外銷為主的企業'],
       en: ['Manufacturers', 'OEM factories', 'Industrial companies', 'Export-oriented businesses'],
     },
     whatYouGet: {
@@ -70,13 +70,13 @@ export const coreServices = {
       ],
     },
     problem: {
-      zh: ['靠展會與平台被動等詢盤，品質不穩定、價格競爭激烈。', '名單品質差：找不到決策人、電子郵件無效、或根本不是適合的買家角色。', '寄信一次就停，沒有節奏式跟進與回覆分類，導致大量商機流失。'],
+      zh: ['靠展會與平台被動等詢問，品質不穩定、價格競爭激烈。', '名單品質差：找不到決策人、電子郵件無效，或根本不是適合的買家角色。', '寄信一次就停，沒有節奏式跟進與回覆分類，導致大量商機流失。'],
       en: ['Inbound from fairs and platforms is unstable and often price-driven.', 'Poor lists: wrong roles, invalid emails, and weak buyer fit.', 'One-and-done outreach without cadence or reply triage causes lead leakage.'],
     },
     whyItMatters: {
       zh: [
         '當開發沒有系統時，成本會被「無效名單」與「斷點跟進」吃掉：寄得越多，越難知道到底是名單問題、訊息問題，還是跟進節奏問題。',
-        '這會直接造成成交週期拉長、回覆品質下降，最後只能回到平台比價或等待展會，成長不可控。',
+        '這會直接造成成交週期拉長、回覆品質下降，最後只能回到平台比價或等待展會，成效也變得不可控。',
         '把流程做成可追蹤與可交付，才能每週優化、持續累積可推進的詢盤，而不是每次都重來。',
       ],
       en: [
@@ -86,15 +86,15 @@ export const coreServices = {
       ],
     },
     solution: {
-      zh: ['我們把外貿開發做成一套可複製的系統：理想客戶 → 名單 → 訊息 → 跟進 → 轉化，並以「合格詢盤」作為可交付成果。', '你會得到可直接使用的名單（寄信名單＋開信名單）、可追蹤的開發節奏，以及可交付的詢盤整理。'],
+      zh: ['我們把外貿開發做成一套可複製的系統：理想客戶 → 名單 → 訊息 → 跟進 → 轉化，並以「合格詢問」作為可交付成果。', '你會得到可直接使用的名單（寄信名單與開信名單）、可追蹤的開發節奏，以及可交付的詢問整理。'],
       en: ['We make export outreach repeatable with ICP → list → message → follow-up → conversion, and deliver qualified inquiries as outcomes.', 'You receive ready-to-use lists (sent list + opens list), a trackable cadence, and organized inquiry hand-offs.'],
     },
     whatIs: {
-      zh: ['外貿客戶開發是針對特定市場與買家角色，建立可驗證的海外買家名單，並透過多觸點開發節奏獲取詢盤。'],
+      zh: ['外銷客戶開發是針對特定市場與買家角色，建立可驗證的海外買家名單，並透過多觸點開發節奏獲取詢問。'],
       en: ['Export lead generation builds verified overseas prospect lists for specific markets and buyer roles, then runs multi-touch outreach to generate inquiries.'],
     },
     howWorks: {
-      zh: ['製造業要找到海外買家，核心不是寄更多信，而是先把理想客戶條件與買家角色（進口商/經銷商/品牌商/終端工廠）定義清楚，再用名單驗證與節奏式跟進提高回覆率。'],
+      zh: ['製造業要找到海外買家，核心不是寄更多信，而是先把理想客戶條件與買家角色（進口商、經銷商、品牌商、終端工廠）定義清楚，再用名單驗證與節奏式跟進提高回覆率。'],
       en: ['Manufacturers win overseas buyers by clarifying ICP and buyer roles first, then using verified lists and structured follow-ups to improve reply rates.'],
     },
     process: {
@@ -102,17 +102,17 @@ export const coreServices = {
       en: ['Define ICP: market, industry, channel role, size, and buying style.', 'Build lists: multi-source collection with human + system validation.', 'Messaging: one pain point + one proof + one CTA per email.', 'Cadence: 4–6 structured follow-ups with different proof points.', 'Reply triage: qualified / nurture / no-fit, delivered with summaries and logs.'],
     },
     tools: {
-      zh: ['名單來源：搜尋引擎、領英、產業協會/目錄、展會名單、進出口資料（依市場）。', '電子郵件驗證與寄送規範：降低跳退並維持網域信譽。', '追蹤與管理：表格或客戶管理系統（已寄/已回/待跟進/已交付）。'],
+      zh: ['名單來源：搜尋引擎、商務社群平台、產業協會與名錄、展會名單，以及進出口資料（依市場而定）。', '電子郵件驗證與寄送規範：降低退信並維持網域信譽。', '追蹤與管理：表格或客戶管理系統（已寄、已回、待跟進、已交付）。'],
       en: ['Sourcing: Google, LinkedIn, directories/associations, trade fairs, import data (where applicable).', 'Deliverability: validation + sending discipline to reduce bounces and protect domain reputation.', 'Tracking: spreadsheet or CRM (sent/replied/follow-up/hand-off).'],
     },
     checklist: {
-      zh: ['定義理想客戶（市場/產業/角色/規模）。', '建立 100–300 家候選清單並驗證電子郵件。', '準備一頁式產品摘要（規格/差異點/交期/最小訂購量）。', '設計 4–6 次跟進節奏與回覆分類規則。'],
+      zh: ['定義理想客戶（市場、產業、角色、規模）。', '建立 100–300 家候選清單並驗證電子郵件。', '準備一頁式產品摘要（規格、差異點、交期、最低訂購量）。', '設計 4–6 次跟進節奏與回覆分類規則。'],
       en: ['Define ICP (market, industry, role, size).', 'Build and validate a list of 100–300 prospects.', 'Prepare a one-page product brief (specs, proof, lead time, MOQ).', 'Create a 4–6 follow-up cadence and reply triage rules.'],
     },
     results: {
       zh: [
         { label: '名單交付', value: '試算表', desc: '寄信名單＋開信名單，可直接用於業務開發。' },
-        { label: '詢盤交付', value: '可追蹤', desc: '每個詢盤包含公司、聯絡方式、需求資訊與對話紀錄。' },
+        { label: '詢問交付', value: '可追蹤', desc: '每個詢問包含公司、聯絡方式、需求資訊與對話紀錄。' },
         { label: '流程資產', value: '可複製', desc: '把「一次性開發」變成可持續的海外開發系統。' },
       ],
       en: [
@@ -167,7 +167,7 @@ export const coreServices = {
     },
     caseStudy: {
       title: { zh: '五金工具製造商：3 個月累計 50–60 個有效詢盤', en: 'Hardware manufacturer: 50–60 qualified inquiries in 3 months' },
-      desc: { zh: '建立 500+ 目標名單並優化開信率至 40%+，超過 10 個潛在客戶進入樣品與報價階段。', en: 'Built 500+ targets, improved open rates to 40%+, and moved 10+ prospects into sampling and quoting.' },
+      desc: { zh: '建立 500 家以上目標名單並優化開啟率至 40% 以上，超過 10 個潛在客戶進入樣品與報價階段。', en: 'Built 500+ targets, improved open rates to 40%+, and moved 10+ prospects into sampling and quoting.' },
       link: '/case-studies/hardware',
     },
     caseStudyStats: {
@@ -238,7 +238,7 @@ export const coreServices = {
         },
         {
           title: '詢盤交付樣張（匿名化）',
-          caption: '每筆包含需求摘要/下一步/對話紀錄',
+          caption: '每筆包含需求摘要、下一步與對話紀錄',
           lines: [
             '公司: NordWerk GmbH（德國）\n買家角色: 經銷商\n需求: 詢問最小訂購量與交期，並希望取得相容規格表\n下一步: 提供規格/認證並安排 20 分鐘會議\n對話: 2026-02-12 來信 → 2026-02-14 回覆 → 2026-02-18 確認會議',
           ],
@@ -334,7 +334,7 @@ export const coreServices = {
       {
         q: { zh: '你們會直接聯絡海外買家嗎？', en: 'Do you contact buyers directly?' },
         a: {
-          zh: '會。我們以電子郵件加領英的多觸點方式進行主動開發與跟進，並把合格回覆整理後交付給你們推進。',
+          zh: '會。我們以電子郵件加商務社群的多觸點方式進行主動開發與跟進，並把合格回覆整理後交付給你們推進。',
           en: 'Yes. We run multi-touch outreach (email + LinkedIn) and deliver qualified replies with context for your team to progress.',
         },
       },
@@ -443,16 +443,16 @@ export const coreServices = {
       },
     ],
     geoGroupTitle: {
-      zh: '找海外買家的方法與框架',
-      en: 'Buyer discovery methods & frameworks',
+      zh: '找海外買家的常見做法',
+      en: 'How to find overseas buyers',
     },
     geoSections: [
       {
         id: '7-ways',
         title: { zh: '7 種找海外買家的方法', en: '7 ways manufacturers find overseas buyers' },
         note: {
-          zh: '這份清單適合做內部檢查清單，也方便分享與引用。',
-          en: 'A practical checklist that is easy to implement and easy for AI search engines to cite.',
+          zh: '這份清單適合做內部檢查清單，也方便團隊協作與複用。',
+          en: 'A practical checklist that is easy to implement and easy to share across teams.',
         },
         items: {
           zh: ['企業資料庫', '領英開發', '產業目錄', '產業協會名錄', '展會名單', '節奏式開發', '通路／經銷開發'],
@@ -829,13 +829,13 @@ export const coreServices = {
       },
     ],
     geoGroupTitle: {
-      zh: '經銷招募方法與評估框架',
-      en: 'Distributor discovery & evaluation frameworks',
+      zh: '經銷招募方法與評估重點',
+      en: 'Distributor discovery & evaluation',
     },
     geoSections: [
       {
         id: 'framework',
-        title: { zh: '通路開發框架：市場分層 → 通路角色 → 合作條款 → 推進節奏', en: 'Framework: tiers → roles → offer → cadence' },
+        title: { zh: '通路開發做法：市場分層 → 通路角色 → 合作條款 → 推進節奏', en: 'Approach: tiers → roles → offer → cadence' },
         items: {
           zh: ['優先市場 vs 次要市場（資源先放哪）', '通路角色拆解（進口商/經銷商/代理商/系統整合商）', '合作條款（最小訂購量、區域、價格層級、支援）讓對方算得出利潤', '多觸點推進與會議邀約（電子郵件＋領英）'],
           en: ['Prioritize markets (where to focus)', 'Map roles (importer/distributor/agent/integrator)', 'Define terms (MOQ, territory, tiers, support) so partners can evaluate profit', 'Run multi-touch cadence and meeting invites'],

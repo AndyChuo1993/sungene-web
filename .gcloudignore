@@ -1,0 +1,14 @@
+.gcloudignore
+.git
+.gitignore
+.env*
+node_modules
+.next
+.vercel
+.trae
+reports
+dist
+build
+*.log
+*.zip
+.DS_Store

@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
   const core: Card[] = [
     {
       href: `/${lang}/services/export-lead-generation`,
-      title: lang === 'zh' ? '外貿客戶開發' : 'Export Lead Generation',
+      title: lang === 'zh' ? '外銷客戶開發' : 'Export Lead Generation',
       desc:
         lang === 'zh'
           ? '一年期合作，持續為製造業建立海外買家名單、開發節奏與合格詢盤。'
@@ -118,7 +118,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href={core[0].href} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-800">
-                  {lang === 'zh' ? '看外貿客戶開發' : 'View Export Lead Gen'}
+                  {lang === 'zh' ? '看外銷客戶開發' : 'View Export Lead Gen'}
                 </Link>
                 <Link href={core[1].href} className="inline-flex items-center justify-center rounded-sm border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 transition hover:bg-gray-50">
                   {lang === 'zh' ? '看經銷商開發' : 'View Distributor Dev'}
