@@ -35,6 +35,28 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           </p>
         </header>
 
+        <section className="mb-6 grid gap-6 rounded-3xl border border-blue-100 bg-blue-50/60 p-6 md:grid-cols-3">
+          {[
+            {
+              title: lang === 'zh' ? '買家開發方法' : 'Buyer development methods',
+              desc: lang === 'zh' ? '拆解名單、訊息、跟進與轉換流程。' : 'Break down lists, messaging, follow-ups, and conversions.',
+            },
+            {
+              title: lang === 'zh' ? '市場與產業切入' : 'Market and industry entry',
+              desc: lang === 'zh' ? '把不同市場與產業的買家語境講清楚。' : 'Clarify buyer context by region and industry.',
+            },
+            {
+              title: lang === 'zh' ? '可落地的流程框架' : 'Operational frameworks',
+              desc: lang === 'zh' ? '從內容看到流程，最後能回到實際執行。' : 'Turn content into repeatable execution workflows.',
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl border border-white bg-white p-5 shadow-sm">
+              <div className="text-base font-bold text-slate-900">{item.title}</div>
+              <div className="mt-2 text-sm leading-7 text-slate-600">{item.desc}</div>
+            </div>
+          ))}
+        </section>
+
         <section className="grid gap-6 md:grid-cols-2">
           {posts.map((p) => (
             <Link key={p.slug} href={`/${lang}/blog/${p.slug}`} className="overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:shadow-md">

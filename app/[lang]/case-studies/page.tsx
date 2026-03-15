@@ -18,12 +18,17 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gray-900 text-white py-24">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t(lang, 'case_title')}</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t(lang, 'hero_subtitle')}</p>
-          <div className="mx-auto mt-6 max-w-3xl rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm leading-7 text-gray-200">
-            {lang === 'zh' ? '以下內容為代表性專案情境與常見合作成果，已去識別化與重組，不對應單一客戶名稱或個別合作廠商。' : 'The following content represents anonymized project scenarios and common outcomes. It does not identify any single client or manufacturer by name.'}
+      <section className="bg-gray-900 py-24 text-white">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl font-bold md:text-5xl">{t(lang, 'case_title')}</h1>
+            <p className="mx-auto mt-6 max-w-2xl text-xl text-gray-300 lg:mx-0">{t(lang, 'hero_subtitle')}</p>
+            <div className="mt-6 max-w-3xl rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm leading-7 text-gray-200">
+              {lang === 'zh' ? '以下內容為代表性專案情境與常見合作成果，已去識別化與重組，不對應單一客戶名稱或個別合作廠商。' : 'The following content represents anonymized project scenarios and common outcomes. It does not identify any single client or manufacturer by name.'}
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
+            <Image src="/illustrations/case-hub-hero.svg" alt={lang === 'zh' ? '成功案例主視覺' : 'Case studies hero illustration'} width={1200} height={760} className="h-auto w-full" priority />
           </div>
         </div>
       </section>

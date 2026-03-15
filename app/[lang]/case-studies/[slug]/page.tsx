@@ -37,6 +37,9 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
           </div>
           <h1 className="mb-6 text-4xl font-bold md:text-6xl">{item.title}</h1>
           <p className="mx-auto max-w-2xl text-xl text-gray-300">{item.summary}</p>
+          <div className="mx-auto mt-6 max-w-3xl rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-sm leading-7 text-gray-200">
+            {lang === 'zh' ? '此頁為代表性案例情境，內容已做去識別化整理，用於說明常見合作流程、執行方式與成果範圍。' : 'This page is a representative case scenario. Details have been anonymized to illustrate common workflows, execution methods, and result ranges.'}
+          </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-medium text-gray-400">
             <div className="flex items-center rounded-full border border-gray-700 bg-gray-800/50 px-4 py-2">
