@@ -26,32 +26,29 @@ jobs:
 
       - name: Prepare standalone package
         run: |
-          mkdir -p deploy
-          cp -r .next/standalone deploy/
-          cp -r .next/static deploy/.next
+          mkdir -p deploy/.next
+          cp -r .next/standalone/* deploy/
+          cp -r .next/static deploy/.next/
           cp -r public deploy/
 
+      - name: Restore SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.ALI_SSH_KEY_B64 }}" | base64 -d > ~/.ssh/aliyun_key
+          chmod 600 ~/.ssh/aliyun_key
+          ssh-keyscan -p ${{ secrets.ALI_PORT }} ${{ secrets.ALI_HOST }} >> ~/.ssh/known_hosts
+
       - name: Copy files to Aliyun
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.ALI_HOST }}
-          username: ${{ secrets.ALI_USER }}
-          key: ${{ secrets.ALI_SSH_KEY }}
-          port: ${{ secrets.ALI_PORT }}
-          source: "deploy/*"
-          target: "${{ secrets.ALI_DEPLOY_PATH }}"
+        run: |
+          scp -P "${{ secrets.ALI_PORT }}" -i ~/.ssh/aliyun_key -r deploy/* "${{ secrets.ALI_USER }}@${{ secrets.ALI_HOST }}:${{ secrets.ALI_DEPLOY_PATH }}/"
 
       - name: Restart Node project
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.ALI_HOST }}
-          username: ${{ secrets.ALI_USER }}
-          key: ${{ secrets.ALI_SSH_KEY }}
-          port: ${{ secrets.ALI_PORT }}
-          script: |
-            cd ${{ secrets.ALI_DEPLOY_PATH }}
+        run: |
+          ssh -p "${{ secrets.ALI_PORT }}" -i ~/.ssh/aliyun_key "${{ secrets.ALI_USER }}@${{ secrets.ALI_HOST }}" '
+            cd "${{ secrets.ALI_DEPLOY_PATH }}"
             mkdir -p .next/standalone/.next
             cp -r -f .next/static .next/standalone/.next/
             cp -r -f public .next/standalone/
             pkill -f "node ./.next/standalone/server.js" || true
-            nohup sh -c 'HOSTNAME=0.0.0.0 PORT=3000 node ./.next/standalone/server.js' > app.log 2>&1 &
+            nohup sh -c '"'"'HOSTNAME=0.0.0.0 PORT=3000 node ./.next/standalone/server.js'"'"' > app.log 2>&1 &
+          '
