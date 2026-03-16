@@ -17,7 +17,7 @@ const service: ServiceSeo = {
     en: ['Single-source lists are unreliable: wrong roles, bad emails, poor fit.', 'Without validation, bounces and deliverability risk increase.', 'No segmentation means the list can’t support consistent follow-ups.'],
   },
   solution: {
-    zh: ['我們用多來源蒐集 + 人工/系統雙重驗證，建立可追蹤的海外買家資料函式庫。', '交付套件含：寄信名單與開信名單（Excel），並依市場/角色/優先序分層。'],
+    zh: ['我們用多來源蒐集 + 人工/系統雙重驗證，建立可追蹤的海外買家資料函式庫。', '交付包含：寄信名單與開信名單（Excel），並依市場/角色/優先序分層。'],
     en: ['We combine multi-source sourcing with human + system validation to build a trackable buyer database.', 'Deliverables include sent list + opens list (Excel) segmented by market, role, and priority.'],
   },
   whatIs: {
@@ -79,7 +79,7 @@ const service: ServiceSeo = {
   },
   faq: [
     {
-      q: { zh: '名單套件含哪些欄位？', en: 'What fields are included?' },
+      q: { zh: '名單包含哪些欄位？', en: 'What fields are included?' },
       a: { zh: '公司名稱、決策人、職位、Email、LinkedIn、公司網站，並依市場/角色分層。', en: 'Company, decision-maker, title, email, LinkedIn, website, segmented by market and role.' },
     },
     {

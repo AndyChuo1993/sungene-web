@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
         heading: { zh: '什麼是海外買家', en: 'What Are Overseas Buyers (Definition)' },
         content: {
           zh: [
-            '海外買家通常套件含：進口商、經銷商、品牌商（代工或貼牌）、系統整合商、以及終端工廠採購。',
+            '海外買家通常包含：進口商、經銷商、品牌商（代工或貼牌）、系統整合商、以及終端工廠採購。',
             '不同買家角色的採購標準不同：進口商重視供應穩定與毛利，品牌商重視差異化與交期，終端工廠重視規格與導入成本。',
           ],
           en: [
@@ -267,7 +267,7 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何外銷到美國：買家角色、通路選擇與開發清單', en: 'How to Export to the USA: Buyer Roles, Channels, and a Practical Checklist' },
     description: { zh: '針對美國市場的外銷開發：常見買家角色、通路策略、以及可落地的開發與跟進流程。', en: 'A practical USA export guide: buyer roles, channels, and a step-by-step outreach checklist.' },
     sections: [
-      { id: 'roles', heading: { zh: '美國常見買家角色', en: 'Common buyer roles in the USA' }, content: { zh: ['常見角色套件含：經銷商、進口商、品牌商、代工買家與工業整合商。不同角色的採購節奏與決策鏈不同。'], en: ['Common roles include distributors, importers, brands, OEM buyers, and industrial integrators. Each role has different buying cycles and decision chains.'] } },
+      { id: 'roles', heading: { zh: '美國常見買家角色', en: 'Common buyer roles in the USA' }, content: { zh: ['常見角色包含：經銷商、進口商、品牌商、代工買家與工業整合商。不同角色的採購節奏與決策鏈不同。'], en: ['Common roles include distributors, importers, brands, OEM buyers, and industrial integrators. Each role has different buying cycles and decision chains.'] } },
       { id: 'channels', heading: { zh: '通路策略', en: 'Channel strategy' }, content: { zh: ['若要快速擴大市場涵蓋，可以優先找區域型經銷商；若要掌握定價與品牌，則可直接找品牌商或大型終端客戶。'], en: ['For faster coverage, prioritize regional distributors. For pricing and brand control, target brands or large end customers directly.'] } },
       { id: 'steps', heading: { zh: '開發流程', en: 'Outreach flow' }, content: { zh: ['Market research → target list → qualification → outreach → meetings。建議先做小規模訊息測試，再放大名單。'], en: ['Market research → target list → qualification → outreach → meetings. Start with small message tests before scaling lists.'] } },
       { id: 'checklist', heading: { zh: '檢查清單', en: 'Checklist' }, content: { zh: ['英文產品摘要', '合規與驗證整理', '最低訂購量、交期與付款條件', '100 家驗證名單', '4–6 次跟進節奏'], en: ['English product brief', 'Compliance/certs', 'MOQ/lead time/payment terms', '100 verified prospects', '4–6 follow-ups'] } },
@@ -284,7 +284,7 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何外銷到德國：工業買家、經銷通路與合作條件要點', en: 'How to Export to Germany: Industrial Buyers, Distributors, and Partnership Terms' },
     description: { zh: '德國市場重視規格、驗證與交付穩定。本文提供買家角色、通路策略與可落地的開發清單。', en: 'Germany values specs, certifications, and stable delivery. This guide covers buyer roles, channels, and a practical checklist.' },
     sections: [
-      { id: 'buyers', heading: { zh: '德國買家與通路角色', en: 'Buyer and channel roles in Germany' }, content: { zh: ['常見套件含：工業經銷商、系統整合商，以及品牌商或代工買家。重點是證據資料，例如規格、驗證與案例，都要準備齊全。'], en: ['Common roles include industrial distributors, system integrators, and brand/OEM buyers. Proof points (specs, certs, cases) matter.'] } },
+      { id: 'buyers', heading: { zh: '德國買家與通路角色', en: 'Buyer and channel roles in Germany' }, content: { zh: ['常見包含：工業經銷商、系統整合商，以及品牌商或代工買家。重點是證據資料，例如規格、驗證與案例，都要準備齊全。'], en: ['Common roles include industrial distributors, system integrators, and brand/OEM buyers. Proof points (specs, certs, cases) matter.'] } },
       { id: 'terms', heading: { zh: '合作條件要點', en: 'Key partnership terms' }, content: { zh: ['建議準備：最低訂購量、交期、售後支援、價格層級，以及區域合作條件。用可計算的條款讓對方能評估利潤。'], en: ['Prepare MOQ, lead time, service support, pricing tiers, and territory terms. Calculable terms help partners evaluate profitability.'] } },
       { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['德英版產品摘要', '規格/驗證', '案例或應用證據', '100 家驗證名單', '多觸點跟進節奏'], en: ['DE/EN product brief', 'Specs/certs', 'Proof assets', '100 verified prospects', 'Multi-touch cadence'] } },
     ],
@@ -349,9 +349,9 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何審核外銷詢價：篩選標準、回覆分類別與交付格式', en: 'How to Qualify Export Leads: Criteria, Reply Triage, and Delivery Format' },
     description: { zh: '把回覆做前段分類別（合格/培育/不匹配），並用一致格式交付，讓業務更快進入報價與成交。', en: 'Triage replies (qualified/nurture/no-fit) and deliver standardized lead packages for faster closing.' },
     sections: [
-      { id: 'criteria', heading: { zh: '篩選標準', en: 'Criteria' }, content: { zh: ['常見篩選條件套件含：買家角色、需求清晰度、數量與交期、是否符合最低訂購量，以及是否有應用情境與採購時間表。'], en: ['Common criteria: buyer role, clarity of requirements, quantity/lead time, MOQ fit, use case, and buying timeline.'] } },
+      { id: 'criteria', heading: { zh: '篩選標準', en: 'Criteria' }, content: { zh: ['常見篩選條件包含：買家角色、需求清晰度、數量與交期、是否符合最低訂購量，以及是否有應用情境與採購時間表。'], en: ['Common criteria: buyer role, clarity of requirements, quantity/lead time, MOQ fit, use case, and buying timeline.'] } },
       { id: 'triage', heading: { zh: '回覆分類別', en: 'Reply triage' }, content: { zh: ['合格：需求清楚，可進入報價；待培養：需求還不完整，需要補資料；不匹配：角色不對或條件不符。'], en: ['Qualified: ready to quote; Nurture: needs more information; No-fit: wrong role or misaligned terms.'] } },
-      { id: 'delivery', heading: { zh: '交付格式', en: 'Delivery format' }, content: { zh: ['每筆詢問都套件含公司、聯絡方式、需求摘要、對話紀錄與下一步建議，讓業務不需要重新整理背景。'], en: ['Each lead includes company, contacts, requirement summary, conversation logs, and next-step suggestions.'] } },
+      { id: 'delivery', heading: { zh: '交付格式', en: 'Delivery format' }, content: { zh: ['每筆詢問都包含公司、聯絡方式、需求摘要、對話紀錄與下一步建議，讓業務不需要重新整理背景。'], en: ['Each lead includes company, contacts, requirement summary, conversation logs, and next-step suggestions.'] } },
     ],
     faq: [
       { q: { zh: '沒有數量或規格的回覆要算詢問嗎？', en: 'Do replies without specs/quantity count as leads?' }, a: { zh: '通常先歸為待培養。用 1 至 2 個追問把需求補齊，再判定是否屬於合格詢問。', en: 'Treat them as nurture leads. Ask 1–2 follow-up questions to confirm requirements before qualifying.' } },
@@ -413,7 +413,7 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '如何外銷到中東：通路角色、專案型買家與開發策略', en: 'How to Export to the Middle East: Channel Roles, Project Buyers, and Outreach Strategy' },
     description: { zh: '中東常見專案型需求與通路型採購。本文提供角色拆解、條件準備與可落地的開發流程。', en: 'The Middle East often involves project-based demand plus channel procurement. Roles, terms, and a practical outreach flow.' },
     sections: [
-      { id: 'roles', heading: { zh: '買家與通路角色', en: 'Buyer and channel roles' }, content: { zh: ['常見套件含：Distributor/Agent、Project contractor、System integrator、Importer。要先判斷你產品更適合通路覆蓋還是專案推進。'], en: ['Common roles include distributors/agents, project contractors, system integrators, and importers. Decide whether you fit channel coverage or project selling.'] } },
+      { id: 'roles', heading: { zh: '買家與通路角色', en: 'Buyer and channel roles' }, content: { zh: ['常見包含：Distributor/Agent、Project contractor、System integrator、Importer。要先判斷你產品更適合通路覆蓋還是專案推進。'], en: ['Common roles include distributors/agents, project contractors, system integrators, and importers. Decide whether you fit channel coverage or project selling.'] } },
       { id: 'proof', heading: { zh: '證據點（Proof）', en: 'Proof points' }, content: { zh: ['專案型買家通常重視案例、交付能力與售後；通路型夥伴重視毛利、區域與支援。'], en: ['Project buyers care about cases, delivery, and service; channel partners care about margin, territory, and support.'] } },
       { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['案例與應用整理', '合作條款框架', '100 家候選名單', '多觸點節奏跟進'], en: ['Cases and use cases', 'Terms framework', '100 prospects', 'Multi-touch cadence'] } },
     ],
@@ -445,8 +445,8 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '用產業目錄找海外買家：常見來源、驗證方法與避坑清單', en: 'Using Trade Directories to Find Overseas Buyers: Sources, Validation, and Pitfalls' },
     description: { zh: '產業目錄可以做名單起點，但必須做驗證與角色標籤，否則開發效率會被稀釋。', en: 'Directories can seed prospect lists, but validation and role tagging are essential to avoid wasted outreach.' },
     sections: [
-      { id: 'sources', heading: { zh: '常見來源（Sources）', en: 'Sources' }, content: { zh: ['常見套件含：產業協會名錄、展會參展名單、B2B 平台分類別頁、以及特定產業 directory。'], en: ['Common sources: association directories, trade show exhibitor lists, B2B platform category pages, and niche industry directories.'] } },
-      { id: 'validation', heading: { zh: '驗證（Validation）', en: 'Validation' }, content: { zh: ['驗證至少套件含：公司網站、產品匹配、地區覆蓋、以及決策鏈角色。把名單變成可追蹤資料函式庫。'], en: ['Validate via website, product fit, coverage, and decision-chain roles. Turn raw lists into a trackable database.'] } },
+      { id: 'sources', heading: { zh: '常見來源（Sources）', en: 'Sources' }, content: { zh: ['常見包含：產業協會名錄、展會參展名單、B2B 平台分類別頁、以及特定產業 directory。'], en: ['Common sources: association directories, trade show exhibitor lists, B2B platform category pages, and niche industry directories.'] } },
+      { id: 'validation', heading: { zh: '驗證（Validation）', en: 'Validation' }, content: { zh: ['驗證至少包含：公司網站、產品匹配、地區覆蓋、以及決策鏈角色。把名單變成可追蹤資料函式庫。'], en: ['Validate via website, product fit, coverage, and decision-chain roles. Turn raw lists into a trackable database.'] } },
       { id: 'checklist', heading: { zh: '避坑清單', en: 'Pitfalls checklist' }, content: { zh: ['避免「沒角色標籤」就寄信', '避免「過期名單」', '避免「一次寄完」不跟進'], en: ['Avoid outreach without role tags', 'Avoid outdated lists', 'Avoid one-and-done sending without follow-ups'] } },
     ],
     faq: [
@@ -477,7 +477,7 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '7 種常見 B2B 資料函式庫：找海外買家、匯出名單與驗證方法', en: '7 Common B2B Databases: Find Overseas Buyers, Export Lists, and Validate' },
     description: { zh: 'B2B 資料函式庫是名單起點，不是答案。本文用清單整理常見資料函式庫類別型與驗證方法，避免名單稀釋。', en: 'B2B databases are list seeds, not the answer. A practical list of database types and validation tips.' },
     sections: [
-      { id: 'list', heading: { zh: '資料函式庫類別型（7 Types）', en: 'Database types (7)' }, content: { zh: ['類別型套件含：公司資料函式庫、海關/進出口資料、展會名單、產業目錄、協會名錄、招標/專案資料、社群/職涯資料。'], en: ['Types include company databases, import/export data, trade show lists, directories, association lists, tender/project data, and social/career data.'] } },
+      { id: 'list', heading: { zh: '資料函式庫類別型（7 Types）', en: 'Database types (7)' }, content: { zh: ['類別型包含：公司資料函式庫、海關/進出口資料、展會名單、產業目錄、協會名錄、招標/專案資料、社群/職涯資料。'], en: ['Types include company databases, import/export data, trade show lists, directories, association lists, tender/project data, and social/career data.'] } },
       { id: 'validation', heading: { zh: '驗證流程', en: 'Validation workflow' }, content: { zh: ['用網站、產品匹配、地區覆蓋、以及決策鏈職位做二次驗證，再進入節奏式開發。'], en: ['Validate via website, product fit, coverage, and decision-chain roles before outreach cadence.'] } },
       { id: 'checklist', heading: { zh: '清單（Checklist）', en: 'Checklist' }, content: { zh: ['資料來源分群', '角色標籤', '去重與清洗', '驗證欄位一致', '節奏與回覆分類別'], en: ['Segment sources', 'Role tags', 'Dedup and clean', 'Consistent fields', 'Cadence and triage'] } },
     ],
@@ -493,7 +493,7 @@ export const blogPosts: BlogPost[] = [
     title: { zh: '製造業買家資料函式庫建立：欄位設計、驗證流程與交付格式', en: 'Buyer Database Building for Manufacturers: Fields, Validation, and Delivery' },
     description: { zh: '名單不是越多越好，而是越可用越好。本文提供資料函式庫欄位與驗證流程，讓開發更可追蹤。', en: 'Lists should be usable, not just large. A practical database field set and validation workflow for trackable outreach.' },
     sections: [
-      { id: 'fields', heading: { zh: '欄位設計（Fields）', en: 'Fields' }, content: { zh: ['建議至少套件含：公司、網站、地區、買家角色、產品匹配、職位/部門、Email、來源、狀態與下一步。'], en: ['Recommended fields: company, website, region, buyer role, product fit, title/department, email, source, status, next step.'] } },
+      { id: 'fields', heading: { zh: '欄位設計（Fields）', en: 'Fields' }, content: { zh: ['建議至少包含：公司、網站、地區、買家角色、產品匹配、職位/部門、Email、來源、狀態與下一步。'], en: ['Recommended fields: company, website, region, buyer role, product fit, title/department, email, source, status, next step.'] } },
       { id: 'validation', heading: { zh: '驗證流程（Validation）', en: 'Validation' }, content: { zh: ['先做公司層驗證（產品/地區/角色），再做決策鏈驗證（採購/技術/通路）。最後去重與清洗。'], en: ['Validate at company level (product/region/role), then decision-chain level (procurement/technical/channel). Finish with dedup and cleaning.'] } },
       { id: 'delivery', heading: { zh: '交付格式（Delivery）', en: 'Delivery' }, content: { zh: ['交付 Excel/Sheet 時要有一致欄位、狀態與篩選，讓你可以直接啟動節奏式開發。'], en: ['Deliver with consistent fields, statuses, and filters so you can start cadence-based outreach immediately.'] } },
     ],

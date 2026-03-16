@@ -30,7 +30,7 @@ export const faqs: FAQItem[] = [
   {
     category: 'service',
     question: { zh: '多久可以看到詢問或回覆？', en: 'How long to see inquiries?' },
-    answer: { zh: '若是外銷客戶開發服務，通常在專案啟動後 2 至 4 週內會開始累積穩定回覆與詢問，實際速度仍會受到產業與市場影響。若是外銷業務外套件，通常第一週會先完成交接與流程設定，之後開始進入可追蹤的開發與跟進節奏。', en: 'For Export Lead Generation, you typically see stable replies and inquiry accumulation in 2–4 weeks depending on market and industry. For Export Sales Outsourcing, we usually complete handover and start a trackable outreach + follow-up workflow within the first week.' },
+    answer: { zh: '若是外銷客戶開發服務，通常在專案啟動後 2 至 4 週內會開始累積穩定回覆與詢問，實際速度仍會受到產業與市場影響。若是外銷業務外包服務，通常第一週會先完成交接與流程設定，之後開始進入可追蹤的開發與跟進節奏。', en: 'For Export Lead Generation, you typically see stable replies and inquiry accumulation in 2–4 weeks depending on market and industry. For Export Sales Outsourcing, we usually complete handover and start a trackable outreach + follow-up workflow within the first week.' },
   },
   {
     category: 'service',
@@ -59,11 +59,11 @@ export const faqs: FAQItem[] = [
   {
     category: 'pricing',
     question: { zh: '你們如何收費？', en: 'How do you charge?' },
-    answer: { zh: '目前主要提供三種合作方式：名單專案、開發專案，以及外銷外套件月費制。實際費用會依服務範圍、目標市場與執行深度而有所不同。', en: 'Three models: "List Purchase" per lead; "Project Outreach" per project; "Outsourcing" monthly retainer. See Pricing page for details.' },
+    answer: { zh: '目前主要提供三種合作方式：名單專案、開發專案，以及外銷外包服務月費制。實際費用會依服務範圍、目標市場與執行深度而有所不同。', en: 'Three models: "List Purchase" per lead; "Project Outreach" per project; "Outsourcing" monthly retainer. See Pricing page for details.' },
   },
   {
     category: 'pricing',
     question: { zh: '是否有最低合作期限？', en: 'Minimum contract term?' },
-    answer: { zh: '名單與主動開發通常可依專案規模安排為一次性或短期合作；若是外銷外套件，通常會建議至少合作 6 個月，較能建立穩定的開發節奏與成果累積。', en: '"Lead Gen" and "Outreach" are one-time or short-term. "Outsourcing" recommends a 6-month minimum to build a stable sales funnel.' },
+    answer: { zh: '名單與主動開發通常可依專案規模安排為一次性或短期合作；若是外銷外包服務，通常會建議至少合作 6 個月，較能建立穩定的開發節奏與成果累積。', en: '"Lead Gen" and "Outreach" are one-time or short-term. "Outsourcing" recommends a 6-month minimum to build a stable sales funnel.' },
   },
 ]

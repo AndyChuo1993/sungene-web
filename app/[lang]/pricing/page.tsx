@@ -8,13 +8,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   const isZh = lang === 'zh'
   const title = isZh ? '服務價格｜SunGene' : 'Pricing | SunGene'
   const description = isZh
-    ? '透明的服務方案：名單交付、專案開發、外銷業務外套件。選擇最適合的合作模式，低成本啟動海外市場開發。'
+    ? '透明的服務方案：名單交付、專案開發、外銷業務外包服務。選擇最適合的合作模式，低成本啟動海外市場開發。'
     : 'Transparent plans for manufacturers: buyer lists, outreach projects, and export sales outsourcing.'
   return {
     title,
     description,
     keywords: isZh
-      ? '外銷服務價格, 買家名單費用, 外銷業務外套件收費, 海外客戶開發'
+      ? '外銷服務價格, 買家名單費用, 外銷業務外包服務收費, 海外客戶開發'
       : 'pricing, buyer list cost, export lead generation, export sales outsourcing',
     alternates: { canonical: `/${lang}/pricing`, languages: { zh: '/zh/pricing', en: '/en/pricing', 'x-default': '/en/pricing' } },
     robots: { index: false, follow: true },
@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       features: [
         { zh: '精準決策人 Email', en: 'Targeted Decision Maker Emails' },
         { zh: '95% 有效性保證', en: '95% Validity Guarantee' },
-        { zh: '套件含 LinkedIn 連結', en: 'Includes LinkedIn URLs' },
+        { zh: '包含 LinkedIn 連結', en: 'Includes LinkedIn URLs' },
         { zh: 'Excel / CSV 交付', en: 'Excel / CSV Delivery' },
         { zh: '無最低合約期限', en: 'No Minimum Contract' },
       ],
@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       link: `/${lang}/contact?service=cold-outreach`
     },
     {
-      title: { zh: '外銷業務外套件', en: 'Sales Outsourcing' },
+      title: { zh: '外銷業務外包服務', en: 'Sales Outsourcing' },
       icon: <Briefcase className="w-8 h-8 text-indigo-600" />,
       color: 'indigo',
       description: { zh: '適合無外銷團隊，需要專業人士完整代操海外業務的企業。', en: 'Best for companies needing a full export sales arm without hiring.' },
@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
         { zh: 'CRM 系統建置', en: 'CRM System Setup' },
         { zh: '定期市場回饋會議', en: 'Regular Market Feedback' },
       ],
-      cta: { zh: '評估外套件方案', en: 'Evaluate Outsourcing' },
+      cta: { zh: '評估外包方案', en: 'Evaluate Outsourcing' },
       link: `/${lang}/contact?service=sales-outsourcing`
     }
   ]

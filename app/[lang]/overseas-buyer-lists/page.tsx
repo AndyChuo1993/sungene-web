@@ -8,7 +8,7 @@ const service: ServiceSeo = {
     en: 'Overseas Buyer Lists | Ready-to-use Prospect Lists for Export',
   },
   description: {
-    zh: '交付可直接使用的海外買家名單：寄信名單與開信名單（Excel），套件含公司、決策人、職位、Email、LinkedIn、公司網站。',
+    zh: '交付可直接使用的海外買家名單：寄信名單與開信名單（Excel），包含公司、決策人、職位、Email、LinkedIn、公司網站。',
     en: 'Deliver ready-to-use overseas buyer lists: sent list + opens list (Excel) including company, decision-maker, title, email, LinkedIn, and website.',
   },
   h1: { zh: '海外買家名單交付', en: 'Overseas Buyer Lists (Deliverable)' },

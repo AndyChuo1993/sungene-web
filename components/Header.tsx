@@ -28,7 +28,7 @@ export default function Header({ lang }: { lang: Lang }) {
     },
     {
       href: `/${lang}/services/export-sales-outsourcing`,
-      label: lang === 'zh' ? '外銷業務外套件' : 'Export Sales Outsourcing',
+      label: lang === 'zh' ? '外銷業務外包服務' : 'Export Sales Outsourcing',
     },
   ]
 

@@ -17,7 +17,7 @@ const service: ServiceSeo = {
     en: ['Inquiry flow is unstable and quality varies; time is wasted on poor-fit leads.', 'Without triage and summaries, follow-ups lose context and next steps.', 'Unqualified replies reduce quoting efficiency and win rates.'],
   },
   solution: {
-    zh: ['我們把回覆做前段分類別（合格/待培育/不匹配）並完成初步需求確認，把可成交詢價交付給你。', '每個詢價套件含公司、聯絡方式、需求資訊與對話紀錄，方便你快速進入報價/樣品/會議。'],
+    zh: ['我們把回覆做前段分類別（合格/待培育/不匹配）並完成初步需求確認，把可成交詢價交付給你。', '每個詢價包含公司、聯絡方式、需求資訊與對話紀錄，方便你快速進入報價/樣品/會議。'],
     en: ['We triage replies (qualified/nurture/no-fit) and confirm initial requirements, then deliver sales-ready inquiries.', 'Each lead includes company, contacts, needs, and conversation logs to move quickly to quote/sample/call.'],
   },
   whatIs: {
@@ -78,7 +78,7 @@ const service: ServiceSeo = {
     link: '/case-studies/hardware',
   },
   faq: [
-    { q: { zh: '你們交付的詢價套件含什麼？', en: 'What is included in delivered leads?' }, a: { zh: '公司、聯絡方式、需求資訊、對話紀錄與下一步建議。', en: 'Company, contacts, requirements, conversation logs, and next-step suggestion.' } },
+    { q: { zh: '你們交付的詢價包含什麼？', en: 'What is included in delivered leads?' }, a: { zh: '公司、聯絡方式、需求資訊、對話紀錄與下一步建議。', en: 'Company, contacts, requirements, conversation logs, and next-step suggestion.' } },
     { q: { zh: '你們會不會影響我們的報價與出貨？', en: 'Do you handle quoting and shipping?' }, a: { zh: '不會。你只需負責報價與出貨；其餘外銷開發與跟進流程由我們完成。', en: 'No. You handle quoting and shipping; we handle outreach and follow-up workflows.' } },
   ],
   ctaTitle: { zh: '想獲得更穩定的合格詢價？', en: 'Want more qualified export inquiries?' },

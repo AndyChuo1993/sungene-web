@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     description: t(lang, 'meta_home_desc'),
     keywords:
       lang === 'zh'
-        ? ['外銷客戶開發', '經銷商開發', '外銷業務外套件', '海外買家名單', '出口市場分析']
+        ? ['外銷客戶開發', '經銷商開發', '外銷業務外包服務', '海外買家名單', '出口市場分析']
         : ['export lead generation', 'distributor development', 'export sales outsourcing', 'overseas buyers', 'market analysis'],
     openGraph: {
       title: t(lang, 'service_title') + ' | SunGene',
@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
     },
     {
       href: `/${lang}/services/export-sales-outsourcing`,
-      title: lang === 'zh' ? '外銷業務外套件' : 'Export Sales Outsourcing',
+      title: lang === 'zh' ? '外銷業務外包服務' : 'Export Sales Outsourcing',
       desc:
         lang === 'zh'
           ? '一年期合作，你專注報價與出貨，其餘外銷開發與跟進由我們持續執行。'
@@ -139,7 +139,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
                 {lang === 'zh'
-                  ? '如果你缺的是穩定買家來源，就先看外銷客戶開發；如果你想找在地通路，就看經銷商開發；如果你缺的是整體執行人力，就看外銷業務外套件。'
+                  ? '如果你缺的是穩定買家來源，就先看外銷客戶開發；如果你想找在地通路，就看經銷商開發；如果你缺的是整體執行人力，就看外銷業務外包服務。'
                   : 'If you need a steadier flow of buyers, start with export lead generation. If you need local channel partners, review distributor development. If execution bandwidth is the gap, look at sales outsourcing.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -167,7 +167,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
                 {lang === 'zh'
-                  ? '外銷客戶開發解決「海外買家名單與詢價交付」；經銷商開發解決「通路夥伴與經銷合作」；外銷業務外套件解決「不擴編也能穩定開發與跟進」。'
+                  ? '外銷客戶開發解決「海外買家名單與詢價交付」；經銷商開發解決「通路夥伴與經銷合作」；外銷業務外包服務解決「不擴編也能穩定開發與跟進」。'
                   : 'Lead gen delivers buyer lists and qualified inquiries. Distributor development builds partner pipelines. Sales outsourcing runs end-to-end outreach and follow-ups without hiring.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

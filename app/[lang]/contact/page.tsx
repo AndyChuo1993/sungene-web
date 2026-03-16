@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: `${lang === 'zh' ? '聯絡我們' : 'Contact Us'} | SunGene`,
     description:
       lang === 'zh'
-        ? '與 SunGene 討論海外買家開發、經銷商開發、外銷業務外套件與合作夥伴申請。'
+        ? '與 SunGene 討論海外買家開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
         : 'Talk to SunGene about export lead generation, distributor development, sales outsourcing, or partnership applications.',
   }
 }

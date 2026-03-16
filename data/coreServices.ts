@@ -25,7 +25,7 @@ export const coreServices = {
       en: 'Best for manufacturers, OEM/ODM factories, and industrial suppliers entering new markets.',
     },
     heroDeliverablesLine: {
-      zh: '交付套件含：驗證買家名單、有效回覆整理、可推進的會議/樣品/報價機會。',
+      zh: '交付包含：驗證買家名單、有效回覆整理、可推進的會議/樣品/報價機會。',
       en: 'Deliverables: verified buyer lists, qualified replies, and meeting-ready handoffs.',
     },
     heroTrustSignal: {
@@ -112,7 +112,7 @@ export const coreServices = {
     results: {
       zh: [
         { label: '名單交付', value: '試算表', desc: '寄信名單＋開信名單，可直接用於業務開發。' },
-        { label: '詢問交付', value: '可追蹤', desc: '每個詢問套件含公司、聯絡方式、需求資訊與對話紀錄。' },
+        { label: '詢問交付', value: '可追蹤', desc: '每個詢問包含公司、聯絡方式、需求資訊與對話紀錄。' },
         { label: '流程資產', value: '可複製', desc: '把「一次性開發」變成可持續的海外開發系統。' },
       ],
       en: [
@@ -220,7 +220,7 @@ export const coreServices = {
       zh: [
         {
           title: '買家名單樣張（匿名化）',
-          caption: '更接近實際匯出：套件含來源、最後驗證與備註欄位',
+          caption: '更接近實際匯出：包含來源、最後驗證與備註欄位',
           lines: [
             '公司\t國家\t角色\t網站\t對口職稱\t來源\t最後驗證\t狀態\t備註',
             'ACME Industrial\t美國\t進口商\thttps://acme.example\t採購經理\t展會名單\t2026-02-07\t可投遞\t偏好 OEM 供應',
@@ -238,7 +238,7 @@ export const coreServices = {
         },
         {
           title: '詢價交付樣張（匿名化）',
-          caption: '每筆套件含需求摘要、下一步與對話紀錄',
+          caption: '每筆包含需求摘要、下一步與對話紀錄',
           lines: [
             '公司: NordWerk GmbH（德國）\n買家角色: 經銷商\n需求: 詢問最小訂購量與交期，並希望取得相容規格表\n下一步: 提供規格/驗證並安排 20 分鐘會議\n對話: 2026-02-12 來信 → 2026-02-14 回覆 → 2026-02-18 確認會議',
           ],
@@ -306,7 +306,7 @@ export const coreServices = {
       {
         q: { zh: '你們交付什麼？', en: 'What do you deliver?' },
         a: {
-          zh: '主要交付套件含：寄信名單與開信名單（試算表）、詢價整理（公司/聯絡方式/需求/對話紀錄），以及可追蹤的跟進節奏建議。',
+          zh: '主要交付包含：寄信名單與開信名單（試算表）、詢價整理（公司/聯絡方式/需求/對話紀錄），以及可追蹤的跟進節奏建議。',
           en: 'Deliverables include: sent list + opens list (Excel), organized inquiries (company/contact/needs/logs), and a trackable follow-up cadence.',
         },
       },
@@ -348,7 +348,7 @@ export const coreServices = {
       {
         q: { zh: '你們的「合格詢價」如何定義？', en: 'How do you define a “qualified lead”?' },
         a: {
-          zh: '至少套件含：買家角色符合、需求/應用可描述、下一步可推進（會議/樣品/報價），並附上完整對話紀錄與摘要。',
+          zh: '至少包含：買家角色符合、需求/應用可描述、下一步可推進（會議/樣品/報價），並附上完整對話紀錄與摘要。',
           en: 'At minimum: correct buyer role, describable need/use case, a clear next step (call/sample/quote), plus full conversation logs and summary.',
         },
       },
@@ -429,7 +429,7 @@ export const coreServices = {
         content: {
           zh: [
             '我們會依產業與市場選擇最合適的資料來源與驗證方式，並把資料整理成你可以直接使用的格式（Excel/Sheet）。重點不是工具名稱，而是「可追蹤」與「可交付」。',
-            '常見來源套件含：產業目錄、展會名單、協會名錄、公司網站與新聞、以及可交叉驗證的商業資料函式庫。',
+            '常見來源包含：產業目錄、展會名單、協會名錄、公司網站與新聞、以及可交叉驗證的商業資料函式庫。',
           ],
           en: [
             'We choose sources based on industry and market, validate data, and deliver it in a ready-to-use format (Excel/Sheet). The goal is trackability and deliverability—not tool hype.',
@@ -462,7 +462,7 @@ export const coreServices = {
     ],
     relatedLinks: [
       { label: { zh: '經銷商開發（核心服務）', en: 'Distributor Development (Core)' }, href: '/services/distributor-development' },
-      { label: { zh: '外銷業務外套件（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
+      { label: { zh: '外銷業務外包服務（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
       { label: { zh: '方法：買家資料函式庫建立', en: 'Method: Buyer Database Building' }, href: '/buyer-database-building' },
       { label: { zh: '指南：如何找到海外買家', en: 'Guide: How to find overseas buyers' }, href: '/blog/how-to-find-overseas-buyers' },
     ],
@@ -481,7 +481,7 @@ export const coreServices = {
       en: 'Best for manufacturers and OEM/ODM exporters building overseas channels.',
     },
     heroDeliverablesLine: {
-      zh: '交付套件含：可追蹤候選名單、通路角色地圖、合作條款框架與會議推進。',
+      zh: '交付包含：可追蹤候選名單、通路角色地圖、合作條款框架與會議推進。',
       en: 'Deliverables: trackable shortlist, channel map, partnership terms framework, and meeting progression.',
     },
     heroTrustSignal: {
@@ -853,7 +853,7 @@ export const coreServices = {
     ],
     relatedLinks: [
       { label: { zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
-      { label: { zh: '外銷業務外套件（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
+      { label: { zh: '外銷業務外包服務（核心服務）', en: 'Export Sales Outsourcing (Core)' }, href: '/services/export-sales-outsourcing' },
       { label: { zh: '免費出口市場分析（CTA）', en: 'Free Export Market Analysis' }, href: '/export-market-analysis' },
       { label: { zh: '如何找到海外經銷商（指南）', en: 'How to find international distributors (Guide)' }, href: '/blog/how-to-find-international-distributors' },
     ],
@@ -861,7 +861,7 @@ export const coreServices = {
   exportSalesOutsourcing: {
     slug: 'export-sales-outsourcing',
     path: '/services/export-sales-outsourcing',
-    title: { zh: '外銷業務外套件服務｜企業只需報價與出貨', en: 'Export Sales Outsourcing | You Quote & Ship, We Do the Rest' },
+    title: { zh: '外銷業務外包服務｜企業只需報價與出貨', en: 'Export Sales Outsourcing | You Quote & Ship, We Do the Rest' },
     description: { zh: '我們承接除「報價與出貨」以外的外銷業務行為：名單、開發、跟進、回覆分類別與詢價交付，讓外銷開發變成可複製的系統。', en: 'We run export sales operations except quotation and shipping: lists, outreach, follow-ups, reply triage, and qualified inquiry delivery.' },
     heroPromise: {
       zh: '你只需專注報價與出貨，其餘外銷開發與跟進由我們標準化執行。',
@@ -872,15 +872,15 @@ export const coreServices = {
       en: 'Best for manufacturers scaling exports without hiring an in-house team first.',
     },
     heroDeliverablesLine: {
-      zh: '交付套件含：可追蹤開發管線、驗證名單、回覆分類別與合格詢價交付。',
+      zh: '交付包含：可追蹤開發管線、驗證名單、回覆分類別與合格詢價交付。',
       en: 'Deliverables: trackable pipeline, verified lists, reply triage, and qualified inquiry handoffs.',
     },
     heroTrustSignal: {
-      zh: '適用於以一年為週期，把開發、跟進與交付做成穩定外套件流程。',
+      zh: '適用於以一年為週期，把開發、跟進與交付做成穩定外包流程。',
       en: 'Designed for a one-year engagement that standardizes outreach, follow-up, and inquiry delivery.',
     },
     annualPlanTitle: {
-      zh: '一年期外套件合作節奏',
+      zh: '一年期外包合作節奏',
       en: 'One-year outsourcing plan',
     },
     annualPlan: {
@@ -897,7 +897,7 @@ export const coreServices = {
         { phase: 'Quarter 4', focus: 'Consolidate assets and renewal plan', deliverables: ['Organize pipeline and inquiry categories', 'Review delivery efficiency', 'Plan next-year SOP and market priorities'] },
       ],
     },
-    h1: { zh: '外銷業務外套件服務', en: 'Export Sales Outsourcing for Manufacturers' },
+    h1: { zh: '外銷業務外包服務', en: 'Export Sales Outsourcing for Manufacturers' },
     whoFor: {
       zh: ['外銷人手不足的製造業', '想拓展海外但不想先擴編', '需要把開發與跟進標準化的企業', '希望把詢價交付做成可追蹤流程的團隊'],
       en: ['Manufacturers short on export sales capacity', 'Teams scaling overseas without hiring first', 'Businesses needing standardized outreach and follow-up SOP', 'Companies wanting trackable inquiry delivery'],
@@ -955,7 +955,7 @@ export const coreServices = {
       en: ['We turn outbound into a deliverable system (process, lists, cadence, reply triage) so you only focus on quoting and shipping.', 'You get a trackable pipeline and repeatable SOP instead of relying on individual heroics.'],
     },
     whatIs: {
-      zh: ['外銷業務外套件是由專業團隊承接海外客戶開發與跟進，把外銷流程標準化並持續交付合格詢價，讓企業不用先擴編也能做海外增長。'],
+      zh: ['外銷業務外包服務是由專業團隊承接海外客戶開發與跟進，把外銷流程標準化並持續交付合格詢價，讓企業不用先擴編也能做海外增長。'],
       en: ['Export sales outsourcing is a managed workflow that standardizes outreach and follow-up to continuously deliver qualified export inquiries without hiring a full team.'],
     },
     howWorks: {
@@ -1150,7 +1150,7 @@ export const coreServices = {
     faq: [
       { q: { zh: '你們會幫忙回覆客戶嗎？', en: 'Do you reply to buyers for us?' }, a: { zh: '可以依合作模式調整：可做初步需求確認與篩選，也可只交付回覆由你們自行跟進。', en: 'Yes, depending on engagement: we can do initial qualification or simply deliver replies for your team to follow up.' } },
       { q: { zh: '如何確保詢價品質？', en: 'How do you ensure lead quality?' }, a: { zh: '透過名單篩選規則、訊息框架與回覆分類別流程，把不匹配的詢價在前段就過濾掉。', en: 'Through list qualification rules, messaging frameworks, and reply triage to filter poor fits early.' } },
-      { q: { zh: '外銷業務外套件套件含哪些工作？', en: 'What is included in export sales outsourcing?' }, a: { zh: '通常套件含：名單建置、電子郵件與LinkedIn開發、跟進、回覆分類別與詢價交付；不套件含：報價、談判、收款與出貨。', en: 'Typically included: list building, outreach, follow-ups, reply triage, and inquiry delivery; excluded: quoting, negotiation, payment, and shipping.' } },
+      { q: { zh: '外銷業務外包服務包含哪些工作？', en: 'What is included in export sales outsourcing?' }, a: { zh: '通常包含：名單建置、電子郵件與LinkedIn開發、跟進、回覆分類別與詢價交付；不包含：報價、談判、收款與出貨。', en: 'Typically included: list building, outreach, follow-ups, reply triage, and inquiry delivery; excluded: quoting, negotiation, payment, and shipping.' } },
       { q: { zh: '我們需要準備什麼？', en: 'What do we need to prepare?' }, a: { zh: '你只需準備：產品一頁式摘要、目標市場優先序、可接受條件（最小訂購量/交期/付款/價格層級）與你方成交流程。', en: 'You provide: a one-page product brief, market priorities, acceptable terms (MOQ/lead time/payment/tiers), and your closing workflow.' } },
       { q: { zh: '多久會開始看到回覆？', en: 'How soon will we see replies?' }, a: { zh: '通常前 2–4 週完成理想客戶、名單與訊息測試；第 4–8 週開始穩定累積回覆與可交付詢價（視市場/產業而定）。', en: 'Typically weeks 2–4 for ICP, lists and message testing; weeks 4–8 for stable replies and deliverable inquiries depending on market and industry.' } },
       { q: { zh: '你們會用哪些工具或資料來源？', en: 'Which sources do you use?' }, a: { zh: '依市場與產業選擇：產業目錄、協會名錄、展會名單、LinkedIn、公司網站與新聞，以及可交叉驗證的商業資料函式庫。', en: 'Based on market/industry: directories, associations, trade shows, LinkedIn, company websites/news, and cross-verifiable business databases.' } },
@@ -1166,10 +1166,10 @@ export const coreServices = {
     seoSections: [
       {
         id: 'what-is-export-sales-outsourcing',
-        title: { zh: '什麼是外銷業務外套件', en: 'What is export sales outsourcing?' },
+        title: { zh: '什麼是外銷業務外包服務', en: 'What is export sales outsourcing?' },
         content: {
           zh: [
-            '外銷業務外套件不是把「成交」外套件，而是把可以標準化的前段工作外套件：名單、開發、跟進、回覆分類別與詢價交付，讓企業把最稀缺的時間花在報價、談判與出貨。',
+            '外銷業務外包服務不是把「成交」外包，而是把可以標準化的前段工作外包：名單、開發、跟進、回覆分類別與詢價交付，讓企業把最稀缺的時間花在報價、談判與出貨。',
             '關鍵是流程可追蹤。你必須能看到每週名單新增、寄送與回覆狀態，並且把合格詢價以一致格式交付，才會真正降低跟進成本。',
           ],
           en: [
@@ -1180,11 +1180,11 @@ export const coreServices = {
       },
       {
         id: 'why-manufacturers-outsource-export-sales',
-        title: { zh: '為什麼製造業選擇外銷外套件', en: 'Why manufacturers outsource export sales' },
+        title: { zh: '為什麼製造業選擇外銷外包服務', en: 'Why manufacturers outsource export sales' },
         content: {
           zh: [
             '對多數製造業來說，外銷增長的瓶頸不是「沒有產品」，而是「沒有穩定可追蹤的開發與跟進能力」。建立一支能產出詢價的外銷團隊，需要招募、培訓、管理與系統化，週期長且成本高。',
-            '外銷業務外套件的價值在於把前段可標準化工作交給專業團隊：名單、開發、跟進、回覆分類別、詢價交付；你方只需投入最關鍵的成交行為（報價/談判/出貨）。',
+            '外銷業務外包服務的價值在於把前段可標準化工作交給專業團隊：名單、開發、跟進、回覆分類別、詢價交付；你方只需投入最關鍵的成交行為（報價/談判/出貨）。',
           ],
           en: [
             'For most manufacturers, the bottleneck is not product—it is the lack of a stable, trackable outreach and follow-up system. Building an export team that reliably generates inquiries takes hiring, training, and operations, which is slow and expensive.',
@@ -1197,7 +1197,7 @@ export const coreServices = {
         title: { zh: '交付內容與合作邊界', en: 'Deliverables and boundaries' },
         content: {
           zh: [
-            '為了讓外套件「可管理」，必須先把套件含/不套件含講清楚。我們通常承接：名單建置、開發與跟進、回覆分類別、初步需求確認與詢價交付；你方承接：報價、談判、收款與出貨。',
+            '為了讓外包「可管理」，必須先把包含/不包含講清楚。我們通常承接：名單建置、開發與跟進、回覆分類別、初步需求確認與詢價交付；你方承接：報價、談判、收款與出貨。',
             '我們會把每週工作變成可追蹤報表：寄送量、開信/回覆、詢價分類別、以及下一步建議。這樣你可以清楚知道開發管線在哪裡卡住，並快速調整名單、訊息或節奏。',
           ],
           en: [
@@ -1206,7 +1206,7 @@ export const coreServices = {
           ],
         },
         bullets: {
-          zh: ['套件含：名單/開發/跟進/回覆分類別/詢價交付', '不套件含：報價/談判/收款/出貨', '每週交付：資料 + 清單 + 詢價摘要'],
+          zh: ['包含：名單/開發/跟進/回覆分類別/詢價交付', '不包含：報價/談判/收款/出貨', '每週交付：資料 + 清單 + 詢價摘要'],
           en: ['Included: lists, outreach, follow-ups, triage, inquiry delivery', 'Excluded: quoting, negotiation, payment, shipping', 'Weekly delivery: metrics + lists + inquiry summaries'],
         },
       },

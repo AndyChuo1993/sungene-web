@@ -262,7 +262,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                               想把內容變成可交付成果，可以對照服務頁的交付與流程：{' '}
                               <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">核心服務</Link>
                               ，以及團隊常用的{' '}
-                              <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">外銷業務外套件</Link>
+                              <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">外銷業務外包服務</Link>
                               。若你希望先用低成本驗證，也可以先拿{' '}
                               <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">免費市場分析</Link>
                               當起點。

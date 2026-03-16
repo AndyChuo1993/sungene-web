@@ -41,14 +41,14 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     },
     {
       id: 3,
-      title: lang === 'zh' ? '外銷業務外套件' : 'Export Sales Outsourcing',
+      title: lang === 'zh' ? '外銷業務外包服務' : 'Export Sales Outsourcing',
       desc:
         lang === 'zh'
           ? '你專注報價與出貨，其餘開發與跟進交給我們'
           : 'You quote and ship. We run the outreach and follow-up system.',
       items:
         lang === 'zh'
-          ? ['前段開發與跟進外套件', '回覆分類別與需求整理', '建立可複製的標準作業流程']
+          ? ['前段開發與跟進外包', '回覆分類別與需求整理', '建立可複製的標準作業流程']
           : ['Managed outreach and follow-ups', 'Reply triage and qualification', 'Repeatable SOP'],
       link: `/${lang}/services/export-sales-outsourcing`,
       icon: (

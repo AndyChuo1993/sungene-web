@@ -30,7 +30,7 @@ const dict = {
     home_service_1_desc: '協助你持續獲取海外買家詢價',
     home_service_2_title: '經銷商開發',
     home_service_2_desc: '建立海外通路夥伴名單並推進合作',
-    home_service_3_title: '外銷業務外套件',
+    home_service_3_title: '外銷業務外包服務',
     home_service_3_desc: '你只需報價與出貨，其餘我們承接',
     
     // Home - Why Us
@@ -68,7 +68,7 @@ const dict = {
     service_outreach_sub2: '夥伴招募與初步篩選',
     service_outreach_sub3: '合作條件與方案框架',
 
-    service_sales_title: '外銷業務外套件',
+    service_sales_title: '外銷業務外包服務',
     service_sales_desc: '你報價與出貨，其餘外銷流程我們承接',
     service_sales_sub1: '開發與跟進節奏',
     service_sales_sub2: '回覆分類別與需求確認',
@@ -104,9 +104,9 @@ const dict = {
     contact_submit: '寄送訊息',
 
     // SEO
-    meta_home_title: 'SunGene 外銷客戶開發與外銷外套件服務 | 台灣外銷拓展專家',
-    meta_home_desc: 'SunGene 幫助台灣企業開發海外客戶，提供從客戶名單建立、開發信撰寫到詢價跟進的完整外銷外套件服務。',
-    meta_keywords: '外銷客戶開發, 外銷外套件, 海外客戶開發, 企業對企業業務外套件',
+    meta_home_title: 'SunGene 外銷客戶開發與外銷外包服務 | 台灣外銷拓展專家',
+    meta_home_desc: 'SunGene 幫助台灣企業開發海外客戶，提供從客戶名單建立、開發信撰寫到詢價跟進的完整外銷外包服務。',
+    meta_keywords: '外銷客戶開發, 外銷外包服務, 海外客戶開發, 企業對企業業務外包',
     
     // Footer
     footer_copyright: '© 2026 SunGene 版權所有。',
