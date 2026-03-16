@@ -46,6 +46,7 @@ export default function InquiryForm({
 }: InquiryFormProps) {
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'email_error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
   const searchParams = useSearchParams()
   const pathname = usePathname()
 
@@ -112,23 +113,26 @@ export default function InquiryForm({
 
       let json: any = null
       try {
-        json = await res.clone().json()
-      } catch {
+        const text = await res.text()
+        if (text) {
+          json = JSON.parse(text)
+        }
+      } catch (e) {
+        console.error('JSON Parse Error:', e)
         json = null
       }
 
-      if (json?.ok === false) {
-        throw new Error(json?.error || 'Submission failed')
-      }
-      if (!res.ok && !json) {
-        throw new Error('Submission failed')
+      if (!res.ok || json?.ok === false) {
+        const msg = json?.error || `Submission failed (${res.status})`
+        throw new Error(msg)
       }
 
       setStatus('success')
       // Reset form
       e.currentTarget.reset()
-    } catch (err) {
+    } catch (err: any) {
       console.error(err)
+      setErrorMessage(err.message || 'Unknown error')
       setStatus('error')
     } finally {
       setLoading(false)
@@ -192,8 +196,9 @@ export default function InquiryForm({
       ))}
 
       {status === 'error' && (
-        <div className="p-4 bg-red-50 text-red-700 rounded-sm border border-red-200">
-          <strong>{errorTitle || t(lang, 'form_error_title')}</strong>: {errorDesc || t(lang, 'form_error_desc')}
+        <div className="rounded-sm border border-red-200 bg-red-50 p-4 text-red-700">
+          <strong>{errorTitle || t(lang, 'form_error_title')}</strong>:{' '}
+          {errorMessage || errorDesc || t(lang, 'form_error_desc')}
         </div>
       )}
 

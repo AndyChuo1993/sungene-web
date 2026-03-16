@@ -227,7 +227,7 @@ IP: ${meta.ip}
 時間: ${meta.time}
 `
   try {
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       to,
       from: fromAddr,
       subject,
@@ -235,8 +235,10 @@ IP: ${meta.ip}
       replyTo: item.email,
       headers: { 'X-Request-ID': reqId || '' },
     })
+    console.log('[inquiries] admin email sent:', info.messageId)
     return true
-  } catch {
+  } catch (err) {
+    console.error('[inquiries] admin email failed:', err)
     return false
   }
 }
