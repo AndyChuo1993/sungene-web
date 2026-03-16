@@ -34,8 +34,8 @@ export const coreServices = {
     },
     h1: { zh: '外銷客戶開發（製造業）', en: 'Export Lead Generation for Manufacturers' },
     whoFor: {
-      zh: ['製造業', '代工工廠', '工業品公司', '以外銷為主的企業'],
-      en: ['Manufacturers', 'OEM factories', 'Industrial companies', 'Export-oriented businesses'],
+      zh: ['外銷製造業', 'OEM/ODM 企業', '工業品公司', '以外銷為主的企業'],
+      en: ['Export manufacturers', 'OEM/ODM enterprises', 'Industrial companies', 'Export-oriented businesses'],
     },
     whatYouGet: {
       zh: [
@@ -94,8 +94,8 @@ export const coreServices = {
       en: ['Export lead generation builds verified overseas prospect lists for specific markets and buyer roles, then runs multi-touch outreach to generate inquiries.'],
     },
     howWorks: {
-      zh: ['製造業要找到海外買家，核心不是寄更多信，而是先把理想客戶條件與買家角色（進口商、經銷商、品牌商、終端工廠）定義清楚，再用名單驗證與節奏式跟進提高回覆率。'],
-      en: ['Manufacturers win overseas buyers by clarifying ICP and buyer roles first, then using verified lists and structured follow-ups to improve reply rates.'],
+      zh: ['企業要找到海外買家，核心不是寄更多信，而是先把理想客戶條件與買家角色（進口商、經銷商、品牌商、終端工廠）定義清楚，再用名單驗證與節奏式跟進提高回覆率。'],
+      en: ['Enterprises win overseas buyers by clarifying ICP and buyer roles first, then using verified lists and structured follow-ups to improve reply rates.'],
     },
     process: {
       zh: ['定義理想客戶：市場、產業、通路角色、規模與採購方式。', '建立名單：多來源蒐集＋人工/系統驗證（公司、職位、電子郵件）。', '訊息框架：一封信只講一個痛點＋一個證據＋一個下一步。', '跟進節奏：4–6 次節奏式跟進，逐步加證據（案例/規格/應用）。', '回覆分類別：合格/待培育/不匹配，並交付詢價摘要與對話紀錄。'],
@@ -377,28 +377,28 @@ export const coreServices = {
       },
       {
         id: 'why-manufacturers-need-export-lead-generation',
-        title: { zh: '為什麼製造業需要外銷客戶開發', en: 'Why manufacturers need export lead generation' },
+        title: { zh: '為什麼外銷企業需要外銷客戶開發', en: 'Why export enterprises need export lead generation' },
         content: {
           zh: [
-            '製造業外銷失敗常見不是產品不好，而是「買家分散 + 決策鏈不透明 + 跟進不連續」。外銷客戶開發把開發變成可追蹤系統，讓你能穩定看到名單、回覆、詢價與下一步，並逐週最佳化。',
+            '外銷企業外銷失敗常見不是產品不好，而是「買家分散 + 決策鏈不透明 + 跟進不連續」。外銷客戶開發把開發變成可追蹤系統，讓你能穩定看到名單、回覆、詢價與下一步，並逐週最佳化。',
             '如果你仍只依賴展會與平台，會遇到：詢價波動大、比價嚴重、可控性低。外銷客戶開發讓你主動選擇市場與買家角色，並把管道變成可放大的流程資產。',
           ],
           en: [
-            'Manufacturers often fail overseas not because of product quality, but because buyers are fragmented, decision chains are opaque, and follow-ups are inconsistent. Export lead generation turns outreach into a trackable system you can optimize weekly.',
+            'Export enterprises often fail overseas not because of product quality, but because buyers are fragmented, decision chains are opaque, and follow-ups are inconsistent. Export lead generation turns outreach into a trackable system you can optimize weekly.',
             'Relying only on fairs and platforms often means volatility, price competition, and low control. Export lead generation lets you proactively choose markets and buyer roles, and scale a repeatable outbound asset.',
           ],
         },
       },
       {
         id: 'how-manufacturers-find-overseas-buyers',
-        title: { zh: '製造業如何找到海外買家', en: 'How manufacturers find overseas buyers' },
+        title: { zh: '外銷企業如何找到海外買家', en: 'How export enterprises find overseas buyers' },
         content: {
           zh: [
-            '製造業找海外買家，通常會同時存在多種買家類別型：進口商、經銷商、品牌商、代工買家、系統整合商等。不同角色的關注點不同：有人重視交期與穩定供應，有人重視驗證與規格，有人重視價格與最小訂購量。',
+            '外銷企業找海外買家，通常會同時存在多種買家類別型：進口商、經銷商、品牌商、代工買家、系統整合商等。不同角色的關注點不同：有人重視交期與穩定供應，有人重視驗證與規格，有人重視價格與最小訂購量。',
             '有效的做法是先用產品線與市場分層，把「最可能成交」的買家角色放在第一順位，並在名單建置時就把角色標籤與驗證條件加進去，降低無效開發。',
           ],
           en: [
-            'Manufacturers often face multiple buyer types: importers, distributors, brands, OEM buyers, and industrial partners/integrators. Each role values different things—lead time, certification, pricing tiers, MOQ, service capability, or exclusivity terms.',
+            'Export enterprises often face multiple buyer types: importers, distributors, brands, OEM buyers, and industrial partners/integrators. Each role values different things—lead time, certification, pricing tiers, MOQ, service capability, or exclusivity terms.',
             'A practical approach is to segment by product line and market tier first, prioritize the most likely buyer roles, and tag prospects during list building so you reduce wasted outreach from the start.',
           ],
         },
@@ -786,7 +786,7 @@ export const coreServices = {
         title: { zh: '什麼是經銷商開發', en: 'What is distributor development?' },
         content: {
           zh: [
-            '經銷商開發的核心不是「找更多名單」，而是把通路角色、合作條件與推進節奏設計清楚，讓合作可以被評估、被推進、被簽約。對製造業而言，經銷商往往是最快進入市場的槓桿。',
+            '經銷商開發的核心不是「找更多名單」，而是把通路角色、合作條件與推進節奏設計清楚，讓合作可以被評估、被推進、被簽約。對外銷企業而言，經銷商往往是最快進入市場的槓桿。',
             '我們把流程固定為：市場分層 → 通路地圖 → 夥伴名單 → 合作方案 → 跟進節奏 → 會議/試單，並確保每一步都有可交付成果。',
           ],
           en: [

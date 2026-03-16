@@ -51,8 +51,8 @@ export default function HeroSection({ lang }: { lang: Lang }) {
             <div className="mt-14 grid gap-4 border-t border-gray-100 pt-8 text-left md:grid-cols-3">
               {[
                 {
-                  title: lang === 'zh' ? '已服務超過 50 家工廠' : 'Serving 50+ factories',
-                  desc: lang === 'zh' ? '聚焦外銷企業與業務團隊的實際開發需求。' : 'Built around the real needs of manufacturers and export teams.',
+                  title: lang === 'zh' ? '已服務超過 50 家企業' : 'Serving 50+ enterprises',
+                  desc: lang === 'zh' ? '聚焦外銷企業與業務團隊的實際開發需求。' : 'Built around the real needs of export enterprises and teams.',
                 },
                 {
                   title: lang === 'zh' ? '專注企業外銷開發' : 'Focused on export growth',

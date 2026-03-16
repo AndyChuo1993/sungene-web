@@ -85,8 +85,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
             <h2 className="text-3xl font-bold text-gray-900">{lang === 'zh' ? '我們服務哪些客戶' : 'Who we work with'}</h2>
             <p className="mt-4 leading-7 text-gray-600">
               {lang === 'zh'
-                ? '我們主要服務有產品、有工廠、有交付能力，但缺少穩定海外開發流程的外銷企業與供應商。特別適合正在拓展歐洲、北美、日本與東南亞市場的團隊。'
-                : 'We mainly work with manufacturers and suppliers that already have product and production capacity, but need a steadier export development process—especially for Europe, North America, Japan, and Southeast Asia.'}
+                ? '我們主要服務有產品、有交付能力，但缺少穩定海外開發流程的外銷企業與供應商。特別適合正在拓展歐洲、北美、日本與東南亞市場的團隊。'
+                : 'We serve export enterprises and suppliers with great products but no stable export process. Ideal for teams expanding into Europe, North America, Japan, and SEA.'}
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-white p-5 shadow-sm">
