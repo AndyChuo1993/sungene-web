@@ -6,8 +6,8 @@ import { seoMarkets } from '@/data/seoMarkets'
 import { seoIndustries } from '@/data/seoIndustries'
 import { getBlogPosts } from '@/data/blog'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const host = headers().get('host') || 'sungenelite.com'
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const host = (await headers()).get('host') || 'sungenelite.com'
   const baseUrl = `https://${host}`
   const langs = ['zh', 'en', 'cn'] as const
   
