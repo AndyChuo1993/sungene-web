@@ -12,7 +12,7 @@ export default function CasePreview({ lang }: { lang: Lang }) {
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{lang === 'en' ? 'Success Stories' : (lang === 'cn' ? '成功案例' : '成功案例')}</h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{lang === 'en' ? 'See how we help enterprises go global' : (lang === 'cn' ? '看看我們如何幫助企业走向世界' : '看看我們如何幫助企業走向世界')}</p>
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{lang === 'en' ? 'See how we help enterprises go global' : (lang === 'cn' ? '看看我们如何帮助企业走向世界' : '看看我們如何幫助企業走向世界')}</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12 mb-12">
@@ -56,7 +56,7 @@ export default function CasePreview({ lang }: { lang: Lang }) {
                     </p>
                 </div>
                 <Link href={`/${lang}/case-studies/${item.slug}`} className="inline-block text-center w-full bg-gray-900 text-white font-bold py-3 px-6 rounded-sm hover:bg-blue-800 transition duration-300">
-                  {lang === 'en' ? 'Read Case Study' : (lang === 'cn' ? '閱讀完整案例' : '閱讀完整案例')}
+                  {lang === 'en' ? 'Read Case Study' : (lang === 'cn' ? '阅读完整案例' : '閱讀完整案例')}
                 </Link>
               </div>
             </div>

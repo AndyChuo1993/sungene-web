@@ -3,9 +3,9 @@ import { t, Lang } from '@/lib/i18n'
 
 export default function Footer({ lang }: { lang: Lang }) {
   const serviceLinks = [
-    { href: `/${lang}/services/export-lead-generation`, label: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客戶開發' : '外銷客戶開發') },
-    { href: `/${lang}/services/distributor-development`, label: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商開發' : '經銷商開發') },
-    { href: `/${lang}/services/export-sales-outsourcing`, label: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸業務外包服务' : '外銷業務外包服務') },
+    { href: `/${lang}/services/export-lead-generation`, label: lang === 'en' ? 'Export Lead Generation' : (lang === 'cn' ? '外贸客户开发' : '外銷客戶開發') },
+    { href: `/${lang}/services/distributor-development`, label: lang === 'en' ? 'Distributor Development' : (lang === 'cn' ? '经销商开发' : '經銷商開發') },
+    { href: `/${lang}/services/export-sales-outsourcing`, label: lang === 'en' ? 'Export Sales Outsourcing' : (lang === 'cn' ? '外贸业务外包服务' : '外銷業務外包服務') },
   ]
 
   return (
@@ -24,9 +24,9 @@ export default function Footer({ lang }: { lang: Lang }) {
             <div className="text-gray-400 text-sm space-y-2">
                <div>contact@sungenelite.com</div>
                <div>+886 43703 2705</div>
-               <div>{lang === 'en' ? 'LINE ID: @sungene' : (lang === 'cn' ? '即時通訊帳號：@sungene' : '即時通訊帳號：@sungene')}</div>
+               <div>{lang === 'en' ? 'LINE ID: @sungene' : (lang === 'cn' ? '即时通讯账号：@sungene' : '即時通訊帳號：@sungene')}</div>
                <div>{lang === 'en' ? 'No. 201, Guangfu Rd., Taichung City, Taiwan' : (lang === 'cn' ? '台中市中區光復路201號' : '台中市中區光復路201號')}</div>
-               <div>{lang === 'en' ? 'Tax ID: 94111922' : (lang === 'cn' ? '統一編號：94111922' : '統一編號：94111922')}</div>
+               <div>{lang === 'en' ? 'Tax ID: 94111922' : (lang === 'cn' ? '统一编号：94111922' : '統一編號：94111922')}</div>
             </div>
           </div>
           <div>
@@ -35,7 +35,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               <li><Link href={`/${lang}/services`} className="transition hover:text-white">{t(lang, 'nav_services')}</Link></li>
               <li><Link href={`/${lang}/how-it-works`} className="transition hover:text-white">{t(lang, 'nav_process')}</Link></li>
               <li><Link href={`/${lang}/case-studies`} className="transition hover:text-white">{t(lang, 'nav_cases')}</Link></li>
-              <li><Link href={`/${lang}/resources`} className="transition hover:text-white">{lang === 'en' ? 'Resources' : (lang === 'cn' ? '資源中心' : '資源中心')}</Link></li>
+              <li><Link href={`/${lang}/resources`} className="transition hover:text-white">{lang === 'en' ? 'Resources' : (lang === 'cn' ? '资源中心' : '資源中心')}</Link></li>
               <li><Link href={`/${lang}/about`} className="transition hover:text-white">{t(lang, 'nav_about')}</Link></li>
             </ul>
           </div>
