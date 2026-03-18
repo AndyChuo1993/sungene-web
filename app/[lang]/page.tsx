@@ -10,7 +10,7 @@ import CTASection from '@/components/home/CTASection'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
 
-  const meta = {
+  const data = {
     en: {
       title: 'B2B Export Lead Generation for Manufacturers | Buyer & Distributor Development | SunGene',
       description:
@@ -35,9 +35,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   }[lang]
 
   return {
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.keywords,
+    title: data?.title || "SunGene Export Services",
+    description: data?.description || "SunGene Export Services",
+    keywords: data?.keywords || "SunGene",
     alternates: {
       canonical: `https://sungene.net/${lang}`,
       languages: {
@@ -49,15 +49,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       },
     },
     openGraph: {
-      title: meta.title,
-      description: meta.description,
+      title: data?.title || "SunGene Export Services",
+      description: data?.description || "SunGene Export Services",
       type: 'website',
       images: ['/og/og.png'],
     },
     twitter: {
       card: 'summary_large_image',
-      title: meta.title,
-      description: meta.description,
+      title: data?.title || "SunGene Export Services",
+      description: data?.description || "SunGene Export Services",
       images: ['/og/og.png'],
     },
   }
