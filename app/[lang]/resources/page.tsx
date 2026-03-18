@@ -27,7 +27,7 @@ export async function generateMetadata({ params, searchParams }: { params: Promi
         'zh-CN': 'https://sungene.net/cn/resources',
         'zh-TW': 'https://sungenelite.com/zh/resources',
         'en': 'https://sungene.net/en/resources',
-        'x-default': 'https://sungene.net/en/resources',
+        'x-default': 'https://sungene.net/cn/resources',
       },
     },
     openGraph: {

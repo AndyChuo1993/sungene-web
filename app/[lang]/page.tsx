@@ -107,7 +107,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
         'zh-CN': 'https://sungene.net/cn',
         'zh-TW': 'https://sungenelite.com/zh',
         'en': 'https://sungene.net/en',
-        'x-default': 'https://sungene.net/en',
+        'x-default': 'https://sungene.net/cn',
       },
     },
     openGraph: {
@@ -150,7 +150,7 @@ export default async function Page({ params }: PageParams) {
     '@type': 'Organization',
     name: 'SunGene',
     url: `${baseUrl}/${safeLang}`,
-    logo: 'https://sungene.net/logo.png',
+    logo: `${baseUrl}/logo/sungene.png`,
     description: data.description,
     sameAs: [],
   }

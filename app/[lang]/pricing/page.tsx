@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         'zh-CN': 'https://sungene.net/cn/pricing', 
         'zh-TW': 'https://sungenelite.com/zh/pricing', 
         'en': 'https://sungene.net/en/pricing', 
-        'x-default': 'https://sungene.net/en/pricing' 
+        'x-default': 'https://sungene.net/cn/pricing' 
       } 
     },
     robots: { index: false, follow: true },

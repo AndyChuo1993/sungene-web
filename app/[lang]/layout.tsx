@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         'zh-CN': 'https://sungene.net/cn',
         'zh-TW': 'https://sungenelite.com/zh',
         'en': 'https://sungene.net/en',
-        'x-default': 'https://sungene.net/en',
+        'x-default': 'https://sungene.net/cn',
       },
     },
   }
@@ -38,14 +38,14 @@ export default async function RootLayout({ children, params }: { children: React
   const { lang: rawLang } = await params
   const lang = (['en', 'zh', 'cn'].includes(rawLang) ? rawLang : 'zh') as Lang
 
-  const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sungenelite.com'
-  const logoUrl = `${site}/logo/sungene.png`
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
+  const logoUrl = `${baseUrl}/logo/sungene.png`
 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'SunGene Co., LTD.',
-    url: site,
+    url: baseUrl,
   }
 
   const org = {
@@ -53,7 +53,7 @@ export default async function RootLayout({ children, params }: { children: React
     '@type': 'Organization',
     name: 'SunGene Co., LTD.',
     description: t(lang, 'about_desc'),
-    url: site,
+    url: baseUrl,
     logo: logoUrl,
     telephone: '04-37032705',
     address: {
@@ -94,8 +94,8 @@ export default async function RootLayout({ children, params }: { children: React
     '@type': 'LocalBusiness',
     name: 'SunGene Co., LTD.',
     image: logoUrl,
-    '@id': site,
-    url: site,
+    '@id': baseUrl,
+    url: baseUrl,
     telephone: '+886-4-37032705',
     address: {
       '@type': 'PostalAddress',

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         'zh-CN': 'https://sungene.net/cn/faq', 
         'zh-TW': 'https://sungenelite.com/zh/faq', 
         'en': 'https://sungene.net/en/faq', 
-        'x-default': 'https://sungene.net/en/faq' 
+        'x-default': 'https://sungene.net/cn/faq' 
       } 
     },
     openGraph: { 

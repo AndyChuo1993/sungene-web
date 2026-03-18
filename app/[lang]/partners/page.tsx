@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         'zh-CN': 'https://sungene.net/cn/partners', 
         'zh-TW': 'https://sungenelite.com/zh/partners', 
         'en': 'https://sungene.net/en/partners', 
-        'x-default': 'https://sungene.net/en/partners' 
+        'x-default': 'https://sungene.net/cn/partners' 
       } 
     },
     robots: { index: false, follow: true },
