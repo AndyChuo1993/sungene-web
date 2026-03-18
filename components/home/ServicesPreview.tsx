@@ -11,15 +11,15 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
       id: 1,
       title: isEn ? 'Export Lead Generation' : isCn ? '外贸客户开发' : '外銷客戶開發',
       desc: isEn
-        ? 'Identify and approach qualified overseas buyers for companies'
+        ? 'Find buyers who will order, not just lists. Direct to overseas procurement.'
         : isCn
-        ? '协助企业找到并接触合适的海外买家'
-        : '協助企業找到並接觸合適的海外買家',
+        ? '找到「会下单」的海外客户，协助你直接对接海外采购'
+        : '找到「會下單」的海外客戶，協助你直接對接海外採購',
       items: isEn
-        ? ['Buyer research and qualification', 'Structured outreach cadence', 'Qualified opportunity handoff']
+        ? ['Target procurement decision-makers', 'Develop buyers with active needs', 'Filter qualified inquiries for quoting', 'Push to actual business negotiation']
         : isCn
-        ? ['买家名单研究与验证', '开发节奏规划', '可跟进商机整理']
-        : ['買家名單研究與驗證', '開發節奏規劃', '可跟進商機整理'],
+        ? ['精准锁定海外采购决策人（非随机名单）', '直接开发有采购需求的客户', '筛选有效询盘（可进入报价阶段）', '协助推进至实际商务沟通']
+        : ['精準鎖定海外採購決策人（非隨機名單）', '直接開發有採購需求的客戶', '篩選有效詢盤（可進入報價階段）', '協助推進至實際商務溝通'],
       link: `/${lang}/services/export-lead-generation`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -31,15 +31,15 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
       id: 2,
       title: isEn ? 'Distributor Development' : isCn ? '经销商开发' : '經銷商開發',
       desc: isEn
-        ? 'Build and develop overseas distributor opportunities'
+        ? 'Penetrate local channels, build actionable distributor networks.'
         : isCn
-        ? '协助你建立海外经销伙伴开发名单与推进流程'
-        : '協助你建立海外經銷夥伴開發名單與推進流程',
+        ? '帮你打进当地通路，建立可合作的海外经销体系'
+        : '幫你打進當地通路，建立可合作的海外經銷體系',
       items: isEn
-        ? ['Market and channel mapping', 'Partner qualification', 'Early-stage business development support']
+        ? ['Analyze local channel structures', 'Filter capable distributors', 'Establish partnership dialogues', 'Advance to evaluation and sampling']
         : isCn
-        ? ['市场与渠道盘点', '潜在伙伴筛选', '合作推进支持']
-        : ['市場與通路盤點', '潛在夥伴篩選', '合作推進支援'],
+        ? ['分析目标市场通路结构', '精准筛选有销售能力的经销商', '协助建立合作对话（不是丢名单）', '推进至合作评估与样品阶段']
+        : ['分析目標市場通路結構', '精準篩選有銷售能力的經銷商', '協助建立合作對話（不是丟名單）', '推進至合作評估與樣品階段'],
       link: `/${lang}/services/distributor-development`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,17 +49,17 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
     },
     {
       id: 3,
-      title: isEn ? 'Export Sales Outsourcing' : isCn ? '外贸业务外包服务' : '外銷業務外包服務',
+      title: isEn ? 'Export Sales Outsourcing' : isCn ? '外贸业务外包' : '外銷業務外包',
       desc: isEn
-        ? 'External support for export sales development and follow-up'
+        ? 'Direct export sales execution. The goal is closing, not just prospecting.'
         : isCn
-        ? '以外部支持方式协助推进外贸开发与跟进'
-        : '以外部支援方式協助推進外銷開發與跟進',
+        ? '直接帮你做外贸业务，全程推进到订单成交'
+        : '直接幫你做外銷業務，全程推進到訂單成交',
       items: isEn
-        ? ['Managed outreach support', 'Reply handling and qualification', 'Reduced internal workload']
+        ? ['Continuous overseas prospecting', 'Inquiry follow-up and requirement gathering', 'Assist with quoting and negotiation', 'Push through to order closing']
         : isCn
-        ? ['前段开发支持', '回复与需求整理', '降低内部负担']
-        : ['前段開發支援', '回覆與需求整理', '降低內部負擔'],
+        ? ['持续海外客户开发', '客户询盘跟进与需求整理', '协助报价与商务沟通', '持续推进至成交与下单']
+        : ['持續海外客戶開發', '客戶詢盤跟進與需求整理', '協助報價與商務溝通', '持續推進至成交與下單'],
       link: `/${lang}/services/export-sales-outsourcing`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,6 +106,51 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
               </Link>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 rounded-2xl bg-white p-8 shadow-sm border border-gray-100">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              {isEn ? 'Our goal is actual orders, not just inquiries' : isCn ? '我们的合作目标不是询盘，而是「实际订单」' : '我們的合作目標不是詢盤，而是「實際訂單」'}
+            </h3>
+            <p className="text-gray-500">
+              {isEn ? 'We drive the entire process from finding leads to closing deals.' : isCn ? '我们致力于推动从开发到成交的完整流程' : '我們致力於推動從開發到成交的完整流程'}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                1
+              </div>
+              <div className="font-bold text-gray-900">
+                {isEn ? 'Direct to Procurement' : isCn ? '对接海外采购窗口' : '對接海外採購窗口'}
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                2
+              </div>
+              <div className="font-bold text-gray-900">
+                {isEn ? 'Enter Quoting Process' : isCn ? '进入报价流程' : '進入報價流程'}
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                3
+              </div>
+              <div className="font-bold text-gray-900">
+                {isEn ? 'Advance Sampling' : isCn ? '推进样品与测试' : '推進樣品與測試'}
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                4
+              </div>
+              <div className="font-bold text-gray-900">
+                {isEn ? 'Close the Deal' : isCn ? '协助成交与下单' : '協助成交與下單'}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
