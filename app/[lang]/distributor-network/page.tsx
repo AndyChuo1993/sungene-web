@@ -116,10 +116,19 @@ const service: ServiceSeo = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
-    alternates: { canonical: `/${lang}/distributor-network`, languages: { 'zh-CN': '/cn/distributor-network', zh: '/zh/distributor-network', en: '/en/distributor-network', 'x-default': '/en/distributor-network' } },
+    alternates: {
+      canonical: `${baseUrl}/${lang}/distributor-network`,
+      languages: {
+        'zh-CN': `https://sungene.net/cn/distributor-network`,
+        'zh-TW': `https://sungenelite.com/zh/distributor-network`,
+        'en': `https://sungene.net/en/distributor-network`,
+        'x-default': `https://sungene.net/cn/distributor-network`,
+      }
+    },
     
   }
 }

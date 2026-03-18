@@ -116,10 +116,19 @@ const service: ServiceSeo = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
-    alternates: { canonical: `/${lang}/qualified-b2b-leads`, languages: { 'zh-CN': '/cn/qualified-b2b-leads', zh: '/zh/qualified-b2b-leads', en: '/en/qualified-b2b-leads', 'x-default': '/en/qualified-b2b-leads' } },
+    alternates: {
+      canonical: `${baseUrl}/${lang}/qualified-b2b-leads`,
+      languages: {
+        'zh-CN': `https://sungene.net/cn/qualified-b2b-leads`,
+        'zh-TW': `https://sungenelite.com/zh/qualified-b2b-leads`,
+        'en': `https://sungene.net/en/qualified-b2b-leads`,
+        'x-default': `https://sungene.net/cn/qualified-b2b-leads`,
+      }
+    },
     
   }
 }

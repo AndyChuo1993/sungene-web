@@ -22,6 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/faq',
     '/pricing',
     '/partners',
+    '/how-it-works',
     '/services',
     '/services/export-lead-generation',
     '/services/distributor-development',
@@ -31,16 +32,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/case-studies',
     '/resources',
     '/blog',
-    // 其他有搜尋意圖的落地頁
-    '/buyers-list',
-    '/distributor-list',
-    '/qualified-b2b-leads',
-    '/linkedin-prospecting',
-    '/cold-email-outreach',
-    '/market-entry-strategy',
+    // 獨立商業關鍵字頁面
     '/buyer-database-building',
+    '/buyers-list',
+    '/cold-email-outreach',
+    '/distributor-list',
     '/distributor-network',
+    '/export-marketing',
+    '/linkedin-prospecting',
+    '/market-entry-strategy',
     '/overseas-buyer-lists',
+    '/qualified-b2b-leads',
   ]
 
   const sitemap: MetadataRoute.Sitemap = []

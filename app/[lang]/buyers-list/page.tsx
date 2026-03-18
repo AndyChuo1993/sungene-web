@@ -6,13 +6,22 @@ import { CheckCircle } from 'lucide-react'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   return {
     title: lang === 'en' ? 'Get 100 Potential Buyers List (Free) | SunGene' : (lang === 'cn' ? '免费索取 100 位潜在买家名单｜SunGene' : '免費索取 100 位潛在買家名單｜SunGene'),
     description:
       isChinese
         ? '留下你的產品與目標市場，我們提供 100 位潛在海外買家名單（依情況調整）。'
         : 'Share your product and target market. We’ll send a list of 100 potential overseas buyers (depending on feasibility).',
-    alternates: { canonical: `/${lang}/buyers-list`, languages: { zh: '/zh/buyers-list', en: '/en/buyers-list', 'x-default': '/en/buyers-list' } },
+    alternates: {
+      canonical: `${baseUrl}/${lang}/buyers-list`,
+      languages: {
+        'zh-CN': `https://sungene.net/cn/buyers-list`,
+        'zh-TW': `https://sungenelite.com/zh/buyers-list`,
+        'en': `https://sungene.net/en/buyers-list`,
+        'x-default': `https://sungene.net/cn/buyers-list`,
+      }
+    },
     
   }
 }

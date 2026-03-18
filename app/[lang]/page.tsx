@@ -14,17 +14,13 @@ type PageParams = {
 
 const HOME_SEO = {
   en: {
-    title: 'B2B Export Lead Generation for Companies | Buyer & Distributor Development | SunGene',
+    title: 'B2B Export Lead Generation & Distributor Development | SunGene',
     description:
       'SunGene helps companies grow overseas through B2B export lead generation, buyer development, distributor development, and export sales support.',
     keywords: [
       'b2b export lead generation',
-      'buyer development',
       'distributor development',
-      'export sales support',
       'overseas market development',
-      'international business development',
-      'export outsourcing',
       'SunGene',
     ],
     h1: 'Build export growth with buyer and distributor development',
@@ -35,17 +31,13 @@ const HOME_SEO = {
     contactBtn: 'Talk to SunGene',
   },
   zh: {
-    title: '企業外銷客戶開發 | 海外買家開發與經銷商開發 | SunGene',
+    title: '外銷客戶開發與海外買家開發服務 | SunGene',
     description:
       'SunGene 協助企業透過外銷客戶開發、海外買家開發、經銷商開發與外銷銷售支援，拓展海外市場。',
     keywords: [
       '外銷客戶開發',
       '海外買家開發',
       '經銷商開發',
-      '外銷銷售支援',
-      '海外市場開發',
-      '國際業務開發',
-      '外銷業務外包',
       'SunGene',
     ],
     h1: '用更有效的方法推動企業外銷成長',
@@ -56,17 +48,13 @@ const HOME_SEO = {
     contactBtn: '聯絡 SunGene',
   },
   cn: {
-    title: '企业外贸客户开发 | 海外买家开发与经销商开发 | SunGene',
+    title: '外贸客户开发与海外买家开发服务 | SunGene',
     description:
       'SunGene 协助企业通过外贸客户开发、海外买家开发、经销商开发与外贸销售支持，拓展海外市场。',
     keywords: [
       '外贸客户开发',
       '海外买家开发',
       '经销商开发',
-      '外贸销售支持',
-      '海外市场开发',
-      '国际业务开发',
-      '外贸业务外包',
       'SunGene',
     ],
     h1: '用更有效的方法推动企业外贸增长',

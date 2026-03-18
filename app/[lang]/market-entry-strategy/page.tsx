@@ -122,10 +122,19 @@ const service: ServiceSeo = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
-    alternates: { canonical: `/${lang}/market-entry-strategy`, languages: { 'zh-CN': '/cn/market-entry-strategy', zh: '/zh/market-entry-strategy', en: '/en/market-entry-strategy', 'x-default': '/en/market-entry-strategy' } },
+    alternates: {
+      canonical: `${baseUrl}/${lang}/market-entry-strategy`,
+      languages: {
+        'zh-CN': `https://sungene.net/cn/market-entry-strategy`,
+        'zh-TW': `https://sungenelite.com/zh/market-entry-strategy`,
+        'en': `https://sungene.net/en/market-entry-strategy`,
+        'x-default': `https://sungene.net/cn/market-entry-strategy`,
+      }
+    },
     
   }
 }

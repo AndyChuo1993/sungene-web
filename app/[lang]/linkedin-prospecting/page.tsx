@@ -122,10 +122,19 @@ const service: ServiceSeo = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
+  const baseUrl = lang === 'zh' ? 'https://sungenelite.com' : 'https://sungene.net'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
-    alternates: { canonical: `/${lang}/linkedin-prospecting`, languages: { 'zh-CN': '/cn/linkedin-prospecting', zh: '/zh/linkedin-prospecting', en: '/en/linkedin-prospecting', 'x-default': '/en/linkedin-prospecting' } },
+    alternates: {
+      canonical: `${baseUrl}/${lang}/linkedin-prospecting`,
+      languages: {
+        'zh-CN': `https://sungene.net/cn/linkedin-prospecting`,
+        'zh-TW': `https://sungenelite.com/zh/linkedin-prospecting`,
+        'en': `https://sungene.net/en/linkedin-prospecting`,
+        'x-default': `https://sungene.net/cn/linkedin-prospecting`,
+      }
+    },
     
   }
 }
