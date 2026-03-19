@@ -5,8 +5,8 @@ export const coreServices = {
     slug: 'export-lead-generation',
     path: '/services/export-lead-generation',
     title: {
-      cn: '企业外贸客户开发 | 海外买家开发',
-      zh: '企業外銷客戶開發 | 海外買家開發',
+      cn: '企业外贸客户开发 | 海外客户开发',
+      zh: '企業外銷客戶開發 | 海外客戶開發',
       en: 'B2B Export Lead Generation for Companies',
     },
     description: {
@@ -20,8 +20,8 @@ export const coreServices = {
       en: 'We help companies identify overseas buyers, build targeted decision-maker data, and generate qualified export opportunities.',
     },
     heroPromise: {
-      cn: '把海外买家开发做成可追踪流程，交付可跟进的合格机会。',
-      zh: '把海外買家開發做成可追蹤流程，交付可跟進的合格機會。',
+      cn: '把海外客户开发做成可追踪流程，交付可跟进的合格机会。',
+      zh: '把海外客戶開發做成可追蹤流程，交付可跟進的合格機會。',
       en: 'Turn overseas buyer development into a trackable process that delivers qualified opportunities.',
     },
     heroBestFor: {
@@ -117,7 +117,7 @@ export const coreServices = {
     solution: {
       cn: ['我們把外贸開發做成一套可复制的系統：理想客戶 → 资料 → 訊息 → 跟进 → 轉化，並以「合格詢問」作為可交付成果。', '你會得到可直接使用的资料（寄信资料與開信资料）、可追踪的開發節奏，以及可交付的詢問整理。'],
     zh: ['我們把外銷開發做成一套可複製的系統：理想客戶 → 資料 → 訊息 → 跟進 → 轉化，並以「合格詢問」作為可交付成果。', '你會得到可直接使用的資料（開發準備資料）、可追蹤的開發節奏，以及可交付的詢問整理。'],
-      en: ['We make export outreach repeatable with ICP → list → message → follow-up → conversion, and deliver qualified inquiries as outcomes.', 'You receive ready-to-use lists (sent list + opens list), a trackable cadence, and organized inquiry hand-offs.'],
+      en: ['We make export outreach repeatable with ICP → list → message → follow-up → conversion, and deliver qualified inquiries as outcomes.', 'You receive ready-to-use lists (開發資料與回覆追蹤紀錄), a trackable cadence, and organized inquiry hand-offs.'],
     },
     whatIs: {
       cn: ['外贸客戶開發是針對特定市场與买家角色，建立可验证的海外采购与决策人资料，並通过多触点開發節奏获取詢問。'],
@@ -130,7 +130,7 @@ export const coreServices = {
       en: ['Enterprises win overseas buyers by clarifying ICP and buyer roles first, then using verified lists and structured follow-ups to improve reply rates.'],
     },
     process: {
-      cn: ['定义理想客戶：市场、行业、渠道角色、规模與采购方式。', '建立资料：多来源搜集＋人工/系統验证（公司、职位、邮箱）。', '訊息框架：一封信只讲一個痛点＋一個证据＋一個下一步。', '跟进節奏：4–6 次節奏式跟进，逐步加证据（案例/規格/应用）。', '回复分类：合格/待培育/不匹配，並交付询盘摘要與對話记录。'],
+      cn: ['定义理想客戶：市场、行业、渠道角色、规模與采购方式。', '建立资料：多来源搜集＋人工/系統验证（公司、职位、邮箱）。', '訊息框架：一封信只讲一個痛点＋一個证据＋一個下一步。', '跟进節奏：4–6 次節奏式跟进，逐步加证据（案例/規格/应用）。', '回复分类：合格/待培育/不匹配，並交付商机摘要與對話记录。'],
     zh: ['定義理想客戶：市場、產業、通路角色、規模與採購方式。', '建立資料：多來源蒐集＋人工/系統驗證（公司、職位、電子郵件）。', '訊息框架：一封信只講一個痛點＋一個證據＋一個下一步。', '跟進節奏：4–6 次節奏式跟進，逐步加證據（案例/規格/應用）。', '回覆分類別：合格/待培育/不匹配，並交付詢價摘要與對話紀錄。'],
       en: ['Define ICP: market, industry, channel role, size, and buying style.', 'Build lists: multi-source collection with human + system validation.', 'Messaging: one pain point + one proof + one CTA per email.', 'Cadence: 4–6 structured follow-ups with different proof points.', 'Reply triage: qualified / nurture / no-fit, delivered with summaries and logs.'],
     },
@@ -156,7 +156,7 @@ export const coreServices = {
         { label: '流程資產', value: '可複製', desc: '把「一次性開發」變成可持續的海外開發系統。' },
       ],
       en: [
-        { label: 'Decision-maker data delivered', value: 'Excel', desc: 'Sent list + opens list ready for your team to use.' },
+        { label: 'Decision-maker data delivered', value: 'Excel', desc: 'Outreach records + reply tracking ready for your team to use.' },
         { label: 'Qualified inquiries', value: 'Trackable', desc: 'Each inquiry includes company, contact, needs, and conversation logs.' },
         { label: 'Process assets', value: 'Repeatable', desc: 'Turn one-off outreach into a sustainable export growth system.' },
       ],
@@ -223,7 +223,7 @@ export const coreServices = {
       en: ['Machinery', 'Electronics', 'Hardware Tools', 'Packaging/Materials', 'Industrial Equipment'],
     },
     caseStudy: {
-      title: { cn: '五金工具企业：3 個月累計 50–60 個有效询盘',
+      title: { cn: '五金工具企业：3 個月累計 50–60 個有效商机',
     zh: '五金工具企業：3 個月累計 50–60 個有效詢價', en: 'Hardware company: 50–60 qualified inquiries in 3 months' },
       desc: { cn: '建立 500 笔以上目标客户资料並优化開啟率至 40% 以上，超過 10 個潜在客戶進入样品與报价階段。',
     zh: '建立 500 筆以上目標客戶資料並最佳化開啟率至 40% 以上，超過 10 個潛在客戶進入樣品與報價階段。', en: 'Built 500+ targets, improved open rates to 40%+, and moved 10+ prospects into sampling and quoting.' },
@@ -392,7 +392,7 @@ export const coreServices = {
         title: { cn: '成果',
     zh: '成果', en: 'Results' },
         content: {
-          cn: ['3 個月累計 50–60 個有效询盘，超過 10 個潜在客戶進入样品與报价階段，開發流程沉淀為可复制的标准作业流程。'],
+          cn: ['3 個月累計 50–60 個有效商机，超過 10 個潜在客戶進入样品與报价階段，開發流程沉淀為可复制的标准作业流程。'],
     zh: ['3 個月累計 50–60 個有效詢價，超過 10 個潛在客戶進入樣品與報價階段，開發流程沉澱為可複製的標準作業流程。'],
           en: ['Within 3 months, the client received 50–60 qualified inquiries, with 10+ prospects progressing to sampling and quoting, supported by a repeatable SOP.'],
         },
@@ -405,7 +405,7 @@ export const coreServices = {
         a: {
           cn: '主要交付包含：寄信资料與開信资料（表格）、询盘整理（公司/联系方式/需求/對話记录），以及可追踪的跟进節奏建議。',
     zh: '主要交付包含：開發準備資料（試算表）、詢價整理（公司/聯絡方式/需求/對話紀錄），以及可追蹤的跟進節奏建議。',
-          en: 'Deliverables include: sent list + opens list (Excel), organized inquiries (company/contact/needs/logs), and a trackable follow-up cadence.',
+          en: 'Deliverables include: 開發資料與回覆追蹤紀錄 (Excel), organized inquiries (company/contact/needs/logs), and a trackable follow-up cadence.',
         },
       },
       {
@@ -490,7 +490,7 @@ export const coreServices = {
             '對企業而言，出口開發最大的風險通常不是沒有需求，而是買家分散、採購鏈複雜、聯絡窗口不透明。你需要把「市場研究 → 目標買家清單 → 線索資格審核 → 主動開發 → 會議」做成系統，才能避免每次都重新從零開始。',
           ],
           en: [
-            'Export lead generation is not about sending more emails. It is a measurable system: define markets, buyer roles, and ICP first; build a verified prospect list; then run cadence-based outreach that turns replies into qualified inquiries you can hand off to sales.',
+            'Export customer development is not about sending more emails. It is a measurable system: define markets, buyer roles, and ICP first; build a verified prospect list; then run cadence-based outreach that turns replies into qualified inquiries you can hand off to sales.',
             'For companies, export growth usually fails due to fragmented buyers, complex procurement chains, and unclear decision-makers. A systemized flow—market research → target buyer list → lead qualification → cold outreach → meetings—reduces randomness and increases predictability.',
           ],
         },
@@ -517,14 +517,14 @@ export const coreServices = {
       {
         id: 'how-companies-find-overseas-buyers',
         title: { cn: '外贸企业如何找到海外买家',
-    zh: '外銷企業如何找到海外買家', en: 'How export enterprises find overseas buyers' },
+    zh: '外銷企業如何找到海外買家', en: 'How export companies develop overseas customers' },
         content: {
           cn: [
-            '外贸企业找海外买家，通常會同時存在多種买家类别型：进口商、经销商、品牌商、代工买家、系統整合商等。不同角色的關注點不同：有人重視交期與稳定供應，有人重視验证與規格，有人重視價格與最小訂購量。',
+            '外贸企业开发海外客户与决策人，通常會同時存在多種买家类别型：进口商、经销商、品牌商、代工买家、系統整合商等。不同角色的關注點不同：有人重視交期與稳定供應，有人重視验证與規格，有人重視價格與最小訂購量。',
             '有效的做法是先用產品線與市场分层，把「最可能成交」的买家角色放在第一順位，並在资料建置時就把角色標籤與验证條件加進去，降低无效開發。',
           ],
     zh: [
-            '外銷企業找海外買家，通常會同時存在多種買家類別型：進口商、經銷商、品牌商、代工買家、系統整合商等。不同角色的關注點不同：有人重視交期與穩定供應，有人重視驗證與規格，有人重視價格與最小訂購量。',
+            '外銷企業開發海外客戶與決策人，通常會同時存在多種買家類別型：進口商、經銷商、品牌商、代工買家、系統整合商等。不同角色的關注點不同：有人重視交期與穩定供應，有人重視驗證與規格，有人重視價格與最小訂購量。',
             '有效的做法是先用產品線與市場分層，把「最可能成交」的買家角色放在第一順位，並在資料建置時就把角色標籤與驗證條件加進去，降低無效開發。',
           ],
           en: [
@@ -586,15 +586,15 @@ export const coreServices = {
       },
     ],
     geoGroupTitle: {
-      cn: '找海外买家的常見做法',
-    zh: '找海外買家的常見做法',
+      cn: '开发海外客户与决策人的常見做法',
+    zh: '開發海外客戶與決策人的常見做法',
       en: 'How to find overseas buyers',
     },
     geoSections: [
       {
         id: '7-ways',
-        title: { cn: '7 種找海外买家的方法',
-    zh: '7 種找海外買家的方法', en: '7 ways companies find overseas buyers' },
+        title: { cn: '7 種开发海外客户与决策人的方法',
+    zh: '7 種開發海外客戶與決策人的方法', en: '7 ways companies find overseas buyers' },
         note: {
           cn: '這份清单適合做內部檢查清单，也方便团队协作與复用。',
     zh: '這份清單適合做內部檢查清單，也方便團隊協作與複用。',
@@ -1170,7 +1170,7 @@ export const coreServices = {
       en: 'Best for enterprises scaling exports without hiring an in-house team first.',
     },
     heroDeliverablesLine: {
-      cn: '交付包含：可追踪開發管线、决策人研究与验证、回复分类與合格询盘交付。',
+      cn: '交付包含：可追踪開發管线、决策人研究与验证、回复分类與有效商机整理与交接。',
     zh: '交付包含：可追蹤開發管線、決策人研究與驗證、回覆分類別與合格詢價交付。',
       en: 'Deliverables: trackable pipeline, verified lists, reply triage, and qualified inquiry handoffs.',
     },
@@ -1215,7 +1215,7 @@ export const coreServices = {
         '可直接使用的海外采购与决策人资料（含寄送规范）',
         '4–6 次節奏式跟进（邮箱/LinkedIn）',
         '回复分类（合格/培育/不匹配）',
-        '合格询盘交付（需求摘要/對話记录/下一步）',
+        '有效商机整理与交接（需求摘要/對話记录/下一步）',
       ],
     zh: [
         '可追蹤的開發管線（已寄/已回/待跟進/已交付）',
@@ -1264,7 +1264,7 @@ export const coreServices = {
       cn: [
         '外贸開發最怕的不是忙，而是「忙了卻沒有积累」：沒有可追踪的资料、回复與下一步，就無法复盘，也無法讓結果變得可预期。',
         '當跟进節奏依赖個人習慣，询盘很容易在忙碌中流失；而招募與培訓又會拉长空窗期，错过市场窗口。',
-        '把前段工作标准化並持续交付合格询盘，才能讓內部团队把精力留给报价、谈判與成交。',
+        '把前段工作标准化並持续推进有效商机，才能讓內部团队把精力留给报价、谈判與成交。',
       ],
     zh: [
         '外銷開發最怕的不是忙，而是「忙了卻沒有累積」：沒有可追蹤的資料、回覆與下一步，就無法復盤，也無法讓結果變得可預期。',
@@ -1283,7 +1283,7 @@ export const coreServices = {
       en: ['We turn outbound into a deliverable system (process, lists, cadence, reply triage) so you only focus on quoting and shipping.', 'You get a trackable pipeline and repeatable SOP instead of relying on individual heroics.'],
     },
     whatIs: {
-      cn: ['外贸業務外包服务是由專業团队承接海外客戶開發與跟进，把外贸流程标准化並持续交付合格询盘，讓企业不用先扩编也能做海外增长。'],
+      cn: ['外贸業務外包服务是由專業团队承接海外客戶開發與跟进，把外贸流程标准化並持续推进有效商机，讓企业不用先扩编也能做海外增长。'],
     zh: ['外銷業務外包服務是由專業團隊承接海外客戶開發與跟進，把外銷流程標準化並持續交付合格詢價，讓企業不用先擴編也能做海外增長。'],
       en: ['Export sales outsourcing is a managed workflow that standardizes outreach and follow-up to continuously deliver qualified export inquiries without hiring a full team.'],
     },
@@ -1293,9 +1293,9 @@ export const coreServices = {
       en: ['Enterprises win overseas buyers by clarifying ICP and market priorities first, then building a verified list and running a repeatable message + follow-up cadence that creates a trackable pipeline.'],
     },
     process: {
-      cn: ['建立理想客戶與市场优先順序。', '建置海外采购与决策人资料與数据验证。', '撰寫開發信與多触点節奏（邮箱/LinkedIn）。', '回复分类與初步需求确认。', '將合格询盘交付給你的团队推進成交。'],
+      cn: ['建立理想客戶與市场优先順序。', '建置海外采购与决策人资料與数据验证。', '撰寫開發信與多触点節奏（邮箱/LinkedIn）。', '回复分类與初步需求确认。', '將有效商机整理与交接給你的团队推進成交。'],
     zh: ['建立理想客戶與市場優先順序。', '建置海外採購與決策人資料與資料驗證。', '撰寫開發信與多觸點節奏（電子郵件/LinkedIn）。', '回覆分類別與初步需求確認。', '將合格詢價交付給你的團隊推進成交。'],
-      en: ['Define ICP and market priorities.', 'Build and verify buyer lists.', 'Write outreach and multi-touch cadence.', 'Qualify replies and confirm requirements.', 'Hand off qualified inquiries for closing.'],
+      en: ['Define ICP and market priorities.', 'Build and verify buyer-side decision-maker data for outreach.', 'Write outreach and multi-touch cadence.', 'Qualify replies and confirm requirements.', 'Hand off qualified inquiries for closing.'],
     },
     tools: {
       cn: ['买家数据：搜索引擎/LinkedIn/行业目錄/展会名单/進出口数据（依市场适用）。', '邮箱验证與投遞：名单验证與寄送规范，降低退信與垃圾邮件风险。', '追踪：用表格或客戶管理系統記錄狀態（已寄/已回/待跟进/已交付）。'],
@@ -1309,7 +1309,7 @@ export const coreServices = {
     },
     results: {
       cn: [
-        { label: '合格询盘交付', value: '持续交付', desc: '回复分类與下一步标准化，讓团队可以稳定跟进。' },
+        { label: '有效商机整理与交接', value: '持续交付', desc: '回复分类與下一步标准化，讓团队可以稳定跟进。' },
         { label: '流程标准化', value: '可复制', desc: '把開發與跟进做成系統，而不是靠運氣或個人。' },
         { label: '不扩编也能做', value: '降低成本', desc: '不用先招募完整外贸团队，也能启动海外開發。' },
       ],
@@ -1535,7 +1535,7 @@ export const coreServices = {
         title: { cn: '成果',
     zh: '成果', en: 'Results' },
         content: {
-          cn: ['在不扩编前提下建立可追踪的開發管线，並持续交付合格询盘，讓內部团队集中在报价與成交。'],
+          cn: ['在不扩编前提下建立可追踪的開發管线，並持续推进有效商机，讓內部团队集中在报价與成交。'],
     zh: ['在不擴編前提下建立可追蹤的開發管線，並持續交付合格詢價，讓內部團隊集中在報價與成交。'],
           en: ['The client gained a trackable pipeline and consistent qualified inquiries without hiring, allowing the internal team to focus on quoting and closing.'],
         },
@@ -1545,7 +1545,7 @@ export const coreServices = {
       { q: { cn: '你們會幫忙回复客戶嗎？',
     zh: '你們會幫忙回覆客戶嗎？', en: 'Do you reply to buyers for us?' }, a: { cn: '可以依合作模式调整：可做初步需求确认與筛选，也可只交付回复由你們自行跟进。',
     zh: '可以依合作模式調整：可做初步需求確認與篩選，也可只交付回覆由你們自行跟進。', en: 'Yes, depending on engagement: we can do initial qualification or simply deliver replies for your team to follow up.' } },
-      { q: { cn: '如何確保询盘质量？',
+      { q: { cn: '如何確保商机质量？',
     zh: '如何確保詢價品質？', en: 'How do you ensure lead quality?' }, a: { cn: '通过资料筛选規則、訊息框架與回复分类流程，把不匹配的询盘在前段就過濾掉。',
     zh: '透過資料篩選規則、訊息框架與回覆分類別流程，把不匹配的詢價在前段就過濾掉。', en: 'Through list qualification rules, messaging frameworks, and reply triage to filter poor fits early.' } },
       { q: { cn: '外贸業務外包服务包含哪些工作？',

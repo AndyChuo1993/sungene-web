@@ -39,8 +39,8 @@ export default async function LeadMagnetPage({
   const content = {
     title: isChinese ? '2025 外銷客戶開發終極檢查表' : '2025 Export Lead Generation Checklist',
     subtitle: isChinese 
-      ? '不再盲目開發。下載這份經過驗證的步驟清單，系統化地尋找並轉化高品質海外買家。' 
-      : 'Stop guessing. Download this proven step-by-step checklist to systematically find and convert high-quality international buyers.',
+      ? '不再盲目開發。下載這份經過驗證的步驟清單，系統化地開發海外客戶與決策人，並把商機推進到報價與合作。' 
+      : 'Stop guessing. Download this proven step-by-step checklist to systematically develop overseas customers, engage decision-makers, and push opportunities toward quoting and partnership.',
     features: [
       {
         title: isChinese ? '買家畫像定義' : 'Ideal Customer Profile',

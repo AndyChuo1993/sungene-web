@@ -19,9 +19,9 @@ export type SeoMarket = {
 export const seoMarkets: SeoMarket[] = [
   {
     slug: 'united-states',
-    title: { cn: '美国市场開發｜出口到 USA 的买家開發與询盘成长',
+    title: { cn: '美国市场開發｜出口到 USA 的买家開發與商机成长',
     zh: '美國市場開發｜出口到 USA 的買家開發與詢價成長', en: 'Export to the United States | Lead Generation' },
-    description: { cn: '協助外贸企业開發美国进口商、经销商與品牌客戶，提升高质量询盘與合作机会。',
+    description: { cn: '協助外贸企业開發美国进口商、经销商與品牌客戶，提升有效商机与合作机会與合作机会。',
     zh: '協助外銷企業開發美國進口商、經銷商與品牌客戶，提升高品質詢價與合作機會。', en: 'Generate qualified US buyer inquiries by targeting importers, distributors, and brands.' },
     h1: { cn: '美国市场外贸客戶開發',
     zh: '美國市場外銷客戶開發', en: 'US Market Export Lead Generation' },
@@ -77,7 +77,7 @@ export const seoMarkets: SeoMarket[] = [
     slug: 'japan',
     title: { cn: '日本市场開發｜出口到 Japan 的买家開發',
     zh: '日本市場開發｜出口到 Japan 的買家開發', en: 'Export to Japan | Buyer Development' },
-    description: { cn: '協助外贸企业開發日本商社、經銷與製造端采购，提升高质量询盘。',
+    description: { cn: '協助外贸企业開發日本商社、經銷與製造端采购，提升有效商机与合作机会。',
     zh: '協助外銷企業開發日本商社、經銷與製造端採購，提升高品質詢價。', en: 'Generate Japanese buyer inquiries by targeting trading companies, distributors, and companies.' },
     h1: { cn: '日本市场外贸客戶開發',
     zh: '日本市場外銷客戶開發', en: 'Japan Market Export Lead Generation' },

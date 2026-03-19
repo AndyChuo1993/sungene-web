@@ -21,7 +21,7 @@ export default function WhyUs({ lang }: { lang: Lang }) {
     },
     {
       id: 3,
-      title: lang === 'en' ? 'Not just delivering inquiries' : lang === 'cn' ? '不是只交询盘' : '不是只交詢盤',
+      title: lang === 'en' ? 'Not just delivering inquiries' : lang === 'cn' ? '不是只交商机，而是协助推进合作' : '不是只交商機，而是協助推進合作',
       desc: lang === 'en' ? 'We organize replies into actionable opportunities and define the next steps for closing.' : (lang === 'cn' ? '整理成可推进的商机与下一步，目标是协助你成交。' : '整理成可推進的商機與下一步，目標是協助你成交。'),
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>

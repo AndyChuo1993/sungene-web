@@ -111,8 +111,8 @@ export const blogPosts: BlogPost[] = [
       },
       {
         id: 'methods',
-        heading: { cn: '7 種方法找海外买家',
-    zh: '7 種方法找海外買家', en: '7 Methods to Find Overseas Buyers' },
+        heading: { cn: '7 種方法开发海外客户与决策人',
+    zh: '7 種方法開發海外客戶與決策人', en: '7 Methods to Find Overseas Buyers' },
         content: {
           cn: [
             '方法 1：搜索引擎搜尋（用「產品＋角色＋國家」组合关键字）。',
@@ -216,7 +216,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       {
         q: { cn: '沒有采购与决策人资料也能開始嗎？',
-    zh: '沒有採購與決策人資料也能開始嗎？', en: 'Can we start without a buyer list?' },
+    zh: '沒有採購與決策人資料也能開始嗎？', en: 'Can we start without buyer and decision-maker data?' },
         a: { cn: '可以，但你需要先定义理想客戶，並從 2–3 個来源建立一份小清单做验证。',
     zh: '可以，但你需要先定義理想客戶，並從 2–3 個來源建立一份小清單做驗證。', en: 'Yes. Start with ICP clarity and build a small list from 2–3 sources for validation.' },
       },
@@ -370,7 +370,7 @@ export const blogPosts: BlogPost[] = [
     zh: ['常見有效做法是 4–6 次跟進、間隔 3–7 天，每次加入不同證據點（案例/規格/應用）。'], en: ['A practical cadence is 4–6 follow-ups, 3–7 days apart, each adding different proof points (cases, specs, applications).'] } },
       { id: 'deliverables', heading: { cn: '交付',
     zh: '交付', en: 'Deliverables' }, content: { cn: ['寄信资料與開信资料（表格）、回复分类（合格、待培養、不匹配）、詢問摘要與對話记录、下一步建議。'],
-    zh: ['寄信資料與開信資料（試算表）、回覆分類別（合格、待培養、不匹配）、詢問摘要與對話紀錄、下一步建議。'], en: ['Sent list + opens list (Excel), reply triage (qualified/nurture/no-fit), inquiry summaries and logs, next-step suggestions.'] } },
+    zh: ['寄信資料與開信資料（試算表）、回覆分類別（合格、待培養、不匹配）、詢問摘要與對話紀錄、下一步建議。'], en: ['Outreach records + reply tracking (Excel), reply triage (qualified/nurture/no-fit), inquiry summaries and logs, next-step suggestions.'] } },
       { id: 'checklist', heading: { cn: '檢查清单',
     zh: '檢查清單', en: 'Checklist' }, content: { cn: ['理想客戶清晰', '名单验证', '訊息框架', '跟进節奏', '回复分类', '交付格式'],
     zh: ['理想客戶清晰', '名單驗證', '訊息框架', '跟進節奏', '回覆分類別', '交付格式'], en: ['ICP clarity', 'List validation', 'Messaging framework', 'Cadence', 'Reply triage', 'Delivery format'] } },
@@ -678,7 +678,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'b2b-trade-directories-for-overseas-buyers',
     date: '2026-03-13',
     heroImage: '/articles/lead-gen-guide.svg',
-    title: { cn: '用行业目錄找海外买家：常見来源、验证方法與避坑清单',
+    title: { cn: '用行业目錄开发海外客户与决策人：常見来源、验证方法與避坑清单',
     zh: '用產業目錄找海外買家：常見來源、驗證方法與避坑清單', en: 'Using Trade Directories to Find Overseas Buyers: Sources, Validation, and Pitfalls' },
     description: { cn: '行业目錄可以建资料起點，但必須做验证與角色標籤，否則開發效率會被稀釋。',
     zh: '產業目錄可以建資料起點，但必須做驗證與角色標籤，否則開發效率會被稀釋。', en: 'Directories can seed prospect lists, but validation and role tagging are essential to avoid wasted outreach.' },
@@ -730,8 +730,8 @@ export const blogPosts: BlogPost[] = [
     slug: 'b2b-databases-for-overseas-buyers',
     date: '2026-03-13',
     heroImage: '/articles/lead-gen-guide.svg',
-    title: { cn: '7 種常見 B2B 数据数据库：找海外买家、导出资料與验证方法',
-    zh: '7 種常見 B2B 資料函式庫：找海外買家、匯出資料與驗證方法', en: '7 Common B2B Databases: Find Overseas Buyers, Export Lists, and Validate' },
+    title: { cn: '7 種常見 B2B 数据数据库：开发海外客户与决策人、导出资料與验证方法',
+    zh: '7 種常見 B2B 資料函式庫：開發海外客戶與決策人、匯出資料與驗證方法', en: '7 Common B2B Databases: Find Overseas Buyers, Export Lists, and Validate' },
     description: { cn: 'B2B 数据数据库是资料起點，不是答案。本文用清单整理常見数据数据库类别型與验证方法，避免资料稀釋。',
     zh: 'B2B 資料函式庫是資料起點，不是答案。本文用清單整理常見資料函式庫類別型與驗證方法，避免資料稀釋。', en: 'B2B databases are list seeds, not the answer. A practical list of database types and validation tips.' },
     sections: [

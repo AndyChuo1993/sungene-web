@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿export type Lang = 'zh' | 'en' | 'cn'
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿export type Lang = 'zh' | 'en' | 'cn'
 
 const dict = {
   'cn': {
@@ -18,7 +18,7 @@ const dict = {
     cta_consult: '预约策略通话',
 
     // Hero
-    hero_title: '为你的产品找到海外买家',
+    hero_title: '帮外贸企业找到会下单的海外客户与渠道',
     hero_subtitle: '用可复制的方法，把外贸开发做成稳定的系统。',
     hero_description: 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并以可持续推进的方式把商机转成报价与订单。',
     hero_cta_start: '申请合作评估',
@@ -27,7 +27,7 @@ const dict = {
 
     // Home - Services
     home_service_1_title: '外贸客户开发',
-    home_service_1_desc: '协助你持续获取海外买家询盘',
+    home_service_1_desc: '协助你持续开发海外采购与决策人，并推进到询价与报价阶段',
     home_service_2_title: '经销商开发',
     home_service_2_desc: '建立海外渠道伙伴资料并推进合作',
     home_service_3_title: '外贸业务外包服务',
@@ -47,8 +47,8 @@ const dict = {
     process_2_desc: '建立可投递的开发准备资料',
     process_3_title: '开发活动',
     process_3_desc: '多触点开发与跟进',
-    process_4_title: '询盘交付',
-    process_4_desc: '交付可推进的合格询盘',
+    process_4_title: '商机交接与成交推进',
+    process_4_desc: '整理可推进的商机，并协助进入报价、样品与合作阶段',
 
     // Home - Cases
     case_title: '成功案例',
@@ -57,7 +57,7 @@ const dict = {
     // Services Page
     service_title: '我们的服务',
     service_lead_gen_title: '外贸客户开发',
-    service_lead_gen_desc: '为外贸企业找海外买家并交付合格询盘',
+    service_lead_gen_desc: '协助外贸企业开发海外采购与决策人，建立可持续推进的商机流程',
     service_lead_gen_sub1: '买家研究与资料验证',
     service_lead_gen_sub2: '买家资料库与可用资料',
     service_lead_gen_sub3: '节奏式跟进与回复分类',
@@ -72,7 +72,7 @@ const dict = {
     service_sales_desc: '你报价与出货，其余外贸流程我们承接',
     service_sales_sub1: '开发与跟进节奏',
     service_sales_sub2: '回复分类与需求确认',
-    service_sales_sub3: '合格询盘交付',
+    service_sales_sub3: '商机整理与交接',
 
     // Get Market Entry Advice Page
     analysis_title: '免费海外市场分析',
@@ -106,7 +106,7 @@ const dict = {
 
     // SEO
     meta_home_title: 'SunGene 外贸客户开发与外贸外包服务 | 外贸拓展专家',
-    meta_home_desc: 'SunGene 帮助企业开发海外客户，提供从海外采购与决策人资料建置、开发信撰写到询盘跟进的完整外贸外包服务。',
+    meta_home_desc: 'SunGene 协助外贸企业通过海外客户开发、采购对接、经销渠道拓展与外贸外包，建立可持续成交的海外开发系统。',
     meta_keywords: '外贸客户开发, 外贸外包服务, 海外客户开发, B2B业务外包',
     
     // Footer
@@ -129,7 +129,7 @@ const dict = {
     cta_consult: '預約策略通話',
 
     // Hero
-    hero_title: '為你的產品找到海外買家',
+    hero_title: '幫外銷企業找到會下單的海外客戶與通路',
     hero_subtitle: '用可複製的方法，把外銷開發做成穩定的系統。',
     hero_description: 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並以可持續推進的方式把商機轉成報價與訂單。',
     hero_cta_start: '申請合作評估',
@@ -138,7 +138,7 @@ const dict = {
 
     // Home - Services
     home_service_1_title: '外銷客戶開發',
-    home_service_1_desc: '協助你持續獲取海外買家詢價',
+    home_service_1_desc: '協助你持續開發海外採購與決策人，並推進到詢價與報價階段',
     home_service_2_title: '經銷商開發',
     home_service_2_desc: '建立海外通路夥伴資料並推進合作',
     home_service_3_title: '外銷業務外包服務',
@@ -158,8 +158,8 @@ const dict = {
     process_2_desc: '建立可投遞的開發準備資料',
     process_3_title: '開發活動',
     process_3_desc: '多觸點開發與跟進',
-    process_4_title: '詢價交付',
-    process_4_desc: '交付可推進的合格詢價',
+    process_4_title: '商機交接與成交推進',
+    process_4_desc: '整理可推進的商機，並協助進入報價、樣品與合作階段',
 
     // Home - Cases
     case_title: '成功案例',
@@ -168,7 +168,7 @@ const dict = {
     // Services Page
     service_title: '我們的服務',
     service_lead_gen_title: '外銷客戶開發',
-    service_lead_gen_desc: '為外銷企業找海外買家並交付合格詢價',
+    service_lead_gen_desc: '協助外銷企業開發海外採購與決策人，建立可持續推進的商機流程',
     service_lead_gen_sub1: '買家研究與資料驗證',
     service_lead_gen_sub2: '採購與決策人資料庫建置',
     service_lead_gen_sub3: '節奏式跟進與回覆分類別',
@@ -183,7 +183,7 @@ const dict = {
     service_sales_desc: '你報價與出貨，其餘外銷流程我們承接',
     service_sales_sub1: '開發與跟進節奏',
     service_sales_sub2: '回覆分類別與需求確認',
-    service_sales_sub3: '合格詢價交付',
+    service_sales_sub3: '商機整理與交接',
 
     // Get Market Entry Advice Page
     analysis_title: '免費海外市場分析',
@@ -217,7 +217,7 @@ const dict = {
 
     // SEO
     meta_home_title: 'SunGene 外銷客戶開發與外銷外包服務 | 外銷拓展專家',
-    meta_home_desc: 'SunGene 幫助企業開發海外客戶，提供從海外採購與決策人資料建置、開發信撰寫到詢價跟進的完整外銷外包服務。',
+    meta_home_desc: 'SunGene 協助外銷企業透過海外客戶開發、採購對接、經銷商拓展與外銷外包，建立可持續成交的海外開發系統。',
     meta_keywords: '外銷客戶開發, 外銷外包服務, 海外客戶開發, 企業對企業業務外包',
     
     // Footer
@@ -240,7 +240,7 @@ const dict = {
     cta_consult: 'Book Strategy Call',
 
     // Hero
-    hero_title: 'Find Overseas Buyers for Your Products',
+    hero_title: 'Help export companies find overseas customers and channel partners who can actually buy',
     hero_subtitle: 'A repeatable system to generate qualified export leads and build distributor networks.',
     hero_description: 'SunGene helps export companies develop overseas customers, build channel partnerships, and turn opportunities into quotes and orders through a repeatable system.',
     hero_cta_start: 'Request Partnership Evaluation',
@@ -249,7 +249,7 @@ const dict = {
 
     // Home - Services
     home_service_1_title: 'Export Lead Generation',
-    home_service_1_desc: 'Find Overseas Buyers',
+    home_service_1_desc: 'Help you continuously reach overseas buyers and decision-makers, then push opportunities toward inquiry and quotation',
     home_service_2_title: 'Distributor Development',
     home_service_2_desc: 'Build Channel Network',
     home_service_3_title: 'Export Sales Outsourcing',
@@ -269,8 +269,8 @@ const dict = {
     process_2_desc: 'Build verified prospect lists',
     process_3_title: 'Outreach Campaign',
     process_3_desc: 'Execute cold email & LinkedIn campaigns',
-    process_4_title: 'Lead Delivery',
-    process_4_desc: 'Hand over qualified inquiries',
+    process_4_title: 'Opportunity handoff and deal progression',
+    process_4_desc: 'Organize sales-ready opportunities and help move them into quoting, sampling, and business discussions',
 
     // Home - Cases
     case_title: 'Success Stories',
@@ -279,7 +279,7 @@ const dict = {
     // Services Page
     service_title: 'Our Services',
     service_lead_gen_title: 'Lead Generation',
-    service_lead_gen_desc: 'Export lead generation for companies: verified lists, cadence, and qualified inquiries.',
+    service_lead_gen_desc: 'Help export companies reach overseas buyers and decision-makers, then build a repeatable opportunity pipeline',
     service_lead_gen_sub1: 'Importer Research & Verification',
     service_lead_gen_sub2: 'Custom Buyer Database Building',
     service_lead_gen_sub3: 'Market Intelligence & Competitor Analysis',
@@ -294,7 +294,7 @@ const dict = {
     service_sales_desc: 'We run export outreach and follow-ups so you focus on quoting and shipping.',
     service_sales_sub1: 'Outbound Cadence & Follow-ups',
     service_sales_sub2: 'Reply Triage & Qualification',
-    service_sales_sub3: 'Qualified Inquiry Delivery',
+    service_sales_sub3: 'Opportunity Handoff',
 
     // Get Market Entry Advice Page
     analysis_title: 'Get Market Entry Advice',
@@ -327,8 +327,8 @@ const dict = {
 
     // SEO
     meta_home_title: 'SunGene | Outsourced Export Sales & B2B Lead Generation',
-    meta_home_desc: 'SunGene helps companies acquire overseas buyers through targeted lead generation, cold outreach, and professional sales support.',
-    meta_keywords: 'export lead generation, export outsourcing, B2B sales outsourcing, overseas buyer finding',
+    meta_home_desc: 'SunGene helps export companies build a repeatable overseas growth system through customer development, buyer outreach, distributor expansion, and sales outsourcing.',
+    meta_keywords: 'export lead generation, export outsourcing, B2B sales outsourcing, overseas customer development',
     
     // Footer
     footer_copyright: '© 2026 SunGene. All rights reserved.',

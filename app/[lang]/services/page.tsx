@@ -105,8 +105,8 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
 
   const searchIntentLabels =
     lang !== 'en'
-      ? ['外銷客戶開發', '如何找到海外買家', '如何找到經銷商', '國際海外採購與決策人資料', '外銷內容行銷']
-      : ['export lead generation', 'find overseas buyers', 'find distributors', 'international buyers', 'b2b export marketing']
+      ? ['海外客戶開發', '海外採購與決策人開發', '經銷商拓展', '外銷業務外包', '外銷內容行銷']
+      : ['export lead generation', 'overseas customer development', 'distributor expansion', 'export sales outsourcing', 'b2b export marketing']
 
   const servicesSchema = {
     '@context': 'https://schema.org',
@@ -131,10 +131,10 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           </h1>
           <p className="mx-auto max-w-3xl text-xl text-gray-300">
             {lang === 'cn'
-              ? '如果你要找海外买家、建立经销渠道，或想在不扩编的前提下持续开发海外市场，这里可以直接找到对应方案。'
+              ? '如果你要开发海外客户、建立经销渠道，或想在不扩编的前提下持续推进海外市场，这里可以直接找到对应方案。'
               : isChinese
-                ? '如果你要找海外買家、建立經銷通路，或想在不擴編的前提下持續開發海外市場，這裡可以直接找到對應方案。'
-                : 'Whether you need overseas buyers, channel partners, or a managed export sales workflow without hiring first, you can choose the right service here.'}
+                ? '如果你要開發海外客戶、建立經銷通路，或想在不擴編的前提下持續推進海外市場，這裡可以直接找到對應方案。'
+                : 'Whether you need to develop overseas customers, build channel partners, or maintain a managed export sales workflow without hiring first, you can choose the right service here.'}
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Link href={`/${lang}/contact`} className="rounded-sm bg-white px-8 py-3 font-bold text-blue-900 transition hover:bg-gray-100">
@@ -232,10 +232,10 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
                 {lang === 'cn'
-                  ? '外贸客户开发解决“海外采购决策人资料与询盘交付”；经销商开发解决“渠道伙伴与经销合作”；外贸业务外包服务解决“不扩编也能稳定开发与跟进”。'
+                  ? '外贸客户开发负责建立海外采购与决策人资料，并持续推进有效商机；经销商开发聚焦渠道伙伴合作；外贸业务外包则在不扩编的情况下持续执行开发与跟进。'
                   : isChinese
-                    ? '外銷客戶開發解決「海外採購與決策人資料建置與詢價交付」；經銷商開發解決「通路夥伴與經銷合作」；外銷業務外包服務解決「不擴編也能穩定開發與跟進」。'
-                    : 'Lead gen delivers prospect data and qualified inquiries. Distributor development builds partner pipelines. Sales outsourcing runs end-to-end outreach and follow-ups without hiring.'}
+                    ? '外銷客戶開發負責建立海外採購與決策人資料，並持續推進有效商機；經銷商開發聚焦通路夥伴合作；外銷業務外包則在不擴編的情況下持續執行開發與跟進。'
+                    : 'Lead generation builds buyer and decision-maker data, then pushes qualified opportunities forward. Distributor development focuses on partner pipelines. Sales outsourcing runs outreach and follow-up without extra headcount.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href={core[0].href} className="inline-flex items-center justify-center rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-800">

@@ -31,14 +31,14 @@ const HOME_SEO = {
     contactBtn: 'Book Strategy Call',
   },
   zh: {
-    title: '外銷企業海外客戶開發與通路拓展 | SunGene',
+    title: '外銷企業海外客戶開發與通路拓展｜SunGene',
     description:
       'SunGene 協助外銷企業透過海外客戶開發、採購對接、經銷商拓展與外銷外包，建立可持續成交的海外開發系統。',
     keywords: [
-      '外銷客戶開發',
-      '海外買家開發',
-      '經銷商開發',
-      'SunGene',
+      '海外客戶開發',
+      '海外採購與決策人開發',
+      '外銷業務外包',
+      '海外通路招募',
     ],
     h1: '幫外銷企業找到「會下單」的海外客戶與通路',
     midTitle: '我們的合作目標不是詢盤，而是實際訂單',
@@ -48,14 +48,14 @@ const HOME_SEO = {
     contactBtn: '預約策略通話',
   },
   cn: {
-    title: '外贸企业海外客户开发与渠道拓展 | SunGene',
+    title: '外贸企业海外客户开发与渠道拓展｜SunGene',
     description:
-      'SunGene 协助外贸企业通过海外客户开发、采购对接、经销商拓展与外贸外包，建立可持续成交的海外开发系统。',
+      'SunGene 协助外贸企业通过海外客户开发、采购对接、经销渠道拓展与外贸外包，建立可持续成交的海外开发系统。',
     keywords: [
-      '外贸客户开发',
-      '海外买家开发',
-      '经销商开发',
-      'SunGene',
+      '海外客户开发',
+      '海外采购与决策人开发',
+      '外贸业务外包',
+      '海外渠道招募',
     ],
     h1: '帮外贸企业找到「会下单」的海外客户与渠道',
     midTitle: '我们的合作目标不是询盘，而是实际订单',
@@ -87,7 +87,11 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
 
   return {
     title: data.title,
-    description: data.description,
+    description: safeLang === 'en' 
+      ? 'SunGene helps export companies develop overseas customers, build channel partnerships, and make the export development process more stable, sustainable, and deal-focused.' 
+      : safeLang === 'cn'
+      ? 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并把外贸开发流程做得更稳定、更可持续、更能推进成交。'
+      : 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並把外銷開發流程做得更穩定、更可持續、更能推進成交。',
     keywords: [...data.keywords],
     alternates: {
       canonical: `${baseUrl}/${safeLang}`,

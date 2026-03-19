@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     title: `${lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')} | SunGene`,
     description:
       isChinese
-        ? '與 SunGene 討論海外買家開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
-        : 'Book Strategy Call about export lead generation, distributor development, sales outsourcing, or partnership applications.',
+        ? '與 SunGene 討論海外客戶開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
+        : 'Book Strategy Call about export customer development, distributor development, sales outsourcing, or partnership applications.',
     alternates: {
       canonical: `${baseUrl}/${lang}/contact`,
       languages: {
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       title: `${lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')} | SunGene`,
       description:
         isChinese
-          ? '與 SunGene 討論海外買家開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
-          : 'Book Strategy Call about export lead generation, distributor development, sales outsourcing, or partnership applications.',
+          ? '與 SunGene 討論海外客戶開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
+          : 'Book Strategy Call about export customer development, distributor development, sales outsourcing, or partnership applications.',
       url: `${baseUrl}/${lang}/contact`,
       images: ['/og/og.png'],
     },
@@ -87,8 +87,8 @@ export default async function Page({
                 ? '留下你的公司資訊與合作方向，我們會由商務團隊跟你接洽。'
                 : 'Share your company details and partnership direction. Our business team will follow up with you.'
               : isChinese
-                ? '不論你想找海外買家、建立經銷通路，還是規劃一年期的外銷開發合作，都可以直接跟我們談。'
-                : 'Whether you want overseas buyers, distributor channels, or an annual export growth engagement, you can talk to us directly.'}
+                ? '不論你想開發海外客戶、建立經銷通路，還是規劃長期外銷合作，都可以直接跟我們談。'
+                : 'Whether you want overseas customers, distributor channels, or an annual export growth engagement, you can talk to us directly.'}
           </p>
         </div>
       </section>

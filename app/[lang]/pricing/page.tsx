@@ -67,7 +67,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       features: [
         { cn: '多渠道主动开发跟进', zh: '多渠道主動開發跟進', en: 'Multi-channel Active Outreach' },
         { cn: '专属发信域名设定', zh: '專屬發信域名設定', en: 'Dedicated Domain Setup' },
-        { cn: '筛选有效询盘', zh: '篩選有效詢盤', en: 'Filter Qualified Inquiries' },
+        { cn: '筛选有效商机', zh: '篩選有效商機', en: 'Filter Qualified Opportunities' },
         { cn: '每周进展数据报告', zh: '每週進展資料報告', en: 'Weekly Progress Reports' },
         { cn: '协助推进至商务沟通', zh: '協助推進至商務溝通', en: 'Advance to Business Negotiation' },
       ],
@@ -82,7 +82,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       price: { cn: '底薪 + 佣金', zh: '底薪 + 佣金', en: 'Retainer + Commission' },
       features: [
         { cn: '持续海外客户开发', zh: '持續海外客戶開發', en: 'Continuous Overseas Prospecting' },
-        { cn: '询价回复与需求整理', zh: '詢價回覆與需求整理', en: 'Inquiry Reply & Needs Triage' },
+        { cn: '回复跟进与需求整理', zh: '回覆跟進與需求整理', en: 'Reply Follow-up & Needs Triage' },
         { cn: '协助报价与商务沟通', zh: '協助報價與商務溝通', en: 'Assist in Quoting & Negotiation' },
         { cn: '持续推进至成交与下单', zh: '持續推進至成交與下單', en: 'Push Through to Closing & Orders' },
         { cn: '定期市场回馈会议', zh: '定期市場回饋會議', en: 'Regular Market Feedback Meetings' },

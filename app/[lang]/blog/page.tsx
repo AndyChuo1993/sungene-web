@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 
   return {
     title: (lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格')) + ' | SunGene',
-    description: lang === 'en' ? 'Practical guides on export lead generation, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、找海外买家与经销商的实战指南与清单。' : '外銷開發、找海外買家與經銷商的實作指南與清單。'),
+    description: lang === 'en' ? 'Practical guides on export customer development, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、海外客户拓展与经销合作的实战指南。' : '外銷開發、海外客戶拓展與經銷合作的實戰指南。'),
     alternates: {
       canonical: `${baseUrl}/${lang}/blog`,
       languages: {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     },
     openGraph: {
       title: (lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格')) + ' | SunGene',
-      description: lang === 'en' ? 'Practical guides on export lead generation, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、找海外买家与经销商的实战指南与清单。' : '外銷開發、找海外買家與經銷商的實作指南與清單。'),
+      description: lang === 'en' ? 'Practical guides on export customer development, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、海外客户拓展与经销合作的实战指南。' : '外銷開發、海外客戶拓展與經銷合作的實戰指南。'),
       url: `${baseUrl}/${lang}/blog`,
       images: ['/og/og.png'],
     },

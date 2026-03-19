@@ -13,10 +13,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     metadataBase: new URL(baseUrl),
     title: t(lang, 'meta_home_title'),
-    description: t(lang, 'meta_home_desc'),
+    description: lang === 'en' 
+      ? 'SunGene helps export companies develop overseas customers, build channel partnerships, and make the export development process more stable, sustainable, and deal-focused.' 
+      : lang === 'cn'
+      ? 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并把外贸开发流程做得更稳定、更可持续、更能推进成交。'
+      : 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並把外銷開發流程做得更穩定、更可持續、更能推進成交。',
     openGraph: {
       title: t(lang, 'meta_home_title'),
-      description: t(lang, 'meta_home_desc'),
+      description: lang === 'en' 
+        ? 'SunGene helps export companies develop overseas customers, build channel partnerships, and make the export development process more stable, sustainable, and deal-focused.' 
+        : lang === 'cn'
+        ? 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并把外贸开发流程做得更稳定、更可持续、更能推进成交。'
+        : 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並把外銷開發流程做得更穩定、更可持續、更能推進成交。',
       url: `${baseUrl}/${lang}`,
       type: 'website',
     },

@@ -11,9 +11,9 @@ interface ComparisonRow {
 const rows: ComparisonRow[] = [
   {
     feature: { zh: '目標', cn: '目标', en: 'Goal' },
-    leadGen: { zh: '找到海外買家並產出合格詢價', cn: '找到海外买家并产出合格询价', en: 'Find overseas buyers and generate qualified inquiries' },
+    leadGen: { zh: '開發海外客戶並推進可用商機', cn: '开发海外客户并推进可用商机', en: 'Develop overseas customers and move qualified opportunities forward' },
     distributor: { zh: '找到並簽下通路夥伴，建立覆蓋', cn: '找到并签下通路伙伴，建立覆盖', en: 'Recruit channel partners and build market coverage' },
-    outsourcing: { zh: '把外銷開發與跟進做成可交付系統', cn: '把外贸开发与跟进做成可交付系统', en: 'Run export sales operations as a deliverable system' },
+    outsourcing: { zh: '持續商機推進＋可追蹤 pipeline', cn: '持续商机推进＋可追踪 pipeline', en: 'Ongoing opportunity progression + trackable pipeline' },
   },
   {
     feature: { zh: '流程', cn: '流程', en: 'Process' },
@@ -25,7 +25,7 @@ const rows: ComparisonRow[] = [
     feature: { zh: '交付內容', cn: '交付内容', en: 'Deliverables' },
     leadGen: { zh: '可用的開發資料＋詢價與需求整理', cn: '可用的开发资料＋询价与需求整理', en: 'Usable lists (Excel) + inquiry summaries' },
     distributor: { zh: '可追蹤通路資料＋合作條件框架＋會議', cn: '可追踪通路资料＋合作条件框架＋会议', en: 'Trackable shortlist + term framework + meetings' },
-    outsourcing: { zh: '合格詢價持續交付＋可追蹤 pipeline', cn: '合格询价持续交付＋可追踪 pipeline', en: 'Ongoing qualified inquiries + trackable pipeline' },
+    outsourcing: { zh: '合格商機持續交付＋可追蹤 pipeline', cn: '合格商机持续交付＋可追踪 pipeline', en: 'Ongoing qualified opportunities + trackable pipeline' },
   },
   {
     feature: { zh: '合約期', cn: '合约期', en: 'Contract Term' },

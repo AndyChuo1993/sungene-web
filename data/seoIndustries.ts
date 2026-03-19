@@ -21,7 +21,7 @@ export const seoIndustries: SeoIndustry[] = [
     slug: 'machinery',
     title: {
       cn: '机械行业外贸開發｜工具机、自動化设备海外买家開發',
-    zh: '機械產業外銷開發｜工具機、自動化設備海外買家開發',
+    zh: '機械產業外銷開發｜工具機、自動化設備海外客戶開發',
       en: 'Export Lead Generation for Machinery | Machine Tools & Automation Equipment',
     },
     description: {
@@ -73,7 +73,7 @@ export const seoIndustries: SeoIndustry[] = [
       ],
     },
     ctaTitle: { cn: '想開發机械海外买家？',
-    zh: '想開發機械海外買家？', en: 'Want to generate machinery export leads?' },
+    zh: '想拓展機械產業海外客戶？', en: 'Want to generate machinery export leads?' },
     ctaDesc: {
       cn: '提交你的產品與目标市场，我們會回复可行的买家輪廓與開發策略建議。',
     zh: '提交你的產品與目標市場，我們會回覆可行的買家輪廓與開發策略建議。',
@@ -162,7 +162,7 @@ export const seoIndustries: SeoIndustry[] = [
     slug: 'chemical',
     title: { cn: '化工行业外贸開發｜化學品、助劑與原料买家開發',
     zh: '化工產業外銷開發｜化學品、助劑與原料買家開發', en: 'Export Lead Generation for Chemicals | Raw Materials and Additives' },
-    description: { cn: '协助化工原料与助剂企业开发海外工厂、经销商与贸易商决策人资料，提升询盘质量。',
+    description: { cn: '协助化工原料与助剂企业开发海外工厂、经销商与贸易商决策人资料，提升商机质量。',
     zh: '協助化工原料與助劑企業開發海外工廠、經銷商與貿易商決策人資料，提升詢價品質。', en: 'Generate overseas leads for chemical companies with qualified factories, distributors, and traders.' },
     h1: { cn: '化工行业外贸客戶開發',
     zh: '化工產業外銷客戶開發', en: 'Export Lead Generation for Chemical Companies' },
@@ -187,7 +187,7 @@ export const seoIndustries: SeoIndustry[] = [
   {
     slug: 'medical',
     title: { cn: '医疗行业外贸開發｜医疗器材與耗材海外买家開發',
-    zh: '醫療產業外銷開發｜醫療器材與耗材海外買家開發', en: 'Export Lead Generation for Medical | Devices and Consumables' },
+    zh: '醫療產業外銷開發｜醫療器材與耗材海外客戶開發', en: 'Export Lead Generation for Medical | Devices and Consumables' },
     description: { cn: '協助医疗器材與耗材企业開發海外經銷與品牌客戶，聚焦合规、质量與长期合作。',
     zh: '協助醫療器材與耗材企業開發海外經銷與品牌客戶，聚焦合規、品質與長期合作。', en: 'Generate overseas medical device leads for companies with compliance and trust-focused positioning.' },
     h1: { cn: '医疗行业外贸客戶開發',
@@ -240,7 +240,7 @@ export const seoIndustries: SeoIndustry[] = [
     slug: 'industrial-equipment',
     title: { cn: '工业设备外贸開發｜工业设备與系統整合买家開發',
     zh: '工業設備外銷開發｜工業設備與系統整合買家開發', en: 'Export Lead Generation for Industrial Equipment | OEMs and Integrators' },
-    description: { cn: '協助工业设备與系統企业開發海外 OEM 與系統整合商，提升询盘质量與成交率。',
+    description: { cn: '協助工业设备與系統企业開發海外 OEM 與系統整合商，提升商机质量與成交率。',
     zh: '協助工業設備與系統企業開發海外 OEM 與系統整合商，提升詢價品質與成交率。', en: 'Generate overseas leads for industrial equipment companies targeting OEMs and integrators.' },
     h1: { cn: '工业设备外贸客戶開發',
     zh: '工業設備外銷客戶開發', en: 'Export Lead Generation for Industrial Equipment' },

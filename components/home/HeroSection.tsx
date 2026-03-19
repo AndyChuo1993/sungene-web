@@ -82,10 +82,10 @@ export default function HeroSection({ lang }: { lang: Lang }) {
                 {
                   title: lang === 'en' ? 'Consistent Overseas Opportunities' : lang === 'cn' ? '不靠运气，也能持续拿到海外商机' : '不靠運氣，也能持續拿到海外商機',
                   desc: lang === 'en'
-                    ? 'Proactively develop overseas procurement and decision-makers instead of waiting for inquiries.'
-                    : lang === 'cn'
-                    ? '主动开发海外采购与决策人，而不是被动等待询盘。'
-                    : '主動開發海外採購與決策人，而不是被動等待詢盤。',
+                  ? 'Proactively develop overseas procurement and decision-makers, and continuously push to replies, quotes, and partnership opportunities.'
+                  : lang === 'cn'
+                  ? '主动开发海外采购与决策人，并持续推进到回复、报价与合作机会。'
+                  : '主動開發海外採購與決策人，並持續推進到回覆、報價與合作機會。',
                 },
                 {
                   title: lang === 'en' ? 'No Need for a Full Team' : lang === 'cn' ? '不用自己养整个外贸团队' : '不用自己養整個外銷團隊',
@@ -120,8 +120,8 @@ export default function HeroSection({ lang }: { lang: Lang }) {
                 alt={lang === 'en' 
                   ? 'Export lead generation pipeline illustration' 
                   : lang === 'cn' 
-                  ? '海外买家开发流程示意图' 
-                  : '海外買家開發流程示意圖'}
+                  ? '海外客户开发与商机推进流程示意图' 
+                  : '海外客戶開發與商機推進流程示意圖'}
                 width={1200}
                 height={900}
                 className="h-auto w-full rounded-[1.5rem]"

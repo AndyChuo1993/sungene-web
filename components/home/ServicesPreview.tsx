@@ -16,10 +16,10 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         ? '帮您找到有实际采购需求的客户，并推进到报价与合作阶段'
         : '幫您找到有實際採購需求的客戶，並推進到報價與合作階段',
       items: isEn
-        ? ['Build actionable decision-maker data and push toward replies, inquiries, and quotes', 'Develop buyers with active needs', 'Filter qualified inquiries for quoting', 'Push to actual business negotiation']
+        ? ['Build actionable decision-maker data and push toward replies, inquiries, and quotes', 'Develop buyers with active needs', 'Filter qualified opportunities for quoting', 'Push to actual business negotiation']
         : isCn
-        ? ['建立可用的采购与决策人资料，并持续推进到回复、询价与报价', '直接开发有采购需求的客户', '筛选有效询盘（可进入报价阶段）', '协助推进至实际商务沟通']
-        : ['建立可用的採購與決策人資料，並持續推進到回覆、詢價與報價', '直接開發有採購需求的客戶', '篩選有效詢盤（可進入報價階段）', '協助推進至實際商務溝通'],
+        ? ['建立可用的采购与决策人资料，并持续推进到回复、询价与报价', '直接开发有采购需求的客户', '筛选有效商机（可进入报价阶段）', '协助推进至实际商务沟通']
+        : ['建立可用的採購與決策人資料，並持續推進到回覆、詢價與報價', '直接開發有採購需求的客戶', '篩選有效商機（可進入報價階段）', '協助推進至實際商務溝通'],
       link: `/${lang}/services/export-lead-generation`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,10 +56,10 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
         ? '从开发到跟进，全程推进到订单'
         : '從開發到跟進，全程推進到訂單',
       items: isEn
-        ? ['Continuous overseas prospecting', 'Inquiry follow-up and requirement gathering', 'Assist with quoting and negotiation', 'Push through to order closing']
+        ? ['Continuous overseas prospecting', 'Reply follow-up and requirement gathering', 'Assist with quoting and negotiation', 'Push through to order closing']
         : isCn
-        ? ['持续海外客户开发', '客户询盘跟进与需求整理', '协助报价与商务沟通', '持续推进至成交与下单']
-        : ['持續海外客戶開發', '客戶詢盤跟進與需求整理', '協助報價與商務溝通', '持續推進至成交與下單'],
+        ? ['持续海外客户开发', '客户回复跟进与需求整理', '协助报价与商务沟通', '持续推进至成交与下单']
+        : ['持續海外客戶開發', '客戶回覆跟進與需求整理', '協助報價與商務溝通', '持續推進至成交與下單'],
       link: `/${lang}/services/export-sales-outsourcing`,
       icon: (
         <svg className="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,10 +78,10 @@ export default function ServicesPreview({ lang }: { lang: Lang }) {
           </h2>
           <p className="mx-auto max-w-2xl text-xl text-gray-500">
             {isEn
-              ? 'From buyer development to distributor development and export sales support, built into a clearer growth path'
+              ? 'From customer development and channel expansion to export execution support, building a clearer growth path'
               : isCn
-              ? '从海外买家开发、经销商开发到外贸执行支持，建立更清楚的增长路径'
-              : '從海外買家開發、經銷商開發到外銷執行支援，建立更清楚的成長路徑'}
+              ? '从海外客户开发、渠道拓展到外贸执行支持，建立更清楚的增长路径'
+              : '從海外客戶開發、通路拓展到外銷執行支援，建立更清楚的成長路徑'}
           </p>
         </div>
 

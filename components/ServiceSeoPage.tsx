@@ -382,7 +382,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
               </div>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">{lang === 'en' ? 'How export companies find overseas buyers' : (lang === 'cn' ? '外贸企业如何找到海外买家' : '外銷企業如何找到海外買家')}</div>
+              <div className="text-sm font-semibold text-gray-900">{lang === 'en' ? 'How export companies develop overseas customers' : (lang === 'cn' ? '外贸企业如何开发海外客户' : '外銷企業如何開發海外客戶')}</div>
               <div className="mt-3 space-y-3 text-gray-700 leading-7">
                 {service.howWorks[lang].map((p, i) => (
                   <p key={i}>{tr(p)}</p>
