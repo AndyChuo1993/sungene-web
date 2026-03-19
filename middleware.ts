@@ -17,9 +17,9 @@ function getDefaultLocaleByHost(host: string | null) {
   return 'zh'
 }
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
-  const host = request.headers.get('host')
+  const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const defaultLocale = getDefaultLocaleByHost(host)
 
   // 處理舊站 410 Gone (移除舊包裝盒網站殘留頁面)
