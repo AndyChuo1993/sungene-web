@@ -193,7 +193,7 @@ export default function ServiceSeoPage({ lang, service }: { lang: Lang; service:
     'export-sales-outsourcing': '/illustrations/service-outsourcing.svg'
   }
   const serviceIllustration = imageMap[service.slug] || '/illustrations/seo-landing-panel.svg'
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungene.net'
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
   const canonicalPath = service.path ? `/${lang}${service.path}` : `/${lang}/${service.slug}`
   const workflow = service.workflow?.[lang] ?? (
     isChinese

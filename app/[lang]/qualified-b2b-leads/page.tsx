@@ -109,24 +109,24 @@ const service: ServiceSeo = {
   relatedLinks: [
     { label: { cn: '核心：外銷客戶開發', zh: '核心：外銷客戶開發', en: 'Core: Export Lead Generation' }, href: '/services/export-lead-generation' },
     { label: { cn: '方法：Cold Email Outreach', zh: '方法：Cold Email Outreach', en: 'Method: Cold Email Outreach' }, href: '/cold-email-outreach' },
-    { label: { cn: '方法：LinkedIn Prospecting', zh: '方法：LinkedIn Prospecting', en: 'Method: LinkedIn Prospecting' }, href: '/linkedin-prospecting' },
+    { label: { cn: '方法：LinkedIn Prospecting', zh: '方法：LinkedIn Prospecting', en: 'Method: LinkedIn Prospecting' }, href: '/cold-email-outreach' },
     { label: { cn: '取得市場切入建議', zh: '取得市場切入建議', en: 'Get Market Entry Advice' }, href: '/export-market-analysis' },
   ],
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: {
       canonical: `${baseUrl}/${lang}/qualified-b2b-leads`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/qualified-b2b-leads`,
-        'zh-TW': `https://sungene.net/zh/qualified-b2b-leads`,
-        'en': `https://sungene.net/en/qualified-b2b-leads`,
-        'x-default': `https://sungene.net/cn/qualified-b2b-leads`,
+        'zh-CN': `https://sungenelite.com/cn/qualified-b2b-leads`,
+        'zh-TW': `https://sungenelite.com/zh/qualified-b2b-leads`,
+        'en': `https://sungenelite.com/en/qualified-b2b-leads`,
+        'x-default': `https://sungenelite.com/cn/qualified-b2b-leads`,
       }
     },
     

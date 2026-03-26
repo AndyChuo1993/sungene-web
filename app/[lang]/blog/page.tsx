@@ -6,7 +6,7 @@ import { cnText } from '@/lib/cnText'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: (lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格')) + ' | SunGene',
@@ -14,10 +14,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: {
       canonical: `${baseUrl}/${lang}/blog`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn/blog',
-        'zh-TW': 'https://sungene.net/zh/blog',
-        'en': 'https://sungene.net/en/blog',
-        'x-default': 'https://sungene.net/cn/blog',
+        'zh-CN': 'https://sungenelite.com/cn/blog',
+        'zh-TW': 'https://sungenelite.com/zh/blog',
+        'en': 'https://sungenelite.com/en/blog',
+        'x-default': 'https://sungenelite.com/cn/blog',
       },
     },
     openGraph: {

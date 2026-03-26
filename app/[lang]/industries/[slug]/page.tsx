@@ -12,19 +12,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   const page = getSeoIndustry(slug)
-  if (!page) return { title: 'Not Found' }
+  if (!page) notFound()
   return {
     title: cnText(lang, page.title[lang]),
     description: cnText(lang, page.description[lang]),
     alternates: {
       canonical: `${baseUrl}/${lang}/industries/${slug}`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/industries/${slug}`,
-        'zh-TW': `https://sungene.net/zh/industries/${slug}`,
-        'en': `https://sungene.net/en/industries/${slug}`,
-        'x-default': `https://sungene.net/cn/industries/${slug}`,
+        'zh-CN': `https://sungenelite.com/cn/industries/${slug}`,
+        'zh-TW': `https://sungenelite.com/zh/industries/${slug}`,
+        'en': `https://sungenelite.com/en/industries/${slug}`,
+        'x-default': `https://sungenelite.com/cn/industries/${slug}`,
       },
     },
     openGraph: { 
@@ -39,9 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 export default async function Page({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
   const page = getSeoIndustry(slug)
-  if (!page) return null
+  if (!page) notFound()
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungene.net'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
   const url = `${baseUrl}/${lang}/industries/${slug}`
   const breadcrumb = {
     '@context': 'https://schema.org',

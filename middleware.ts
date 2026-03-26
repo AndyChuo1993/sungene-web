@@ -2,15 +2,12 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 const locales = ['zh', 'en', 'cn']
+const primaryHost = 'sungenelite.com'
 
 function getDefaultLocaleByHost(host: string | null) {
   const hostname = (host || '').toLowerCase()
 
-  if (hostname.includes('sungene.net')) {
-    return 'cn'
-  }
-
-  if (hostname.includes('sungenelite.com')) {
+  if (hostname.includes(primaryHost)) {
     return 'zh'
   }
 
@@ -20,7 +17,19 @@ function getDefaultLocaleByHost(host: string | null) {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
+  const hostname = (host || '').toLowerCase()
   const defaultLocale = getDefaultLocaleByHost(host)
+
+  if (
+    hostname &&
+    !hostname.includes('localhost') &&
+    (hostname.includes('sungene.net') || hostname === `www.${primaryHost}`)
+  ) {
+    const redirectUrl = new URL(request.url)
+    redirectUrl.host = primaryHost
+    redirectUrl.protocol = 'https:'
+    return NextResponse.redirect(redirectUrl, 301)
+  }
 
   // 處理舊站 410 Gone (移除舊包裝盒網站殘留頁面)
   const gonePatterns = ['/products', '/product', '/cooperation', '/news', '/category', '/tag', '/author']

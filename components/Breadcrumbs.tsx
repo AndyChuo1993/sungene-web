@@ -19,7 +19,7 @@ export default function Breadcrumbs({ items, lang }: BreadcrumbsProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.label,
-      item: process.env.NEXT_PUBLIC_SITE_URL ? `${process.env.NEXT_PUBLIC_SITE_URL}${item.href}` : `https://www.sungene.com.tw${item.href}`
+      item: process.env.NEXT_PUBLIC_SITE_URL ? `${process.env.NEXT_PUBLIC_SITE_URL}${item.href}` : `https://sungenelite.com${item.href}`
     }))
   }
 

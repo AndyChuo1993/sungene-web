@@ -6,7 +6,7 @@ import { faqs, FAQCategory } from '@/data/faqs'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   
   const title = isChinese ? '常見問題｜SunGene' : 'FAQ | SunGene'
   const description = isChinese
@@ -21,10 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: { 
       canonical: `${baseUrl}/${lang}/faq`, 
       languages: { 
-        'zh-CN': 'https://sungene.net/cn/faq', 
-        'zh-TW': 'https://sungene.net/zh/faq', 
-        'en': 'https://sungene.net/en/faq', 
-        'x-default': 'https://sungene.net/cn/faq' 
+        'zh-CN': 'https://sungenelite.com/cn/faq', 
+        'zh-TW': 'https://sungenelite.com/zh/faq', 
+        'en': 'https://sungenelite.com/en/faq', 
+        'x-default': 'https://sungenelite.com/cn/faq' 
       } 
     },
     openGraph: { 

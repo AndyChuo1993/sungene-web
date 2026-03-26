@@ -6,7 +6,7 @@ import ServiceComparison from '@/components/ServiceComparison'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: t(lang, 'service_title') + ' | SunGene',
@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: {
       canonical: `${baseUrl}/${lang}/services`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn/services',
-        'zh-TW': 'https://sungene.net/zh/services',
-        'en': 'https://sungene.net/en/services',
-        'x-default': 'https://sungene.net/cn/services',
+        'zh-CN': 'https://sungenelite.com/cn/services',
+        'zh-TW': 'https://sungenelite.com/zh/services',
+        'en': 'https://sungenelite.com/en/services',
+        'x-default': 'https://sungenelite.com/cn/services',
       },
     },
   }
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
 export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungene.net'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
   const pageUrl = `${baseUrl}/${lang}/services`
 
   type Card = { href: string; title: string; desc: string; tags?: string[]; suitable: string[]; get: string[] }

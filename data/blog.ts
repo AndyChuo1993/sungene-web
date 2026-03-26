@@ -380,7 +380,7 @@ export const blogPosts: BlogPost[] = [
     zh: '為什麼寄了很多信還是沒回覆？', en: 'Why do we get no replies even after sending many emails?' }, a: { cn: '通常是三個原因：资料角色不對、訊息沒有证据點、或跟进節奏不連續。先把這三件事做成可追踪流程。',
     zh: '通常是三個原因：資料角色不對、訊息沒有證據點、或跟進節奏不連續。先把這三件事做成可追蹤流程。', en: 'Usually three reasons: wrong roles, no proof in messaging, or inconsistent follow-ups. Fix these with a trackable system first.' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'how-to-export-to-usa',
@@ -461,7 +461,7 @@ export const blogPosts: BlogPost[] = [
     zh: '需要日文開發信嗎？', en: 'Do we need Japanese outreach emails?' }, a: { cn: '不一定。可先用英文＋清晰規格與证据點；若鎖定日系渠道或采购，日文版本會提高回复率與信任感。',
     zh: '不一定。可先用英文＋清晰規格與證據點；若鎖定日系通路或採購，日文版本會提高回覆率與信任感。', en: 'Not always. English with clear specs and proof can work, but Japanese versions often improve trust and replies for local decision-makers.' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'b2b-cold-email-outreach-framework',
@@ -490,7 +490,7 @@ export const blogPosts: BlogPost[] = [
     zh: '開發信要多長？', en: 'How long should the email be?' }, a: { cn: '越短越好但要具體：通常 80–140 字（英文）就足夠，重点是证据點與一個可回复 CTA。',
     zh: '越短越好但要具體：通常 80–140 字（英文）就足夠，重點是證據點與一個可回覆 CTA。', en: 'Short but specific. Often 80–140 words is enough. Focus on proof and one replyable CTA.' } },
     ],
-    internalLinks: { servicePath: '/services/export-sales-outsourcing', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-sales-outsourcing', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'importers-vs-distributors',
@@ -542,7 +542,7 @@ export const blogPosts: BlogPost[] = [
     zh: '沒有數量或規格的回覆要算詢問嗎？', en: 'Do replies without specs/quantity count as leads?' }, a: { cn: '通常先歸為待培養。用 1 至 2 個追問把需求补齊，再判定是否屬於合格詢問。',
     zh: '通常先歸為待培養。用 1 至 2 個追問把需求補齊，再判定是否屬於合格詢問。', en: 'Treat them as nurture leads. Ask 1–2 follow-up questions to confirm requirements before qualifying.' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'distributor-agreement-terms',
@@ -594,7 +594,7 @@ export const blogPosts: BlogPost[] = [
     zh: '展後第一封信要寫什麼？', en: 'What should the first post-show email say?' }, a: { cn: '簡短回顾接觸场景、补一個证据點、並只問一個下一步（安排 15 分钟通話或确认需求）。',
     zh: '簡短回顧接觸情境、補一個證據點、並只問一個下一步（安排 15 分鐘通話或確認需求）。', en: 'Recap context briefly, add one proof point, and ask one next step (15-min call or requirement confirmation).' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'how-to-export-to-southeast-asia',
@@ -672,7 +672,7 @@ export const blogPosts: BlogPost[] = [
     zh: '只用 LinkedIn 不用 Email 可以嗎？', en: 'Can we use only LinkedIn without email?' }, a: { cn: '可以，但效率通常較低。最佳做法是 LinkedIn 用於建立關係與确认角色，Email 用於節奏式跟进與可追踪交付。',
     zh: '可以，但效率通常較低。最佳做法是 LinkedIn 用於建立關係與確認角色，Email 用於節奏式跟進與可追蹤交付。', en: 'Possible, but usually less efficient. Best practice: LinkedIn for relationship and role validation, email for cadence and trackable delivery.' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'b2b-trade-directories-for-overseas-buyers',
@@ -698,7 +698,7 @@ export const blogPosts: BlogPost[] = [
     zh: '目錄資料回覆率很低怎麼辦？', en: 'What if directory lists have low reply rates?' }, a: { cn: '先做角色與條件验证，再用節奏式跟进补证据點；同時把名单来源分群，找出最有效的来源。',
     zh: '先做角色與條件驗證，再用節奏式跟進補證據點；同時把名單來源分群，找出最有效的來源。', en: 'Validate roles and criteria, run cadence-based follow-ups with proof points, and segment list sources to find what works.' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'industry-associations-to-find-distributors',
@@ -750,7 +750,7 @@ export const blogPosts: BlogPost[] = [
     zh: '買資料函式庫資料就夠了嗎？', en: 'Is buying a database list enough?' }, a: { cn: '通常不够。你仍需要验证與角色標籤，並用節奏式開發把资料轉成可交付询盘。',
     zh: '通常不夠。你仍需要驗證與角色標籤，並用節奏式開發把資料轉成可交付詢價。', en: 'Usually not. You still need validation and role tags, plus cadence-based outreach to convert lists into deliverable inquiries.' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'buyer-database-building-for-companies',
@@ -776,7 +776,7 @@ export const blogPosts: BlogPost[] = [
     zh: '資料函式庫需要多久更新一次？', en: 'How often should we refresh the database?' }, a: { cn: '建議每月做清洗與补齊，並把「回复結果」反馈到资料，形成越跑越準的数据资产。',
     zh: '建議每月做清洗與補齊，並把「回覆結果」回饋到資料，形成越跑越準的資料資產。', en: 'Monthly cleanup is a good baseline. Feed reply outcomes back into the database to build a compounding asset.' } },
     ],
-    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/buyers-list' },
+    internalLinks: { servicePath: '/services/export-lead-generation', caseStudyPath: '/case-studies', leadMagnetPath: '/overseas-buyer-lists' },
   },
   {
     slug: 'channel-partner-vetting-checklist',

@@ -11,19 +11,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   const item = getCase(lang, slug)
-  if (!item) return { title: 'Not Found' }
+  if (!item) notFound()
   return {
     title: `${item.title} | SunGene`,
     description: item.summary,
     alternates: {
       canonical: `${baseUrl}/${lang}/case-studies/${slug}`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/case-studies/${slug}`,
-        'zh-TW': `https://sungene.net/zh/case-studies/${slug}`,
-        'en': `https://sungene.net/en/case-studies/${slug}`,
-        'x-default': `https://sungene.net/cn/case-studies/${slug}`,
+        'zh-CN': `https://sungenelite.com/cn/case-studies/${slug}`,
+        'zh-TW': `https://sungenelite.com/zh/case-studies/${slug}`,
+        'en': `https://sungenelite.com/en/case-studies/${slug}`,
+        'x-default': `https://sungenelite.com/cn/case-studies/${slug}`,
       },
     },
     openGraph: {

@@ -108,7 +108,7 @@ const service: ServiceSeo = {
   ctaDesc: { cn: '提交产品与市场，我们回复资料来源、建置方式与交付范围。', zh: '提交產品與市場，我們回覆資料來源、建置方式與交付範圍。', en: 'Submit your product and markets. We’ll reply with sources, build plan, and scope.' },
   relatedLinks: [
     { label: { cn: '核心：外贸客户开发', zh: '核心：外銷客戶開發', en: 'Core: Export Lead Generation' }, href: '/services/export-lead-generation' },
-    { label: { cn: '方法：Buyer Database Building', zh: '方法：Buyer Database Building', en: 'Method: Buyer Database Building' }, href: '/buyer-database-building' },
+    { label: { cn: '方法：Buyer Database Building', zh: '方法：Buyer Database Building', en: 'Method: Buyer Database Building' }, href: '/overseas-buyer-lists' },
     { label: { cn: '方法：Cold Email Outreach', zh: '方法：Cold Email Outreach', en: 'Method: Cold Email Outreach' }, href: '/cold-email-outreach' },
     { label: { cn: '取得市场切入建议', zh: '取得市場切入建議', en: 'Get Market Entry Advice' }, href: '/export-market-analysis' },
   ],
@@ -116,17 +116,17 @@ const service: ServiceSeo = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: {
       canonical: `${baseUrl}/${lang}/overseas-buyer-lists`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/overseas-buyer-lists`,
-        'zh-TW': `https://sungene.net/zh/overseas-buyer-lists`,
-        'en': `https://sungene.net/en/overseas-buyer-lists`,
-        'x-default': `https://sungene.net/cn/overseas-buyer-lists`,
+        'zh-CN': `https://sungenelite.com/cn/overseas-buyer-lists`,
+        'zh-TW': `https://sungenelite.com/zh/overseas-buyer-lists`,
+        'en': `https://sungenelite.com/en/overseas-buyer-lists`,
+        'x-default': `https://sungenelite.com/cn/overseas-buyer-lists`,
       }
     },
     

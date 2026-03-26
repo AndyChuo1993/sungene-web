@@ -11,9 +11,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; id: string }> }) {
   const { lang, id } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   const article = getArticle(lang, id)
-  if (!article) return { title: 'Not Found' }
+  if (!article) notFound()
 
   return {
     title: `${article.title} | SunGene`,
@@ -21,10 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: { 
       canonical: `${baseUrl}/${lang}/resources/${id}`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/resources/${id}`,
-        'zh-TW': `https://sungene.net/zh/resources/${id}`,
-        'en': `https://sungene.net/en/resources/${id}`,
-        'x-default': `https://sungene.net/cn/resources/${id}`,
+        'zh-CN': `https://sungenelite.com/cn/resources/${id}`,
+        'zh-TW': `https://sungenelite.com/zh/resources/${id}`,
+        'en': `https://sungenelite.com/en/resources/${id}`,
+        'x-default': `https://sungenelite.com/cn/resources/${id}`,
       }
     },
     openGraph: {
@@ -42,6 +42,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; i
   const { lang, id } = await params
   const isChinese = lang !== 'en'
   const article = getArticle(lang, id)
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
 
   if (!article) notFound()
 
@@ -56,7 +57,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; i
       name: 'SunGene',
       logo: {
         '@type': 'ImageObject',
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo/sungene.png`,
+        url: `${baseUrl}/logo/sungene.png`,
       },
     },
   }

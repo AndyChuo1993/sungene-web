@@ -4,6 +4,7 @@ import { Lang } from '@/lib/i18n'
 import { getBlogPost, getBlogPosts } from '@/data/blog'
 import JsonLd from '@/components/JsonLd'
 import { cnText } from '@/lib/cnText'
+import { notFound } from 'next/navigation'
 
 function slugifyAnchor(s: string) {
   return String(s)
@@ -29,19 +30,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   const post = getBlogPost(slug)
-  if (!post) return { title: 'Not Found' }
+  if (!post) notFound()
   return {
     title: `${cnText(lang, post.title[lang])} | SunGene`,
     description: cnText(lang, post.description[lang]),
     alternates: {
       canonical: `${baseUrl}/${lang}/blog/${slug}`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/blog/${slug}`,
-        'zh-TW': `https://sungene.net/zh/blog/${slug}`,
-        'en': `https://sungene.net/en/blog/${slug}`,
-        'x-default': `https://sungene.net/cn/blog/${slug}`,
+        'zh-CN': `https://sungenelite.com/cn/blog/${slug}`,
+        'zh-TW': `https://sungenelite.com/zh/blog/${slug}`,
+        'en': `https://sungenelite.com/en/blog/${slug}`,
+        'x-default': `https://sungenelite.com/cn/blog/${slug}`,
       },
     },
     openGraph: {
@@ -59,10 +60,10 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
   const { lang, slug } = await params
   const isChinese = lang !== 'en'
   const post = getBlogPost(slug)
-  if (!post) return null
+  if (!post) notFound()
   const tr = (value: string) => cnText(lang, value)
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungene.net'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
   const url = `${baseUrl}/${lang}/blog/${slug}`
   const anchors = post.sections.map((s) => ({ id: s.id, label: tr(s.heading[lang]), anchor: slugifyAnchor(tr(s.heading[lang])) }))
   const related = getBlogPosts().filter((p) => p.slug !== post.slug).slice(0, 3)

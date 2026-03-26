@@ -1,17 +1,13 @@
 import { MetadataRoute } from 'next'
-import { headers } from 'next/headers'
 import { getArticles } from '@/data/articles'
 import { getCases } from '@/data/cases'
 import { seoMarkets } from '@/data/seoMarkets'
 import { seoIndustries } from '@/data/seoIndustries'
 import { getBlogPosts } from '@/data/blog'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const host = (await headers()).get('host') || 'sungene.net'
-  const protocol = host.includes('localhost') ? 'http' : 'https'
-  const baseUrl = `${protocol}://${host}`
-  
-  // 統一輸出所有語系
+const baseUrl = 'https://sungenelite.com'
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const langs = ['zh', 'cn', 'en'] as const
   
   const routes = [

@@ -5,7 +5,7 @@ import { CheckCircle } from 'lucide-react'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   const isChinese = lang !== 'en'
   return {
     title: lang === 'en' ? 'Request Channel Evaluation | SunGene' : (lang === 'cn' ? '申请经销通路评估｜SunGene' : '申請經銷通路評估｜SunGene'),
@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: {
       canonical: `${baseUrl}/${lang}/distributor-list`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/distributor-list`,
-        'zh-TW': `https://sungene.net/zh/distributor-list`,
-        'en': `https://sungene.net/en/distributor-list`,
-        'x-default': `https://sungene.net/cn/distributor-list`,
+        'zh-CN': `https://sungenelite.com/cn/distributor-list`,
+        'zh-TW': `https://sungenelite.com/zh/distributor-list`,
+        'en': `https://sungenelite.com/en/distributor-list`,
+        'x-default': `https://sungenelite.com/cn/distributor-list`,
       }
     },
     

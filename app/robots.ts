@@ -1,16 +1,13 @@
 import type { MetadataRoute } from 'next'
-import { headers } from 'next/headers'
 
-export default async function robots(): Promise<MetadataRoute.Robots> {
-  const headersList = await headers()
-  const host = headersList.get('host') || 'sungene.net'
-  const protocol = host.includes('localhost') ? 'http' : 'https'
-  
+const baseUrl = 'https://sungenelite.com'
+
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: `${protocol}://${host}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap.xml`,
   }
 }

@@ -113,7 +113,7 @@ const service: ServiceSeo = {
   ctaTitle: { cn: '取得市場切入建議', zh: '取得市場切入建議', en: 'Get Market Entry Advice' },
   ctaDesc: { cn: '提交產品與市場，我們回覆可行的訊息框架與跟進節奏建議。', zh: '提交產品與市場，我們回覆可行的訊息框架與跟進節奏建議。', en: 'Submit your product and markets. We’ll reply with a feasible messaging and cadence plan.' },
   relatedLinks: [
-    { label: { cn: '方法：Buyer Database Building', zh: '方法：Buyer Database Building', en: 'Method: Buyer Database Building' }, href: '/buyer-database-building' },
+    { label: { cn: '方法：Buyer Database Building', zh: '方法：Buyer Database Building', en: 'Method: Buyer Database Building' }, href: '/overseas-buyer-lists' },
     { label: { cn: '外銷客戶開發（核心服務）', zh: '外銷客戶開發（核心服務）', en: 'Export Lead Generation (Core)' }, href: '/services/export-lead-generation' },
     { label: { cn: '成果：Qualified B2B Leads', zh: '成果：Qualified B2B Leads', en: 'Outcome: Qualified B2B Leads' }, href: '/qualified-b2b-leads' },
   ],
@@ -121,17 +121,17 @@ const service: ServiceSeo = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
     alternates: {
       canonical: `${baseUrl}/${lang}/cold-email-outreach`,
       languages: {
-        'zh-CN': `https://sungene.net/cn/cold-email-outreach`,
-        'zh-TW': `https://sungene.net/zh/cold-email-outreach`,
-        'en': `https://sungene.net/en/cold-email-outreach`,
-        'x-default': `https://sungene.net/cn/cold-email-outreach`,
+        'zh-CN': `https://sungenelite.com/cn/cold-email-outreach`,
+        'zh-TW': `https://sungenelite.com/zh/cold-email-outreach`,
+        'en': `https://sungenelite.com/en/cold-email-outreach`,
+        'x-default': `https://sungenelite.com/cn/cold-email-outreach`,
       }
     },
     

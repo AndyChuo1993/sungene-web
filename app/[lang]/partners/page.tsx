@@ -6,7 +6,7 @@ import { Handshake, Users, PieChart, Briefcase } from 'lucide-react'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   
   const title = isChinese ? '合作夥伴計劃｜SunGene' : 'Partners | SunGene'
   const description = isChinese
@@ -21,10 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: { 
       canonical: `${baseUrl}/${lang}/partners`, 
       languages: { 
-        'zh-CN': 'https://sungene.net/cn/partners', 
-        'zh-TW': 'https://sungene.net/zh/partners', 
-        'en': 'https://sungene.net/en/partners', 
-        'x-default': 'https://sungene.net/cn/partners' 
+        'zh-CN': 'https://sungenelite.com/cn/partners', 
+        'zh-TW': 'https://sungenelite.com/zh/partners', 
+        'en': 'https://sungenelite.com/en/partners', 
+        'x-default': 'https://sungenelite.com/cn/partners' 
       } 
     },
     

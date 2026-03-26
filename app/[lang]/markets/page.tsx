@@ -7,7 +7,7 @@ import { cnText } from '@/lib/cnText'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: `${lang === 'en' ? 'Market Pages' : (lang === 'cn' ? '市场頁總覽' : '市場頁總覽')} | SunGene`,
@@ -18,10 +18,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: {
       canonical: `${baseUrl}/${lang}/markets`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn/markets',
-        'zh-TW': 'https://sungene.net/zh/markets',
-        'en': 'https://sungene.net/en/markets',
-        'x-default': 'https://sungene.net/cn/markets',
+        'zh-CN': 'https://sungenelite.com/cn/markets',
+        'zh-TW': 'https://sungenelite.com/zh/markets',
+        'en': 'https://sungenelite.com/en/markets',
+        'x-default': 'https://sungenelite.com/cn/markets',
       },
     },
     openGraph: {

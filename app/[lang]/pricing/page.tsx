@@ -6,7 +6,7 @@ import { Check, Database, Send, Briefcase } from 'lucide-react'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
   
   const title = isChinese ? '合作方案｜SunGene' : 'Pricing | SunGene'
   const description = isChinese
@@ -21,10 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: { 
       canonical: `${baseUrl}/${lang}/pricing`, 
       languages: { 
-        'zh-CN': 'https://sungene.net/cn/pricing', 
-        'zh-TW': 'https://sungene.net/zh/pricing', 
-        'en': 'https://sungene.net/en/pricing', 
-        'x-default': 'https://sungene.net/cn/pricing' 
+        'zh-CN': 'https://sungenelite.com/cn/pricing', 
+        'zh-TW': 'https://sungenelite.com/zh/pricing', 
+        'en': 'https://sungenelite.com/en/pricing', 
+        'x-default': 'https://sungenelite.com/cn/pricing' 
       } 
     },
     

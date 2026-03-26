@@ -5,7 +5,7 @@ import { Lang } from '@/lib/i18n'
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: `${lang === 'en' ? 'About Us' : (lang === 'cn' ? '关于我们' : '關於我們')} | SunGene`,
@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: {
       canonical: `${baseUrl}/${lang}/about`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn/about',
-        'zh-TW': 'https://sungene.net/zh/about',
-        'en': 'https://sungene.net/en/about',
-        'x-default': 'https://sungene.net/cn/about',
+        'zh-CN': 'https://sungenelite.com/cn/about',
+        'zh-TW': 'https://sungenelite.com/zh/about',
+        'en': 'https://sungenelite.com/en/about',
+        'x-default': 'https://sungenelite.com/cn/about',
       },
     },
     openGraph: {

@@ -1,5 +1,5 @@
 export async function GET() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungene.net'
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
   const body = [
     '# llms.txt',
     '',

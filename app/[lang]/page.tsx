@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   // 判斷目前的 base url 應該是哪個
   // 由於這是 generateMetadata，無法直接拿到 request header 的 host，
   // 所以我們根據 safeLang 來決定 canonical 應該指去哪裡，確保 self-canonical
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: data.title,
@@ -96,10 +96,10 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
     alternates: {
       canonical: `${baseUrl}/${safeLang}`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn',
-        'zh-TW': 'https://sungene.net/zh',
-        'en': 'https://sungene.net/en',
-        'x-default': 'https://sungene.net/cn',
+        'zh-CN': 'https://sungenelite.com/cn',
+        'zh-TW': 'https://sungenelite.com/zh',
+        'en': 'https://sungenelite.com/en',
+        'x-default': 'https://sungenelite.com/cn',
       },
     },
     openGraph: {
@@ -131,7 +131,7 @@ export default async function Page({ params }: PageParams) {
   const { lang } = await params
   const safeLang = normalizeLang(lang)
   const data = getHomeSeo(safeLang)
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
 
   const jsonLd = {
     '@context': 'https://schema.org',

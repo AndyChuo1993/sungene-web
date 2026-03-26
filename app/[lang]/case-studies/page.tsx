@@ -5,7 +5,7 @@ import { getCases } from '@/data/cases'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungene.net'
+  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: t(lang, 'case_title') + ' | SunGene',
@@ -13,10 +13,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     alternates: {
       canonical: `${baseUrl}/${lang}/case-studies`,
       languages: {
-        'zh-CN': 'https://sungene.net/cn/case-studies',
-        'zh-TW': 'https://sungene.net/zh/case-studies',
-        'en': 'https://sungene.net/en/case-studies',
-        'x-default': 'https://sungene.net/cn/case-studies',
+        'zh-CN': 'https://sungenelite.com/cn/case-studies',
+        'zh-TW': 'https://sungenelite.com/zh/case-studies',
+        'en': 'https://sungenelite.com/en/case-studies',
+        'x-default': 'https://sungenelite.com/cn/case-studies',
       },
     },
     openGraph: {
