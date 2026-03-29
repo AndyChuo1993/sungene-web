@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { SUPPORTED_LANGS } from '@/lib/i18n'
 
-const locales = ['zh', 'en', 'cn']
+const locales = SUPPORTED_LANGS
 const primaryHost = 'sungenelite.com'
 
 function getDefaultLocaleByHost(host: string | null) {
@@ -38,17 +39,15 @@ export function middleware(request: NextRequest) {
     return new NextResponse(null, { status: 410 })
   }
 
-  // 處理舊站 301 Redirect
-  if (pathname.startsWith('/about-us')) {
-    return NextResponse.redirect(new URL(`/${defaultLocale}/about`, request.url), 301)
-  }
-  if (pathname.startsWith('/contact-us')) {
-    return NextResponse.redirect(new URL(`/${defaultLocale}/contact`, request.url), 301)
-  }
-
-  // 合併與收斂頁面的 301 Redirect
-  const matchLang = pathname.match(/^\/(zh|cn|en)\//)
+  const matchLang = pathname.match(new RegExp(`^\\/(${locales.join('|')})\\/`))
   const currentLang = matchLang ? matchLang[1] : defaultLocale
+
+  if (pathnameWithoutLocale.startsWith('/about-us')) {
+    return NextResponse.redirect(new URL(`/${currentLang}/about`, request.url), 301)
+  }
+  if (pathnameWithoutLocale.startsWith('/contact-us')) {
+    return NextResponse.redirect(new URL(`/${currentLang}/contact`, request.url), 301)
+  }
 
   if (pathname.includes('/buyer-database-building')) {
     return NextResponse.redirect(new URL(`/${currentLang}/qualified-b2b-leads`, request.url), 301)

@@ -4,11 +4,12 @@ import { getCases } from '@/data/cases'
 import { seoMarkets } from '@/data/seoMarkets'
 import { seoIndustries } from '@/data/seoIndustries'
 import { getBlogPosts } from '@/data/blog'
+import { SUPPORTED_LANGS } from '@/lib/i18n'
 
 const baseUrl = 'https://sungenelite.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const langs = ['zh', 'cn', 'en'] as const
+  const langs = SUPPORTED_LANGS
   
   const routes = [
     '',
@@ -30,9 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 獨立商業關鍵字頁面
     '/cold-email-outreach',
     '/distributor-list',
+    '/export-market-analysis',
     '/export-marketing',
     '/overseas-buyer-lists',
     '/qualified-b2b-leads',
+    '/resources/export-lead-generation-checklist',
   ]
 
   const sitemap: MetadataRoute.Sitemap = []

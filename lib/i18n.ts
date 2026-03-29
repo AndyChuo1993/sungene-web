@@ -1,5 +1,8 @@
 ﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿export type Lang = 'zh' | 'en' | 'cn'
 
+/** 站點支援語系的唯一來源（middleware / sitemap / 路由均應從這裡取得） */
+export const SUPPORTED_LANGS: Lang[] = ['zh', 'cn', 'en']
+
 const dict = {
   'cn': {
     // Navigation
