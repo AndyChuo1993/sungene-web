@@ -19,6 +19,7 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const hostname = (host || '').toLowerCase()
   const defaultLocale = getDefaultLocaleByHost(host)
+  const pathnameWithoutLocale = pathname.replace(/^\/(zh|cn|en)(?=\/|$)/, '')
 
   if (
     hostname &&
@@ -33,7 +34,7 @@ export function middleware(request: NextRequest) {
 
   // 處理舊站 410 Gone (移除舊包裝盒網站殘留頁面)
   const gonePatterns = ['/products', '/product', '/cooperation', '/news', '/category', '/tag', '/author']
-  if (gonePatterns.some(pattern => pathname.startsWith(pattern))) {
+  if (gonePatterns.some(pattern => pathnameWithoutLocale.startsWith(pattern))) {
     return new NextResponse(null, { status: 410 })
   }
 
