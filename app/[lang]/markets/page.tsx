@@ -60,28 +60,6 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
       </section>
 
       <section className="py-14">
-        <div className="mx-auto mb-10 grid max-w-7xl gap-6 px-6 md:grid-cols-3">
-          {[
-            {
-              title: lang === 'en' ? 'Read by region' : (lang === 'cn' ? '依市场切入閱讀' : '依市場切入閱讀'),
-              desc: lang === 'en' ? 'Start from buyer roles and channel structures, then shape outreach cadence.' : (lang === 'cn' ? '先看买家角色、渠道型態，再決定開發節奏。' : '先看買家角色、通路型態，再決定開發節奏。'),
-            },
-            {
-              title: lang === 'en' ? 'Pair with industry pages' : (lang === 'cn' ? '搭配行业頁' : '搭配產業頁'),
-              desc: lang === 'en' ? 'Market pages add regional context; industry pages add application fit.' : (lang === 'cn' ? '市场頁补地區差異，行业頁补应用與需求。' : '市場頁補地區差異，產業頁補應用與需求。'),
-            },
-            {
-              title: lang === 'en' ? 'Good for GEO expansion' : (lang === 'cn' ? '適合地區內容延伸' : '適合地區內容延伸'),
-              desc: lang === 'en' ? 'Ideal for deeper regional FAQs, content, and internal links.' : (lang === 'cn' ? '能進一步延伸成地區型常見問題、內容與內部链接。' : '能進一步延伸成地區型常見問題、內容與內部連結。'),
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <div className="text-base font-bold text-gray-900">{item.title}</div>
-              <div className="mt-2 text-sm leading-7 text-gray-600">{item.desc}</div>
-            </div>
-          ))}
-        </div>
-
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
           {seoMarkets.map((market) => (
             <Link key={market.slug} href={`/${lang}/markets/${market.slug}`} className="group rounded-2xl border border-gray-200 bg-white p-8 transition hover:-translate-y-1 hover:border-green-300 hover:shadow-lg">

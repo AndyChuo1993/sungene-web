@@ -170,28 +170,6 @@ export default async function Page({
               </div>
 
               <div className="lg:col-span-9">
-                <div className="mb-8 grid gap-6 rounded-3xl border border-orange-100 bg-orange-50/70 p-6 md:grid-cols-3">
-                  {[
-                    {
-                      title: lang === 'en' ? 'Articles first' : (lang === 'cn' ? '文章先帶路' : '文章先帶路'),
-                      desc: lang === 'en' ? 'When downloadable assets are limited, featured articles keep the hub useful.' : (lang === 'cn' ? '如果下載素材還不多，就先用精選文章承接讀者。' : '如果下載素材還不多，就先用精選文章承接讀者。'),
-                    },
-                    {
-                      title: lang === 'en' ? 'Pair with industries / markets' : (lang === 'cn' ? '搭配行业 / 市场頁' : '搭配產業 / 市場頁'),
-                      desc: lang === 'en' ? 'Extend article reading into industry and market context.' : (lang === 'cn' ? '把文章閱讀延伸到行业頁與市场頁，补足买家語境。' : '把文章閱讀延伸到產業頁與市場頁，補足買家語境。'),
-                    },
-                    {
-                      title: lang === 'en' ? 'End with action' : (lang === 'cn' ? '最後回到行動' : '最後回到行動'),
-                      desc: lang === 'en' ? 'Guide readers back to analysis requests or contact forms.' : (lang === 'cn' ? '最終可銜接获取市场切入建议與联系表單。' : '最終可銜接取得市場切入建議與聯絡表單。'),
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="rounded-2xl border border-white bg-white p-5 shadow-sm">
-                      <div className="text-base font-bold text-slate-900">{item.title}</div>
-                      <div className="mt-2 text-sm leading-7 text-slate-600">{item.desc}</div>
-                    </div>
-                  ))}
-                </div>
-
                 <div className="grid gap-8 md:grid-cols-2">
                   {filteredArticles.length > 0 ? (
                     filteredArticles.map((post) => (

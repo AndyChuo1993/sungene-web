@@ -258,7 +258,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
               </ul>
               <div className="mt-6">
                 <Link href={`/${lang}/blog/how-to-find-overseas-buyers`} className="font-medium text-blue-900 hover:underline">
-                  {lang === 'en' ? 'Read the guide →' : (lang === 'cn' ? '先看指南文章 →' : '先看指南文章 →')}
+                  {lang === 'en' ? 'Related guide →' : (lang === 'cn' ? '相关指南文章 →' : '相關指南文章 →')}
                 </Link>
               </div>
             </div>

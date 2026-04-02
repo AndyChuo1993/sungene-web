@@ -102,11 +102,6 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
   const serviceHref = `/${lang}${post.internalLinks.servicePath}`
   const caseHref = `/${lang}${post.internalLinks.caseStudyPath}`
   const magnetHref = `/${lang}${post.internalLinks.leadMagnetPath}`
-  const marketIndustryHref = `/${lang}${post.internalLinks.marketOrIndustryPath ?? '/industries/machinery'}`
-  const distributorServiceHref = `/${lang}/services/distributor-development`
-  const outsourcingServiceHref = `/${lang}/services/export-sales-outsourcing`
-  const marketsIndexHref = `/${lang}/markets`
-  const industriesIndexHref = `/${lang}/industries`
 
   const funnelImage = lang === 'en' ? '/articles/list-to-meeting-funnel-en.svg' : (lang === 'cn' ? '/articles/list-to-meeting-funnel-zh.svg' : '/articles/list-to-meeting-funnel-zh.svg')
   const channelsImage = lang === 'en' ? '/articles/buyer-channels-matrix-en.svg' : (lang === 'cn' ? '/articles/buyer-channels-matrix-zh.svg' : '/articles/buyer-channels-matrix-zh.svg')
@@ -192,59 +187,11 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                       )}
 
                       {idx === 1 && (
-                        <p>
-                            {isChinese ? (
-                            <>
-                              {tr('如果你想把本文的框架落地，可以先看核心服務')}{' '}
-                              <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">外銷客戶開發</Link>
-                              ，再搭配{' '}
-                              <Link href={caseHref} className="text-blue-900 font-medium hover:underline">成功案例</Link>
-                              與{' '}
-                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">取得市場切入建議</Link>
-                              {tr('。同時也建議讀一個市場/產業頁，建立買家語境（例如')}{' '}
-                              <Link href={marketIndustryHref} className="text-blue-900 font-medium hover:underline">機械產業</Link>
-                              {tr('）。')}
-                            </>
-                          ) : (
-                            <>
-                              If you want to implement this framework, start with the core service{' '}
-                              <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">Export Lead Generation</Link>
-                              , then review{' '}
-                              <Link href={caseHref} className="text-blue-900 font-medium hover:underline">case studies</Link>
-                              and use the{' '}
-                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">market entry advice</Link>
-                              . Also add a market/industry context page (for example,{' '}
-                              <Link href={marketIndustryHref} className="text-blue-900 font-medium hover:underline">the machinery industry page</Link>
-                              ) to match buyer intent.
-                            </>
-                          )}
-                        </p>
+                        null
                       )}
 
                       {idx === 3 && (
-                        <p>
-                            {isChinese ? (
-                            <>
-                              {tr('如果你文章裡提到「經銷商／通路」或「市場切入」，建議把閱讀動線接到')}{' '}
-                              <Link href={distributorServiceHref} className="text-blue-900 font-medium hover:underline">經銷商開發</Link>
-                              {tr('，再回到')}{' '}
-                              <Link href={marketsIndexHref} className="text-blue-900 font-medium hover:underline">市場頁</Link>
-                              與{' '}
-                              <Link href={industriesIndexHref} className="text-blue-900 font-medium hover:underline">產業頁</Link>
-                              {tr('找到更符合你產品的買家語境。')}
-                            </>
-                          ) : (
-                            <>
-                              If you are considering channels or market entry, connect this guide to{' '}
-                              <Link href={distributorServiceHref} className="text-blue-900 font-medium hover:underline">Distributor Development</Link>
-                              , then browse the{' '}
-                              <Link href={marketsIndexHref} className="text-blue-900 font-medium hover:underline">market pages</Link>
-                              {' '}and{' '}
-                              <Link href={industriesIndexHref} className="text-blue-900 font-medium hover:underline">industry pages</Link>
-                              {' '}to match buyer intent by region and vertical.
-                            </>
-                          )}
-                        </p>
+                        null
                       )}
 
                       {idx === 4 && (
@@ -262,29 +209,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
                       )}
 
                       {idx === post.sections.length - 2 && (
-                        <p>
-                            {isChinese ? (
-                            <>
-                              {tr('想把內容變成可交付成果，可以對照服務頁的交付與流程：')}{' '}
-                              <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">核心服務</Link>
-                              {tr('，以及團隊常用的')}{' '}
-                              <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">外銷業務外包服務</Link>
-                              {tr('。若你希望先用低成本驗證，也可以先拿')}{' '}
-                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">{tr('取得市場切入建議')}</Link>
-                              {tr('當起點。')}
-                            </>
-                          ) : (
-                            <>
-                              To turn this into deliverables, compare the workflow and outputs on the{' '}
-                              <Link href={serviceHref} className="text-blue-900 font-medium hover:underline">core service page</Link>
-                              and{' '}
-                              <Link href={outsourcingServiceHref} className="text-blue-900 font-medium hover:underline">Export Sales Outsourcing</Link>
-                              . For a low-friction starting point, use the{' '}
-                              <Link href={magnetHref} className="text-blue-900 font-medium hover:underline">market entry advice</Link>
-                              as your first validation step.
-                            </>
-                          )}
-                        </p>
+                        null
                       )}
 
                       {idx % 2 === 1 && (
@@ -336,18 +261,18 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang; s
               })}
             </div>
 
-            <section className="mt-12 rounded-xl bg-slate-900 text-white p-8">
-              <h2 className="text-2xl font-bold">{lang === 'en' ? 'Want to implement this system?' : (lang === 'cn' ? '想把這套方法落地？' : '想把這套方法落地？')}</h2>
+            <section className="mt-12 rounded-xl bg-slate-900 p-8 text-white">
+              <h2 className="text-2xl font-bold">{lang === 'en' ? 'Need help?' : (lang === 'cn' ? '需要协助？' : '需要協助？')}</h2>
               <p className="mt-2 text-slate-200">
-                {isChinese
-                  ? '我們可以協助你把服務頁、文章群集與免費資源串成一套可持續的企業對企業增長系統。'
-                  : 'We can help you connect service pages, clusters, and lead magnets into a sustainable B2B growth system.'}
+                {lang === 'en'
+                  ? 'If you want to discuss options or get initial advice, contact us.'
+                  : (lang === 'cn' ? '如果你想了解合作方式或取得初步建议，欢迎与我们联系。' : '如果你想了解合作方式或取得初步建議，歡迎與我們聯絡。')}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link href={serviceHref} className="inline-flex items-center justify-center rounded-sm bg-blue-500 px-5 py-2.5 text-white font-medium text-sm hover:bg-blue-400 transition">
-                  {lang === 'en' ? 'View Service' : (lang === 'cn' ? '查看服务' : '查看服務')}
+                <Link href={`/${lang}/contact`} className="inline-flex items-center justify-center rounded-sm bg-blue-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-400">
+                  {lang === 'en' ? 'Contact' : (lang === 'cn' ? '联系我们' : '聯絡我們')}
                 </Link>
-                <Link href={magnetHref} className="inline-flex items-center justify-center rounded-sm border border-white/50 px-5 py-2.5 text-white font-medium text-sm hover:bg-white/10 transition">
+                <Link href={magnetHref} className="inline-flex items-center justify-center rounded-sm border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10">
                   {lang === 'en' ? 'Market Entry Advice' : (lang === 'cn' ? '市场切入建议' : '市場切入建議')}
                 </Link>
               </div>

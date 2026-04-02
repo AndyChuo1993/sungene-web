@@ -56,28 +56,6 @@ export default async function Page({ params }: { params: Promise<{ lang: Lang }>
           </div>
         </header>
 
-        <section className="mb-6 grid gap-6 rounded-3xl border border-blue-100 bg-blue-50/60 p-6 md:grid-cols-3">
-          {[
-            {
-              title: lang === 'en' ? 'Buyer development methods' : (lang === 'cn' ? '买家开发方法' : '買家開發方法'),
-              desc: lang === 'en' ? 'Break down lists, messaging, follow-ups, and conversions.' : (lang === 'cn' ? '拆解决策人资料、信息、跟进与转化流程。' : '拆解決策人資料、訊息、跟進與轉換流程。'),
-            },
-            {
-              title: lang === 'en' ? 'Market and industry entry' : (lang === 'cn' ? '市场与行业切入' : '市場與產業切入'),
-              desc: lang === 'en' ? 'Clarify buyer context by region and industry.' : (lang === 'cn' ? '把不同市场与行业的买家语境讲清楚。' : '把不同市場與產業的買家語境講清楚。'),
-            },
-            {
-              title: lang === 'en' ? 'Operational frameworks' : (lang === 'cn' ? '可落地的流程框架' : '可落地的流程框架'),
-              desc: lang === 'en' ? 'Turn content into repeatable execution workflows.' : (lang === 'cn' ? '从内容看到流程，最后能回到实际执行。' : '從內容看到流程，最後能回到實際執行。'),
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-2xl border border-white bg-white p-5 shadow-sm">
-              <div className="text-base font-bold text-slate-900">{item.title}</div>
-              <div className="mt-2 text-sm leading-7 text-slate-600">{item.desc}</div>
-            </div>
-          ))}
-        </section>
-
         <section className="grid gap-6 md:grid-cols-2">
           {posts.map((p) => (
             <Link key={p.slug} href={`/${lang}/blog/${p.slug}`} className="overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:shadow-md">
