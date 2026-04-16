@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
 import { seoMarkets } from '@/data/seoMarkets'
 import { cnText } from '@/lib/cnText'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: `${lang === 'en' ? 'Market Pages' : (lang === 'cn' ? '市场頁總覽' : '市場頁總覽')} | SunGene`,
@@ -15,22 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       isChinese
         ? '依市場查看 SunGene 的外銷內容頁，快速了解不同地區的買家角色、通路差異與市場切入方式。'
         : 'Browse market-specific SunGene pages to understand buyer roles, channel differences, and entry approaches by region.',
-    alternates: {
-      canonical: `${baseUrl}/${lang}/markets`,
-      languages: {
-        'zh-CN': 'https://sungenelite.com/cn/markets',
-        'zh-TW': 'https://sungenelite.com/zh/markets',
-        'en': 'https://sungenelite.com/en/markets',
-        'x-default': 'https://sungenelite.com/zh/markets',
-      },
-    },
+    alternates: getAlternates(lang, '/markets'),
     openGraph: {
       title: `${lang === 'en' ? 'Market Pages' : (lang === 'cn' ? '市场頁總覽' : '市場頁總覽')} | SunGene`,
       description:
         isChinese
           ? '依市場查看 SunGene 的外銷內容頁，快速了解不同地區的買家角色、通路差異與市場切入方式。'
           : 'Browse market-specific SunGene pages to understand buyer roles, channel differences, and entry approaches by region.',
-      url: `${baseUrl}/${lang}/markets`,
+      url: getLocalizedUrl(lang, '/markets'),
       images: ['/og/og.png'],
     },
   }

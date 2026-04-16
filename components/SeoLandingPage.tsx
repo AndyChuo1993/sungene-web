@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
 import { cnText } from '@/lib/cnText'
+import { getSeoPageInsight } from '@/lib/seoPageInsights'
 
 export type SeoSectionedPage = {
   slug: string
@@ -32,6 +33,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
   const heroImage = page.heroImage?.[lang] ?? industryHeroMap[page.slug] ?? '/illustrations/seo-landing-panel.svg'
   const isChinese = lang !== 'en'
   const tr = (value: string) => cnText(lang, value)
+  const insight = getSeoPageInsight(basePath, page.slug)
 
   return (
     <main className="pt-28">
@@ -119,6 +121,38 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
             ))}
           </ol>
         </section>
+
+        {insight && (
+          <section className="mb-12 space-y-8">
+            <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-7">
+              <h2 className="text-2xl font-bold text-gray-900">{tr(insight.deepDiveTitle[lang])}</h2>
+              <p className="mt-3 leading-7 text-gray-700">{tr(insight.deepDiveIntro[lang])}</p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {insight.deepDiveCards.map((card) => (
+                <div key={card.title.en} className="rounded-xl border border-gray-200 bg-white p-6">
+                  <h3 className="text-lg font-bold text-gray-900">{tr(card.title[lang])}</h3>
+                  <p className="mt-3 leading-7 text-gray-700">{tr(card.body[lang])}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+              <h3 className="text-xl font-bold text-gray-900">{tr(insight.checklistTitle[lang])}</h3>
+              <ul className="mt-4 grid gap-3 md:grid-cols-2">
+                {insight.checklistItems.map((item) => (
+                  <li key={item.en} className="flex gap-3 rounded-xl bg-gray-50 p-4 text-gray-700">
+                    <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-900 text-xs font-bold text-white">
+                      {basePath === 'markets' ? 'M' : 'I'}
+                    </span>
+                    <span className="leading-7">{tr(item[lang])}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         <section className="mb-12 rounded-xl bg-slate-900 p-8 text-white">
           <h2 className="text-2xl font-bold">{tr(page.ctaTitle[lang])}</h2>

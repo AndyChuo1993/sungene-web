@@ -4,6 +4,7 @@ import { getSeoIndustry, seoIndustries } from '@/data/seoIndustries'
 import JsonLd from '@/components/JsonLd'
 import { notFound } from 'next/navigation'
 import { cnText } from '@/lib/cnText'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateStaticParams() {
   const langs = ['en', 'zh', 'cn']
@@ -12,25 +13,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const baseUrl = 'https://sungenelite.com'
   const page = getSeoIndustry(slug)
   if (!page) notFound()
   return {
     title: cnText(lang, page.title[lang]),
     description: cnText(lang, page.description[lang]),
-    alternates: {
-      canonical: `${baseUrl}/${lang}/industries/${slug}`,
-      languages: {
-        'zh-CN': `https://sungenelite.com/cn/industries/${slug}`,
-        'zh-TW': `https://sungenelite.com/zh/industries/${slug}`,
-        'en': `https://sungenelite.com/en/industries/${slug}`,
-        'x-default': `https://sungenelite.com/zh/industries/${slug}`,
-      },
-    },
+    alternates: getAlternates(lang, `/industries/${slug}`),
     openGraph: { 
       title: cnText(lang, page.title[lang]), 
       description: cnText(lang, page.description[lang]), 
-      url: `${baseUrl}/${lang}/industries/${slug}`,
+      url: getLocalizedUrl(lang, `/industries/${slug}`),
       type: 'article' 
     },
   }

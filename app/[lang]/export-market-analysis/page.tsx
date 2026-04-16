@@ -2,11 +2,11 @@ import { Metadata } from 'next'
 import { getDictionary, Lang } from '@/lib/i18n'
 import DownloadForm from '@/components/DownloadForm'
 import { CheckCircle } from 'lucide-react'
+import { getAlternates } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: lang === 'en' ? 'Get Market Entry Advice | SunGene' : (lang === 'cn' ? '获取市场切入建议｜SunGene' : '取得市場切入建議｜SunGene'),
@@ -16,15 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
         : lang === 'cn'
           ? '提交产品与目标市场，我们提供出口市场与买家通路的初步切入建议。'
           : '提交產品與目標市場，我們提供出口市場與買家通路的初步切入建議。',
-    alternates: { 
-      canonical: `${baseUrl}/${lang}/export-market-analysis`, 
-      languages: { 
-        'zh-CN': 'https://sungenelite.com/cn/export-market-analysis', 
-        'zh-TW': 'https://sungenelite.com/zh/export-market-analysis', 
-        'en': 'https://sungenelite.com/en/export-market-analysis', 
-        'x-default': 'https://sungenelite.com/zh/export-market-analysis' 
-      } 
-    },
+    alternates: getAlternates(lang, '/export-market-analysis'),
   }
 }
 

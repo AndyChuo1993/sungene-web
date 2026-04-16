@@ -2,28 +2,20 @@ import { Lang } from '@/lib/i18n'
 import ServiceSeoPage from '@/components/ServiceSeoPage'
 import { coreServices } from '@/data/coreServices'
 import { cnText } from '@/lib/cnText'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungenelite.com'
   const service = coreServices.distributorDevelopment
   const path = service.path || '/services/distributor-development'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
-    alternates: {
-      canonical: `${baseUrl}/${lang}${path}`,
-      languages: {
-        'zh-CN': `https://sungenelite.com/cn${path}`,
-        'zh-TW': `https://sungenelite.com/zh${path}`,
-        'en': `https://sungenelite.com/en${path}`,
-        'x-default': `https://sungenelite.com/zh${path}`,
-      },
-    },
+    alternates: getAlternates(lang, path),
     openGraph: {
       title: cnText(lang, service.title[lang]),
       description: cnText(lang, service.description[lang]),
-      url: `${baseUrl}/${lang}${path}`,
+      url: getLocalizedUrl(lang, path),
       type: 'website'
     },
   }

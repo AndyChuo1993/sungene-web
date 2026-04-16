@@ -2,27 +2,19 @@ import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getCases } from '@/data/cases'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: t(lang, 'case_title') + ' | SunGene',
     description: t(lang, 'meta_home_desc'),
-    alternates: {
-      canonical: `${baseUrl}/${lang}/case-studies`,
-      languages: {
-        'zh-CN': 'https://sungenelite.com/cn/case-studies',
-        'zh-TW': 'https://sungenelite.com/zh/case-studies',
-        'en': 'https://sungenelite.com/en/case-studies',
-        'x-default': 'https://sungenelite.com/zh/case-studies',
-      },
-    },
+    alternates: getAlternates(lang, '/case-studies'),
     openGraph: {
       title: t(lang, 'case_title') + ' | SunGene',
       description: t(lang, 'meta_home_desc'),
-      url: `${baseUrl}/${lang}/case-studies`,
+      url: getLocalizedUrl(lang, '/case-studies'),
       images: ['/og/og.png'],
     },
   }

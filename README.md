@@ -30,7 +30,7 @@
 - 請勿把敏感或雜項一起打包：`.env*`、`.git`、`.next`、`node_modules`、`reports`、`*.log`、`*.zip`。
 
 ## SEO 與 Sitemap/Robots
-- `/sitemap.xml`：包含 CMS pages + Blog + Case Studies（lastModified 依 CMS updatedAt/publishedAt）
+- `/sitemap.xml`：靜態路由，涵蓋 3 語系（SUPPORTED_LANGS：zh / cn / en）× 所有頁面（首頁、服務、行業、市場、案例、部落格、關鍵字頁等），動態段（resources / blog / case-studies）依資料來源的 date 欄位設 lastModified，其餘靜態頁使用固定日期。語系清單統一由 `lib/i18n.ts` 的 `SUPPORTED_LANGS` 管理，新增語系只需更新該常數即可。
 - `/robots.txt`：含 sitemap 位置與允許爬取規則
 - Metadata：
   - layout 設定 metadataBase/canonical/twitter

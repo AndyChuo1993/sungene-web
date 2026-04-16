@@ -2,11 +2,11 @@ import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { faqs, FAQCategory } from '@/data/faqs'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungenelite.com'
   
   const title = isChinese ? '常見問題｜SunGene' : 'FAQ | SunGene'
   const description = isChinese
@@ -18,19 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     keywords: isChinese
       ? '外銷常見問題, 海外客戶開發, 服務流程, 收費模式'
       : 'faq, export lead generation, process, pricing, confidentiality',
-    alternates: { 
-      canonical: `${baseUrl}/${lang}/faq`, 
-      languages: { 
-        'zh-CN': 'https://sungenelite.com/cn/faq', 
-        'zh-TW': 'https://sungenelite.com/zh/faq', 
-        'en': 'https://sungenelite.com/en/faq', 
-        'x-default': 'https://sungenelite.com/zh/faq' 
-      } 
-    },
+    alternates: getAlternates(lang, '/faq'),
     openGraph: { 
       title, 
       description, 
-      url: `${baseUrl}/${lang}/faq`,
+      url: getLocalizedUrl(lang, '/faq'),
       type: 'website' 
     },
     

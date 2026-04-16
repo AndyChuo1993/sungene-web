@@ -1,6 +1,7 @@
 import { Lang } from '@/lib/i18n'
 import ServiceSeoPage, { ServiceSeo } from '@/components/ServiceSeoPage'
 import { cnText } from '@/lib/cnText'
+import { getAlternates } from '@/lib/seo'
 
 const service: ServiceSeo = {
   slug: 'cold-email-outreach',
@@ -121,20 +122,10 @@ const service: ServiceSeo = {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungenelite.com'
   return {
     title: cnText(lang, service.title[lang]),
     description: cnText(lang, service.description[lang]),
-    alternates: {
-      canonical: `${baseUrl}/${lang}/cold-email-outreach`,
-      languages: {
-        'zh-CN': `https://sungenelite.com/cn/cold-email-outreach`,
-        'zh-TW': `https://sungenelite.com/zh/cold-email-outreach`,
-        'en': `https://sungenelite.com/en/cold-email-outreach`,
-        'x-default': `https://sungenelite.com/zh/cold-email-outreach`,
-      }
-    },
-    
+    alternates: getAlternates(lang, '/cold-email-outreach'),
   }
 }
 

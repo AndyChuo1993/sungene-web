@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Lang } from '@/lib/i18n'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: `${lang === 'en' ? 'About Us' : (lang === 'cn' ? '关于我们' : '關於我們')} | SunGene`,
@@ -13,22 +13,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       isChinese
         ? 'SunGene 協助外銷企業建立一套可持續運作的海外客戶開發、通路拓展與成交推進系統。'
         : 'SunGene helps export companies build a repeatable system for overseas buyer development, channel expansion, and deal progression.',
-    alternates: {
-      canonical: `${baseUrl}/${lang}/about`,
-      languages: {
-        'zh-CN': 'https://sungenelite.com/cn/about',
-        'zh-TW': 'https://sungenelite.com/zh/about',
-        'en': 'https://sungenelite.com/en/about',
-        'x-default': 'https://sungenelite.com/zh/about',
-      },
-    },
+    alternates: getAlternates(lang, '/about'),
     openGraph: {
       title: `${lang === 'en' ? 'About Us' : (lang === 'cn' ? '关于我们' : '關於我們')} | SunGene`,
       description:
         isChinese
           ? 'SunGene 協助外銷企業建立一套可持續運作的海外客戶開發、通路拓展與成交推進系統。'
           : 'SunGene helps export companies build a repeatable system for overseas buyer development, channel expansion, and deal progression.',
-      url: `${baseUrl}/${lang}/about`,
+      url: getLocalizedUrl(lang, '/about'),
       images: ['/og/og.png'],
     },
   }

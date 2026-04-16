@@ -3,27 +3,19 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getBlogPosts } from '@/data/blog'
 import { cnText } from '@/lib/cnText'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: (lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格')) + ' | SunGene',
     description: lang === 'en' ? 'Practical guides on export customer development, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、海外客户拓展与经销合作的实战指南。' : '外銷開發、海外客戶拓展與經銷合作的實戰指南。'),
-    alternates: {
-      canonical: `${baseUrl}/${lang}/blog`,
-      languages: {
-        'zh-CN': 'https://sungenelite.com/cn/blog',
-        'zh-TW': 'https://sungenelite.com/zh/blog',
-        'en': 'https://sungenelite.com/en/blog',
-        'x-default': 'https://sungenelite.com/zh/blog',
-      },
-    },
+    alternates: getAlternates(lang, '/blog'),
     openGraph: {
       title: (lang === 'en' ? 'Blog' : (lang === 'cn' ? '博客' : '部落格')) + ' | SunGene',
       description: lang === 'en' ? 'Practical guides on export customer development, overseas buyers, and distributor development.' : (lang === 'cn' ? '外贸开发、海外客户拓展与经销合作的实战指南。' : '外銷開發、海外客戶拓展與經銷合作的實戰指南。'),
-      url: `${baseUrl}/${lang}/blog`,
+      url: getLocalizedUrl(lang, '/blog'),
       images: ['/og/og.png'],
     },
   }

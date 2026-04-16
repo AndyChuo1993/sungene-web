@@ -2,11 +2,11 @@ import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { Handshake, Users, PieChart, Briefcase } from 'lucide-react'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
   const isChinese = lang !== 'en'
-  const baseUrl = 'https://sungenelite.com'
   
   const title = isChinese ? '合作夥伴計劃｜SunGene' : 'Partners | SunGene'
   const description = isChinese
@@ -18,20 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
     keywords: isChinese
       ? '外銷顧問合作, 海外代理合作, 合作夥伴計劃, 市場研究合作'
       : 'partners, referral program, overseas agents, market research partners',
-    alternates: { 
-      canonical: `${baseUrl}/${lang}/partners`, 
-      languages: { 
-        'zh-CN': 'https://sungenelite.com/cn/partners', 
-        'zh-TW': 'https://sungenelite.com/zh/partners', 
-        'en': 'https://sungenelite.com/en/partners', 
-        'x-default': 'https://sungenelite.com/zh/partners' 
-      } 
-    },
-    
+    alternates: getAlternates(lang, '/partners'),
     openGraph: { 
       title, 
       description, 
-      url: `${baseUrl}/${lang}/partners`,
+      url: getLocalizedUrl(lang, '/partners'),
       type: 'website' 
     },
   }

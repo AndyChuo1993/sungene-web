@@ -2,10 +2,10 @@ import { Metadata } from 'next'
 import { getDictionary, Lang } from '@/lib/i18n'
 import DownloadForm from '@/components/DownloadForm'
 import { CheckCircle } from 'lucide-react'
+import { getAlternates } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
   const { lang } = await params
-  const baseUrl = 'https://sungenelite.com'
   const isChinese = lang !== 'en'
   return {
     title: lang === 'en' ? 'Request Channel Evaluation | SunGene' : (lang === 'cn' ? '申请经销通路评估｜SunGene' : '申請經銷通路評估｜SunGene'),
@@ -13,16 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
       isChinese
         ? '留下你的產品與目標市場，我們提供海外經銷/代理候選資料與切入建議。'
         : 'Share your product and market. We’ll send a shortlist of distributors/agents and an entry recommendation.',
-    alternates: {
-      canonical: `${baseUrl}/${lang}/distributor-list`,
-      languages: {
-        'zh-CN': `https://sungenelite.com/cn/distributor-list`,
-        'zh-TW': `https://sungenelite.com/zh/distributor-list`,
-        'en': `https://sungenelite.com/en/distributor-list`,
-        'x-default': `https://sungenelite.com/zh/distributor-list`,
-      }
-    },
-    
+    alternates: getAlternates(lang, '/distributor-list'),
   }
 }
 

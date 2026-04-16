@@ -1,26 +1,18 @@
 import { t, Lang } from '@/lib/i18n'
 import Link from 'next/link'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
   const { lang } = await params
-  const baseUrl = 'https://sungenelite.com'
 
   return {
     title: t(lang, 'process_title') + ' | SunGene',
     description: t(lang, 'meta_home_desc'),
-    alternates: {
-      canonical: `${baseUrl}/${lang}/how-it-works`,
-      languages: {
-        'zh-CN': 'https://sungenelite.com/cn/how-it-works',
-        'zh-TW': 'https://sungenelite.com/zh/how-it-works',
-        'en': 'https://sungenelite.com/en/how-it-works',
-        'x-default': 'https://sungenelite.com/zh/how-it-works',
-      },
-    },
+    alternates: getAlternates(lang, '/how-it-works'),
     openGraph: {
       title: t(lang, 'process_title') + ' | SunGene',
       description: t(lang, 'meta_home_desc'),
-      url: `${baseUrl}/${lang}/how-it-works`,
+      url: getLocalizedUrl(lang, '/how-it-works'),
       images: ['/og/og.png'],
     },
   }

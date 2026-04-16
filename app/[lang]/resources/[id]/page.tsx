@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getArticle, getArticles } from '@/data/articles'
 import { notFound } from 'next/navigation'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateStaticParams() {
   const langs = ['en', 'zh', 'cn'] as const
@@ -11,27 +12,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; id: string }> }) {
   const { lang, id } = await params
-  const baseUrl = 'https://sungenelite.com'
   const article = getArticle(lang, id)
   if (!article) notFound()
 
   return {
     title: `${article.title} | SunGene`,
     description: article.content[0]?.slice(0, 150) || '',
-    alternates: { 
-      canonical: `${baseUrl}/${lang}/resources/${id}`,
-      languages: {
-        'zh-CN': `https://sungenelite.com/cn/resources/${id}`,
-        'zh-TW': `https://sungenelite.com/zh/resources/${id}`,
-        'en': `https://sungenelite.com/en/resources/${id}`,
-        'x-default': `https://sungenelite.com/zh/resources/${id}`,
-      }
-    },
+    alternates: getAlternates(lang, `/resources/${id}`),
     openGraph: {
       title: `${article.title} | SunGene`,
       description: article.content[0]?.slice(0, 150) || '',
       type: 'article',
-      url: `${baseUrl}/${lang}/resources/${id}`,
+      url: getLocalizedUrl(lang, `/resources/${id}`),
       publishedTime: article.date,
       images: article.image ? [article.image] : ['/og/og.png'],
     },

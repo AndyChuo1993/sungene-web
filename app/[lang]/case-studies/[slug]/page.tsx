@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getCase, getCases } from '@/data/cases'
 import { notFound } from 'next/navigation'
+import { getAlternates, getLocalizedUrl } from '@/lib/seo'
 
 export async function generateStaticParams() {
   const langs = ['en', 'zh', 'cn'] as const
@@ -11,25 +12,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: Lang; slug: string }> }) {
   const { lang, slug } = await params
-  const baseUrl = 'https://sungenelite.com'
   const item = getCase(lang, slug)
   if (!item) notFound()
   return {
     title: `${item.title} | SunGene`,
     description: item.summary,
-    alternates: {
-      canonical: `${baseUrl}/${lang}/case-studies/${slug}`,
-      languages: {
-        'zh-CN': `https://sungenelite.com/cn/case-studies/${slug}`,
-        'zh-TW': `https://sungenelite.com/zh/case-studies/${slug}`,
-        'en': `https://sungenelite.com/en/case-studies/${slug}`,
-        'x-default': `https://sungenelite.com/zh/case-studies/${slug}`,
-      },
-    },
+    alternates: getAlternates(lang, `/case-studies/${slug}`),
     openGraph: {
       title: `${item.title} | SunGene`,
       description: item.summary,
-      url: `${baseUrl}/${lang}/case-studies/${slug}`,
+      url: getLocalizedUrl(lang, `/case-studies/${slug}`),
       images: item.cover ? [item.cover] : ['/og/og.png'],
     },
   }
