@@ -34,6 +34,42 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
   const isChinese = lang !== 'en'
   const tr = (value: string) => cnText(lang, value)
   const insight = getSeoPageInsight(basePath, page.slug)
+  const challengesTitle =
+    basePath === 'markets'
+      ? lang === 'en'
+        ? 'Market challenges'
+        : lang === 'cn'
+          ? '主要挑战'
+          : '主要挑戰'
+      : lang === 'en'
+        ? 'Industry challenges'
+        : lang === 'cn'
+          ? '主要挑战'
+          : '主要挑戰'
+  const opportunitiesTitle =
+    basePath === 'markets'
+      ? lang === 'en'
+        ? 'Market opportunities'
+        : lang === 'cn'
+          ? '机会'
+          : '機會'
+      : lang === 'en'
+        ? 'Export opportunities'
+        : lang === 'cn'
+          ? '出口机会'
+          : '出口機會'
+  const strategyTitle =
+    basePath === 'markets'
+      ? lang === 'en'
+        ? 'Buyer development strategy'
+        : lang === 'cn'
+          ? '市场开发策略'
+          : '市場開發策略'
+      : lang === 'en'
+        ? 'Lead generation strategy'
+        : lang === 'cn'
+          ? '外贸开发策略'
+          : '外銷開發策略'
 
   return (
     <main className="pt-28">
@@ -87,7 +123,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
 
         <section className="mb-12 grid gap-10 md:grid-cols-2">
           <div className="rounded-xl border border-gray-200 bg-white p-6">
-            <h2 className="mb-3 text-xl font-bold text-gray-900">{lang === 'en' ? 'Industry Challenges' : (lang === 'cn' ? '主要挑战' : '主要挑戰')}</h2>
+            <h2 className="mb-3 text-xl font-bold text-gray-900">{challengesTitle}</h2>
             <ul className="space-y-2 text-gray-700">
               {page.challenges[lang].map((x, i) => (
                 <li key={i} className="flex gap-2">
@@ -98,7 +134,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
             </ul>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-6">
-            <h2 className="mb-3 text-xl font-bold text-gray-900">{lang === 'en' ? 'Export Opportunities' : (lang === 'cn' ? '出口机会' : '出口機會')}</h2>
+            <h2 className="mb-3 text-xl font-bold text-gray-900">{opportunitiesTitle}</h2>
             <ul className="space-y-2 text-gray-700">
               {page.opportunities[lang].map((x, i) => (
                 <li key={i} className="flex gap-2">
@@ -111,7 +147,7 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
         </section>
 
         <section className="mb-12 rounded-xl border border-gray-200 bg-white p-6">
-          <h2 className="mb-3 text-2xl font-bold text-gray-900">{lang === 'en' ? 'Lead Generation Strategy' : (lang === 'cn' ? '外贸開發策略' : '外銷開發策略')}</h2>
+          <h2 className="mb-3 text-2xl font-bold text-gray-900">{strategyTitle}</h2>
           <ol className="space-y-3 text-gray-700">
             {page.strategy[lang].map((x, i) => (
               <li key={i} className="flex gap-3">
@@ -130,8 +166,8 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
-              {insight.deepDiveCards.map((card) => (
-                <div key={card.title.en} className="rounded-xl border border-gray-200 bg-white p-6">
+              {insight.deepDiveCards.map((card, i) => (
+                <div key={`${page.slug}-deep-${i}`} className="rounded-xl border border-gray-200 bg-white p-6">
                   <h3 className="text-lg font-bold text-gray-900">{tr(card.title[lang])}</h3>
                   <p className="mt-3 leading-7 text-gray-700">{tr(card.body[lang])}</p>
                 </div>
@@ -141,8 +177,8 @@ export default function SeoLandingPage({ lang, page, basePath }: { lang: Lang; p
             <div className="rounded-2xl border border-gray-200 bg-white p-6">
               <h3 className="text-xl font-bold text-gray-900">{tr(insight.checklistTitle[lang])}</h3>
               <ul className="mt-4 grid gap-3 md:grid-cols-2">
-                {insight.checklistItems.map((item) => (
-                  <li key={item.en} className="flex gap-3 rounded-xl bg-gray-50 p-4 text-gray-700">
+                {insight.checklistItems.map((item, i) => (
+                  <li key={`${page.slug}-check-${i}`} className="flex gap-3 rounded-xl bg-gray-50 p-4 text-gray-700">
                     <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-900 text-xs font-bold text-white">
                       {basePath === 'markets' ? 'M' : 'I'}
                     </span>
