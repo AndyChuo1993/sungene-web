@@ -1,4 +1,4 @@
-﻿steps:
+steps:
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Build image'
     args:
@@ -16,6 +16,21 @@
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     id: 'Deploy to Cloud Run'
     entrypoint: gcloud
+    # Mail env is injected here so the deploy is self-contained — the image is
+    # built WITHOUT any .env (.dockerignore excludes .env*), and the runtime
+    # (`next start`) reads only process.env. Without these flags, production
+    # inquiry email silently 500s unless someone manually set env on the service.
+    #
+    # SECRET MANAGER SETUP (one-time, by owner) — required for --update-secrets:
+    #   gcloud secrets create SMTP_USER --replication-policy=automatic
+    #   printf '%s' '<smtp user>' | gcloud secrets versions add SMTP_USER --data-file=-
+    #   gcloud secrets create SMTP_PASS --replication-policy=automatic
+    #   printf '%s' '<smtp app password>' | gcloud secrets versions add SMTP_PASS --data-file=-
+    #   # grant the Cloud Run runtime service account access:
+    #   gcloud secrets add-iam-policy-binding SMTP_USER \
+    #     --member=serviceAccount:<PROJECT_NUMBER>-compute@developer.gserviceaccount.com \
+    #     --role=roles/secretmanager.secretAccessor
+    #   (repeat the binding for SMTP_PASS)
     args:
       - 'run'
       - 'deploy'
@@ -29,6 +44,12 @@
       - '--allow-unauthenticated'
       - '--port'
       - '8080'
+      # Non-secret mail config (safe to keep in git):
+      - '--update-env-vars'
+      - 'SMTP_HOST=smtp.gmail.com,SMTP_PORT=587,INQUIRY_TO=contact@sungenelite.com,INQUIRY_REPLY_TO=contact@sungenelite.com,MAIL_FROM=SunGene Industrial IoT'
+      # Credentials from Secret Manager (never in git or image):
+      - '--update-secrets'
+      - 'SMTP_USER=SMTP_USER:latest,SMTP_PASS=SMTP_PASS:latest'
 
 images:
   - 'asia-east1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/ai-trade-web:$COMMIT_SHA'
