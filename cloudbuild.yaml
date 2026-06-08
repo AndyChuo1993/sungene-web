@@ -50,6 +50,11 @@ steps:
       # Credentials from Secret Manager (never in git or image):
       - '--update-secrets'
       - 'SMTP_USER=SMTP_USER:latest,SMTP_PASS=SMTP_PASS:latest'
+      # Strip dead Elite-era config so plaintext secrets can't drift back onto
+      # the service (these are unused by current code; mail creds now come from
+      # Secret Manager above). Keeps `gcloud run describe` free of secrets.
+      - '--remove-env-vars'
+      - 'MAIL_HOST,MAIL_PORT,MAIL_USER,MAIL_PASS,MAIL_FROM_NAME,ADMIN_PASSWORD,ADMIN_SESSION_SECRET,ADMIN_EMAIL,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY,RESEND_API_KEY,RESEND_FROM'
 
 images:
   - 'asia-east1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/ai-trade-web:$COMMIT_SHA'
