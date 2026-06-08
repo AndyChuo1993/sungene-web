@@ -17,15 +17,10 @@ export type FormField = {
 interface InquiryFormProps {
   lang: Lang
   type:
-    | 'Free Analysis'
     | 'Contact'
-    | 'Export Lead Generation'
-    | 'Distributor Development'
-    | 'Export Sales Outsourcing'
-    | 'Partnership Inquiry'
-    | 'Lead Generation'
-    | 'Outreach Service'
-    | 'Sales Outsourcing'
+    | 'Catalog Request'
+    | 'Partner Inquiry'
+    | 'Quote Request'
   fields: FormField[]
   submitLabel: string
   successTitle?: string
@@ -151,7 +146,7 @@ export default function InquiryForm({
           onClick={() => setStatus('idle')}
           className="mt-6 text-blue-600 font-medium hover:underline"
         >
-          {lang === 'en' ? 'Submit another request' : (lang === 'cn' ? '再次提交需求' : '再次提交需求')}
+          {lang === 'en' ? 'Submit another request' : '再次提交需求'}
         </button>
       </div>
     )
@@ -206,7 +201,7 @@ export default function InquiryForm({
 
       {status === 'email_error' && (
         <div className="p-4 bg-yellow-50 text-yellow-800 rounded-sm border border-yellow-200">
-          <strong>{lang === 'en' ? 'Invalid Email' : (lang === 'cn' ? '邮箱格式错误' : '電子郵件格式錯誤')}</strong>: {lang === 'en' ? 'Please enter a valid email address.' : (lang === 'cn' ? '请输入有效的邮箱地址。' : '請輸入有效的電子郵件地址。')}
+          <strong>{lang === 'en' ? 'Invalid Email' : '電子郵件格式錯誤'}</strong>: {lang === 'en' ? 'Please enter a valid email address.' : '請輸入有效的電子郵件地址。'}
         </div>
       )}
 

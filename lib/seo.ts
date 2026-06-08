@@ -1,7 +1,7 @@
 import { Lang } from '@/lib/i18n'
 
 const DEFAULT_SITE_URL = 'https://sungenelite.com'
-const DEFAULT_LANG: Lang = 'zh'
+const DEFAULT_LANG: Lang = 'en'
 
 function normalizePath(path = '') {
   if (!path) return ''
@@ -21,7 +21,6 @@ export function getLanguageAlternates(path = '') {
   const siteUrl = getSiteUrl()
 
   return {
-    'zh-CN': `${siteUrl}/cn${normalizedPath}`,
     'zh-TW': `${siteUrl}/zh${normalizedPath}`,
     en: `${siteUrl}/en${normalizedPath}`,
     'x-default': `${siteUrl}/${DEFAULT_LANG}${normalizedPath}`,

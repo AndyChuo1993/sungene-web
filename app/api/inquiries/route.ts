@@ -5,15 +5,9 @@ import process from 'process'
 
 const allowedTypes = [
   'Contact',
-  'Free Analysis',
-  'Export Lead Generation',
-  'Distributor Development',
-  'Export Sales Outsourcing',
-  'Partnership Inquiry',
-  'Lead Generation',
-  'Outreach Service',
-  'Sales Outsourcing',
-  'Lead Magnet',
+  'Catalog Request',
+  'Partner Inquiry',
+  'Quote Request',
 ] as const
 
 type Inquiry = {

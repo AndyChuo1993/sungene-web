@@ -1,31 +1,21 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { SUPPORTED_LANGS } from '@/lib/i18n'
+import { SUPPORTED_LANGS, defaultLocale } from '@/lib/i18n'
 
 const locales = SUPPORTED_LANGS
 const primaryHost = 'sungenelite.com'
-
-function getDefaultLocaleByHost(host: string | null) {
-  const hostname = (host || '').toLowerCase()
-
-  if (hostname.includes(primaryHost)) {
-    return 'zh'
-  }
-
-  return 'zh'
-}
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const hostname = (host || '').toLowerCase()
-  const defaultLocale = getDefaultLocaleByHost(host)
   const pathnameWithoutLocale = pathname.replace(/^\/(zh|cn|en)(?=\/|$)/, '')
 
+  // Canonicalize www → apex (sungenelite.com is the IoT brand domain)
   if (
     hostname &&
     !hostname.includes('localhost') &&
-    (hostname.includes('sungene.net') || hostname === `www.${primaryHost}`)
+    hostname === `www.${primaryHost}`
   ) {
     const redirectUrl = new URL(request.url)
     redirectUrl.host = primaryHost
@@ -33,10 +23,24 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, 301)
   }
 
-  // 處理舊站 410 Gone (移除舊包裝盒網站殘留頁面)
-  const gonePatterns = ['/products', '/product', '/cooperation', '/news', '/category', '/tag', '/author']
-  if (gonePatterns.some(pattern => pathnameWithoutLocale.startsWith(pattern))) {
+  // 舊站 410 Gone：已停用的 lead-gen / 包裝盒殘留頁面（注意：不含 /solutions、/products，那是新站正式路由）
+  const gonePatterns = [
+    '/product', '/cooperation', '/news', '/category', '/tag', '/author',
+    '/machines', '/machinery',
+    '/services', '/buyers-list', '/buyer-database-building', '/overseas-buyer-lists',
+    '/distributor-list', '/distributor-network', '/cold-email-outreach',
+    '/export-market-analysis', '/export-marketing', '/market-entry-strategy',
+    '/free-market-analysis', '/qualified-b2b-leads', '/linkedin-prospecting',
+    '/pricing', '/how-it-works', '/industries', '/markets', '/faq', '/blog',
+    '/case-studies', '/resources',
+  ]
+  if (gonePatterns.some(pattern => pathnameWithoutLocale === pattern || pathnameWithoutLocale.startsWith(pattern + '/'))) {
     return new NextResponse(null, { status: 410 })
+  }
+
+  // 舊簡中(cn)路由 → 英文
+  if (/^\/cn(?=\/|$)/.test(pathname)) {
+    return NextResponse.redirect(new URL(pathname.replace(/^\/cn/, '/en'), request.url), 301)
   }
 
   const matchLang = pathname.match(new RegExp(`^\\/(${locales.join('|')})\\/`))
@@ -47,27 +51,6 @@ export function middleware(request: NextRequest) {
   }
   if (pathnameWithoutLocale.startsWith('/contact-us')) {
     return NextResponse.redirect(new URL(`/${currentLang}/contact`, request.url), 301)
-  }
-
-  if (pathname.includes('/buyer-database-building')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/qualified-b2b-leads`, request.url), 301)
-  }
-  if (pathname.includes('/buyers-list')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/overseas-buyer-lists`, request.url), 301)
-  }
-  if (pathname.includes('/distributor-network')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/services/distributor-development`, request.url), 301)
-  }
-  if (pathname.includes('/linkedin-prospecting')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/cold-email-outreach`, request.url), 301)
-  }
-  if (pathname.includes('/market-entry-strategy')) {
-    return NextResponse.redirect(new URL(`/${currentLang}/export-marketing`, request.url), 301)
-  }
-
-  const normalizedPathname = pathname.replace(/^\/zh\/cn(?=\/|$)/, '/cn')
-  if (normalizedPathname !== pathname) {
-    return NextResponse.redirect(new URL(normalizedPathname, request.url), 308)
   }
 
   if (
@@ -85,12 +68,11 @@ export function middleware(request: NextRequest) {
 
   if (pathnameIsMissingLocale) {
     if (pathname === '/') {
-      return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url), 308)
+      return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url), 301)
     }
-
     return NextResponse.redirect(
       new URL(`/${defaultLocale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url),
-      308
+      301
     )
   }
 

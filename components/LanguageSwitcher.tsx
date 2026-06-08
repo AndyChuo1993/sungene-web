@@ -15,7 +15,7 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
     // Let's use robust logic.
     
     // Check if first segment is a known lang
-    const knownLangs = ['en', 'zh', 'cn']
+    const knownLangs = ['en', 'zh']
     let newPath = pathname
     if (knownLangs.includes(segments[0])) {
       segments[0] = targetLang
@@ -31,25 +31,18 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
 
   return (
     <div className="flex gap-3 text-sm font-medium text-gray-600">
-      <button 
+      <button
         onClick={() => switchLang('en')}
         className={`transition hover:text-blue-900 ${lang === 'en' ? 'text-blue-900 font-bold' : ''}`}
       >
-        英
+        EN
       </button>
       <span className="text-gray-300">|</span>
-      <button 
+      <button
         onClick={() => switchLang('zh')}
         className={`transition hover:text-blue-900 ${lang === 'zh' ? 'text-blue-900 font-bold' : ''}`}
       >
-        繁
-      </button>
-      <span className="text-gray-300">|</span>
-      <button 
-        onClick={() => switchLang('cn')}
-        className={`transition hover:text-blue-900 ${lang === 'cn' ? 'text-blue-900 font-bold' : ''}`}
-      >
-        简
+        繁中
       </button>
     </div>
   )

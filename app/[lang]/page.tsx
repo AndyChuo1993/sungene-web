@@ -1,260 +1,124 @@
 import Link from 'next/link'
-import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
-import HeroSection from '@/components/home/HeroSection'
-import ServicesPreview from '@/components/home/ServicesPreview'
-import WhyUs from '@/components/home/WhyUs'
-import ProcessSection from '@/components/home/ProcessSection'
-import CasePreview from '@/components/home/CasePreview'
-import CTASection from '@/components/home/CTASection'
-import { getAlternates, getLocalizedUrl, getSiteUrl } from '@/lib/seo'
+import { Droplets, Zap, Cpu, ArrowRight } from 'lucide-react'
 
-type PageParams = {
-  params: Promise<{ lang?: string }>
-}
-
-const HOME_SEO = {
+const C = {
   en: {
-    title: 'Export Lead Generation & Distributor Development | SunGene',
-    description:
-      'SunGene helps export companies build a repeatable system for overseas buyer development, channel expansion, and deal progression.',
-    keywords: [
-      'b2b export lead generation',
-      'distributor development',
-      'overseas market development',
-      'SunGene',
-    ],
-    h1: 'Find overseas buyers and channels that actually order',
-    midTitle: 'Our goal is actual orders, not just inquiries',
-    midDesc:
-      'We drive the entire process from finding leads to closing deals.',
-    leadBtn: 'Get Market Entry Advice',
-    contactBtn: 'Book Strategy Call',
+    heroTitle: 'Remote Monitoring Solutions for Water, Energy and Industrial Equipment',
+    heroSub: 'Powered by Industrial IoT technologies including LoRaWAN, NB-IoT and RS485.',
+    ctaCatalog: 'Request Product Catalog',
+    ctaPartner: 'Become a Partner',
+    solutionsKicker: 'Solutions',
+    solutionsTitle: 'What we help you monitor',
+    water: { title: 'Water Monitoring', desc: 'Tank level, water leak and pump monitoring for utilities and facilities.' },
+    energy: { title: 'Energy Monitoring', desc: 'Smart metering, energy data collection and solar site monitoring.' },
+    equip: { title: 'Equipment Monitoring', desc: 'Temperature, RS485 data acquisition and alarm notification for remote assets.' },
+    learn: 'Learn more',
+    techTitle: 'Built on proven industrial connectivity',
+    partnerTitle: 'Looking for an Industrial IoT Partner?',
+    partnerSub: 'Become a Distributor or System Integrator Partner. OEM and private-label programs available.',
+    partnerCta: 'Explore Partner Programs',
   },
   zh: {
-    title: '外銷企業海外客戶開發與通路拓展｜SunGene',
-    description:
-      'SunGene 協助外銷企業透過海外客戶開發、採購對接、經銷商拓展與外銷外包，建立可持續成交的海外開發系統。',
-    keywords: [
-      '海外客戶開發',
-      '海外採購與決策人開發',
-      '外銷業務外包',
-      '海外通路招募',
-    ],
-    h1: '幫外銷企業找到「會下單」的海外客戶與通路',
-    midTitle: '我們的合作目標不是詢盤，而是實際訂單',
-    midDesc:
-      '我們致力於推動從開發到成交的完整流程，而不是只停留在線索交付。',
-    leadBtn: '取得市場切入建議',
-    contactBtn: '預約策略通話',
-  },
-  cn: {
-    title: '外贸企业海外客户开发与渠道拓展｜SunGene',
-    description:
-      'SunGene 协助外贸企业通过海外客户开发、采购对接、经销渠道拓展与外贸外包，建立可持续成交的海外开发系统。',
-    keywords: [
-      '海外客户开发',
-      '海外采购与决策人开发',
-      '外贸业务外包',
-      '海外渠道招募',
-    ],
-    h1: '帮外贸企业找到「会下单」的海外客户与渠道',
-    midTitle: '我们的合作目标不是询盘，而是实际订单',
-    midDesc:
-      '我们致力于推动从开发到成交的完整流程，而不是只停留在线索交付。',
-    leadBtn: '取得市场切入建议',
-    contactBtn: '预约策略通话',
+    heroTitle: '水、能源與工業設備的遠端監控解決方案',
+    heroSub: '採用 LoRaWAN、NB-IoT、RS485 等工業物聯網技術。',
+    ctaCatalog: '索取產品型錄',
+    ctaPartner: '成為合作夥伴',
+    solutionsKicker: '解決方案',
+    solutionsTitle: '我們協助您監控的場景',
+    water: { title: '水監控', desc: '為自來水與廠務提供水位、漏水與泵浦的遠端監控。' },
+    energy: { title: '能源監控', desc: '智慧電錶、能源數據採集與太陽能場域監控。' },
+    equip: { title: '設備監控', desc: '溫度、RS485 數據採集與遠端資產的告警通知。' },
+    learn: '了解更多',
+    techTitle: '建構於成熟的工業連線技術',
+    partnerTitle: '正在尋找工業物聯網合作夥伴？',
+    partnerSub: '成為經銷商或系統整合商夥伴，並提供 OEM 與貼牌方案。',
+    partnerCta: '查看合作方案',
   },
 } as const
 
-function normalizeLang(lang?: string): Lang {
-  if (lang === 'en' || lang === 'zh' || lang === 'cn') return lang
-  return 'en'
-}
+const TECH = ['LoRaWAN', 'NB-IoT', 'RS485', 'Modbus', '4G LTE']
 
-function getHomeSeo(lang?: string) {
-  return HOME_SEO[normalizeLang(lang)]
-}
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params
+  const lang = (['en', 'zh'].includes(rawLang) ? rawLang : 'en') as Lang
+  const c = C[lang]
 
-export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
-  const { lang } = await params
-  const safeLang = normalizeLang(lang)
-  const data = getHomeSeo(safeLang)
-
-  const baseUrl = getSiteUrl()
-
-  return {
-    title: data.title,
-    description: safeLang === 'en' 
-      ? 'SunGene helps export companies develop overseas customers, build channel partnerships, and make the export development process more stable, sustainable, and deal-focused.' 
-      : safeLang === 'cn'
-      ? 'SunGene 协助外贸企业开发海外客户、建立渠道合作，并把外贸开发流程做得更稳定、更可持续、更能推进成交。'
-      : 'SunGene 協助外銷企業開發海外客戶、建立通路合作，並把外銷開發流程做得更穩定、更可持續、更能推進成交。',
-    keywords: [...data.keywords],
-    alternates: getAlternates(safeLang),
-    openGraph: {
-      title: data.title,
-      description: data.description,
-      url: getLocalizedUrl(safeLang),
-      siteName: 'SunGene',
-      type: 'website',
-      locale: safeLang === 'zh' ? 'zh_TW' : safeLang === 'cn' ? 'zh_CN' : 'en_US',
-      images: [
-        {
-          url: '/og/og.png',
-          width: 1200,
-          height: 630,
-          alt: data.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: data.title,
-      description: data.description,
-      images: ['/og/og.png'],
-    },
-  }
-}
-
-export default async function Page({ params }: PageParams) {
-  const { lang } = await params
-  const safeLang = normalizeLang(lang)
-  const data = getHomeSeo(safeLang)
-  const baseUrl = getSiteUrl()
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'SunGene',
-    url: getLocalizedUrl(safeLang),
-    logo: `${baseUrl}/logo/sungene.png`,
-    description: data.description,
-    sameAs: [],
-  }
-
-  const serviceJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType:
-      safeLang === 'en'
-        ? 'B2B Export Lead Generation and Distributor Development'
-        : safeLang === 'cn'
-        ? 'B2B外贸客户开发与经销商开发'
-        : 'B2B 外銷客戶開發與經銷商開發',
-    provider: {
-      '@type': 'Organization',
-      name: 'SunGene',
-      url: baseUrl,
-    },
-    areaServed: 'Global',
-    description: data.description,
-  }
+  const cards = [
+    { ...c.water, slug: 'water-monitoring', Icon: Droplets },
+    { ...c.energy, slug: 'energy-monitoring', Icon: Zap },
+    { ...c.equip, slug: 'equipment-monitoring', Icon: Cpu },
+  ]
 
   return (
-    <main className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
-
-      <HeroSection lang={safeLang} />
-      <ServicesPreview lang={safeLang} />
-
-      <section className="bg-blue-50 py-16 border-y border-blue-100">
-        <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">{data.midTitle}</h2>
-            <p className="text-gray-600">{data.midDesc}</p>
-          </div>
-          <div className="flex gap-4">
-            <Link
-              href={`/${safeLang}/services/export-lead-generation`}
-              className="bg-white text-blue-900 border border-blue-200 font-bold py-3 px-6 rounded-sm hover:bg-blue-50 transition"
-            >
-              {data.leadBtn}
+    <main className="pt-20">
+      {/* Hero */}
+      <section className="bg-gradient-to-b from-blue-950 to-blue-900 px-6 py-24 text-white">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+            SunGene Industrial IoT
+          </p>
+          <h1 className="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">{c.heroTitle}</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">{c.heroSub}</p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href={`/${lang}/contact?type=catalog`} className="inline-flex items-center gap-2 rounded-sm bg-white px-7 py-3.5 font-semibold text-blue-900 transition hover:bg-blue-50">
+              {c.ctaCatalog} <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link
-              href={`/${safeLang}/contact`}
-              className="bg-blue-600 text-white font-bold py-3 px-6 rounded-sm hover:bg-blue-500 transition shadow-md"
-            >
-              {data.contactBtn}
+            <Link href={`/${lang}/partners`} className="inline-flex items-center gap-2 rounded-sm border border-blue-400 px-7 py-3.5 font-semibold text-white transition hover:bg-blue-800">
+              {c.ctaPartner}
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 leading-tight">
-                {safeLang === 'en' ? 'You don\'t just see reports, you see progress' : safeLang === 'cn' ? '你看到的不是报表，而是进展' : '你會看到的不是報表，而是進展'}
-              </h2>
-              <ul className="space-y-5 text-lg text-gray-700">
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-blue-600 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  {safeLang === 'en' ? 'We tell you exactly who replied' : safeLang === 'cn' ? '我们会告诉你谁回复了' : '我們會告訴你誰回覆了'}
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-blue-600 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  {safeLang === 'en' ? 'Which clients are worth quoting' : safeLang === 'cn' ? '哪些客户值得报价' : '哪些客戶值得報價'}
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-blue-600 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  {safeLang === 'en' ? 'Who is entering sampling and testing' : safeLang === 'cn' ? '哪些正在进入样品与测试' : '哪些正在進入樣品與測試'}
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-blue-600 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  {safeLang === 'en' ? 'How to advance the next steps' : safeLang === 'cn' ? '下一步该怎么推进' : '下一步該怎麼推進'}
-                </li>
-              </ul>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm relative">
-              <div className="absolute top-0 right-8 -translate-y-1/2 bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                {safeLang === 'en' ? 'Weekly Update' : safeLang === 'cn' ? '每周进度更新' : '每週進度更新'}
-              </div>
-              <div className="space-y-5">
-                 <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex gap-4">
-                   <div className="w-2 h-full bg-green-400 rounded-full shrink-0"></div>
-                   <div>
-                     <div className="text-sm font-bold text-gray-500 mb-1">{safeLang === 'en' ? 'Status: Quoting' : safeLang === 'cn' ? '进度：报价中' : '進度：報價中'}</div>
-                     <div className="text-gray-900 font-medium">
-                       {safeLang === 'en' 
-                         ? 'TechCorp requested a quote for 5,000 units. Ready for technical review call next Tuesday.' 
-                         : safeLang === 'cn' 
-                         ? 'TechCorp 提出 5,000 件报价需求，已安排下周二进行技术规格确认会议。' 
-                         : 'TechCorp 提出 5,000 件報價需求，已安排下週二進行技術規格確認會議。'}
-                     </div>
-                   </div>
-                 </div>
-                 <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex gap-4">
-                   <div className="w-2 h-full bg-blue-400 rounded-full shrink-0"></div>
-                   <div>
-                     <div className="text-sm font-bold text-gray-500 mb-1">{safeLang === 'en' ? 'Status: Sampling' : safeLang === 'cn' ? '进度：样品测试' : '進度：樣品測試'}</div>
-                     <div className="text-gray-900 font-medium">
-                       {safeLang === 'en' 
-                         ? 'EuroMach sample testing passed. Moving to annual vendor contract negotiation.' 
-                         : safeLang === 'cn' 
-                         ? 'EuroMach 样品测试已通过，本周推进年度供应商合约条件讨论。' 
-                         : 'EuroMach 樣品測試已通過，本週推進年度供應商合約條件討論。'}
-                     </div>
-                   </div>
-                 </div>
-              </div>
-            </div>
+      {/* Solutions cards */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{c.solutionsKicker}</p>
+          <h2 className="mt-2 text-center text-3xl font-bold text-gray-900">{c.solutionsTitle}</h2>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {cards.map(({ title, desc, slug, Icon }) => (
+              <Link
+                key={slug}
+                href={`/${lang}/solutions/${slug}`}
+                className="group rounded-xl border border-gray-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-xl font-bold text-gray-900">{title}</h3>
+                <p className="mt-3 leading-relaxed text-gray-600">{desc}</p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-blue-700">
+                  {c.learn} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <WhyUs lang={safeLang} />
-      <ProcessSection lang={safeLang} />
-      <CasePreview lang={safeLang} />
-      <CTASection lang={safeLang} />
+      {/* Technologies band */}
+      <section className="bg-gray-50 px-6 py-14">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-gray-500">{c.techTitle}</p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+            {TECH.map((tech) => (
+              <span key={tech} className="text-lg font-bold tracking-tight text-gray-700">{tech}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partner strip */}
+      <section className="bg-blue-900 px-6 py-20 text-white">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold">{c.partnerTitle}</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-blue-100">{c.partnerSub}</p>
+          <Link href={`/${lang}/partners`} className="mt-8 inline-flex items-center gap-2 rounded-sm bg-white px-7 py-3.5 font-semibold text-blue-900 transition hover:bg-blue-50">
+            {c.partnerCta} <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
     </main>
   )
 }

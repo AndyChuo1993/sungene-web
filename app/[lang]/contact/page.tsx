@@ -1,175 +1,110 @@
-import Image from 'next/image'
+import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
-import InquiryForm, { FormField } from '@/components/InquiryForm'
-import { getAlternates, getLocalizedUrl } from '@/lib/seo'
+import { getAlternates } from '@/lib/seo'
+import InquiryForm from '@/components/InquiryForm'
+import { Mail, MessageCircle, Linkedin } from 'lucide-react'
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }) {
-  const { lang } = await params
-  const isChinese = lang !== 'en'
-  const path = '/contact'
-  const title = `${lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')} | SunGene`
-  const description =
-    isChinese
-      ? '與 SunGene 討論海外客戶開發、經銷商開發、外銷業務外包服務與合作夥伴申請。'
-      : 'Book Strategy Call about export customer development, distributor development, sales outsourcing, or partnership applications.'
+function pickLang(raw: string): Lang {
+  return (['en', 'zh'].includes(raw) ? raw : 'en') as Lang
+}
 
+type FormKind = 'Contact' | 'Catalog Request' | 'Quote Request'
+
+function resolveKind(type?: string): FormKind {
+  if (type === 'catalog') return 'Catalog Request'
+  if (type === 'quote') return 'Quote Request'
+  return 'Contact'
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params
+  const lang = pickLang(rawLang)
   return {
-    title,
-    description,
-    alternates: getAlternates(lang, path),
-    openGraph: {
-      title,
-      description,
-      url: getLocalizedUrl(lang, path),
-      images: ['/og/og.png'],
-    },
+    title: lang === 'en' ? 'Contact | SunGene Industrial IoT' : '聯絡我們 | SunGene 工業物聯網',
+    description:
+      lang === 'en'
+        ? 'Contact SunGene Industrial IoT for product catalogs, quotes and remote monitoring projects.'
+        : '聯絡 SunGene 工業物聯網，索取產品型錄、報價或洽詢遠端監控專案。',
+    alternates: getAlternates(lang, '/contact'),
   }
 }
 
-export default async function Page({
+const C = {
+  en: {
+    Contact: { title: 'Contact Us', sub: 'Tell us about your monitoring project and we will get back to you.', submit: 'Send Message' },
+    'Catalog Request': { title: 'Request Product Catalog', sub: 'Leave your details and we will email you our latest product catalog.', submit: 'Request Catalog' },
+    'Quote Request': { title: 'Request a Quote', sub: 'Tell us what you need and we will prepare a quotation.', submit: 'Request Quote' },
+    f_name: 'Your Name', f_company: 'Company', f_email: 'Business Email', f_country: 'Country / Region', f_message: 'Message', f_product: 'Product / Solution of interest',
+    reach: 'Other ways to reach us',
+  },
+  zh: {
+    Contact: { title: '聯絡我們', sub: '告訴我們您的監控專案，我們會盡快回覆。', submit: '送出訊息' },
+    'Catalog Request': { title: '索取產品型錄', sub: '留下您的聯絡資訊，我們將以電子郵件寄送最新產品型錄。', submit: '索取型錄' },
+    'Quote Request': { title: '索取報價', sub: '告訴我們您的需求，我們將為您準備報價。', submit: '索取報價' },
+    f_name: '姓名', f_company: '公司名稱', f_email: '公司電子郵件', f_country: '國家 / 地區', f_message: '訊息內容', f_product: '感興趣的產品 / 方案',
+    reach: '其他聯絡方式',
+  },
+} as const
+
+export default async function Contact({
   params,
   searchParams,
 }: {
-  params: Promise<{ lang: Lang }>
-  searchParams?: Promise<{ type?: string }>
+  params: Promise<{ lang: string }>
+  searchParams: Promise<{ type?: string }>
 }) {
-  const { lang } = await params
-  const isChinese = lang !== 'en'
-  const resolvedSearchParams = searchParams ? await searchParams : undefined
-  const isPartner = resolvedSearchParams?.type === 'partner'
-
-  const fields: FormField[] = [
-    { name: 'name', label: lang === 'en' ? 'Your Name' : (lang === 'cn' ? '联系人姓名' : '聯絡人姓名'), type: 'text', required: true, autoComplete: 'name' },
-    { name: 'phone', label: lang === 'en' ? 'Phone Number' : (lang === 'cn' ? '手机號碼' : '手機號碼'), type: 'tel', required: true, autoComplete: 'tel' },
-    { name: 'company', label: lang === 'en' ? 'Company Name' : (lang === 'cn' ? '公司名稱' : '公司名稱'), type: 'text', required: true, autoComplete: 'organization' },
-    { name: 'email', label: lang === 'en' ? 'Business Email' : (lang === 'cn' ? '邮箱' : '電子郵件'), type: 'email', required: true, autoComplete: 'email' },
-    {
-      name: 'message',
-      label: lang === 'en' ? 'Project Details' : (lang === 'cn' ? '需求說明' : '需求說明'),
-      type: 'textarea',
-      required: true,
-      rows: 5,
-      defaultValue: isPartner
-        ? isChinese
-          ? '您好，我想申請加入 SunGene 合作夥伴計劃，請提供合作方式與後續流程。'
-          : 'Hello, I would like to apply for the SunGene partner program. Please share the collaboration model and next steps.'
-        : undefined,
-      placeholder: isPartner
-        ? isChinese
-          ? '請補充你的公司、所在地、市場資源或合作方式。'
-          : 'Please add your company, region, market access, or preferred collaboration model.'
-        : isChinese
-          ? '請簡單描述產品、目標市場、目前碰到的問題，或想討論的合作方向。'
-          : 'Share your product, target markets, current challenges, or the collaboration you want to discuss.',
-    },
-  ]
+  const { lang: rawLang } = await params
+  const { type } = await searchParams
+  const lang = pickLang(rawLang)
+  const kind = resolveKind(type)
+  const c = C[lang]
+  const k = c[kind]
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-gray-900 py-24 text-white">
-        <Image src="/banner/banner2.png" alt="Contact SunGene" fill className="object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gray-950/70" />
-        <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <h1 className="mb-6 text-4xl font-bold md:text-5xl">
-            {isPartner ? (lang === 'en' ? 'Partner Application' : (lang === 'cn' ? '合作夥伴申請' : '合作夥伴申請')) : lang === 'en' ? 'Contact Us' : (lang === 'cn' ? '联系我们' : '聯絡我們')}
-          </h1>
-          <p className="mx-auto max-w-3xl text-xl text-gray-200">
-            {isPartner
-              ? isChinese
-                ? '留下你的公司資訊與合作方向，我們會由商務團隊跟你接洽。'
-                : 'Share your company details and partnership direction. Our business team will follow up with you.'
-              : isChinese
-                ? '不論你想開發海外客戶、建立經銷通路，還是規劃長期外銷合作，都可以直接跟我們談。'
-                : 'Whether you want overseas customers, distributor channels, or an annual export growth engagement, you can talk to us directly.'}
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-gray-50 py-20">
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-[1.1fr_1.4fr]">
-          <div className="space-y-6 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold text-gray-900">{lang === 'en' ? 'Ways to reach us' : (lang === 'cn' ? '联系方式' : '聯絡方式')}</h2>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'Business Email' : (lang === 'cn' ? '商務合作信箱' : '商務合作信箱')}</div>
-              <div className="mt-1 text-blue-700">contact@sungenelite.com</div>
-            </div>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'Phone / LINE' : (lang === 'cn' ? '电话 / 即时通讯' : '電話 / 即時通訊')}</div>
-              <div className="mt-1 text-gray-700">+886 43703 2705</div>
-              <div className="mt-1 text-green-700">{lang === 'en' ? 'LINE ID: @sungene' : (lang === 'cn' ? '即时通讯帐号：@sungene' : '即時通訊帳號：@sungene')}</div>
-            </div>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'Company Information' : (lang === 'cn' ? '公司信息' : '公司資訊')}</div>
-              <div className="mt-2 space-y-2 text-gray-700">
-              {lang === 'en' ? (
-                <>
-                  <div className="font-bold">SunGene Co., Ltd.</div>
-                  <div>Tax ID: 94111922</div>
-                  <div>No. 201, Guangfu Rd., Central Dist., Taichung City, Taiwan</div>
-                  <div>Phone: +886 43703 2705</div>
-                  
-                  <div className="pt-4 font-bold">Xiamen SunGene Trading Co., Ltd.</div>
-                  <div>Unit 1001-2, Building A1, Yincheng Zhigu, No. 6788-1 Binhai West Avenue, Tongan District, Xiamen City</div>
-                  <div>Phone: 18144132078 (WeChat included)</div>
-                </>
-              ) : lang === 'cn' ? (
-                <>
-                  <div className="font-bold">上瑾铼有限公司</div>
-                  <div>统一编号：94111922</div>
-                  <div>台中市中区光复路201号</div>
-                  <div>+886 43703 2705</div>
-                  
-                  <div className="pt-4 font-bold">厦门上瑾铼贸易有限公司</div>
-                  <div>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</div>
-                  <div>电话：18144132078 (微信同号)</div>
-                </>
-              ) : (
-                <>
-                  <div className="font-bold">上瑾錸有限公司</div>
-                  <div>統一編號：94111922</div>
-                  <div>台中市中區光復路201號</div>
-                  <div>+886 43703 2705</div>
-                  
-                  <div className="pt-4 font-bold">厦门上瑾铼贸易有限公司</div>
-                  <div>厦门市同安区滨海西大道6788-1号银城智谷A1栋1001单元之二</div>
-                  <div>電話：18144132078 (微信同號)</div>
-                </>
-              )}
-              </div>
-            </div>
-            <div>
-              <div className="font-bold text-gray-900">{lang === 'en' ? 'WhatsApp' : (lang === 'cn' ? '即时通讯联系' : '即時通訊聯繫')}</div>
-              <div className="mt-3 h-28 w-28 overflow-hidden rounded-sm border border-gray-200 bg-gray-100 shadow-sm">
-                <Image src="/whatsapp-qr.png" alt={lang === 'en' ? 'WhatsApp QR Code' : (lang === 'cn' ? '即时通讯二维码' : '即時通訊 QR Code')} width={112} height={112} className="h-full w-full object-cover" />
-              </div>
-            </div>
-            <div className="rounded-lg bg-blue-50 p-5 text-sm leading-7 text-blue-900">
-              {isChinese
-                ? '如果你已有明確產品與市場，建議在表單內直接寫出目標市場、買家類別型與目前遇到的卡點，這樣我們比較容易快速判斷合作方向。'
-                : 'If you already have a product and target market in mind, include the buyer type and your current bottleneck in the form so we can suggest the right next step faster.'}
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm md:p-12">
+    <main className="px-6 pb-20 pt-32">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-5">
+        <div className="lg:col-span-3">
+          <h1 className="text-4xl font-bold text-gray-900">{k.title}</h1>
+          <p className="mt-3 text-lg text-gray-600">{k.sub}</p>
+          <div className="mt-8 max-w-2xl">
             <InquiryForm
               lang={lang}
-              type={isPartner ? 'Partnership Inquiry' : 'Contact'}
-              fields={fields}
-              submitLabel={isPartner ? (lang === 'en' ? 'Submit Partnership Request' : (lang === 'cn' ? '送出合作申請' : '送出合作申請')) : lang === 'en' ? 'Send Message' : (lang === 'cn' ? '送出需求' : '送出需求')}
-              successTitle={lang === 'en' ? 'Request received' : (lang === 'cn' ? '送出成功' : '送出成功')}
-              successDesc={isPartner
-                ? isChinese
-                  ? '我們已收到合作申請，商務團隊將盡快與您聯繫。'
-                  : 'We received your partnership application. Our business team will contact you soon.'
-                : isChinese
-                  ? '我們已收到你的訊息，會盡快和你聯絡。'
-                  : 'We received your message and will get back to you soon.'}
-              errorTitle={lang === 'en' ? 'Submission failed' : (lang === 'cn' ? '送出失敗' : '送出失敗')}
-              errorDesc={lang === 'en' ? 'Please try again later or email us directly.' : (lang === 'cn' ? '請稍後再試，或直接寄信給我們。' : '請稍後再試，或直接寄信給我們。')}
+              type={kind}
+              submitLabel={k.submit}
+              fields={[
+                { name: 'name', label: c.f_name, type: 'text', required: true, autoComplete: 'name' },
+                { name: 'company', label: c.f_company, type: 'text' },
+                { name: 'email', label: c.f_email, type: 'email', required: true, autoComplete: 'email' },
+                { name: 'targetCountry', label: c.f_country, type: 'text' },
+                ...(kind === 'Quote Request'
+                  ? [{ name: 'productName', label: c.f_product, type: 'text' as const }]
+                  : []),
+                { name: 'message', label: c.f_message, type: 'textarea', rows: 4, required: kind === 'Contact' },
+              ]}
             />
           </div>
         </div>
-      </section>
+
+        <aside className="lg:col-span-2">
+          <div className="rounded-2xl border border-gray-200 bg-gray-50 p-8">
+            <h2 className="text-lg font-bold text-gray-900">{c.reach}</h2>
+            <ul className="mt-6 space-y-5 text-gray-700">
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-blue-700" />
+                <a href="mailto:contact@sungenelite.com" className="hover:text-blue-700">contact@sungenelite.com</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MessageCircle className="h-5 w-5 text-blue-700" />
+                <span>WhatsApp / WeChat</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Linkedin className="h-5 w-5 text-blue-700" />
+                <span>LinkedIn</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </main>
   )
 }

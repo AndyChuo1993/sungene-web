@@ -1,128 +1,119 @@
-import { t, Lang } from '@/lib/i18n'
-import Link from 'next/link'
-import { Metadata } from 'next'
-import { Handshake, Users, PieChart, Briefcase } from 'lucide-react'
-import { getAlternates, getLocalizedUrl } from '@/lib/seo'
+import type { Metadata } from 'next'
+import { Lang } from '@/lib/i18n'
+import { getAlternates } from '@/lib/seo'
+import InquiryForm from '@/components/InquiryForm'
+import { Handshake, Cpu, Tag, Check } from 'lucide-react'
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: Lang }> }): Promise<Metadata> {
-  const { lang } = await params
-  const isChinese = lang !== 'en'
-  
-  const title = isChinese ? '合作夥伴計劃｜SunGene' : 'Partners | SunGene'
-  const description = isChinese
-    ? '加入 SunGene 合作夥伴生態系：顧問、海外在地代理、與市場研究機構皆可合作，共同為外銷企業創造價值。'
-    : 'Join SunGene partners: consultants, overseas agents, and research firms collaborating to create value for export companies.'
+function pickLang(raw: string): Lang {
+  return (['en', 'zh'].includes(raw) ? raw : 'en') as Lang
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params
+  const lang = pickLang(rawLang)
   return {
-    title,
-    description,
-    keywords: isChinese
-      ? '外銷顧問合作, 海外代理合作, 合作夥伴計劃, 市場研究合作'
-      : 'partners, referral program, overseas agents, market research partners',
+    title: lang === 'en' ? 'Partner Programs | SunGene Industrial IoT' : '合作夥伴計畫 | SunGene 工業物聯網',
+    description:
+      lang === 'en'
+        ? 'Become a distributor, system integrator or OEM partner of SunGene Industrial IoT. OEM support, low MOQ, fast response and export experience.'
+        : '成為 SunGene 工業物聯網的經銷商、系統整合商或 OEM 合作夥伴。提供 OEM 支援、低起訂量、快速回應與外銷經驗。',
     alternates: getAlternates(lang, '/partners'),
-    openGraph: { 
-      title, 
-      description, 
-      url: getLocalizedUrl(lang, '/partners'),
-      type: 'website' 
-    },
   }
 }
 
-export default async function Page({ params }: { params: Promise<{ lang: Lang }> }) {
-  const { lang } = await params
-  const isChinese = lang !== 'en'
+const C = {
+  en: {
+    kicker: 'Partners',
+    title: 'Build your Industrial IoT business with SunGene',
+    intro: 'Most of our customers reach the field through partners. If you sell, integrate or specify monitoring systems, we want to work with you.',
+    programs: [
+      { Icon: Handshake, title: 'Distributor Program', desc: 'Resell SunGene gateways, sensors and meters in your region with distributor pricing and stock support.' },
+      { Icon: Cpu, title: 'System Integrator Program', desc: 'Specify and integrate our devices into your monitoring projects with technical and documentation support.' },
+      { Icon: Tag, title: 'OEM / Private Label Program', desc: 'Put your brand on proven hardware with flexible MOQ and ODM/OEM customization.' },
+    ],
+    whyTitle: 'Why partner with SunGene',
+    why: ['OEM Support', 'Low MOQ', 'Export Experience', 'Fast Response', 'Flexible Product Portfolio'],
+    formTitle: 'Become a Partner',
+    formIntro: 'Tell us about your business and the programs you are interested in.',
+    submit: 'Submit Partner Inquiry',
+  },
+  zh: {
+    kicker: '合作夥伴',
+    title: '與 SunGene 一起拓展工業物聯網業務',
+    intro: '我們大多數的客戶都是透過合作夥伴觸及現場。若您從事監控系統的銷售、整合或規格指定，我們希望與您合作。',
+    programs: [
+      { Icon: Handshake, title: '經銷商計畫', desc: '在您的區域轉售 SunGene 閘道器、感測器與電錶，享經銷價與備貨支援。' },
+      { Icon: Cpu, title: '系統整合商計畫', desc: '將我們的設備整合進您的監控專案，提供技術與文件支援。' },
+      { Icon: Tag, title: 'OEM / 貼牌計畫', desc: '以成熟硬體掛上您的品牌，提供彈性起訂量與 ODM/OEM 客製。' },
+    ],
+    whyTitle: '為什麼選擇 SunGene',
+    why: ['OEM 支援', '低起訂量', '外銷經驗', '快速回應', '彈性產品組合'],
+    formTitle: '成為合作夥伴',
+    formIntro: '請告訴我們您的業務以及感興趣的合作計畫。',
+    submit: '送出合作洽詢',
+  },
+} as const
 
-  const programs = [
-    {
-      title: { cn: '企業顧問合作', zh: '企業顧問合作', en: 'Consultants & Advisors' },
-      icon: <Briefcase className="w-10 h-10 text-blue-600" />,
-      description: { cn: '適合管理顧問、行銷顧問或創業導師。將 SunGene 的外銷服務推薦給您的客戶，協助他們解決海外開發難題，並獲得優渥的分潤。', zh: '適合管理顧問、行銷顧問或創業導師。將 SunGene 的外銷服務推薦給您的客戶，協助他們解決海外開發難題，並獲得優渥的分潤。', en: 'For management consultants and startup mentors. Refer SunGene services to help your clients solve export challenges and earn commission.' },
-      benefits: { cn: '專屬推薦程式碼、高額佣金、優先技術支援', zh: '專屬推薦程式碼、高額佣金、優先技術支援', en: 'Referral codes, high commission, priority support' }
-    },
-    {
-      title: { cn: '海外在地代理', zh: '海外在地代理', en: 'Overseas Agents' },
-      icon: <Users className="w-10 h-10 text-green-600" />,
-      description: { cn: '若您位於歐美、日本或東南亞，並熟悉當地產業通路。我們誠摯邀請您成為我們的在地合作夥伴，協助台灣企業進行在地化商務對接。', zh: '若您位於歐美、日本或東南亞，並熟悉當地產業通路。我們誠摯邀請您成為我們的在地合作夥伴，協助台灣企業進行在地化商務對接。', en: 'If you are based in EU, US, Japan or SEA with local connections. Partner with us to help Taiwanese firms with local business matchmaking.' },
-      benefits: { cn: '優質產品來源、代理簽約機會、商務考察對接', zh: '優質產品來源、代理簽約機會、商務考察對接', en: 'Quality product sourcing, agency contracts, business trip support' }
-    },
-    {
-      title: { cn: '市場研究機構', zh: '市場研究機構', en: 'Market Research Firms' },
-      icon: <PieChart className="w-10 h-10 text-indigo-600" />,
-      description: { cn: '我們尋求資料合作夥伴，共同發布產業白皮書與市場分析報告，提升雙方在 B2B 領域的專業影響力。', zh: '我們尋求資料合作夥伴，共同發布產業白皮書與市場分析報告，提升雙方在 B2B 領域的專業影響力。', en: 'Seeking data partners to co-publish industry whitepapers and market reports, enhancing authority in the B2B sector.' },
-      benefits: { cn: '資料互換、聯合行銷、品牌曝光', zh: '資料互換、聯合行銷、品牌曝光', en: 'Data exchange, co-marketing, brand exposure' }
-    }
-  ]
+export default async function Partners({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: rawLang } = await params
+  const lang = pickLang(rawLang)
+  const c = C[lang]
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-gray-900 text-white py-24 relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 relative z-10 text-center">
-          <div className="inline-block bg-purple-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4">
-             {lang === 'en' ? 'Partner Program' : (lang === 'cn' ? '合作夥伴計劃' : '合作夥伴計劃')}
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {lang === 'en' ? 'Build the Future of Global Trade Together' : (lang === 'cn' ? '攜手共創外贸新生態' : '攜手共創外銷新生態')}
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            {isChinese 
-              ? '我們相信 1+1 > 2。加入 SunGene 生態系，為您的客戶提供更完整的全球化解決方案。' 
-              : 'We believe in synergy. Join the SunGene ecosystem to provide comprehensive global solutions for your clients.'}
-          </p>
-          <div className="flex justify-center gap-4">
-            <Link href={`/${lang}/contact?type=partner`} className="bg-white text-gray-900 font-bold py-3 px-8 rounded-sm hover:bg-gray-100 transition">
-                {lang === 'en' ? 'Apply Now' : (lang === 'cn' ? '申請加入' : '申請加入')}
-            </Link>
-          </div>
-        </div>
-      </section>
+    <main className="px-6 pb-20 pt-32">
+      <div className="mx-auto max-w-6xl">
+        <header className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{c.kicker}</p>
+          <h1 className="mt-2 text-4xl font-bold text-gray-900">{c.title}</h1>
+          <p className="mt-4 text-lg text-gray-600">{c.intro}</p>
+        </header>
 
-      {/* Programs */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
-            <div className="grid md:grid-cols-3 gap-12">
-                {programs.map((program, index) => (
-                    <div key={index} className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <div className="mb-6 bg-gray-50 p-4 rounded-full inline-block">
-                            {program.icon}
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                            {isChinese ? program.title.zh : program.title.en}
-                        </h3>
-                        <p className="text-gray-600 mb-6 leading-relaxed">
-                            {isChinese ? program.description.zh : program.description.en}
-                        </p>
-                        <div className="border-t border-gray-100 pt-6">
-                            <h4 className="text-sm font-bold text-gray-900 mb-2 uppercase tracking-wide">
-                                {lang === 'en' ? 'Benefits' : (lang === 'cn' ? '合作優勢' : '合作優勢')}
-                            </h4>
-                            <p className="text-sm text-gray-500">
-                                {isChinese ? program.benefits.zh : program.benefits.en}
-                            </p>
-                        </div>
-                    </div>
-                ))}
+        {/* Programs */}
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {c.programs.map(({ Icon, title, desc }) => (
+            <div key={title} className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                <Icon className="h-6 w-6" />
+              </div>
+              <h2 className="mt-5 text-xl font-bold text-gray-900">{title}</h2>
+              <p className="mt-3 leading-relaxed text-gray-600">{desc}</p>
             </div>
+          ))}
         </div>
-      </section>
 
-      {/* CTA */}
-      <section className="bg-purple-50 py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-            <Handshake className="w-16 h-16 text-purple-600 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                {lang === 'en' ? 'Ready to Partner?' : (lang === 'cn' ? '準備好開始合作了嗎？' : '準備好開始合作了嗎？')}
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-                {isChinese 
-                 ? '填寫合作申請表，我們的商務開發團隊將在 24 小時內與您聯繫。' 
-                 : 'Fill out the application form, and our business development team will contact you within 24 hours.'}
-            </p>
-            <Link href={`/${lang}/contact?type=partner`} className="inline-block bg-purple-600 text-white font-bold py-4 px-10 rounded-sm hover:bg-purple-700 transition">
-                {lang === 'en' ? 'Contact Partnership Team' : (lang === 'cn' ? '聯繫商務团队' : '聯繫商務團隊')}
-            </Link>
-        </div>
-      </section>
+        {/* Why partner */}
+        <section className="mt-16">
+          <h2 className="text-2xl font-bold text-gray-900">{c.whyTitle}</h2>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {c.why.map((w) => (
+              <li key={w} className="flex items-center gap-2 rounded-lg bg-gray-50 px-4 py-3">
+                <Check className="h-5 w-5 flex-shrink-0 text-blue-600" />
+                <span className="font-medium text-gray-800">{w}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Form */}
+        <section id="apply" className="mt-16 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm md:p-12">
+          <h2 className="text-2xl font-bold text-gray-900">{c.formTitle}</h2>
+          <p className="mt-2 text-gray-600">{c.formIntro}</p>
+          <div className="mt-8 max-w-2xl">
+            <InquiryForm
+              lang={lang}
+              type="Partner Inquiry"
+              submitLabel={c.submit}
+              fields={[
+                { name: 'name', label: lang === 'en' ? 'Your Name' : '姓名', type: 'text', required: true, autoComplete: 'name' },
+                { name: 'company', label: lang === 'en' ? 'Company' : '公司名稱', type: 'text', required: true },
+                { name: 'email', label: lang === 'en' ? 'Business Email' : '公司電子郵件', type: 'email', required: true, autoComplete: 'email' },
+                { name: 'targetCountry', label: lang === 'en' ? 'Country / Region' : '國家 / 地區', type: 'text' },
+                { name: 'message', label: lang === 'en' ? 'Which program(s) and what do you sell or integrate?' : '感興趣的計畫，以及您銷售或整合的項目', type: 'textarea', rows: 4, required: true },
+              ]}
+            />
+          </div>
+        </section>
+      </div>
     </main>
   )
 }
