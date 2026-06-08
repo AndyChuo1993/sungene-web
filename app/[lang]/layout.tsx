@@ -37,8 +37,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       url: getLocalizedUrl(lang),
       type: 'website',
       siteName: 'SunGene Industrial IoT',
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'SunGene Industrial IoT' }],
     },
-    twitter: { card: 'summary_large_image' },
+    twitter: { card: 'summary_large_image', images: ['/og-image.png'] },
     icons: { icon: '/logo/sungene.png' },
     alternates: getAlternates(lang),
   }
