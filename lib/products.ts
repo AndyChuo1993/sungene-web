@@ -119,40 +119,6 @@ export const PRODUCTS: Product[] = [
       ],
     },
   },
-  {
-    slug: 'vrf-central-ac-controller',
-    category: 'controllers',
-    image: '/products/vrf-central-ac-controller.jpg',
-    relatedSolution: 'equipment-monitoring',
-    en: {
-      name: 'VRF Central AC Controller (DIN-rail)',
-      tagline:
-        'DIN-rail central controller for VRF / multi-split air conditioning — compatible with most major AC brands, with RS485, CAN and KNX plus energy sub-metering.',
-      specs: [
-        { label: 'Power supply', value: 'DC 12V' },
-        { label: 'Interfaces', value: 'RS485 / CAN / KNX / RJ45' },
-        { label: 'Status', value: 'PWR / STA / LNK / DAT indicators' },
-        { label: 'Compatibility', value: 'VRF / multi-split, most major brands' },
-        { label: 'Function', value: 'Central control + energy sub-metering' },
-        { label: 'Optional comms', value: 'WiFi / Zigbee / LoRa' },
-        { label: 'Mounting', value: 'DIN-rail' },
-      ],
-    },
-    zh: {
-      name: 'VRF 中央空調集中控制器（導軌式）',
-      tagline:
-        'VRF／多聯機中央空調用導軌式集中控制器，相容市面多數主流品牌，支援 RS485、CAN、KNX 與分戶能耗計量。',
-      specs: [
-        { label: '供電', value: 'DC 12V' },
-        { label: '介面', value: 'RS485 / CAN / KNX / RJ45' },
-        { label: '狀態', value: 'PWR / STA / LNK / DAT 指示燈' },
-        { label: '相容', value: 'VRF／多聯機，多數主流品牌' },
-        { label: '功能', value: '集中控制＋分戶能耗計量' },
-        { label: '選配通訊', value: 'WiFi / Zigbee / LoRa' },
-        { label: '安裝', value: '導軌式' },
-      ],
-    },
-  },
 ]
 
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
