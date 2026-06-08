@@ -1,17 +1,19 @@
 import { MetadataRoute } from 'next'
 import { SUPPORTED_LANGS } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/lib/seo'
+import { PRODUCT_SLUGS } from '@/lib/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const langs = SUPPORTED_LANGS
 
-  // MVP routes only. Products / Industries / Applications / Resources added in batch 2.
   const routes = [
     '',
     '/solutions',
     '/solutions/water-monitoring',
     '/solutions/energy-monitoring',
     '/solutions/equipment-monitoring',
+    '/products',
+    ...PRODUCT_SLUGS.map((s) => `/products/${s}`),
     '/partners',
     '/about',
     '/contact',

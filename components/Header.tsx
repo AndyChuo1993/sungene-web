@@ -5,10 +5,10 @@ import { t, Lang } from '@/lib/i18n'
 import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Header({ lang }: { lang: Lang }) {
-  // MVP main nav: 4 items. Products / Resources go live once they have content.
   const links = [
     { href: `/${lang}`, label: t(lang, 'nav_home') },
     { href: `/${lang}/solutions`, label: t(lang, 'nav_solutions') },
+    { href: `/${lang}/products`, label: t(lang, 'nav_products') },
     { href: `/${lang}/partners`, label: t(lang, 'nav_partners') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
