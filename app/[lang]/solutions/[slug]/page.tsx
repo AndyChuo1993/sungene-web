@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
 import { SOLUTION_SLUGS, SOLUTIONS, SolutionSlug } from '@/lib/solutions'
+import { getApplicationsForSolution } from '@/lib/applications'
 import { Check, ArrowRight } from 'lucide-react'
 
 function pickLang(raw: string): Lang {
@@ -39,9 +40,11 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
   const s = SOLUTIONS[slug][lang]
 
   const L = {
-    en: { problem: 'The problem', capabilities: 'What we monitor', products: 'Products used', industries: 'Where it is used', quote: 'Request a Quote', catalog: 'Request Product Catalog', back: 'All solutions' },
-    zh: { problem: '面臨的問題', capabilities: '監控項目', products: '使用的產品', industries: '適用產業', quote: '索取報價', catalog: '索取產品型錄', back: '所有解決方案' },
+    en: { problem: 'The problem', capabilities: 'What we monitor', products: 'Products used', industries: 'Where it is used', applications: 'Related applications', quote: 'Request a Quote', catalog: 'Request Product Catalog', back: 'All solutions' },
+    zh: { problem: '面臨的問題', capabilities: '監控項目', products: '使用的產品', industries: '適用產業', applications: '相關應用場景', quote: '索取報價', catalog: '索取產品型錄', back: '所有解決方案' },
   }[lang]
+
+  const applications = getApplicationsForSolution(slug)
 
   return (
     <main className="px-6 pb-20 pt-32">
@@ -90,6 +93,25 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
             </ul>
           </section>
         </div>
+
+        {/* Related applications */}
+        {applications.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">{L.applications}</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {applications.map((app) => (
+                <Link
+                  key={app.slug}
+                  href={`/${lang}/applications/${app.slug}`}
+                  className="group flex items-center justify-between rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300"
+                >
+                  <span className="font-medium text-gray-800">{app.content[lang].title}</span>
+                  <ArrowRight className="h-4 w-4 text-blue-700 transition group-hover:translate-x-1" />
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* CTA */}
         <section className="mt-14 rounded-xl bg-blue-900 p-8 text-center text-white">

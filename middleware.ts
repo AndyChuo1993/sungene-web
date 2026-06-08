@@ -31,7 +31,7 @@ export function middleware(request: NextRequest) {
     '/distributor-list', '/distributor-network', '/cold-email-outreach',
     '/export-market-analysis', '/export-marketing', '/market-entry-strategy',
     '/free-market-analysis', '/qualified-b2b-leads', '/linkedin-prospecting',
-    '/pricing', '/how-it-works', '/industries', '/markets', '/faq', '/blog',
+    '/pricing', '/how-it-works', '/markets', '/faq', '/blog',
     '/case-studies', '/resources',
   ]
   if (gonePatterns.some(pattern => pathnameWithoutLocale === pattern || pathnameWithoutLocale.startsWith(pattern + '/'))) {

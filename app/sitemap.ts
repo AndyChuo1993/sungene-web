@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { SUPPORTED_LANGS } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/lib/seo'
 import { PRODUCT_SLUGS } from '@/lib/products'
+import { APPLICATION_SLUGS } from '@/lib/applications'
+import { INDUSTRY_SLUGS } from '@/lib/industries'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const langs = SUPPORTED_LANGS
@@ -14,6 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/solutions/equipment-monitoring',
     '/products',
     ...PRODUCT_SLUGS.map((s) => `/products/${s}`),
+    '/applications',
+    ...APPLICATION_SLUGS.map((s) => `/applications/${s}`),
+    '/industries',
+    ...INDUSTRY_SLUGS.map((s) => `/industries/${s}`),
     '/partners',
     '/about',
     '/contact',

@@ -4,6 +4,9 @@ import { t, Lang } from '@/lib/i18n'
 export default function Footer({ lang }: { lang: Lang }) {
   const navLinks = [
     { href: `/${lang}/solutions`, label: t(lang, 'nav_solutions') },
+    { href: `/${lang}/products`, label: t(lang, 'nav_products') },
+    { href: `/${lang}/applications`, label: lang === 'en' ? 'Applications' : '應用場景' },
+    { href: `/${lang}/industries`, label: lang === 'en' ? 'Industries' : '產業應用' },
     { href: `/${lang}/partners`, label: t(lang, 'nav_partners') },
     { href: `/${lang}/about`, label: t(lang, 'nav_about') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
