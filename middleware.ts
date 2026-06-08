@@ -32,7 +32,7 @@ export function middleware(request: NextRequest) {
     '/export-market-analysis', '/export-marketing', '/market-entry-strategy',
     '/free-market-analysis', '/qualified-b2b-leads', '/linkedin-prospecting',
     '/pricing', '/how-it-works', '/markets', '/faq', '/blog',
-    '/case-studies', '/resources',
+    '/case-studies',
   ]
   if (gonePatterns.some(pattern => pathnameWithoutLocale === pattern || pathnameWithoutLocale.startsWith(pattern + '/'))) {
     return new NextResponse(null, { status: 410 })

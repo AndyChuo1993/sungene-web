@@ -57,7 +57,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ lang
               <Link href={`/${lang}/contact?type=quote`} className="inline-flex items-center justify-center gap-2 rounded-sm bg-blue-900 px-6 py-3 font-semibold text-white transition hover:bg-blue-800">
                 {L.quote} <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href={`/${lang}/contact?type=catalog`} className="inline-flex items-center justify-center gap-2 rounded-sm border border-gray-300 px-6 py-3 font-semibold text-gray-800 transition hover:border-blue-300 hover:text-blue-800">
+              <Link href={`/${lang}/resources`} className="inline-flex items-center justify-center gap-2 rounded-sm border border-gray-300 px-6 py-3 font-semibold text-gray-800 transition hover:border-blue-300 hover:text-blue-800">
                 {L.catalog}
               </Link>
             </div>

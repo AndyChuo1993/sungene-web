@@ -6,8 +6,11 @@ const C = {
   en: {
     heroTitle: 'Remote Monitoring Solutions for Water, Energy and Industrial Equipment',
     heroSub: 'Powered by Industrial IoT technologies including LoRaWAN, NB-IoT and RS485.',
+    heroOem: 'OEM & Private Label Ready — for Distributors and System Integrators',
     ctaCatalog: 'Request Product Catalog',
     ctaPartner: 'Become a Partner',
+    whyTitle: 'Why SunGene',
+    why: ['Taiwan Team', 'China Manufacturing', 'OEM Ready', 'Low MOQ', 'English Support', 'Export Experience'],
     solutionsKicker: 'Solutions',
     solutionsTitle: 'What we help you monitor',
     water: { title: 'Water Monitoring', desc: 'Tank level, water leak and pump monitoring for utilities and facilities.' },
@@ -22,8 +25,11 @@ const C = {
   zh: {
     heroTitle: '水、能源與工業設備的遠端監控解決方案',
     heroSub: '採用 LoRaWAN、NB-IoT、RS485 等工業物聯網技術。',
+    heroOem: '支援 OEM 與貼牌——專為經銷商與系統整合商打造',
     ctaCatalog: '索取產品型錄',
     ctaPartner: '成為合作夥伴',
+    whyTitle: '為什麼選 SunGene',
+    why: ['台灣團隊', '中國製造', 'OEM 製造', '低起訂量', '英文支援', '外銷經驗'],
     solutionsKicker: '解決方案',
     solutionsTitle: '我們協助您監控的場景',
     water: { title: '水監控', desc: '為自來水與廠務提供水位、漏水與泵浦的遠端監控。' },
@@ -60,12 +66,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </p>
           <h1 className="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">{c.heroTitle}</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">{c.heroSub}</p>
+          <p className="mx-auto mt-4 inline-block rounded-full border border-blue-400/60 px-4 py-1.5 text-sm font-medium text-blue-200">
+            {c.heroOem}
+          </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href={`/${lang}/contact?type=catalog`} className="inline-flex items-center gap-2 rounded-sm bg-white px-7 py-3.5 font-semibold text-blue-900 transition hover:bg-blue-50">
+            <Link href={`/${lang}/resources`} className="inline-flex items-center gap-2 rounded-sm bg-white px-7 py-3.5 font-semibold text-blue-900 transition hover:bg-blue-50">
               {c.ctaCatalog} <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href={`/${lang}/partners`} className="inline-flex items-center gap-2 rounded-sm border border-blue-400 px-7 py-3.5 font-semibold text-white transition hover:bg-blue-800">
-              {c.ctaPartner}
+            <Link href={`/${lang}/partners`} className="inline-flex items-center gap-2 rounded-sm bg-blue-600 px-7 py-3.5 font-semibold text-white transition hover:bg-blue-500">
+              {c.ctaPartner} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -104,6 +113,20 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {TECH.map((tech) => (
               <span key={tech} className="text-lg font-bold tracking-tight text-gray-700">{tech}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why SunGene strip */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="text-2xl font-bold text-gray-900">{c.whyTitle}</h2>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {c.why.map((w) => (
+              <div key={w} className="rounded-lg border border-gray-200 bg-white px-3 py-4 text-sm font-semibold text-gray-700 shadow-sm">
+                {w}
+              </div>
             ))}
           </div>
         </div>
