@@ -85,6 +85,74 @@ export const PRODUCTS: Product[] = [
       ],
     },
   },
+  {
+    slug: 'floor-heating-thermostat-wifi',
+    category: 'controllers',
+    image: '/products/floor-heating-thermostat-wifi.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'WiFi Floor-Heating & Boiler Thermostat',
+      tagline:
+        'Smart wall thermostat for floor heating and wall-hung boilers — WiFi connected with no gateway required, plus daily and weekly scheduling.',
+      specs: [
+        { label: 'Power supply', value: 'AC 220V' },
+        { label: 'Communication', value: 'WiFi 2.4GHz (no gateway needed)' },
+        { label: 'Application', value: 'Floor heating / wall-hung boiler' },
+        { label: 'Display', value: 'Room temperature + setpoint, LCD' },
+        { label: 'Scheduling', value: 'Daily + weekly programming' },
+        { label: 'Control', value: 'Local + app' },
+        { label: 'Mounting', value: 'Wall-mount (86 box)' },
+      ],
+    },
+    zh: {
+      name: 'WiFi 地暖／壁掛爐溫控器',
+      tagline:
+        '地暖與壁掛爐用智慧壁掛溫控器，WiFi 直連免閘道器，支援日／週排程。',
+      specs: [
+        { label: '供電', value: 'AC 220V' },
+        { label: '通訊', value: 'WiFi 2.4GHz（免閘道器）' },
+        { label: '應用', value: '地暖／壁掛爐' },
+        { label: '顯示', value: '室內溫度＋設定溫度，LCD' },
+        { label: '排程', value: '日＋週編程' },
+        { label: '控制', value: '本地＋App' },
+        { label: '安裝', value: '壁掛（86 盒）' },
+      ],
+    },
+  },
+  {
+    slug: 'vrf-central-ac-controller',
+    category: 'controllers',
+    image: '/products/vrf-central-ac-controller.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'VRF Central AC Controller (DIN-rail)',
+      tagline:
+        'DIN-rail central controller for VRF / multi-split air conditioning — compatible with most major AC brands, with RS485, CAN and KNX plus energy sub-metering.',
+      specs: [
+        { label: 'Power supply', value: 'DC 12V' },
+        { label: 'Interfaces', value: 'RS485 / CAN / KNX / RJ45' },
+        { label: 'Status', value: 'PWR / STA / LNK / DAT indicators' },
+        { label: 'Compatibility', value: 'VRF / multi-split, most major brands' },
+        { label: 'Function', value: 'Central control + energy sub-metering' },
+        { label: 'Optional comms', value: 'WiFi / Zigbee / LoRa' },
+        { label: 'Mounting', value: 'DIN-rail' },
+      ],
+    },
+    zh: {
+      name: 'VRF 中央空調集中控制器（導軌式）',
+      tagline:
+        'VRF／多聯機中央空調用導軌式集中控制器，相容市面多數主流品牌，支援 RS485、CAN、KNX 與分戶能耗計量。',
+      specs: [
+        { label: '供電', value: 'DC 12V' },
+        { label: '介面', value: 'RS485 / CAN / KNX / RJ45' },
+        { label: '狀態', value: 'PWR / STA / LNK / DAT 指示燈' },
+        { label: '相容', value: 'VRF／多聯機，多數主流品牌' },
+        { label: '功能', value: '集中控制＋分戶能耗計量' },
+        { label: '選配通訊', value: 'WiFi / Zigbee / LoRa' },
+        { label: '安裝', value: '導軌式' },
+      ],
+    },
+  },
 ]
 
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
