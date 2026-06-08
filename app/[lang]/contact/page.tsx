@@ -90,16 +90,24 @@ export default async function Contact({
             <h2 className="text-lg font-bold text-gray-900">{c.reach}</h2>
             <ul className="mt-6 space-y-5 text-gray-700">
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-blue-700" />
+                <Mail className="h-5 w-5 flex-shrink-0 text-blue-700" />
                 <a href="mailto:contact@sungenelite.com" className="hover:text-blue-700">contact@sungenelite.com</a>
               </li>
               <li className="flex items-center gap-3">
-                <MessageCircle className="h-5 w-5 text-blue-700" />
-                <span>WhatsApp / WeChat</span>
+                <MessageCircle className="h-5 w-5 flex-shrink-0 text-blue-700" />
+                <a href="https://wa.me/8618144132078" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700">
+                  WhatsApp: +86 181 4413 2078
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <Linkedin className="h-5 w-5 text-blue-700" />
-                <span>LinkedIn</span>
+                <MessageCircle className="h-5 w-5 flex-shrink-0 text-green-600" />
+                <span>WeChat: 1814413278</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Linkedin className="h-5 w-5 flex-shrink-0 text-blue-700" />
+                <a href="https://www.linkedin.com/company/108298466/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700">
+                  LinkedIn
+                </a>
               </li>
             </ul>
           </div>
