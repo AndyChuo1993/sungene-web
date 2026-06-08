@@ -3,8 +3,9 @@ import React from 'react'
 import { headers } from 'next/headers'
 
 export const metadata = {
-  title: 'SunGene | 外銷客戶開發與海外市場拓展',
-  description: 'SunGene 協助外銷企業開發海外買家、建立經銷通路，並把外銷開發流程做得更穩定、更可追蹤。',
+  title: 'SunGene Industrial IoT | Remote Monitoring & Data Acquisition',
+  description:
+    'SunGene Industrial IoT supplies remote monitoring and data acquisition solutions for water, energy and industrial equipment, using LoRaWAN, NB-IoT, RS485 and 4G LTE.',
 }
 
 export default async function RootLayout({
@@ -14,7 +15,7 @@ export default async function RootLayout({
 }) {
   const h = await headers()
   const lang = h.get('x-lang')
-  const htmlLang = lang === 'en' ? 'en' : (lang === 'cn' ? 'zh-Hans' : 'zh-Hant')
+  const htmlLang = lang === 'en' ? 'en' : 'zh-Hant'
 
   return (
     <html lang={htmlLang} suppressHydrationWarning>
