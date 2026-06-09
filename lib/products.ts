@@ -121,6 +121,43 @@ export const PRODUCTS: Product[] = [
   },
 ]
 
+PRODUCTS.push(
+  {
+    slug: 'ultrasonic-water-level-sensor',
+    category: 'sensors',
+    image: '/products/ultrasonic-water-level-sensor.jpg',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Ultrasonic Water Level Sensor',
+      tagline:
+        'Non-contact ultrasonic level measurement for tanks, reservoirs and open channels — for remote water level monitoring.',
+      specs: [
+        { label: 'Measurement', value: 'Ultrasonic (non-contact)' },
+        { label: 'Range', value: '0–15 m (model dependent)' },
+        { label: 'Output', value: '4-20mA / RS485 (Modbus)' },
+        { label: 'Power supply', value: 'DC 24V' },
+        { label: 'Display', value: 'LCD' },
+        { label: 'Protection', value: 'IP65' },
+        { label: 'Mounting', value: 'Top-mount' },
+      ],
+    },
+    zh: {
+      name: '超音波水位感測器',
+      tagline:
+        '非接觸式超音波液位量測,適用水箱、水池與明渠,用於遠端水位監控。',
+      specs: [
+        { label: '量測方式', value: '超音波（非接觸）' },
+        { label: '量程', value: '0–15 m（依型號）' },
+        { label: '輸出', value: '4-20mA / RS485（Modbus）' },
+        { label: '供電', value: 'DC 24V' },
+        { label: '顯示', value: 'LCD' },
+        { label: '防護', value: 'IP65' },
+        { label: '安裝', value: '頂部安裝' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
