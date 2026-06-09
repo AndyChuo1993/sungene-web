@@ -40,6 +40,9 @@ export default function Header({ lang }: { lang: Lang }) {
             <Suspense fallback={<span className="text-sm font-medium text-gray-600">{lang === 'en' ? '繁中' : 'EN'}</span>}>
               <LanguageSwitcher lang={lang} />
             </Suspense>
+            <Link href={`/${lang}/contact?type=quote`} className="inline-flex rounded-sm border border-blue-900 px-5 py-2.5 text-sm font-medium text-blue-900 transition hover:bg-blue-50">
+              {t(lang, 'nav_contact')}
+            </Link>
             <Link href={`/${lang}/resources`} className="inline-flex rounded-sm bg-blue-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-800">
               {t(lang, 'cta_catalog')}
             </Link>

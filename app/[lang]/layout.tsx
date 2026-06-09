@@ -66,6 +66,7 @@ export default async function RootLayout({ children, params }: { children: React
     description: META[lang].description,
     url: baseUrl,
     logo: logoUrl,
+    sameAs: ['https://www.linkedin.com/company/108298466/'],
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'TW',
@@ -74,6 +75,7 @@ export default async function RootLayout({ children, params }: { children: React
       '@type': 'ContactPoint',
       contactType: 'sales',
       email: 'contact@sungenelite.com',
+      telephone: '+886-4-3703-2705',
       availableLanguage: ['en', 'zh-Hant'],
     },
   }

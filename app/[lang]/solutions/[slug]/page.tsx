@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
-import { getAlternates } from '@/lib/seo'
+import { getAlternates, getLocalizedUrl, breadcrumbLd } from '@/lib/seo'
 import { SOLUTION_SLUGS, SOLUTIONS, SolutionSlug } from '@/lib/solutions'
 import { getApplicationsForSolution } from '@/lib/applications'
 import { PRODUCTS } from '@/lib/products'
@@ -49,8 +49,15 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
   const applications = getApplicationsForSolution(slug)
   const relatedProducts = PRODUCTS.filter((p) => p.relatedSolution === slug)
 
+  const breadcrumbSchema = breadcrumbLd([
+    { name: lang === 'en' ? 'Home' : '首頁', url: getLocalizedUrl(lang) },
+    { name: lang === 'en' ? 'Solutions' : '解決方案', url: getLocalizedUrl(lang, '/solutions') },
+    { name: s.title, url: getLocalizedUrl(lang, `/solutions/${slug}`) },
+  ])
+
   return (
     <main className="px-6 pb-20 pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="mx-auto max-w-4xl">
         <Link href={`/${lang}/solutions`} className="text-sm font-medium text-blue-700 hover:underline">
           ← {L.back}

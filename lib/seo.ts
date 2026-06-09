@@ -33,3 +33,61 @@ export function getAlternates(lang: Lang, path = '') {
     languages: getLanguageAlternates(path),
   }
 }
+
+/** BreadcrumbList JSON-LD. Pass items in order (Home first). */
+export function breadcrumbLd(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      item: it.url,
+    })),
+  }
+}
+
+/** FAQPage JSON-LD from question/answer pairs. */
+export function faqLd(items: { q: string; a: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((it) => ({
+      '@type': 'Question',
+      name: it.q,
+      acceptedAnswer: { '@type': 'Answer', text: it.a },
+    })),
+  }
+}
+
+/** Product JSON-LD built from the catalog spec table. */
+export function productLd(opts: {
+  name: string
+  description: string
+  image: string
+  url: string
+  category?: string
+  specs?: { label: string; value: string }[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: opts.name,
+    description: opts.description,
+    image: opts.image.startsWith('http') ? opts.image : `${getSiteUrl()}${opts.image}`,
+    url: opts.url,
+    ...(opts.category ? { category: opts.category } : {}),
+    brand: { '@type': 'Brand', name: 'SunGene Industrial IoT' },
+    manufacturer: { '@type': 'Organization', name: 'SunGene Industrial IoT' },
+    ...(opts.specs && opts.specs.length
+      ? {
+          additionalProperty: opts.specs.map((s) => ({
+            '@type': 'PropertyValue',
+            name: s.label,
+            value: s.value,
+          })),
+        }
+      : {}),
+  }
+}

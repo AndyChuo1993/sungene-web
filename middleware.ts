@@ -31,8 +31,14 @@ export function middleware(request: NextRequest) {
     '/distributor-list', '/distributor-network', '/cold-email-outreach',
     '/export-market-analysis', '/export-marketing', '/market-entry-strategy',
     '/free-market-analysis', '/qualified-b2b-leads', '/linkedin-prospecting',
-    '/pricing', '/how-it-works', '/markets', '/faq', '/blog',
+    '/pricing', '/how-it-works', '/market', '/markets', '/faq', '/blog',
     '/case-studies',
+    // Former lead-gen landing pages (previously 301→410 chains via next.config) —
+    // now return 410 directly so Google drops them faster. Note: '/resources/blog'
+    // and the old article slug below are scoped so the live '/resources' page stays 200.
+    '/export-lead-generation', '/distributor-development', '/export-sales-outsourcing',
+    '/b2b-lead-generation', '/sales-outsourcing', '/export-outsourcing',
+    '/resources/blog', '/resources/cold-email-writing-tips',
   ]
   if (gonePatterns.some(pattern => pathnameWithoutLocale === pattern || pathnameWithoutLocale.startsWith(pattern + '/'))) {
     return new NextResponse(null, { status: 410 })

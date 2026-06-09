@@ -1,6 +1,24 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
+import { getAlternates } from '@/lib/seo'
 import { Droplets, Zap, Cpu, ArrowRight } from 'lucide-react'
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang: rawLang } = await params
+  const lang = (['en', 'zh'].includes(rawLang) ? rawLang : 'en') as Lang
+  return {
+    title:
+      lang === 'en'
+        ? 'Industrial IoT for Remote Monitoring of Water, Energy & Equipment | SunGene'
+        : '工業物聯網 — 水、能源與設備遠端監控 | SunGene',
+    description:
+      lang === 'en'
+        ? 'SunGene supplies industrial IoT gateways, sensors, meters and controllers for remote monitoring and data acquisition — Modbus, BACnet, MQTT, RS485, LoRaWAN, NB-IoT and 4G. OEM/ODM welcome.'
+        : 'SunGene 提供工業物聯網閘道器、感測器、電錶與控制器，用於遠端監控與數據採集——支援 Modbus、BACnet、MQTT、RS485、LoRaWAN、NB-IoT 與 4G，歡迎 OEM/ODM。',
+    alternates: getAlternates(lang),
+  }
+}
 
 const C = {
   en: {
@@ -9,6 +27,7 @@ const C = {
     heroOem: 'OEM & Private Label Ready — for Distributors and System Integrators',
     ctaCatalog: 'Request Product Catalog',
     ctaPartner: 'Become a Partner',
+    ctaContact: 'Contact Sales',
     whyTitle: 'Why SunGene',
     why: ['Taiwan Team', 'China Manufacturing', 'OEM Ready', 'Low MOQ', 'English Support', 'Export Experience'],
     cityKicker: 'Smart City & Smart Building',
@@ -37,6 +56,7 @@ const C = {
     heroOem: '支援 OEM 與貼牌——專為經銷商與系統整合商打造',
     ctaCatalog: '索取產品型錄',
     ctaPartner: '成為合作夥伴',
+    ctaContact: '聯絡業務',
     whyTitle: '為什麼選 SunGene',
     why: ['台灣團隊', '中國製造', 'OEM 製造', '低起訂量', '英文支援', '外銷經驗'],
     cityKicker: '智慧城市與智慧建築',
@@ -93,6 +113,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </Link>
             <Link href={`/${lang}/partners`} className="inline-flex items-center gap-2 rounded-sm bg-blue-600 px-7 py-3.5 font-semibold text-white transition hover:bg-blue-500">
               {c.ctaPartner} <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href={`/${lang}/contact?type=quote`} className="inline-flex items-center gap-2 rounded-sm border border-blue-300/70 px-7 py-3.5 font-semibold text-white transition hover:bg-blue-800">
+              {c.ctaContact} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

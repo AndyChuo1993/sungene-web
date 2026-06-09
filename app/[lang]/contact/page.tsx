@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
 import InquiryForm from '@/components/InquiryForm'
-import { Mail, MessageCircle, Linkedin } from 'lucide-react'
+import { Mail, MessageCircle, Linkedin, Phone } from 'lucide-react'
 
 function pickLang(raw: string): Lang {
   return (['en', 'zh'].includes(raw) ? raw : 'en') as Lang
@@ -36,6 +36,7 @@ const C = {
     'Quote Request': { title: 'Request a Quote', sub: 'Tell us what you need and we will prepare a quotation.', submit: 'Request Quote' },
     f_name: 'Your Name', f_company: 'Company', f_email: 'Business Email', f_country: 'Country / Region', f_message: 'Message', f_product: 'Product / Solution of interest',
     reach: 'Other ways to reach us',
+    officeTW: 'Taiwan office', opsCN: 'China operations',
   },
   zh: {
     Contact: { title: '聯絡我們', sub: '告訴我們您的監控專案，我們會盡快回覆。', submit: '送出訊息' },
@@ -43,6 +44,7 @@ const C = {
     'Quote Request': { title: '索取報價', sub: '告訴我們您的需求，我們將為您準備報價。', submit: '索取報價' },
     f_name: '姓名', f_company: '公司名稱', f_email: '公司電子郵件', f_country: '國家 / 地區', f_message: '訊息內容', f_product: '感興趣的產品 / 方案',
     reach: '其他聯絡方式',
+    officeTW: '台灣辦公室', opsCN: '中國營運',
   },
 } as const
 
@@ -93,15 +95,25 @@ export default async function Contact({
                 <Mail className="h-5 w-5 flex-shrink-0 text-blue-700" />
                 <a href="mailto:contact@sungenelite.com" className="hover:text-blue-700">contact@sungenelite.com</a>
               </li>
-              <li className="flex items-center gap-3">
-                <MessageCircle className="h-5 w-5 flex-shrink-0 text-blue-700" />
-                <a href="https://wa.me/8618144132078" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700">
-                  WhatsApp: +86 181 4413 2078
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-700" />
+                <span>
+                  <a href="tel:+886437032705" className="hover:text-blue-700">+886 4 3703 2705</a>
+                  <span className="ml-2 text-xs font-medium uppercase tracking-wide text-gray-400">{c.officeTW}</span>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MessageCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-700" />
+                <span>
+                  <a href="https://wa.me/8618144132078" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700">
+                    WhatsApp: +86 181 4413 2078
+                  </a>
+                  <span className="ml-2 text-xs font-medium uppercase tracking-wide text-gray-400">{c.opsCN}</span>
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <MessageCircle className="h-5 w-5 flex-shrink-0 text-green-600" />
-                <span>WeChat: 1814413278</span>
+                <span>WeChat: 1814413278 <span className="ml-2 text-xs font-medium uppercase tracking-wide text-gray-400">{c.opsCN}</span></span>
               </li>
               <li className="flex items-center gap-3">
                 <Linkedin className="h-5 w-5 flex-shrink-0 text-blue-700" />

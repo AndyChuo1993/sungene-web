@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
-import { getAlternates } from '@/lib/seo'
+import { getAlternates, getLocalizedUrl, breadcrumbLd } from '@/lib/seo'
 import { INDUSTRY_SLUGS, INDUSTRIES, IndustrySlug } from '@/lib/industries'
 import { SOLUTIONS } from '@/lib/solutions'
 import { Check, ArrowRight } from 'lucide-react'
@@ -43,8 +43,15 @@ export default async function IndustryDetail({ params }: { params: Promise<{ lan
     zh: { pains: '面臨的挑戰', solutions: '我們如何協助', related: '相關解決方案', quote: '索取報價', catalog: '索取產品型錄', back: '所有產業' },
   }[lang]
 
+  const breadcrumbSchema = breadcrumbLd([
+    { name: lang === 'en' ? 'Home' : '首頁', url: getLocalizedUrl(lang) },
+    { name: lang === 'en' ? 'Industries' : '產業', url: getLocalizedUrl(lang, '/industries') },
+    { name: i.title, url: getLocalizedUrl(lang, `/industries/${slug}`) },
+  ])
+
   return (
     <main className="px-6 pb-20 pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="mx-auto max-w-4xl">
         <Link href={`/${lang}/industries`} className="text-sm font-medium text-blue-700 hover:underline">
           ← {L.back}

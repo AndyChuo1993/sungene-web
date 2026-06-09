@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
-import { getAlternates } from '@/lib/seo'
+import { getAlternates, getLocalizedUrl, breadcrumbLd } from '@/lib/seo'
 import { APPLICATION_SLUGS, APPLICATIONS, ApplicationSlug } from '@/lib/applications'
 import { SOLUTIONS } from '@/lib/solutions'
+import { PRODUCTS } from '@/lib/products'
 import { ArrowRight } from 'lucide-react'
 
 function pickLang(raw: string): Lang {
@@ -40,12 +42,20 @@ export default async function ApplicationDetail({ params }: { params: Promise<{ 
   const solution = SOLUTIONS[app.solution][lang]
 
   const L = {
-    en: { intent: 'Why it matters', how: 'How it works', products: 'Products used', tech: 'Technologies', solution: 'Related solution', quote: 'Request a Quote', catalog: 'Request Product Catalog', back: 'All applications' },
-    zh: { intent: '為什麼重要', how: '運作方式', products: '使用的產品', tech: '使用技術', solution: '相關解決方案', quote: '索取報價', catalog: '索取產品型錄', back: '所有應用場景' },
+    en: { intent: 'Why it matters', how: 'How it works', products: 'Products used', tech: 'Technologies', solution: 'Related solution', relatedProducts: 'Related products', quote: 'Request a Quote', catalog: 'Request Product Catalog', back: 'All applications' },
+    zh: { intent: '為什麼重要', how: '運作方式', products: '使用的產品', tech: '使用技術', solution: '相關解決方案', relatedProducts: '相關產品', quote: '索取報價', catalog: '索取產品型錄', back: '所有應用場景' },
   }[lang]
+
+  const relatedProducts = PRODUCTS.filter((p) => p.relatedSolution === app.solution)
+  const breadcrumbSchema = breadcrumbLd([
+    { name: lang === 'en' ? 'Home' : '首頁', url: getLocalizedUrl(lang) },
+    { name: lang === 'en' ? 'Applications' : '應用場景', url: getLocalizedUrl(lang, '/applications') },
+    { name: a.title, url: getLocalizedUrl(lang, `/applications/${slug}`) },
+  ])
 
   return (
     <main className="px-6 pb-20 pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="mx-auto max-w-4xl">
         <Link href={`/${lang}/applications`} className="text-sm font-medium text-blue-700 hover:underline">
           ← {L.back}
@@ -92,6 +102,33 @@ export default async function ApplicationDetail({ params }: { params: Promise<{ 
             </Link>
           </section>
         </div>
+
+        {relatedProducts.length > 0 && (
+          <section className="mt-10">
+            <div className="flex items-end justify-between">
+              <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">{L.relatedProducts}</h2>
+              <Link href={`/${lang}/products`} className="text-sm font-medium text-blue-700 hover:underline">
+                {lang === 'en' ? 'View all products' : '查看所有產品'} →
+              </Link>
+            </div>
+            <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedProducts.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/${lang}/products/${p.slug}`}
+                  className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+                >
+                  <div className="relative aspect-square bg-gray-50">
+                    <Image src={p.image} alt={p[lang].name} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-sm font-bold text-gray-900">{p[lang].name}</h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="mt-14 rounded-xl bg-blue-900 p-8 text-center text-white">
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
