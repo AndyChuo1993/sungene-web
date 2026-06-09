@@ -361,6 +361,73 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'vibration-sensor',
+    category: 'sensors',
+    image: '/products/vibration-sensor.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'Vibration Sensor',
+      tagline:
+        'Industrial vibration sensor with 4-20mA / RS485 output for pump, motor and rotating-equipment condition monitoring and alarms.',
+      specs: [
+        { label: 'Measurement', value: 'Vibration (velocity / acceleration)' },
+        { label: 'Output', value: '4-20mA / RS485 (Modbus)' },
+        { label: 'Application', value: 'Pumps, motors, fans, rotating equipment' },
+        { label: 'Function', value: 'Condition monitoring + alarm' },
+        { label: 'Mounting', value: 'Stud / magnetic base' },
+        { label: 'Enclosure', value: 'Industrial metal' },
+      ],
+    },
+    zh: {
+      name: '振動感測器',
+      tagline:
+        '工業級振動感測器,4-20mA / RS485 輸出,適用泵浦、馬達與旋轉設備的狀態監控與告警。',
+      specs: [
+        { label: '量測', value: '振動（速度／加速度）' },
+        { label: '輸出', value: '4-20mA / RS485（Modbus）' },
+        { label: '應用', value: '泵浦、馬達、風機、旋轉設備' },
+        { label: '功能', value: '狀態監控＋告警' },
+        { label: '安裝', value: '螺柱／磁吸底座' },
+        { label: '外殼', value: '工業金屬' },
+      ],
+    },
+  },
+  {
+    slug: 'electromagnetic-flow-meter',
+    category: 'meters',
+    image: '/products/electromagnetic-flow-meter.png',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Electromagnetic Flow Meter',
+      tagline:
+        'Flanged electromagnetic flow meter with RS485 / 4-20mA output for water and conductive-liquid flow measurement in pipelines.',
+      specs: [
+        { label: 'Measurement', value: 'Electromagnetic' },
+        { label: 'Medium', value: 'Water / conductive liquids' },
+        { label: 'Output', value: '4-20mA / RS485 (Modbus)' },
+        { label: 'Connection', value: 'Flanged (DN model dependent)' },
+        { label: 'Display', value: 'Local LCD' },
+        { label: 'Protection', value: 'IP65 / IP68' },
+      ],
+    },
+    zh: {
+      name: '電磁流量計',
+      tagline:
+        '法蘭式電磁流量計,RS485 / 4-20mA 輸出,適用管路中水與導電液體的流量量測。',
+      specs: [
+        { label: '量測方式', value: '電磁式' },
+        { label: '介質', value: '水／導電液體' },
+        { label: '輸出', value: '4-20mA / RS485（Modbus）' },
+        { label: '連接', value: '法蘭（口徑依型號）' },
+        { label: '顯示', value: '本地 LCD' },
+        { label: '防護', value: 'IP65 / IP68' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
