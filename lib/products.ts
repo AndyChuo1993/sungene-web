@@ -158,6 +158,73 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'lora-temperature-humidity-sensor',
+    category: 'sensors',
+    image: '/products/lora-temp-humidity-sensor.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'LoRa Temperature & Humidity Sensor',
+      tagline:
+        'Wireless LoRa temperature and humidity monitoring for rooms, cabinets and remote sites — with local LCD and long-range transmission.',
+      specs: [
+        { label: 'Measurement', value: 'Temperature + Humidity' },
+        { label: 'Communication', value: 'LoRa (wireless)' },
+        { label: 'Range', value: 'Long-range, km-level (line of sight)' },
+        { label: 'Display', value: 'Local LCD' },
+        { label: 'Power supply', value: 'Battery / DC' },
+        { label: 'Mounting', value: 'Wall-mount' },
+      ],
+    },
+    zh: {
+      name: 'LoRa 溫濕度感測器',
+      tagline:
+        '無線 LoRa 溫濕度監控,適用機房、機櫃與偏遠站點,具備本地 LCD 與長距離傳輸。',
+      specs: [
+        { label: '量測', value: '溫度＋濕度' },
+        { label: '通訊', value: 'LoRa（無線）' },
+        { label: '傳輸距離', value: '長距離,公里級（視距）' },
+        { label: '顯示', value: '本地 LCD' },
+        { label: '供電', value: '電池 / DC' },
+        { label: '安裝', value: '壁掛' },
+      ],
+    },
+  },
+  {
+    slug: 'protocol-gateway-rs485-ethernet',
+    category: 'gateways',
+    image: '/products/protocol-gateway.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'Protocol Gateway (RS485 ↔ Ethernet)',
+      tagline:
+        'Industrial DIN-rail protocol gateway bridging RS485 (Modbus) field devices to Ethernet / BACnet — for building, facility and equipment monitoring.',
+      specs: [
+        { label: 'OS', value: 'Linux' },
+        { label: 'Serial', value: '2× RS485' },
+        { label: 'Ethernet', value: '1× 10/100M' },
+        { label: 'Protocols', value: 'Modbus RTU/TCP, BACnet' },
+        { label: 'Power supply', value: 'AC/DC 12–24V' },
+        { label: 'Mounting', value: '35mm DIN-rail' },
+      ],
+    },
+    zh: {
+      name: '通訊協定閘道器（RS485 ↔ 乙太網路）',
+      tagline:
+        '工業導軌式協定閘道器,將 RS485（Modbus）現場設備橋接到乙太網路 / BACnet,用於建築、廠務與設備監控。',
+      specs: [
+        { label: '作業系統', value: 'Linux' },
+        { label: '串列埠', value: '2× RS485' },
+        { label: '乙太網路', value: '1× 10/100M' },
+        { label: '協定', value: 'Modbus RTU/TCP、BACnet' },
+        { label: '供電', value: 'AC/DC 12–24V' },
+        { label: '安裝', value: '35mm 導軌' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {

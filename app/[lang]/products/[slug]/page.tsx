@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
 import { getProduct, PRODUCT_SLUGS } from '@/lib/products'
+import { SOLUTIONS, SolutionSlug } from '@/lib/solutions'
 import { ArrowRight } from 'lucide-react'
 
 function pickLang(raw: string): Lang {
@@ -64,7 +65,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ lang
             <p className="mt-6 text-sm text-gray-500">
               {L.related}:{' '}
               <Link href={`/${lang}/solutions/${p.relatedSolution}`} className="font-medium text-blue-700 hover:underline">
-                {lang === 'en' ? 'Equipment Monitoring' : '設備監控'}
+                {SOLUTIONS[p.relatedSolution as SolutionSlug]?.[lang].title ?? p.relatedSolution}
               </Link>
             </p>
           </div>
