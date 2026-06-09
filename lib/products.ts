@@ -225,6 +225,41 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'split-core-current-sensor',
+    category: 'meters',
+    image: '/products/split-core-current-sensor.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'Split-Core Current Sensor',
+      tagline:
+        'Clip-on split-core current sensor for non-invasive energy and load monitoring — install without disconnecting existing wiring.',
+      specs: [
+        { label: 'Type', value: 'Split-core (clip-on)' },
+        { label: 'Input', value: 'AC/DC up to 50A (model dependent)' },
+        { label: 'Output', value: '4-20mA / 0-5V / RS485 (model dependent)' },
+        { label: 'Accuracy', value: '0.5%' },
+        { label: 'Installation', value: 'Clip-on, no rewiring' },
+        { label: 'Mounting', value: 'Panel / DIN' },
+      ],
+    },
+    zh: {
+      name: '開合式電流感測器',
+      tagline:
+        '夾扣式開合電流感測器,非侵入式能源與負載監控,免拆既有線路即可安裝。',
+      specs: [
+        { label: '型式', value: '開合式（夾扣）' },
+        { label: '輸入', value: 'AC/DC 最高 50A（依型號）' },
+        { label: '輸出', value: '4-20mA / 0-5V / RS485（依型號）' },
+        { label: '精度', value: '0.5%' },
+        { label: '安裝', value: '夾扣式,免重新佈線' },
+        { label: '安裝方式', value: '面板 / 導軌' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
