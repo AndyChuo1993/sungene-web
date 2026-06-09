@@ -428,6 +428,73 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'three-phase-energy-meter',
+    category: 'meters',
+    image: '/products/three-phase-energy-meter.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'Three-Phase Smart Energy Meter',
+      tagline:
+        'Three-phase four-wire kWh energy meter with RS485 (Modbus) for remote energy data collection and sub-metering across facilities.',
+      specs: [
+        { label: 'Type', value: 'Three-phase four-wire' },
+        { label: 'Voltage', value: '3×230/400V' },
+        { label: 'Current', value: '3×10(100)A' },
+        { label: 'Communication', value: 'RS485 (Modbus)' },
+        { label: 'Standards', value: 'IEC 62052 / 62053' },
+        { label: 'Display', value: 'LCD, Class 1' },
+      ],
+    },
+    zh: {
+      name: '三相智慧電錶',
+      tagline:
+        '三相四線 kWh 電能表,RS485（Modbus）輸出,適用廠區遠端能源數據採集與分戶計量。',
+      specs: [
+        { label: '型式', value: '三相四線' },
+        { label: '電壓', value: '3×230/400V' },
+        { label: '電流', value: '3×10(100)A' },
+        { label: '通訊', value: 'RS485（Modbus）' },
+        { label: '標準', value: 'IEC 62052 / 62053' },
+        { label: '顯示', value: 'LCD,Class 1' },
+      ],
+    },
+  },
+  {
+    slug: 'water-leak-detection-alarm',
+    category: 'sensors',
+    image: '/products/water-leak-alarm.jpg',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Water Leak Detection Alarm',
+      tagline:
+        'Wireless water leak detection alarm with probe and app notification — instant alerts for leaks under tanks, pumps and equipment.',
+      specs: [
+        { label: 'Detection', value: 'Water leak (probe / cable)' },
+        { label: 'Alert', value: 'Local siren + app push' },
+        { label: 'Communication', value: 'WiFi (app)' },
+        { label: 'Power', value: 'Battery' },
+        { label: 'Settings', value: 'On/off, sensitivity' },
+        { label: 'Application', value: 'Pump rooms, server rooms, basements' },
+      ],
+    },
+    zh: {
+      name: '漏水偵測警報器',
+      tagline:
+        '無線漏水偵測警報器,附探頭與 App 通知,水箱、泵浦與設備底部漏水即時告警。',
+      specs: [
+        { label: '偵測', value: '漏水（探頭／感測線）' },
+        { label: '警報', value: '本地警報聲＋App 推播' },
+        { label: '通訊', value: 'WiFi（App）' },
+        { label: '電源', value: '電池' },
+        { label: '設定', value: '開關、靈敏度' },
+        { label: '應用', value: '泵浦房、機房、地下室' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
