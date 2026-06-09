@@ -11,6 +11,15 @@ const C = {
     ctaPartner: 'Become a Partner',
     whyTitle: 'Why SunGene',
     why: ['Taiwan Team', 'China Manufacturing', 'OEM Ready', 'Low MOQ', 'English Support', 'Export Experience'],
+    cityKicker: 'Smart City & Smart Building',
+    cityTitle: 'The field layer that smart cities and smart buildings run on',
+    citySub: 'Every smart city and smart building starts with reliable data from the field. Our gateways, sensors and meters are the foundation layer — capturing water, energy and equipment data and streaming it, standardized over LoRaWAN, NB-IoT, RS485 and 4G, into the dashboards, platforms and AI engines that run modern infrastructure.',
+    cityCards: [
+      { title: 'Smart Water Networks', desc: 'City-wide tank level, pump and leak monitoring for utilities and districts.' },
+      { title: 'Smart Energy & Buildings', desc: 'Metering, solar and HVAC/equipment data across campuses and facilities.' },
+      { title: 'AI-Ready Data', desc: 'Clean, standardized data streams — ready to feed analytics, digital dashboards and AI-driven optimization as you scale.' },
+    ],
+    cityVision: 'From field sensors today to AI-driven, data-optimized infrastructure tomorrow — SunGene is the hardware foundation you build on.',
     solutionsKicker: 'Solutions',
     solutionsTitle: 'What we help you monitor',
     water: { title: 'Water Monitoring', desc: 'Tank level, water leak and pump monitoring for utilities and facilities.' },
@@ -30,6 +39,15 @@ const C = {
     ctaPartner: '成為合作夥伴',
     whyTitle: '為什麼選 SunGene',
     why: ['台灣團隊', '中國製造', 'OEM 製造', '低起訂量', '英文支援', '外銷經驗'],
+    cityKicker: '智慧城市與智慧建築',
+    cityTitle: '智慧城市與智慧建築運作的現場數據層',
+    citySub: '每一個智慧城市與智慧建築,都始於現場可靠的數據。我們的閘道器、感測器與電錶就是最底層的基礎——擷取水、能源與設備數據,並透過 LoRaWAN、NB-IoT、RS485 與 4G 以標準化方式串流到儀表板、平台與 AI 引擎,驅動現代基礎設施。',
+    cityCards: [
+      { title: '智慧水務網絡', desc: '為自來水與區域提供全城的水位、泵浦與漏水監控。' },
+      { title: '智慧能源與建築', desc: '園區與廠辦的計量、太陽能與 HVAC/設備數據。' },
+      { title: 'AI-Ready 數據', desc: '乾淨、標準化的數據流——隨規模擴張,可直接餵入分析、數位儀表板與 AI 最佳化。' },
+    ],
+    cityVision: '從今天的現場感測器,到明天 AI 驅動、數據最佳化的基礎設施——SunGene 是你建構其上的硬體基石。',
     solutionsKicker: '解決方案',
     solutionsTitle: '我們協助您監控的場景',
     water: { title: '水監控', desc: '為自來水與廠務提供水位、漏水與泵浦的遠端監控。' },
@@ -129,6 +147,24 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Smart City & Smart Building vision */}
+      <section className="bg-gradient-to-b from-slate-900 to-blue-950 px-6 py-20 text-white">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">{c.cityKicker}</p>
+          <h2 className="mx-auto mt-3 max-w-3xl text-center text-3xl font-bold">{c.cityTitle}</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-center leading-relaxed text-blue-100">{c.citySub}</p>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {c.cityCards.map((card) => (
+              <div key={card.title} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <h3 className="font-bold text-white">{card.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-blue-100">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto mt-10 max-w-3xl text-center text-lg font-medium text-blue-200">{c.cityVision}</p>
         </div>
       </section>
 
