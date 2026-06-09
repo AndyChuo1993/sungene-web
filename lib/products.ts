@@ -260,6 +260,39 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'modular-remote-io-system',
+    category: 'gateways',
+    image: '/products/modular-remote-io.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'Modular Remote I/O System',
+      tagline:
+        'Expandable DIN-rail remote I/O with PROFINET, EtherCAT and Modbus TCP couplers — for distributed data acquisition and control across facilities.',
+      specs: [
+        { label: 'Couplers', value: 'PROFINET / EtherCAT / Modbus TCP' },
+        { label: 'Modules', value: 'DI / DO / AI / AO, expandable' },
+        { label: 'Ports', value: '2× RJ45 + USB-C config' },
+        { label: 'Power supply', value: 'DC 24V' },
+        { label: 'Mounting', value: '35mm DIN-rail' },
+      ],
+    },
+    zh: {
+      name: '模組化遠端 I/O 系統',
+      tagline:
+        '可擴充導軌式遠端 I/O,支援 PROFINET、EtherCAT 與 Modbus TCP 耦合器,適用廠區分散式數據採集與控制。',
+      specs: [
+        { label: '耦合器', value: 'PROFINET / EtherCAT / Modbus TCP' },
+        { label: '模組', value: 'DI / DO / AI / AO,可擴充' },
+        { label: '埠', value: '2× RJ45 + USB-C 設定' },
+        { label: '供電', value: 'DC 24V' },
+        { label: '安裝', value: '35mm 導軌' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
