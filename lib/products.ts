@@ -293,6 +293,41 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'solar-powered-weather-station',
+    category: 'sensors',
+    image: '/products/solar-weather-station.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'Solar-Powered Weather Station',
+      tagline:
+        'Self-powered environmental monitoring station with ultrasonic weather sensor and solar panel — wind, rain, temperature, humidity and light for remote, solar and agricultural sites.',
+      specs: [
+        { label: 'Parameters', value: 'Wind, rain, temperature, humidity, light' },
+        { label: 'Sensor', value: 'Ultrasonic weather sensor' },
+        { label: 'Power', value: 'Solar panel + battery (off-grid)' },
+        { label: 'Communication', value: 'RS485 / LoRa / 4G (model dependent)' },
+        { label: 'Enclosure', value: 'Outdoor, IP65' },
+        { label: 'Mounting', value: 'Pole-mount' },
+      ],
+    },
+    zh: {
+      name: '太陽能氣象站',
+      tagline:
+        '自供電環境監測站,結合超音波氣象感測器與太陽能板,量測風、雨、溫度、濕度與光照,適用偏遠、太陽能與農業場域。',
+      specs: [
+        { label: '量測參數', value: '風、雨、溫度、濕度、光照' },
+        { label: '感測器', value: '超音波氣象感測器' },
+        { label: '供電', value: '太陽能板＋電池（離網）' },
+        { label: '通訊', value: 'RS485 / LoRa / 4G（依型號）' },
+        { label: '外殼', value: '戶外,IP65' },
+        { label: '安裝', value: '立桿安裝' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
