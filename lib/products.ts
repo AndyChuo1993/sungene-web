@@ -328,6 +328,39 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'water-quality-ph-sensor',
+    category: 'sensors',
+    image: '/products/water-quality-ph-sensor.jpg',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Water Quality pH Sensor',
+      tagline:
+        'Industrial pH electrode with RS485 / 4-20mA output for continuous water-quality monitoring in tanks, treatment plants and process water.',
+      specs: [
+        { label: 'Parameter', value: 'pH (ORP / EC variants available)' },
+        { label: 'Range', value: 'pH 0–14' },
+        { label: 'Output', value: 'RS485 (Modbus) / 4-20mA' },
+        { label: 'Cable', value: 'Industrial sealed cable' },
+        { label: 'Application', value: 'Tanks, treatment, process water' },
+      ],
+    },
+    zh: {
+      name: '水質 pH 感測器',
+      tagline:
+        '工業級 pH 電極,RS485 / 4-20mA 輸出,適用水箱、水處理廠與製程水的連續水質監控。',
+      specs: [
+        { label: '量測參數', value: 'pH（另有 ORP / EC 型）' },
+        { label: '量程', value: 'pH 0–14' },
+        { label: '輸出', value: 'RS485（Modbus）/ 4-20mA' },
+        { label: '線材', value: '工業級密封線' },
+        { label: '應用', value: '水箱、水處理、製程水' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
