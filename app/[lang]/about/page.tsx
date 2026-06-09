@@ -34,6 +34,12 @@ const C = {
     whyTitle: 'Why buy from SunGene?',
     whySub: 'A fair question if you could go direct to a factory. Here is the difference:',
     why: ['Taiwan-based service', 'China manufacturing network', 'Fast OEM support', 'Low MOQ', 'English communication', 'Export experience'],
+    companyTitle: 'Company',
+    companyIntro: 'SunGene Co., Ltd. operates from Taiwan with a China operations base in Xiamen — combining Taiwan-based service and quality control with direct access to the China manufacturing supply chain.',
+    locations: [
+      { label: 'Taiwan (head office)', name: 'SunGene Co., Ltd.', addr: 'No. 201, Guangfu Rd., Central District, Taichung City, Taiwan', est: 'Established 2023' },
+      { label: 'China (operations)', name: 'Xiamen Shangjinlai Trading Co., Ltd. (SunGene)', addr: "Unit 1001-2, Building A1, Yincheng Zhigu, No. 6788-1 Binhai West Ave., Tong'an District, Xiamen, Fujian, China", est: 'Established 2025' },
+    ],
     ctaTitle: 'Ready to talk?',
     cta: 'Contact us',
   },
@@ -49,6 +55,12 @@ const C = {
     whyTitle: '為什麼向 SunGene 採購？',
     whySub: '如果您能直接找工廠，這是合理的問題。差異在於：',
     why: ['台灣在地服務', '中國製造網絡', '快速 OEM 支援', '低起訂量', '英文溝通', '外銷經驗'],
+    companyTitle: '公司資訊',
+    companyIntro: 'SunGene Co., Ltd. 以台灣為總部，並於中國廈門設有營運據點——結合台灣在地服務與品質把關，以及直連中國製造供應鏈的優勢。',
+    locations: [
+      { label: '台灣（總部）', name: 'SunGene Co., Ltd.', addr: '台中市中區光復路201號', est: '成立於 2023 年' },
+      { label: '中國（營運）', name: '廈門上瑾錸貿易有限公司（SunGene）', addr: '廈門市同安區濱海西大道6788-1號銀城智谷A1棟1001單元之二', est: '成立於 2025 年' },
+    ],
     ctaTitle: '準備好聊聊了嗎？',
     cta: '聯絡我們',
   },
@@ -88,6 +100,21 @@ export default async function About({ params }: { params: Promise<{ lang: string
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="mt-14">
+          <h2 className="text-2xl font-bold text-gray-900">{c.companyTitle}</h2>
+          <p className="mt-3 leading-relaxed text-gray-600">{c.companyIntro}</p>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {c.locations.map((loc) => (
+              <div key={loc.label} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="text-sm font-semibold uppercase tracking-wide text-blue-700">{loc.label}</div>
+                <div className="mt-2 font-bold text-gray-900">{loc.name}</div>
+                <div className="mt-1 text-sm leading-relaxed text-gray-600">{loc.addr}</div>
+                <div className="mt-2 text-sm text-gray-500">{loc.est}</div>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="mt-14 text-center">

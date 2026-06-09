@@ -28,10 +28,19 @@ export default function Footer({ lang }: { lang: Lang }) {
               {t(lang, 'brand_tagline')}
             </p>
             <p className="mb-6 max-w-md leading-relaxed text-gray-400">{blurb}</p>
-            <div className="space-y-1 text-sm text-gray-400">
+            <div className="space-y-1.5 text-sm text-gray-400">
               <div className="font-semibold text-white/90">SunGene Co., Ltd.</div>
-              <div>{lang === 'en' ? 'Taiwan' : '台灣'}</div>
-              <div>Email: contact@sungenelite.com</div>
+              <div>
+                {lang === 'en'
+                  ? 'Taiwan office: No. 201, Guangfu Rd., Central Dist., Taichung City, Taiwan'
+                  : '台灣（總部）：台中市中區光復路201號'}
+              </div>
+              <div>
+                {lang === 'en'
+                  ? "China operations: Unit 1001-2, Bldg A1, Yincheng Zhigu, No. 6788-1 Binhai West Ave., Tong'an Dist., Xiamen"
+                  : '中國（營運）：廈門市同安區濱海西大道6788-1號銀城智谷A1棟1001單元之二'}
+              </div>
+              <div>Email: contact@sungenelite.com · Tel: +886 4 3703 2705</div>
             </div>
           </div>
           <div>

@@ -63,14 +63,27 @@ export default async function RootLayout({ children, params }: { children: React
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'SunGene Industrial IoT',
+    legalName: 'SunGene Co., Ltd.',
+    foundingDate: '2023',
     description: META[lang].description,
     url: baseUrl,
     logo: logoUrl,
     sameAs: ['https://www.linkedin.com/company/108298466/'],
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'TW',
-    },
+    address: [
+      {
+        '@type': 'PostalAddress',
+        streetAddress: 'No. 201, Guangfu Rd., Central District',
+        addressLocality: 'Taichung',
+        addressCountry: 'TW',
+      },
+      {
+        '@type': 'PostalAddress',
+        streetAddress: "Unit 1001-2, Building A1, Yincheng Zhigu, No. 6788-1 Binhai West Avenue, Tong'an District",
+        addressLocality: 'Xiamen',
+        addressRegion: 'Fujian',
+        addressCountry: 'CN',
+      },
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
