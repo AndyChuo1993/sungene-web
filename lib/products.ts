@@ -495,6 +495,41 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'edge-iot-gateway',
+    category: 'gateways',
+    image: '/products/edge-iot-gateway.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'Edge IoT Gateway',
+      tagline:
+        'Multi-interface edge IoT gateway / controller with 4G, WiFi, GPS, RS485/RS232 and Ethernet — for on-site data acquisition, edge computing and cloud uplink.',
+      specs: [
+        { label: 'Connectivity', value: '4G / WiFi / GPS / Ethernet (WAN+LAN)' },
+        { label: 'Serial', value: 'RS485 / RS232' },
+        { label: 'Interfaces', value: 'USB, Type-C, HDMI' },
+        { label: 'OS', value: 'Linux (edge computing)' },
+        { label: 'Power supply', value: 'DC 12–24V' },
+        { label: 'Mounting', value: 'DIN-rail' },
+      ],
+    },
+    zh: {
+      name: '邊緣運算物聯網閘道器',
+      tagline:
+        '多介面邊緣物聯網閘道器／控制器,整合 4G、WiFi、GPS、RS485/RS232 與乙太網路,適用現場數據採集、邊緣運算與雲端上傳。',
+      specs: [
+        { label: '連線', value: '4G / WiFi / GPS / 乙太網路（WAN+LAN）' },
+        { label: '串列埠', value: 'RS485 / RS232' },
+        { label: '介面', value: 'USB、Type-C、HDMI' },
+        { label: '作業系統', value: 'Linux（邊緣運算）' },
+        { label: '供電', value: 'DC 12–24V' },
+        { label: '安裝', value: '導軌式' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
