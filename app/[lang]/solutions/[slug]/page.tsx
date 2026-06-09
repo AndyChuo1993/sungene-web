@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
 import { SOLUTION_SLUGS, SOLUTIONS, SolutionSlug } from '@/lib/solutions'
 import { getApplicationsForSolution } from '@/lib/applications'
+import { PRODUCTS } from '@/lib/products'
 import { Check, ArrowRight } from 'lucide-react'
 
 function pickLang(raw: string): Lang {
@@ -40,11 +42,12 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
   const s = SOLUTIONS[slug][lang]
 
   const L = {
-    en: { problem: 'The problem', capabilities: 'What we monitor', products: 'Products used', industries: 'Where it is used', applications: 'Related applications', quote: 'Request a Quote', catalog: 'Request Product Catalog', back: 'All solutions' },
-    zh: { problem: '面臨的問題', capabilities: '監控項目', products: '使用的產品', industries: '適用產業', applications: '相關應用場景', quote: '索取報價', catalog: '索取產品型錄', back: '所有解決方案' },
+    en: { problem: 'The problem', capabilities: 'What we monitor', products: 'Products used', industries: 'Where it is used', applications: 'Related applications', relatedProducts: 'Related products', viewAll: 'View all products', quote: 'Request a Quote', catalog: 'Request Product Catalog', back: 'All solutions' },
+    zh: { problem: '面臨的問題', capabilities: '監控項目', products: '使用的產品', industries: '適用產業', applications: '相關應用場景', relatedProducts: '相關產品', viewAll: '查看所有產品', quote: '索取報價', catalog: '索取產品型錄', back: '所有解決方案' },
   }[lang]
 
   const applications = getApplicationsForSolution(slug)
+  const relatedProducts = PRODUCTS.filter((p) => p.relatedSolution === slug)
 
   return (
     <main className="px-6 pb-20 pt-32">
@@ -107,6 +110,34 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
                 >
                   <span className="font-medium text-gray-800">{app.content[lang].title}</span>
                   <ArrowRight className="h-4 w-4 text-blue-700 transition group-hover:translate-x-1" />
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related products */}
+        {relatedProducts.length > 0 && (
+          <section className="mt-10">
+            <div className="flex items-end justify-between">
+              <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">{L.relatedProducts}</h2>
+              <Link href={`/${lang}/products`} className="text-sm font-medium text-blue-700 hover:underline">
+                {L.viewAll} →
+              </Link>
+            </div>
+            <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedProducts.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/${lang}/products/${p.slug}`}
+                  className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+                >
+                  <div className="relative aspect-square bg-gray-50">
+                    <Image src={p.image} alt={p[lang].name} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-sm font-bold text-gray-900">{p[lang].name}</h3>
+                  </div>
                 </Link>
               ))}
             </div>
