@@ -1096,6 +1096,43 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'electrical-fire-monitor',
+    category: 'meters',
+    image: '/products/electrical-fire-monitor.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'Electrical Fire Monitor (Residual Current)',
+      tagline:
+        'DIN-rail electrical fire monitoring unit that continuously watches residual (leakage) current and circuit temperature, alarming on faults — with RS485 Modbus for remote electrical-safety monitoring of distribution boxes and cabinets.',
+      specs: [
+        { label: 'Monitoring', value: 'Residual current + temperature (multi-channel)' },
+        { label: 'Function', value: 'Leakage / over-temperature alarm, electrical fire prevention' },
+        { label: 'Communication', value: 'RS485 (Modbus RTU)' },
+        { label: 'Display', value: 'LCD + status indicators' },
+        { label: 'Alarm', value: 'Audible + relay output' },
+        { label: 'Application', value: 'Distribution boxes, cabinets, switchgear' },
+        { label: 'Mounting', value: '35mm DIN-rail' },
+      ],
+    },
+    zh: {
+      name: '電氣火災監控器（剩餘電流式）',
+      tagline:
+        '導軌式電氣火災監控裝置,持續監測剩餘(漏電)電流與回路溫度並於異常時告警,RS485 Modbus 輸出,適用配電箱與機櫃的遠端電氣安全監控。',
+      specs: [
+        { label: '監測', value: '剩餘電流＋溫度（多路）' },
+        { label: '功能', value: '漏電／過溫告警,預防電氣火災' },
+        { label: '通訊', value: 'RS485（Modbus RTU）' },
+        { label: '顯示', value: 'LCD ＋狀態指示燈' },
+        { label: '告警', value: '聲響＋繼電器輸出' },
+        { label: '應用', value: '配電箱、機櫃、開關櫃' },
+        { label: '安裝', value: '35mm 導軌' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
