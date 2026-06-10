@@ -822,6 +822,72 @@ PRODUCTS.push(
       ],
     },
   },
+  {
+    slug: 'radar-water-level-sensor',
+    category: 'sensors',
+    image: '/products/radar-water-level-sensor.jpg',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Radar Water Level Sensor',
+      tagline:
+        'Non-contact radar level sensor for rivers, reservoirs, channels and tanks — unaffected by foam, vapour or fouling, with RS485 Modbus output.',
+      specs: [
+        { label: 'Method', value: 'Non-contact radar (FMCW)' },
+        { label: 'Range', value: '0–30 m (model dependent)' },
+        { label: 'Accuracy', value: '±3 mm' },
+        { label: 'Output', value: 'RS485 (Modbus) / 4–20 mA' },
+        { label: 'Power supply', value: '12–24 VDC' },
+        { label: 'Protection', value: 'IP67' },
+      ],
+    },
+    zh: {
+      name: '雷達水位感測器',
+      tagline:
+        '非接觸式雷達水位感測器,適用河川、水庫、渠道與儲槽——不受泡沫、蒸氣或結垢影響,RS485 Modbus 輸出。',
+      specs: [
+        { label: '量測方式', value: '非接觸式雷達（FMCW）' },
+        { label: '量程', value: '0–30 m（依型號）' },
+        { label: '精度', value: '±3 mm' },
+        { label: '輸出', value: 'RS485（Modbus）／4–20 mA' },
+        { label: '供電', value: '12–24 VDC' },
+        { label: '防護', value: 'IP67' },
+      ],
+    },
+  },
+  {
+    slug: 'atmospheric-multiparameter-sensor',
+    category: 'sensors',
+    image: '/products/atmospheric-multiparameter-sensor.jpg',
+    relatedSolution: 'environmental-monitoring',
+    en: {
+      name: 'Atmospheric Multi-Parameter Sensor',
+      tagline:
+        'Compact radiation-shielded sensor measuring air temperature, humidity, barometric pressure, illuminance and CO₂ — RS485 Modbus output.',
+      specs: [
+        { label: 'Parameters', value: 'Temperature, humidity, pressure, illuminance, CO₂' },
+        { label: 'Temperature', value: '-40–80 °C' },
+        { label: 'Pressure', value: '300–1100 hPa' },
+        { label: 'CO₂ range', value: '0–5000 ppm' },
+        { label: 'Output', value: 'RS485 (Modbus)' },
+        { label: 'Power supply', value: '12–24 VDC' },
+        { label: 'Housing', value: 'Radiation shield, IP65' },
+      ],
+    },
+    zh: {
+      name: '大氣多參數感測器',
+      tagline:
+        '緊湊型百葉防輻射罩感測器,量測氣溫、濕度、氣壓、照度與 CO₂——RS485 Modbus 輸出。',
+      specs: [
+        { label: '量測參數', value: '溫度、濕度、氣壓、照度、CO₂' },
+        { label: '溫度', value: '-40–80 °C' },
+        { label: '氣壓', value: '300–1100 hPa' },
+        { label: 'CO₂ 量程', value: '0–5000 ppm' },
+        { label: '輸出', value: 'RS485（Modbus）' },
+        { label: '供電', value: '12–24 VDC' },
+        { label: '外殼', value: '防輻射百葉罩,IP65' },
+      ],
+    },
+  },
 )
 
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
