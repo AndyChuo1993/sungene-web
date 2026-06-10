@@ -35,7 +35,7 @@ const C = {
     whySub: 'A fair question if you could go direct to a factory. Here is the difference:',
     why: ['Taiwan-based service', 'China manufacturing network', 'Fast OEM support', 'Low MOQ', 'English communication', 'Export experience'],
     companyTitle: 'Company',
-    companyIntro: 'SunGene Co., Ltd. operates from Taiwan with a China operations base in Xiamen — combining Taiwan-based service and quality control with direct access to the China manufacturing supply chain.',
+    companyIntro: 'Built by a team that has been running businesses since 2014, SunGene launched its Industrial IoT brand in 2023. SunGene Co., Ltd. operates from Taiwan with a China operations base in Xiamen — combining Taiwan-based service and quality control with direct access to the China manufacturing supply chain.',
     locations: [
       { label: 'Taiwan (head office)', name: 'SunGene Co., Ltd.', addr: 'No. 201, Guangfu Rd., Central District, Taichung City, Taiwan', est: 'Established 2023' },
       { label: 'China (operations)', name: 'Xiamen Shangjinlai Trading Co., Ltd. (SunGene)', addr: "Unit 1001-2, Building A1, Yincheng Zhigu, No. 6788-1 Binhai West Ave., Tong'an District, Xiamen, Fujian, China", est: 'Established 2025' },
@@ -56,7 +56,7 @@ const C = {
     whySub: '如果您能直接找工廠，這是合理的問題。差異在於：',
     why: ['台灣在地服務', '中國製造網絡', '快速 OEM 支援', '低起訂量', '英文溝通', '外銷經驗'],
     companyTitle: '公司資訊',
-    companyIntro: 'SunGene Co., Ltd. 以台灣為總部，並於中國廈門設有營運據點——結合台灣在地服務與品質把關，以及直連中國製造供應鏈的優勢。',
+    companyIntro: '由自 2014 年起經營企業的團隊打造，SunGene 於 2023 年推出工業物聯網品牌。SunGene Co., Ltd. 以台灣為總部，並於中國廈門設有營運據點——結合台灣在地服務與品質把關，以及直連中國製造供應鏈的優勢。',
     locations: [
       { label: '台灣（總部）', name: 'SunGene Co., Ltd.', addr: '台中市中區光復路201號', est: '成立於 2023 年' },
       { label: '中國（營運）', name: '廈門上瑾錸貿易有限公司（SunGene）', addr: '廈門市同安區濱海西大道6788-1號銀城智谷A1棟1001單元之二', est: '成立於 2025 年' },
