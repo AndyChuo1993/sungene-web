@@ -7,6 +7,7 @@ export type IndustrySlug =
   | 'industrial-facilities'
   | 'agriculture'
   | 'telecom-infrastructure'
+  | 'environment-smart-city'
 
 export const INDUSTRY_SLUGS: IndustrySlug[] = [
   'water-utilities',
@@ -14,6 +15,7 @@ export const INDUSTRY_SLUGS: IndustrySlug[] = [
   'industrial-facilities',
   'agriculture',
   'telecom-infrastructure',
+  'environment-smart-city',
 ]
 
 type IndustryContent = {
@@ -139,6 +141,28 @@ export const INDUSTRIES: Record<IndustrySlug, Industry> = {
         tagline: '為基地台與遠端機櫃提供站點電力、溫度與設備監控。',
         pains: ['大範圍的無人站點', '電力與散熱故障導致中斷', '只為檢查機櫃就得派車'],
         solutions: ['設備與溫度監控', '電力與狀態告警', '遠端站點數據採集'],
+      },
+    },
+  },
+  'environment-smart-city': {
+    slug: 'environment-smart-city',
+    relatedSolutions: ['environmental-monitoring', 'water-monitoring'],
+    content: {
+      en: {
+        title: 'Environment & Smart City',
+        tagline: 'Air quality, weather and environmental sensing networks for cities, campuses and public agencies.',
+        pains: [
+          'Pollution and weather events missed by spot checks',
+          'No real-time, networked environmental data',
+          'Compliance reporting relies on manual sampling',
+        ],
+        solutions: ['Ambient air quality networks', 'Automatic weather station networks', 'Environmental data to city / cloud platforms'],
+      },
+      zh: {
+        title: '環境與智慧城市',
+        tagline: '為城市、園區與公部門提供空氣品質、氣象與環境感測網絡。',
+        pains: ['抽樣式檢測錯過污染與氣象事件', '缺乏即時、聯網的環境數據', '合規通報仰賴人工採樣'],
+        solutions: ['環境空氣品質網絡', '自動氣象站網絡', '環境數據介接城市／雲端平台'],
       },
     },
   },

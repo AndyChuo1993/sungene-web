@@ -790,6 +790,38 @@ PRODUCTS.push(
       ],
     },
   },
+  {
+    slug: 'water-conductivity-ec-sensor',
+    category: 'sensors',
+    image: '/products/water-conductivity-ec-sensor.jpg',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Water Conductivity (EC) Sensor',
+      tagline:
+        'Online conductivity / TDS / salinity sensor for water and wastewater monitoring — RS485 Modbus output.',
+      specs: [
+        { label: 'Range', value: '0–20000 µS/cm (optional higher)' },
+        { label: 'Accuracy', value: '±1.5% FS' },
+        { label: 'Temperature', value: '0–60 °C' },
+        { label: 'Output', value: 'RS485 (Modbus) / 4–20 mA' },
+        { label: 'Power supply', value: '9–24 VDC' },
+        { label: 'Protection', value: 'IP68' },
+      ],
+    },
+    zh: {
+      name: '水質電導度（EC）感測器',
+      tagline:
+        '線上式電導度／TDS／鹽度感測器,適用給水與污水監測——RS485 Modbus 輸出。',
+      specs: [
+        { label: '量程', value: '0–20000 µS/cm(可選更高)' },
+        { label: '精度', value: '±1.5% FS' },
+        { label: '溫度', value: '0–60 °C' },
+        { label: '輸出', value: 'RS485（Modbus）／4–20 mA' },
+        { label: '供電', value: '9–24 VDC' },
+        { label: '防護', value: 'IP68' },
+      ],
+    },
+  },
 )
 
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
