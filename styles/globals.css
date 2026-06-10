@@ -6,3 +6,11 @@
 html, body {
   height: 100%;
 }
+
+/* Print: hide site chrome so datasheet pages print/export clean */
+@media print {
+  header, footer { display: none !important; }
+  .print\:hidden { display: none !important; }
+  main { padding-top: 0 !important; }
+  a { text-decoration: none !important; color: inherit !important; }
+}

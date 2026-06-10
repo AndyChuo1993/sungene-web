@@ -888,6 +888,38 @@ PRODUCTS.push(
       ],
     },
   },
+  {
+    slug: 'leaf-wetness-sensor',
+    category: 'sensors',
+    image: '/products/leaf-wetness-sensor.jpg',
+    relatedSolution: 'environmental-monitoring',
+    en: {
+      name: 'Leaf Wetness Sensor',
+      tagline:
+        'Surface leaf-wetness sensor for crop disease forecasting and smart irrigation in greenhouses and orchards — RS485 Modbus output.',
+      specs: [
+        { label: 'Measurement', value: 'Leaf surface wetness / dew' },
+        { label: 'Output range', value: '0–100% wetness' },
+        { label: 'Temperature', value: '-40–80 °C' },
+        { label: 'Output', value: 'RS485 (Modbus)' },
+        { label: 'Power supply', value: '12–24 VDC' },
+        { label: 'Protection', value: 'IP65' },
+      ],
+    },
+    zh: {
+      name: '葉面濕度感測器',
+      tagline:
+        '葉面結露／濕潤感測器,用於作物病害預測與溫室、果園智慧灌溉——RS485 Modbus 輸出。',
+      specs: [
+        { label: '量測', value: '葉面濕潤／結露' },
+        { label: '輸出範圍', value: '0–100% 濕潤度' },
+        { label: '溫度', value: '-40–80 °C' },
+        { label: '輸出', value: 'RS485（Modbus）' },
+        { label: '供電', value: '12–24 VDC' },
+        { label: '防護', value: 'IP65' },
+      ],
+    },
+  },
 )
 
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)

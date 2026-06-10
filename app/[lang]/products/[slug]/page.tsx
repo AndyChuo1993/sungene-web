@@ -37,9 +37,16 @@ export default async function ProductDetail({ params }: { params: Promise<{ lang
   const c = p[lang]
 
   const L = {
-    en: { back: 'All products', specs: 'Specifications', quote: 'Request a Quote', catalog: 'Request Catalog', related: 'Related solution' },
-    zh: { back: '所有產品', specs: '規格', quote: '索取報價', catalog: '索取型錄', related: '相關解決方案' },
+    en: { back: 'All products', specs: 'Specifications', quote: 'Request a Quote', catalog: 'Request Catalog', related: 'Related solution', apps: 'Applications', viewSolution: 'See the full solution', datasheet: 'Datasheet (PDF)' },
+    zh: { back: '所有產品', specs: '規格', quote: '索取報價', catalog: '索取型錄', related: '相關解決方案', apps: '應用場景', viewSolution: '查看完整解決方案', datasheet: '規格表 (PDF)' },
   }[lang]
+
+  const sol = SOLUTIONS[p.relatedSolution as SolutionSlug]?.[lang]
+  const appsIntro = sol
+    ? (lang === 'en'
+        ? `Typically deployed in ${sol.title} projects — monitored over RS485 / Modbus, LoRaWAN, NB-IoT or 4G and integrated into SCADA, BMS or cloud dashboards. Common uses include:`
+        : `常見於${sol.title}專案——透過 RS485／Modbus、LoRaWAN、NB-IoT 或 4G 監控，並整合至 SCADA、BMS 或雲端儀表板。常見應用包括:`)
+    : ''
 
   const url = getLocalizedUrl(lang, `/products/${slug}`)
   const productSchema = productLd({
@@ -100,6 +107,9 @@ export default async function ProductDetail({ params }: { params: Promise<{ lang
               <Link href={`/${lang}/resources`} className="inline-flex items-center justify-center gap-2 rounded-sm border border-gray-300 px-6 py-3 font-semibold text-gray-800 transition hover:border-blue-300 hover:text-blue-800">
                 {L.catalog}
               </Link>
+              <Link href={`/${lang}/products/${slug}/datasheet`} className="inline-flex items-center justify-center gap-2 rounded-sm border border-gray-300 px-6 py-3 font-semibold text-gray-800 transition hover:border-blue-300 hover:text-blue-800">
+                {L.datasheet}
+              </Link>
             </div>
             <p className="mt-6 text-sm text-gray-500">
               {L.related}:{' '}
@@ -121,6 +131,21 @@ export default async function ProductDetail({ params }: { params: Promise<{ lang
             ))}
           </dl>
         </section>
+
+        {sol && (
+          <section className="mt-12">
+            <h2 className="text-xl font-bold text-gray-900">{L.apps}</h2>
+            <p className="mt-3 leading-relaxed text-gray-600">{appsIntro}</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {sol.capabilities.map((cap) => (
+                <li key={cap} className="rounded-full border border-gray-200 px-4 py-1.5 text-sm text-gray-700">{cap}</li>
+              ))}
+            </ul>
+            <Link href={`/${lang}/solutions/${p.relatedSolution}`} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-700 hover:underline">
+              {L.viewSolution} <ArrowRight className="h-4 w-4" />
+            </Link>
+          </section>
+        )}
 
         <section className="mt-12">
           <h2 className="text-xl font-bold text-gray-900">{faqHeading}</h2>
