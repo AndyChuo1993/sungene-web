@@ -922,6 +922,77 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'multifunction-power-meter',
+    category: 'meters',
+    image: '/products/multifunction-power-meter.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'Multifunction Power Meter',
+      tagline:
+        'Panel-mount three-phase multifunction power meter measuring voltage, current, power, power factor, frequency and energy, with RS485 Modbus for remote energy monitoring and sub-metering.',
+      specs: [
+        { label: 'Measurement', value: 'V, A, kW, kvar, PF, Hz, kWh (three-phase)' },
+        { label: 'Accuracy', value: 'Class 0.5S (energy)' },
+        { label: 'Communication', value: 'RS485 (Modbus RTU)' },
+        { label: 'Inputs', value: 'Via CT / direct (model dependent)' },
+        { label: 'Display', value: 'Backlit LCD' },
+        { label: 'I/O', value: 'Optional DI / DO / 4-20mA' },
+        { label: 'Mounting', value: 'Panel-mount (72 / 96 / 120 mm)' },
+      ],
+    },
+    zh: {
+      name: '多功能電力儀表',
+      tagline:
+        '面板式三相多功能電力儀表,量測電壓、電流、功率、功率因數、頻率與電能,RS485 Modbus 輸出,適用遠端能源監控與分項計量。',
+      specs: [
+        { label: '量測', value: 'V、A、kW、kvar、PF、Hz、kWh（三相）' },
+        { label: '精度', value: 'Class 0.5S（電能）' },
+        { label: '通訊', value: 'RS485（Modbus RTU）' },
+        { label: '輸入', value: '經 CT／直接接入（依型號）' },
+        { label: '顯示', value: '背光 LCD' },
+        { label: 'I/O', value: '可選 DI／DO／4-20mA' },
+        { label: '安裝', value: '面板式（72／96／120 mm）' },
+      ],
+    },
+  },
+  {
+    slug: 'temperature-humidity-controller',
+    category: 'controllers',
+    image: '/products/temperature-humidity-controller.jpg',
+    relatedSolution: 'equipment-monitoring',
+    en: {
+      name: 'Temperature & Humidity Controller',
+      tagline:
+        'Switchgear and cabinet temperature & humidity controller that drives heaters and fans to prevent condensation, with RS485 Modbus for remote monitoring — DIN-rail and panel-mount versions.',
+      specs: [
+        { label: 'Measurement', value: 'Temperature + humidity (multi-channel models)' },
+        { label: 'Control', value: 'Heater + fan outputs (condensation / anti-dew)' },
+        { label: 'Communication', value: 'RS485 (Modbus RTU)' },
+        { label: 'Display', value: 'LED, setpoint & alarm' },
+        { label: 'Power supply', value: 'AC/DC wide range (model dependent)' },
+        { label: 'Application', value: 'Switchgear, ring main units, cabinets' },
+        { label: 'Mounting', value: 'DIN-rail / panel-mount' },
+      ],
+    },
+    zh: {
+      name: '溫濕度控制器',
+      tagline:
+        '開關櫃／機櫃溫濕度控制器,驅動加熱器與風扇防止凝露結露,RS485 Modbus 輸出可遠端監控——提供導軌式與面板式。',
+      specs: [
+        { label: '量測', value: '溫度＋濕度（多路型號）' },
+        { label: '控制', value: '加熱器＋風扇輸出（防凝露／除濕）' },
+        { label: '通訊', value: 'RS485（Modbus RTU）' },
+        { label: '顯示', value: 'LED,設定值與告警' },
+        { label: '供電', value: 'AC/DC 寬範圍（依型號）' },
+        { label: '應用', value: '開關櫃、環網櫃、機櫃' },
+        { label: '安裝', value: '導軌式／面板式' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
