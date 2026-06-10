@@ -37,8 +37,8 @@ export default async function ProductDetail({ params }: { params: Promise<{ lang
   const c = p[lang]
 
   const L = {
-    en: { back: 'All products', specs: 'Specifications', quote: 'Request a Quote', catalog: 'Request Catalog', related: 'Related solution', apps: 'Applications', viewSolution: 'See the full solution', datasheet: 'Datasheet (PDF)' },
-    zh: { back: '所有產品', specs: '規格', quote: '索取報價', catalog: '索取型錄', related: '相關解決方案', apps: '應用場景', viewSolution: '查看完整解決方案', datasheet: '規格表 (PDF)' },
+    en: { back: 'All products', specs: 'Specifications', quote: 'Request a Quote', catalog: 'Request Catalog', related: 'Related solution', apps: 'Applications', viewSolution: 'See the full solution', datasheet: 'View Datasheet' },
+    zh: { back: '所有產品', specs: '規格', quote: '索取報價', catalog: '索取型錄', related: '相關解決方案', apps: '應用場景', viewSolution: '查看完整解決方案', datasheet: '查看規格表' },
   }[lang]
 
   const sol = SOLUTIONS[p.relatedSolution as SolutionSlug]?.[lang]
