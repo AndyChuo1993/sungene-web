@@ -39,6 +39,10 @@ export function middleware(request: NextRequest) {
     '/export-lead-generation', '/distributor-development', '/export-sales-outsourcing',
     '/b2b-lead-generation', '/sales-outsourcing', '/export-outsourcing',
     '/resources/blog', '/resources/cold-email-writing-tips',
+    // Removed HVAC controller products (off-core; matches detail + /datasheet sub-paths)
+    '/products/fan-coil-thermostat-rs485-lora',
+    '/products/fan-coil-controller-0-10v',
+    '/products/floor-heating-thermostat-wifi',
   ]
   if (gonePatterns.some(pattern => pathnameWithoutLocale === pattern || pathnameWithoutLocale.startsWith(pattern + '/'))) {
     return new NextResponse(null, { status: 410 })
