@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
-import { Droplets, Zap, Cpu, CloudSun, ArrowRight } from 'lucide-react'
+import { Droplets, Zap, Cpu, CloudSun, ArrowRight, Users, Factory, Wrench, Boxes, Languages, Globe } from 'lucide-react'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params
@@ -29,7 +29,14 @@ const C = {
     ctaPartner: 'Become a Partner',
     ctaContact: 'Contact Sales',
     whyTitle: 'Why SunGene',
-    why: ['Taiwan Team', 'China Manufacturing', 'OEM Ready', 'Low MOQ', 'English Support', 'Export Experience'],
+    why: [
+      { t: 'Taiwan Team', d: 'Service, sourcing and quality control based in Taichung.' },
+      { t: 'China Manufacturing', d: 'Direct access to a China manufacturing supply-chain network.' },
+      { t: 'OEM / ODM Ready', d: 'Custom firmware, enclosure, labeling and packaging.' },
+      { t: 'Low MOQ', d: 'Small first orders welcome — easy to start and scale.' },
+      { t: 'English Support', d: 'English communication and export-ready documentation.' },
+      { t: 'Export Experience', d: 'Worldwide shipping and international trade experience.' },
+    ],
     cityKicker: 'Smart City & Smart Building',
     cityTitle: 'The field layer that smart cities and smart buildings run on',
     citySub: 'Every smart city and smart building starts with reliable data from the field. Our gateways, sensors and meters are the foundation layer — capturing water, energy and equipment data and streaming it, standardized over LoRaWAN, NB-IoT, RS485 and 4G, into the dashboards, platforms and AI engines that run modern infrastructure.',
@@ -59,7 +66,14 @@ const C = {
     ctaPartner: '成為合作夥伴',
     ctaContact: '聯絡業務',
     whyTitle: '為什麼選 SunGene',
-    why: ['台灣團隊', '中國製造', 'OEM 製造', '低起訂量', '英文支援', '外銷經驗'],
+    why: [
+      { t: '台灣團隊', d: '台中在地的服務、採購與品質管控。' },
+      { t: '中國製造', d: '直接對接中國供應鏈製造網絡。' },
+      { t: 'OEM / ODM', d: '客製韌體、外殼、貼牌與包裝。' },
+      { t: '低起訂量', d: '可接受小量首單,容易開始與擴量。' },
+      { t: '英文支援', d: '英文溝通與外銷所需文件。' },
+      { t: '外銷經驗', d: '全球出貨與國際貿易經驗。' },
+    ],
     cityKicker: '智慧城市與智慧建築',
     cityTitle: '智慧城市與智慧建築運作的現場數據層',
     citySub: '每一個智慧城市與智慧建築,都始於現場可靠的數據。我們的閘道器、感測器與電錶就是最底層的基礎——擷取水、能源與設備數據,並透過 LoRaWAN、NB-IoT、RS485 與 4G 以標準化方式串流到儀表板、平台與 AI 引擎,驅動現代基礎設施。',
@@ -84,6 +98,9 @@ const C = {
 } as const
 
 const TECH = ['LoRaWAN', 'NB-IoT', 'RS485', 'Modbus', '4G LTE']
+
+// Icons for the "Why SunGene" cards, in the same order as the `why` array.
+const whyIcons = [Users, Factory, Wrench, Boxes, Languages, Globe]
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
@@ -164,14 +181,24 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       {/* Why SunGene strip */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-2xl font-bold text-gray-900">{c.whyTitle}</h2>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {c.why.map((w) => (
-              <div key={w} className="rounded-lg border border-gray-200 bg-white px-3 py-4 text-sm font-semibold text-gray-700 shadow-sm">
-                {w}
-              </div>
-            ))}
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center text-2xl font-bold text-gray-900">{c.whyTitle}</h2>
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {c.why.map((w, i) => {
+              const Icon = whyIcons[i]
+              return (
+                <div
+                  key={w.t}
+                  className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-bold text-gray-900">{w.t}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-gray-600">{w.d}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

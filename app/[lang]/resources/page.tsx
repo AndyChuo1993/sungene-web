@@ -4,7 +4,7 @@ import { Lang } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
 import { PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products'
 import CatalogDownload from '@/components/CatalogDownload'
-import { FileText, Download } from 'lucide-react'
+import { FileText } from 'lucide-react'
 
 function pickLang(raw: string): Lang {
   return (['en', 'zh'].includes(raw) ? raw : 'en') as Lang
@@ -90,7 +90,7 @@ export default async function Resources({ params }: { params: Promise<{ lang: st
                         >
                           <span className="text-sm font-medium text-gray-800">{p[lang].name}</span>
                           <span className="inline-flex flex-shrink-0 items-center gap-1.5 text-sm font-semibold text-blue-700">
-                            <Download className="h-4 w-4" /> {c.view}
+                            <FileText className="h-4 w-4" /> {c.view}
                           </span>
                         </Link>
                       </li>
