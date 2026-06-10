@@ -1,11 +1,12 @@
 import { Lang } from '@/lib/i18n'
 
-export type SolutionSlug = 'water-monitoring' | 'energy-monitoring' | 'equipment-monitoring'
+export type SolutionSlug = 'water-monitoring' | 'energy-monitoring' | 'equipment-monitoring' | 'environmental-monitoring'
 
 export const SOLUTION_SLUGS: SolutionSlug[] = [
   'water-monitoring',
   'energy-monitoring',
   'equipment-monitoring',
+  'environmental-monitoring',
 ]
 
 type SolutionContent = {
@@ -78,6 +79,26 @@ export const SOLUTIONS: Record<SolutionSlug, Localized> = {
       capabilities: ['溫度監控', 'RS485 / Modbus 數據採集', '告警通知'],
       products: ['RS485 數據採集器', '溫度感測器', '無線閘道器'],
       industries: ['工業廠務', '電信基礎設施', '能源與太陽能'],
+    },
+  },
+  'environmental-monitoring': {
+    en: {
+      title: 'Environmental Monitoring',
+      tagline: 'Weather, air quality, soil and environmental data acquisition for agriculture, cities and ecology.',
+      problem:
+        'Weather, air and soil conditions drive decisions in farming, construction, utilities and public safety — yet the data is often collected manually or not at all. Without continuous, remote environmental data, teams react too late to frost, flooding, pollution or drought.',
+      capabilities: ['Automatic Weather Stations', 'Air Quality & Ambient Monitoring', 'Soil & Agricultural Sensing', 'Solar Radiation & Rainfall'],
+      products: ['Ultrasonic Weather Station', 'Air Quality Sensor', 'Soil Moisture / Temperature / EC Sensor', 'Wireless Gateway'],
+      industries: ['Smart Agriculture', 'Smart City & Environment', 'Research & Utilities'],
+    },
+    zh: {
+      title: '環境監測',
+      tagline: '氣象、空氣品質、土壤與環境數據採集，適用於農業、城市與生態。',
+      problem:
+        '氣象、空氣與土壤狀況影響農業、營建、公用事業與公共安全的決策，但這些數據常靠人工採集、甚至沒有採集。缺乏連續的遠端環境數據，團隊往往太晚才能因應霜害、淹水、污染或乾旱。',
+      capabilities: ['自動氣象站', '空氣品質與環境監測', '土壤與農業感測', '日射量與雨量'],
+      products: ['超音波氣象站', '空氣品質感測器', '土壤水分／溫度／EC 感測器', '無線閘道器'],
+      industries: ['智慧農業', '智慧城市與環境', '研究與公用事業'],
     },
   },
 }

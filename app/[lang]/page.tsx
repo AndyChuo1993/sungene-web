@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
-import { Droplets, Zap, Cpu, ArrowRight } from 'lucide-react'
+import { Droplets, Zap, Cpu, CloudSun, ArrowRight } from 'lucide-react'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params
@@ -44,6 +44,7 @@ const C = {
     water: { title: 'Water Monitoring', desc: 'Tank level, water leak and pump monitoring for utilities and facilities.' },
     energy: { title: 'Energy Monitoring', desc: 'Smart metering, energy data collection and solar site monitoring.' },
     equip: { title: 'Equipment Monitoring', desc: 'Temperature, RS485 data acquisition and alarm notification for remote assets.' },
+    env: { title: 'Environmental Monitoring', desc: 'Weather stations, air quality, soil and rainfall sensing for agriculture, cities and ecology.' },
     learn: 'Learn more',
     techTitle: 'Built on proven industrial connectivity',
     partnerTitle: 'Looking for an Industrial IoT Partner?',
@@ -73,6 +74,7 @@ const C = {
     water: { title: '水監控', desc: '為自來水與廠務提供水位、漏水與泵浦的遠端監控。' },
     energy: { title: '能源監控', desc: '智慧電錶、能源數據採集與太陽能場域監控。' },
     equip: { title: '設備監控', desc: '溫度、RS485 數據採集與遠端資產的告警通知。' },
+    env: { title: '環境監測', desc: '氣象站、空氣品質、土壤與雨量感測，適用農業、城市與生態。' },
     learn: '了解更多',
     techTitle: '建構於成熟的工業連線技術',
     partnerTitle: '正在尋找工業物聯網合作夥伴？',
@@ -92,6 +94,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     { ...c.water, slug: 'water-monitoring', Icon: Droplets },
     { ...c.energy, slug: 'energy-monitoring', Icon: Zap },
     { ...c.equip, slug: 'equipment-monitoring', Icon: Cpu },
+    { ...c.env, slug: 'environmental-monitoring', Icon: CloudSun },
   ]
 
   return (
@@ -126,7 +129,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="mx-auto max-w-6xl">
           <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{c.solutionsKicker}</p>
           <h2 className="mt-2 text-center text-3xl font-bold text-gray-900">{c.solutionsTitle}</h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {cards.map(({ title, desc, slug, Icon }) => (
               <Link
                 key={slug}

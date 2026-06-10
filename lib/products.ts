@@ -528,6 +528,268 @@ PRODUCTS.push(
       ],
     },
   },
+  {
+    slug: 'ultrasonic-weather-station',
+    category: 'sensors',
+    image: '/products/weather-station-ultrasonic.jpg',
+    relatedSolution: 'environmental-monitoring',
+    en: {
+      name: 'Ultrasonic Weather Station',
+      tagline:
+        'All-in-one ultrasonic weather sensor measuring wind speed, wind direction, temperature, humidity and air pressure — no moving parts, with RS485 Modbus output.',
+      specs: [
+        { label: 'Parameters', value: 'Wind speed & direction, temperature, humidity, pressure (optional light / rainfall)' },
+        { label: 'Wind speed', value: '0–60 m/s' },
+        { label: 'Wind direction', value: '0–360°' },
+        { label: 'Measurement', value: 'Ultrasonic, no moving parts' },
+        { label: 'Output', value: 'RS485 (Modbus RTU)' },
+        { label: 'Power supply', value: '12–24 VDC' },
+        { label: 'Protection', value: 'IP65, pole mount' },
+      ],
+    },
+    zh: {
+      name: '超音波氣象站',
+      tagline:
+        '一體式超音波氣象感測器，量測風速、風向、溫度、濕度與氣壓——無機械轉動件，RS485 Modbus 輸出。',
+      specs: [
+        { label: '量測參數', value: '風速、風向、溫度、濕度、氣壓（可選照度／雨量）' },
+        { label: '風速', value: '0–60 m/s' },
+        { label: '風向', value: '0–360°' },
+        { label: '量測方式', value: '超音波，無機械轉動件' },
+        { label: '輸出', value: 'RS485（Modbus RTU）' },
+        { label: '供電', value: '12–24 VDC' },
+        { label: '防護', value: 'IP65，抱桿安裝' },
+      ],
+    },
+  },
+  {
+    slug: 'wind-speed-direction-sensor',
+    category: 'sensors',
+    image: '/products/wind-speed-direction-sensor.jpg',
+    relatedSolution: 'environmental-monitoring',
+    en: {
+      name: 'Wind Speed & Direction Sensor',
+      tagline:
+        'Combined anemometer and wind vane for accurate wind speed and direction, with RS485 / 4–20 mA / pulse output options.',
+      specs: [
+        { label: 'Wind speed range', value: '0–60 m/s' },
+        { label: 'Wind speed accuracy', value: '±0.3 m/s' },
+        { label: 'Wind direction', value: '0–360°, 16 directions' },
+        { label: 'Output', value: 'RS485 (Modbus) / 4–20 mA / voltage / pulse' },
+        { label: 'Power supply', value: '5–24 VDC' },
+        { label: 'Material', value: 'Aluminium alloy, IP65' },
+      ],
+    },
+    zh: {
+      name: '風速風向感測器',
+      tagline:
+        '風速計與風向標一體,精準量測風速與風向,提供 RS485／4–20 mA／脈衝等輸出。',
+      specs: [
+        { label: '風速範圍', value: '0–60 m/s' },
+        { label: '風速精度', value: '±0.3 m/s' },
+        { label: '風向', value: '0–360°,16 方位' },
+        { label: '輸出', value: 'RS485（Modbus）／4–20 mA／電壓／脈衝' },
+        { label: '供電', value: '5–24 VDC' },
+        { label: '材質', value: '鋁合金,IP65' },
+      ],
+    },
+  },
+  {
+    slug: 'tipping-bucket-rain-gauge',
+    category: 'sensors',
+    image: '/products/tipping-bucket-rain-gauge.jpg',
+    relatedSolution: 'environmental-monitoring',
+    en: {
+      name: 'Tipping-Bucket Rain Gauge',
+      tagline:
+        'Tipping-bucket rainfall sensor with 0.1 mm resolution and RS485 / pulse output for weather and hydrology stations.',
+      specs: [
+        { label: 'Resolution', value: '0.1 mm' },
+        { label: 'Measurement', value: 'Tipping bucket' },
+        { label: 'Max intensity', value: '≥ 4 mm/min' },
+        { label: 'Caliber', value: 'Φ200 mm' },
+        { label: 'Output', value: 'RS485 (Modbus) / pulse' },
+        { label: 'Power supply', value: '5–24 VDC' },
+      ],
+    },
+    zh: {
+      name: '翻斗式雨量計',
+      tagline:
+        '翻斗式雨量感測器,解析度 0.1 mm,提供 RS485／脈衝輸出,適用氣象與水文站。',
+      specs: [
+        { label: '解析度', value: '0.1 mm' },
+        { label: '量測方式', value: '翻斗式' },
+        { label: '最大雨強', value: '≥ 4 mm/min' },
+        { label: '承水口徑', value: 'Φ200 mm' },
+        { label: '輸出', value: 'RS485（Modbus）／脈衝' },
+        { label: '供電', value: '5–24 VDC' },
+      ],
+    },
+  },
+  {
+    slug: 'pyranometer-solar-radiation-sensor',
+    category: 'sensors',
+    image: '/products/pyranometer-solar-radiation.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'Pyranometer (Solar Radiation Sensor)',
+      tagline:
+        'PV-grade pyranometer measuring total solar radiation (0–2000 W/m²) for solar plants, agriculture and meteorology.',
+      specs: [
+        { label: 'Range', value: '0–2000 W/m²' },
+        { label: 'Spectral range', value: '300–3000 nm' },
+        { label: 'Accuracy', value: '±5%' },
+        { label: 'Output', value: 'RS485 (Modbus) / 4–20 mA / 0–5 V' },
+        { label: 'Power supply', value: '5–24 VDC' },
+        { label: 'Protection', value: 'IP65' },
+      ],
+    },
+    zh: {
+      name: '日射計（太陽輻射感測器）',
+      tagline:
+        '光伏級日射計,量測總太陽輻射(0–2000 W/m²),適用太陽能電廠、農業與氣象。',
+      specs: [
+        { label: '量程', value: '0–2000 W/m²' },
+        { label: '光譜範圍', value: '300–3000 nm' },
+        { label: '精度', value: '±5%' },
+        { label: '輸出', value: 'RS485（Modbus）／4–20 mA／0–5 V' },
+        { label: '供電', value: '5–24 VDC' },
+        { label: '防護', value: 'IP65' },
+      ],
+    },
+  },
+  {
+    slug: 'soil-moisture-temperature-ec-sensor',
+    category: 'sensors',
+    image: '/products/soil-moisture-temp-ec-sensor.jpg',
+    relatedSolution: 'environmental-monitoring',
+    en: {
+      name: 'Soil Moisture, Temperature & EC Sensor',
+      tagline:
+        'Buried 3-in-1 soil probe measuring volumetric moisture, temperature and electrical conductivity (EC) with RS485 Modbus output.',
+      specs: [
+        { label: 'Parameters', value: 'Moisture, temperature, EC' },
+        { label: 'Moisture', value: '0–100%, ±2–3%' },
+        { label: 'Temperature', value: '-40–80 °C' },
+        { label: 'EC range', value: '0–20000 µS/cm' },
+        { label: 'Output', value: 'RS485 (Modbus)' },
+        { label: 'Power supply', value: '5–24 VDC' },
+        { label: 'Probe', value: 'Stainless steel, IP68' },
+      ],
+    },
+    zh: {
+      name: '土壤水分／溫度／EC 感測器',
+      tagline:
+        '埋入式三合一土壤探針,量測體積含水率、溫度與電導度(EC),RS485 Modbus 輸出。',
+      specs: [
+        { label: '量測參數', value: '水分、溫度、EC' },
+        { label: '水分', value: '0–100%,±2–3%' },
+        { label: '溫度', value: '-40–80 °C' },
+        { label: 'EC 量程', value: '0–20000 µS/cm' },
+        { label: '輸出', value: 'RS485（Modbus）' },
+        { label: '供電', value: '5–24 VDC' },
+        { label: '探針', value: '不鏽鋼,IP68' },
+      ],
+    },
+  },
+  {
+    slug: 'air-quality-sensor',
+    category: 'sensors',
+    image: '/products/air-quality-sensor.jpg',
+    relatedSolution: 'environmental-monitoring',
+    en: {
+      name: 'Air Quality Sensor',
+      tagline:
+        'Outdoor multi-parameter air quality sensor monitoring PM2.5/PM10, CO₂, temperature and humidity, with RS485 Modbus output.',
+      specs: [
+        { label: 'Parameters', value: 'PM2.5 / PM10, CO₂, temperature, humidity (optional CO / SO₂ / NO₂ / O₃ / noise)' },
+        { label: 'PM range', value: '0–1000 µg/m³' },
+        { label: 'CO₂ range', value: '0–5000 ppm' },
+        { label: 'Output', value: 'RS485 (Modbus)' },
+        { label: 'Power supply', value: '12–24 VDC' },
+        { label: 'Housing', value: 'Louvered, IP65, wall / pole mount' },
+      ],
+    },
+    zh: {
+      name: '空氣品質感測器',
+      tagline:
+        '戶外多參數空氣品質感測器,監測 PM2.5/PM10、CO₂、溫度與濕度,RS485 Modbus 輸出。',
+      specs: [
+        { label: '量測參數', value: 'PM2.5／PM10、CO₂、溫度、濕度（可選 CO／SO₂／NO₂／O₃／噪音）' },
+        { label: 'PM 量程', value: '0–1000 µg/m³' },
+        { label: 'CO₂ 量程', value: '0–5000 ppm' },
+        { label: '輸出', value: 'RS485（Modbus）' },
+        { label: '供電', value: '12–24 VDC' },
+        { label: '外殼', value: '百葉式,IP65,壁掛／抱桿' },
+      ],
+    },
+  },
+  {
+    slug: 'dissolved-oxygen-sensor',
+    category: 'sensors',
+    image: '/products/dissolved-oxygen-sensor.jpg',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Dissolved Oxygen Sensor',
+      tagline:
+        'Online fluorescence (optical) dissolved-oxygen sensor for aquaculture, wastewater and surface water — RS485 Modbus, no membrane or electrolyte.',
+      specs: [
+        { label: 'Method', value: 'Fluorescence (optical)' },
+        { label: 'DO range', value: '0–20 mg/L' },
+        { label: 'Accuracy', value: '±0.3 mg/L' },
+        { label: 'Temperature', value: '0–60 °C' },
+        { label: 'Output', value: 'RS485 (Modbus) / 4–20 mA' },
+        { label: 'Power supply', value: '9–24 VDC' },
+        { label: 'Protection', value: 'IP68' },
+      ],
+    },
+    zh: {
+      name: '溶氧感測器',
+      tagline:
+        '線上式螢光(光學)溶氧感測器,適用水產養殖、污水與地表水監測——RS485 Modbus,免膜片與電解液。',
+      specs: [
+        { label: '量測方式', value: '螢光（光學）' },
+        { label: '溶氧量程', value: '0–20 mg/L' },
+        { label: '精度', value: '±0.3 mg/L' },
+        { label: '溫度', value: '0–60 °C' },
+        { label: '輸出', value: 'RS485（Modbus）／4–20 mA' },
+        { label: '供電', value: '9–24 VDC' },
+        { label: '防護', value: 'IP68' },
+      ],
+    },
+  },
+  {
+    slug: 'turbidity-sensor',
+    category: 'sensors',
+    image: '/products/turbidity-sensor.jpg',
+    relatedSolution: 'water-monitoring',
+    en: {
+      name: 'Turbidity Sensor',
+      tagline:
+        'Online optical turbidity sensor (90° scattered light) for drinking water, wastewater and environmental monitoring — RS485 Modbus.',
+      specs: [
+        { label: 'Range', value: '0–1000 NTU (optional 0–4000)' },
+        { label: 'Method', value: '90° scattered light' },
+        { label: 'Accuracy', value: '±5%' },
+        { label: 'Output', value: 'RS485 (Modbus) / 4–20 mA' },
+        { label: 'Power supply', value: '9–24 VDC' },
+        { label: 'Protection', value: 'IP68, immersion' },
+      ],
+    },
+    zh: {
+      name: '濁度感測器',
+      tagline:
+        '線上式光學濁度感測器(90° 散射光),適用飲用水、污水與環境監測——RS485 Modbus。',
+      specs: [
+        { label: '量程', value: '0–1000 NTU(可選 0–4000)' },
+        { label: '量測方式', value: '90° 散射光' },
+        { label: '精度', value: '±5%' },
+        { label: '輸出', value: 'RS485（Modbus）／4–20 mA' },
+        { label: '供電', value: '9–24 VDC' },
+        { label: '防護', value: 'IP68,浸入式' },
+      ],
+    },
+  },
 )
 
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)

@@ -7,6 +7,10 @@ export type ApplicationSlug =
   | 'solar-site-monitoring'
   | 'remote-meter-reading'
   | 'equipment-alarm-notification'
+  | 'weather-station-monitoring'
+  | 'smart-agriculture-monitoring'
+  | 'air-quality-monitoring'
+  | 'water-quality-monitoring'
 
 export const APPLICATION_SLUGS: ApplicationSlug[] = [
   'tank-level-monitoring',
@@ -14,6 +18,10 @@ export const APPLICATION_SLUGS: ApplicationSlug[] = [
   'solar-site-monitoring',
   'remote-meter-reading',
   'equipment-alarm-notification',
+  'weather-station-monitoring',
+  'smart-agriculture-monitoring',
+  'air-quality-monitoring',
+  'water-quality-monitoring',
 ]
 
 type ApplicationContent = {
@@ -191,6 +199,134 @@ export const APPLICATIONS: Record<ApplicationSlug, Application> = {
         ],
         products: ['溫度感測器', 'RS485 數據採集器', '無線閘道器'],
         technologies: ['RS485', 'Modbus', 'LoRaWAN', '4G LTE'],
+      },
+    },
+  },
+  'weather-station-monitoring': {
+    slug: 'weather-station-monitoring',
+    solution: 'environmental-monitoring',
+    content: {
+      en: {
+        title: 'Automatic Weather Station Monitoring',
+        tagline: 'Continuous wind, temperature, humidity, pressure and rainfall data from remote weather stations.',
+        intent:
+          'Field operations, farms and infrastructure depend on local weather, but standard forecasts are too coarse and manual logging is unreliable. Site-specific, continuous weather data is needed to plan work and to trigger alerts.',
+        how: [
+          'An ultrasonic weather station measures wind, temperature, humidity, pressure and more — with no moving parts.',
+          'A LoRa / NB-IoT / 4G gateway streams readings to the cloud.',
+          'Dashboards show live conditions and push frost, wind or storm alerts.',
+        ],
+        products: ['Ultrasonic Weather Station', 'Tipping-Bucket Rain Gauge', 'Wireless Gateway'],
+        technologies: ['RS485', 'Modbus', 'LoRaWAN', '4G LTE'],
+      },
+      zh: {
+        title: '自動氣象站監測',
+        tagline: '從遠端氣象站持續取得風、溫度、濕度、氣壓與雨量數據。',
+        intent:
+          '現場作業、農場與基礎設施都仰賴在地天氣，但一般預報太粗略、人工記錄也不可靠。需要站點專屬、連續的氣象數據來規劃作業與觸發告警。',
+        how: [
+          '超音波氣象站量測風、溫度、濕度、氣壓等——無機械轉動件。',
+          'LoRa／NB-IoT／4G 閘道器將讀數串流上雲。',
+          '儀表板顯示即時狀況，並推送霜害、強風或暴雨告警。',
+        ],
+        products: ['超音波氣象站', '翻斗式雨量計', '無線閘道器'],
+        technologies: ['RS485', 'Modbus', 'LoRaWAN', '4G LTE'],
+      },
+    },
+  },
+  'smart-agriculture-monitoring': {
+    slug: 'smart-agriculture-monitoring',
+    solution: 'environmental-monitoring',
+    content: {
+      en: {
+        title: 'Smart Agriculture Monitoring',
+        tagline: 'Soil, microclimate and irrigation data for farms, greenhouses and orchards.',
+        intent:
+          'Yields depend on soil moisture, nutrients and microclimate, yet most fields are still managed by feel. Without continuous soil and climate data, water and fertiliser are wasted and crop stress goes unnoticed.',
+        how: [
+          'Soil moisture / temperature / EC sensors and a weather station capture field conditions.',
+          'A gateway uploads data over LoRaWAN / NB-IoT / 4G.',
+          'Growers act on live data and alerts to optimise irrigation and inputs.',
+        ],
+        products: ['Soil Moisture / Temperature / EC Sensor', 'Ultrasonic Weather Station', 'Wireless Gateway'],
+        technologies: ['LoRaWAN', 'NB-IoT', 'RS485', '4G LTE'],
+      },
+      zh: {
+        title: '智慧農業監測',
+        tagline: '為農場、溫室與果園提供土壤、微氣候與灌溉數據。',
+        intent:
+          '產量取決於土壤水分、養分與微氣候，但多數田區仍憑經驗管理。缺乏連續的土壤與氣候數據，水與肥料被浪費、作物逆境也難以察覺。',
+        how: [
+          '土壤水分／溫度／EC 感測器與氣象站擷取田間狀況。',
+          '閘道器透過 LoRaWAN／NB-IoT／4G 上傳數據。',
+          '農戶依即時數據與告警，最佳化灌溉與投入。',
+        ],
+        products: ['土壤水分／溫度／EC 感測器', '超音波氣象站', '無線閘道器'],
+        technologies: ['LoRaWAN', 'NB-IoT', 'RS485', '4G LTE'],
+      },
+    },
+  },
+  'air-quality-monitoring': {
+    slug: 'air-quality-monitoring',
+    solution: 'environmental-monitoring',
+    content: {
+      en: {
+        title: 'Ambient Air Quality Monitoring',
+        tagline: 'Outdoor PM2.5, CO₂ and multi-gas monitoring for cities, campuses and industrial sites.',
+        intent:
+          'Air quality affects compliance, health and public trust. Spot checks miss events; continuous, networked monitoring is needed to see pollution in real time and to prove compliance.',
+        how: [
+          'Outdoor air quality sensors measure PM2.5/PM10, CO₂ and gases continuously.',
+          'A gateway streams readings to the cloud or a city platform.',
+          'Live maps and threshold alerts support response and reporting.',
+        ],
+        products: ['Air Quality Sensor', 'Ultrasonic Weather Station', 'Wireless Gateway'],
+        technologies: ['RS485', 'Modbus', '4G LTE', 'LoRaWAN'],
+      },
+      zh: {
+        title: '空氣品質監測',
+        tagline: '為城市、園區與工業場址提供戶外 PM2.5、CO₂ 與多氣體監測。',
+        intent:
+          '空氣品質牽涉法規、健康與公眾信任。抽樣會錯過事件；需要連續、聯網的監測才能即時掌握污染並佐證合規。',
+        how: [
+          '戶外空氣品質感測器連續量測 PM2.5/PM10、CO₂ 與多種氣體。',
+          '閘道器將讀數串流至雲端或城市平台。',
+          '即時地圖與門檻告警支援應變與通報。',
+        ],
+        products: ['空氣品質感測器', '超音波氣象站', '無線閘道器'],
+        technologies: ['RS485', 'Modbus', '4G LTE', 'LoRaWAN'],
+      },
+    },
+  },
+  'water-quality-monitoring': {
+    slug: 'water-quality-monitoring',
+    solution: 'water-monitoring',
+    content: {
+      en: {
+        title: 'Water Quality Monitoring',
+        tagline: 'Online pH, dissolved oxygen, conductivity and turbidity monitoring for water and wastewater.',
+        intent:
+          'Water quality can drift or breach limits between manual samples. Aquaculture, utilities and wastewater plants need continuous online data to protect process, stock and compliance.',
+        how: [
+          'Online sensors measure pH, dissolved oxygen, EC and turbidity in situ.',
+          'A data collector and gateway send readings and alarms to the cloud.',
+          'Operators see trends and get alerts before limits are breached.',
+        ],
+        products: ['Dissolved Oxygen Sensor', 'Turbidity Sensor', 'Wireless Gateway'],
+        technologies: ['RS485', 'Modbus', '4G LTE', 'LoRaWAN'],
+      },
+      zh: {
+        title: '水質監測',
+        tagline: '為給水與污水提供線上 pH、溶氧、電導度與濁度監測。',
+        intent:
+          '水質可能在兩次人工採樣之間漂移或超標。水產養殖、自來水與污水廠需要連續的線上數據，以保護製程、養殖與合規。',
+        how: [
+          '線上感測器就地量測 pH、溶氧、EC 與濁度。',
+          '數據採集器與閘道器將讀數與告警送上雲端。',
+          '維運人員掌握趨勢，並在超標前收到告警。',
+        ],
+        products: ['溶氧感測器', '濁度感測器', '無線閘道器'],
+        technologies: ['RS485', 'Modbus', '4G LTE', 'LoRaWAN'],
       },
     },
   },
