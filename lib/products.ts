@@ -993,6 +993,109 @@ PRODUCTS.push(
   },
 )
 
+PRODUCTS.push(
+  {
+    slug: 'wireless-iot-energy-meter',
+    category: 'meters',
+    image: '/products/wireless-iot-energy-meter.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'Wireless IoT Energy Meter',
+      tagline:
+        'DIN-rail three-phase energy meter with built-in wireless (4G / LoRa / WiFi) for direct cloud upload — no separate gateway needed, ideal for distributed sub-metering and remote sites.',
+      specs: [
+        { label: 'Measurement', value: 'V, A, kW, PF, kWh (three-phase)' },
+        { label: 'Wireless', value: '4G / LoRa / WiFi (model dependent)' },
+        { label: 'Wired', value: 'RS485 (Modbus) optional' },
+        { label: 'Cloud', value: 'Direct platform upload, no gateway' },
+        { label: 'Input', value: 'Direct or via CT' },
+        { label: 'Display', value: 'LCD' },
+        { label: 'Mounting', value: '35mm DIN-rail' },
+      ],
+    },
+    zh: {
+      name: '無線物聯網電錶',
+      tagline:
+        '導軌式三相電能表,內建無線(4G／LoRa／WiFi)直接上傳雲端——免額外閘道器,適用分散式分項計量與偏遠站點。',
+      specs: [
+        { label: '量測', value: 'V、A、kW、PF、kWh（三相）' },
+        { label: '無線', value: '4G／LoRa／WiFi（依型號）' },
+        { label: '有線', value: '可選 RS485（Modbus）' },
+        { label: '雲端', value: '直連平台上傳,免閘道器' },
+        { label: '輸入', value: '直接接入或經 CT' },
+        { label: '顯示', value: 'LCD' },
+        { label: '安裝', value: '35mm 導軌' },
+      ],
+    },
+  },
+  {
+    slug: 'din-rail-energy-meter',
+    category: 'meters',
+    image: '/products/din-rail-energy-meter.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'DIN-Rail Three-Phase Energy Meter',
+      tagline:
+        'Compact DIN-rail three-phase multifunction energy meter with RS485 Modbus — for panel sub-metering in solar, EV-charging, building and industrial energy management.',
+      specs: [
+        { label: 'Type', value: 'Three-phase multifunction, DIN-rail' },
+        { label: 'Measurement', value: 'V, A, kW, kvar, PF, Hz, kWh' },
+        { label: 'Accuracy', value: 'Class 0.5S (energy)' },
+        { label: 'Communication', value: 'RS485 (Modbus RTU)' },
+        { label: 'Input', value: 'Direct 80A / via CT (model dependent)' },
+        { label: 'Display', value: 'Backlit LCD' },
+        { label: 'Mounting', value: '35mm DIN-rail (7 modules)' },
+      ],
+    },
+    zh: {
+      name: '導軌式三相電能表',
+      tagline:
+        '小型導軌式三相多功能電能表,RS485 Modbus 輸出——適用太陽能、充電樁、建築與工業能源管理的盤內分項計量。',
+      specs: [
+        { label: '型式', value: '三相多功能,導軌式' },
+        { label: '量測', value: 'V、A、kW、kvar、PF、Hz、kWh' },
+        { label: '精度', value: 'Class 0.5S（電能）' },
+        { label: '通訊', value: 'RS485（Modbus RTU）' },
+        { label: '輸入', value: '直接 80A／經 CT（依型號）' },
+        { label: '顯示', value: '背光 LCD' },
+        { label: '安裝', value: '35mm 導軌（7 模數）' },
+      ],
+    },
+  },
+  {
+    slug: 'wireless-comm-gateway',
+    category: 'gateways',
+    image: '/products/wireless-comm-gateway.jpg',
+    relatedSolution: 'energy-monitoring',
+    en: {
+      name: 'Wireless Communication Gateway',
+      tagline:
+        'DIN-rail wireless data terminal that collects RS485 / Modbus meter data and uploads it over 4G / LoRa to the cloud — the uplink for distributed energy and equipment monitoring.',
+      specs: [
+        { label: 'Function', value: 'RS485 data acquisition + wireless uplink' },
+        { label: 'Wireless', value: '4G / LoRa (model dependent)' },
+        { label: 'Serial', value: 'RS485 (Modbus RTU)' },
+        { label: 'Indicators', value: 'Link / signal (RSSI) / comm LEDs' },
+        { label: 'Power supply', value: 'Wide-range AC/DC' },
+        { label: 'Mounting', value: '35mm DIN-rail' },
+      ],
+    },
+    zh: {
+      name: '無線通訊閘道器',
+      tagline:
+        '導軌式無線數據終端,採集 RS485／Modbus 電錶數據並透過 4G／LoRa 上傳雲端——分散式能源與設備監控的上行通道。',
+      specs: [
+        { label: '功能', value: 'RS485 數據採集＋無線上傳' },
+        { label: '無線', value: '4G／LoRa（依型號）' },
+        { label: '串列埠', value: 'RS485（Modbus RTU）' },
+        { label: '指示燈', value: 'Link／訊號(RSSI)／通訊 LED' },
+        { label: '供電', value: '寬範圍 AC/DC' },
+        { label: '安裝', value: '35mm 導軌' },
+      ],
+    },
+  },
+)
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug)
 
 export function getProduct(slug: string): Product | undefined {
