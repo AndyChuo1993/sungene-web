@@ -2,7 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
-import { Droplets, Zap, Cpu, CloudSun, ArrowRight, Users, Factory, Wrench, Boxes, Languages, Globe } from 'lucide-react'
+import { Droplets, Zap, Cpu, CloudSun, ArrowRight, Users, Factory, Wrench, Boxes, Languages, Globe, Package } from 'lucide-react'
+import { KITS, KIT_SLUGS } from '@/lib/kits'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params
@@ -37,6 +38,10 @@ const C = {
       { t: 'English Support', d: 'English communication and export-ready documentation.' },
       { t: 'Export Experience', d: 'Worldwide shipping and international trade experience.' },
     ],
+    kitsKicker: 'Monitoring Kits',
+    kitsTitle: 'Ready-to-deploy kits',
+    kitsSub: 'Sensors, RTU / gateway and wireless backhaul — pre-matched for one monitoring scenario, brand-ready and easy to quote.',
+    kitsAll: 'See all kits',
     cityKicker: 'Smart City & Smart Building',
     cityTitle: 'The field layer that smart cities and smart buildings run on',
     citySub: 'Every smart city and smart building starts with reliable data from the field. Our gateways, sensors and meters are the foundation layer — capturing water, energy and equipment data and streaming it, standardized over LoRaWAN, NB-IoT, RS485 and 4G, into the dashboards, platforms and AI engines that run modern infrastructure.',
@@ -74,6 +79,10 @@ const C = {
       { t: '英文支援', d: '英文溝通與外銷所需文件。' },
       { t: '外銷經驗', d: '全球出貨與國際貿易經驗。' },
     ],
+    kitsKicker: '監控套件',
+    kitsTitle: '即裝即用的監控套件',
+    kitsSub: '感測器、RTU／閘道器與無線回傳——依監控場景預先配好,可貼牌、好報價。',
+    kitsAll: '查看所有套件',
     cityKicker: '智慧城市與智慧建築',
     cityTitle: '智慧城市與智慧建築運作的現場數據層',
     citySub: '每一個智慧城市與智慧建築,都始於現場可靠的數據。我們的閘道器、感測器與電錶就是最底層的基礎——擷取水、能源與設備數據,並透過 LoRaWAN、NB-IoT、RS485 與 4G 以標準化方式串流到儀表板、平台與 AI 引擎,驅動現代基礎設施。',
@@ -200,6 +209,41 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               )
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Monitoring kits strip */}
+      <section className="bg-gray-50 px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{c.kitsKicker}</p>
+          <h2 className="mt-2 text-center text-3xl font-bold text-gray-900">{c.kitsTitle}</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">{c.kitsSub}</p>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {KIT_SLUGS.map((s) => {
+              const k = KITS[s][lang]
+              return (
+                <Link
+                  key={s}
+                  href={`/${lang}/kits/${s}`}
+                  className="group rounded-xl border border-gray-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+                    <Package className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-bold text-gray-900">{k.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{k.tagline}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-700">
+                    {c.learn} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
+          <p className="mt-8 text-center">
+            <Link href={`/${lang}/kits`} className="inline-flex items-center gap-1 font-semibold text-blue-700 hover:underline">
+              {c.kitsAll} <ArrowRight className="h-4 w-4" />
+            </Link>
+          </p>
         </div>
       </section>
 

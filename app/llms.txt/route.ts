@@ -1,5 +1,6 @@
 import { PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products'
 import { SOLUTIONS, SOLUTION_SLUGS } from '@/lib/solutions'
+import { KITS, KIT_SLUGS } from '@/lib/kits'
 import { APPLICATIONS, APPLICATION_SLUGS } from '@/lib/applications'
 import { INDUSTRIES, INDUSTRY_SLUGS } from '@/lib/industries'
 
@@ -46,6 +47,9 @@ export async function GET() {
     '',
     '## Solutions',
     ...solutionLines,
+    '',
+    '## Monitoring Kits (pre-bundled: sensors + RTU/gateway + LoRa/NB-IoT/4G backhaul)',
+    ...KIT_SLUGS.map((s) => `- ${KITS[s].en.title}: ${KITS[s].en.tagline} (${base}/en/kits/${s})`),
     '',
     '## Products',
     ...productLines,

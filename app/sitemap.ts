@@ -3,6 +3,7 @@ import { SUPPORTED_LANGS } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/lib/seo'
 import { PRODUCT_SLUGS } from '@/lib/products'
 import { SOLUTION_SLUGS } from '@/lib/solutions'
+import { KIT_SLUGS } from '@/lib/kits'
 import { APPLICATION_SLUGS } from '@/lib/applications'
 import { INDUSTRY_SLUGS } from '@/lib/industries'
 
@@ -15,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...SOLUTION_SLUGS.map((s) => `/solutions/${s}`),
     '/products',
     ...PRODUCT_SLUGS.map((s) => `/products/${s}`),
+    '/kits',
+    ...KIT_SLUGS.map((s) => `/kits/${s}`),
     '/applications',
     ...APPLICATION_SLUGS.map((s) => `/applications/${s}`),
     '/industries',

@@ -9,6 +9,7 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}`, label: t(lang, 'nav_home') },
     { href: `/${lang}/solutions`, label: t(lang, 'nav_solutions') },
     { href: `/${lang}/products`, label: t(lang, 'nav_products') },
+    { href: `/${lang}/kits`, label: t(lang, 'nav_kits') },
     { href: `/${lang}/partners`, label: t(lang, 'nav_partners') },
     { href: `/${lang}/contact`, label: t(lang, 'nav_contact') },
   ]
