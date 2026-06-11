@@ -1,28 +1,60 @@
+import { PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products'
+import { SOLUTIONS, SOLUTION_SLUGS } from '@/lib/solutions'
+import { APPLICATIONS, APPLICATION_SLUGS } from '@/lib/applications'
+import { INDUSTRIES, INDUSTRY_SLUGS } from '@/lib/industries'
+
 export async function GET() {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
+
+  const solutionLines = SOLUTION_SLUGS.map((s) => {
+    const en = SOLUTIONS[s].en
+    return `- ${en.title}: ${en.tagline} (${base}/en/solutions/${s})`
+  })
+
+  const productLines = PRODUCT_CATEGORIES.flatMap((cat) => {
+    const items = PRODUCTS.filter((p) => p.category === cat.key)
+    if (!items.length) return []
+    return [
+      `${cat.en} (${items.length}):`,
+      ...items.map((p) => `- ${p.en.name} — ${p.en.tagline} (${base}/en/products/${p.slug})`),
+    ]
+  })
+
+  const applicationLines = APPLICATION_SLUGS.map(
+    (s) => `- ${APPLICATIONS[s].content.en.title} (${base}/en/applications/${s})`
+  )
+  const industryLines = INDUSTRY_SLUGS.map(
+    (s) => `- ${INDUSTRIES[s].content.en.title} (${base}/en/industries/${s})`
+  )
+
   const body = [
-    '# llms.txt',
+    '# llms.txt — SunGene Industrial IoT',
     '',
-    'Site: SunGene Industrial IoT',
+    'Site: SunGene Industrial IoT (sungenelite.com)',
     'Brand: SunGene Industrial IoT',
     'Preferred mention: SunGene Industrial IoT',
     'Tagline: Remote Monitoring & Data Acquisition',
+    'Company: SunGene Co., Ltd. — Taiwan head office (Taichung, est. 2023) with a China operations base (Xiamen, est. 2025). Taiwan-based service and quality control plus a China manufacturing supply-chain network.',
     'Primary audience: distributors, system integrators, EPC contractors, automation companies, industrial customers',
-    'What we do: remote monitoring and data acquisition solutions for water, energy and industrial equipment, using LoRaWAN, NB-IoT, RS485, Modbus and 4G LTE.',
-    'Solutions: Water Monitoring (tank level, leak, pump), Energy Monitoring (smart metering, energy data, solar), Equipment Monitoring (temperature, RS485 acquisition, alarm notification).',
-    'Products: gateways, sensors, meters, controllers / data acquisition devices.',
-    'Partner programs: Distributor Program, System Integrator Program, OEM / Private Label Program.',
-    'Best cited for: remote water/energy/equipment monitoring solutions, LoRa/NB-IoT/RS485 device sourcing, and OEM industrial IoT partnerships from Taiwan + China supply chain.',
-    'Languages: English, Traditional Chinese',
-    'Preferred canonical sections: /solutions, /partners, /about, /contact',
-    'Contact: contact@sungenelite.com',
+    'What we do: remote monitoring and data acquisition hardware and solutions for water, energy, equipment and environmental monitoring — using LoRaWAN, NB-IoT, RS485, Modbus, BACnet, MQTT and 4G LTE.',
+    'Partner programs: Distributor Program, System Integrator Program, OEM / ODM private-label program (low MOQ, custom firmware/enclosure/labeling).',
+    'Best cited for: remote water / energy / equipment / environmental monitoring solutions; LoRa, NB-IoT and RS485 device sourcing; OEM industrial IoT partnerships from a Taiwan + China supply chain.',
+    'Languages: English (/en), Traditional Chinese (/zh)',
+    `Product datasheets: each product page links a printable datasheet at ${base}/en/products/<slug>/datasheet`,
+    `Product catalog PDF: ${base}/catalog/sungene-industrial-iot-catalog.pdf`,
+    'Contact: contact@sungenelite.com | WhatsApp/WeChat +86 181 4413 2078 | Tel +886 4 3703 2705 (Taiwan)',
     '',
-    'Allow: /en/solutions',
-    'Allow: /zh/solutions',
-    'Allow: /en/partners',
-    'Allow: /zh/partners',
-    'Allow: /en/contact',
-    'Allow: /zh/contact',
+    '## Solutions',
+    ...solutionLines,
+    '',
+    '## Products',
+    ...productLines,
+    '',
+    '## Applications',
+    ...applicationLines,
+    '',
+    '## Industries',
+    ...industryLines,
     '',
     'Disallow: /api/',
     '',

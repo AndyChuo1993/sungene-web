@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { SUPPORTED_LANGS } from '@/lib/i18n'
 import { getLocalizedUrl } from '@/lib/seo'
 import { PRODUCT_SLUGS } from '@/lib/products'
+import { SOLUTION_SLUGS } from '@/lib/solutions'
 import { APPLICATION_SLUGS } from '@/lib/applications'
 import { INDUSTRY_SLUGS } from '@/lib/industries'
 
@@ -11,9 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/solutions',
-    '/solutions/water-monitoring',
-    '/solutions/energy-monitoring',
-    '/solutions/equipment-monitoring',
+    ...SOLUTION_SLUGS.map((s) => `/solutions/${s}`),
     '/products',
     ...PRODUCT_SLUGS.map((s) => `/products/${s}`),
     '/applications',
@@ -27,7 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const sitemap: MetadataRoute.Sitemap = []
-  const lastMod = new Date('2026-06-08')
+  // Build-time stamp: routes regenerate on each deploy, which only happens on content change.
+  const lastMod = new Date()
 
   routes.forEach((route) => {
     langs.forEach((lang) => {

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
-import { getAlternates } from '@/lib/seo'
+import { getAlternates, getLocalizedUrl, itemListLd, breadcrumbLd } from '@/lib/seo'
 import { PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products'
 import { ArrowRight } from 'lucide-react'
 
@@ -27,8 +27,22 @@ export default async function ProductsIndex({ params }: { params: Promise<{ lang
   const { lang: rawLang } = await params
   const lang = pickLang(rawLang)
 
+  const listSchema = itemListLd(
+    PRODUCTS.map((p) => ({
+      name: p[lang].name,
+      url: getLocalizedUrl(lang, `/products/${p.slug}`),
+      image: p.image,
+    }))
+  )
+  const breadcrumbSchema = breadcrumbLd([
+    { name: lang === 'en' ? 'Home' : '首頁', url: getLocalizedUrl(lang) },
+    { name: lang === 'en' ? 'Products' : '產品', url: getLocalizedUrl(lang, '/products') },
+  ])
+
   return (
     <main className="px-6 pb-20 pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="mx-auto max-w-6xl">
         <header className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
@@ -39,8 +53,8 @@ export default async function ProductsIndex({ params }: { params: Promise<{ lang
           </h1>
           <p className="mt-4 text-lg text-gray-600">
             {lang === 'en'
-              ? 'Field-proven devices for remote monitoring. We are expanding the catalog — gateways, sensors and meters are being added.'
-              : '經現場驗證的遠端監控設備。產品線持續擴充中——閘道器、感測器與電錶陸續新增。'}
+              ? 'Field-proven gateways, sensors, meters and controllers for remote monitoring — RS485 / Modbus, LoRa, NB-IoT and 4G, with a printable datasheet for every product.'
+              : '經現場驗證的閘道器、感測器、電錶與控制器,支援 RS485／Modbus、LoRa、NB-IoT 與 4G 遠端監控,每項產品皆附可列印規格表。'}
           </p>
         </header>
 

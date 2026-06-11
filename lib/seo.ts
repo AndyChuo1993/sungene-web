@@ -61,6 +61,22 @@ export function faqLd(items: { q: string; a: string }[]) {
   }
 }
 
+/** ItemList JSON-LD for listing pages (e.g. the product index). */
+export function itemListLd(items: { name: string; url: string; image?: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      url: it.url,
+      ...(it.image ? { image: it.image.startsWith('http') ? it.image : `${getSiteUrl()}${it.image}` } : {}),
+    })),
+  }
+}
+
 /** Product JSON-LD built from the catalog spec table. */
 export function productLd(opts: {
   name: string

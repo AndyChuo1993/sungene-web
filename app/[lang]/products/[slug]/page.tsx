@@ -22,10 +22,20 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const p = getProduct(slug)
   if (!p) return {}
   const c = p[lang]
+  const title = `${c.name} | SunGene Industrial IoT`
   return {
-    title: `${c.name} | SunGene Industrial IoT`,
+    title,
     description: c.tagline,
     alternates: getAlternates(lang, `/products/${slug}`),
+    openGraph: {
+      title,
+      description: c.tagline,
+      url: getLocalizedUrl(lang, `/products/${slug}`),
+      type: 'website',
+      siteName: 'SunGene Industrial IoT',
+      images: [{ url: p.image, width: 800, height: 800, alt: c.name }],
+    },
+    twitter: { card: 'summary_large_image', images: [p.image] },
   }
 }
 

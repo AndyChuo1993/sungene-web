@@ -28,10 +28,19 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const lang = pickLang(rawLang)
   if (!isSlug(slug)) return {}
   const s = SOLUTIONS[slug][lang]
+  const title = `${s.title} | SunGene Industrial IoT`
   return {
-    title: `${s.title} | SunGene Industrial IoT`,
+    title,
     description: s.tagline,
     alternates: getAlternates(lang, `/solutions/${slug}`),
+    openGraph: {
+      title,
+      description: s.tagline,
+      url: getLocalizedUrl(lang, `/solutions/${slug}`),
+      type: 'website',
+      siteName: 'SunGene Industrial IoT',
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: s.title }],
+    },
   }
 }
 
