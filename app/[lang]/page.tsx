@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         : '工業物聯網 — 水、能源與設備遠端監控 | SunGene',
     description:
       lang === 'en'
-        ? 'SunGene supplies industrial IoT gateways, sensors, meters and controllers for remote monitoring and data acquisition — Modbus, BACnet, MQTT, RS485, LoRaWAN, NB-IoT and 4G. OEM/ODM welcome.'
-        : 'SunGene 提供工業物聯網閘道器、感測器、電錶與控制器，用於遠端監控與數據採集——支援 Modbus、BACnet、MQTT、RS485、LoRaWAN、NB-IoT 與 4G，歡迎 OEM/ODM。',
+        ? 'SunGene provides Industrial IoT remote monitoring solutions for water, energy and equipment applications — gateways, sensors, meters and controllers over Modbus, RS485, LoRaWAN, NB-IoT and 4G. OEM/ODM welcome.'
+        : 'SunGene 提供工業物聯網遠端監測解決方案，應用於水務、能源與設備監控——閘道器、感測器、電錶與控制器，支援 Modbus、RS485、LoRaWAN、NB-IoT 與 4G，歡迎 OEM/ODM。',
     alternates: getAlternates(lang),
   }
 }
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 const C = {
   en: {
     heroTitle: 'Remote Monitoring Solutions for Water, Energy and Industrial Equipment',
-    heroSub: 'Powered by Industrial IoT technologies including LoRaWAN, NB-IoT and RS485.',
+    heroSub: 'SunGene provides Industrial IoT remote monitoring solutions for water, energy and equipment applications — powered by LoRaWAN, NB-IoT and RS485.',
     heroOem: 'OEM & Private Label Ready — for Distributors and System Integrators',
     ctaCatalog: 'Request Product Catalog',
     ctaPartner: 'Become a Partner',
@@ -65,7 +65,7 @@ const C = {
   },
   zh: {
     heroTitle: '水、能源與工業設備的遠端監控解決方案',
-    heroSub: '採用 LoRaWAN、NB-IoT、RS485 等工業物聯網技術。',
+    heroSub: 'SunGene 提供工業物聯網遠端監測解決方案，應用於水務、能源與設備監控——採用 LoRaWAN、NB-IoT 與 RS485 技術。',
     heroOem: '支援 OEM 與貼牌——專為經銷商與系統整合商打造',
     ctaCatalog: '索取產品型錄',
     ctaPartner: '成為合作夥伴',

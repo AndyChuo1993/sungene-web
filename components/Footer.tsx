@@ -15,8 +15,8 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   const blurb =
     lang === 'en'
-      ? 'SunGene Industrial IoT supplies remote monitoring and data acquisition solutions for water, energy and industrial equipment, with OEM/ODM support and a Taiwan-based, China-backed supply network.'
-      : 'SunGene 工業物聯網提供水、能源與工業設備的遠端監控與數據採集方案，具備 OEM/ODM 支援與台灣為基地、中國供應鏈為後盾的供貨網絡。'
+      ? 'SunGene is an Industrial IoT brand and international channel operator — remote monitoring and data acquisition solutions for water, energy and equipment, with OEM/ODM and private-label support on a Taiwan-based, China-backed supply network.'
+      : 'SunGene 是工業物聯網品牌與國際通路營運商——提供水、能源與設備的遠端監測與數據採集方案，具備 OEM/ODM 與品牌貼牌支援，以台灣為基地、中國供應鏈為後盾。'
 
   return (
     <footer className="bg-gray-900 py-16 text-white">
@@ -40,7 +40,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                   ? "China operations: Unit 1001-2, Bldg A1, Yincheng Zhigu, No. 6788-1 Binhai West Ave., Tong'an Dist., Xiamen"
                   : '中國（營運）：廈門市同安區濱海西大道6788-1號銀城智谷A1棟1001單元之二'}
               </div>
-              <div>Email: contact@sungenelite.com · Tel: +886 4 3703 2705</div>
+              <div>Email: contact@sungeneiot.com · Tel: +886 4 3703 2705</div>
             </div>
           </div>
           <div>

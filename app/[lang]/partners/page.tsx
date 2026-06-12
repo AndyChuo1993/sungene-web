@@ -25,7 +25,7 @@ const C = {
   en: {
     kicker: 'Partners',
     title: 'Build your Industrial IoT business with SunGene',
-    intro: 'Most of our customers reach the field through partners. If you sell, integrate or specify monitoring systems, we want to work with you.',
+    intro: 'We help distributors and system integrators expand their Industrial IoT remote monitoring product lines through ODM/OEM and private-label solutions. If you sell, integrate or specify monitoring systems, we want to work with you.',
     programs: [
       { Icon: Handshake, title: 'Distributor Program', desc: 'Resell SunGene gateways, sensors and meters in your region with distributor pricing and stock support.' },
       { Icon: Cpu, title: 'System Integrator Program', desc: 'Specify and integrate our devices into your monitoring projects with technical and documentation support.' },
@@ -40,7 +40,7 @@ const C = {
   zh: {
     kicker: '合作夥伴',
     title: '與 SunGene 一起拓展工業物聯網業務',
-    intro: '我們大多數的客戶都是透過合作夥伴觸及現場。若您從事監控系統的銷售、整合或規格指定，我們希望與您合作。',
+    intro: '我們協助經銷商與系統整合商建立工業物聯網遠端監測產品線，並提供 ODM/OEM 與品牌貼牌合作方案。若您從事監控系統的銷售、整合或規格指定，我們希望與您合作。',
     programs: [
       { Icon: Handshake, title: '經銷商計畫', desc: '在您的區域轉售 SunGene 閘道器、感測器與電錶，享經銷價與備貨支援。' },
       { Icon: Cpu, title: '系統整合商計畫', desc: '將我們的設備整合進您的監控專案，提供技術與文件支援。' },

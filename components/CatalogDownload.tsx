@@ -12,14 +12,14 @@ const C = {
     submit: 'Get the Catalog (PDF)', sending: 'Sending...',
     okTitle: 'Your catalog is ready', okDesc: 'We have also emailed you the link. Download it below:',
     download: 'Download Catalog (PDF)', invalid: 'Please enter a valid business email.',
-    err: 'Something went wrong. Please email contact@sungenelite.com.',
+    err: 'Something went wrong. Please email contact@sungeneiot.com.',
   },
   zh: {
     name: '姓名', company: '公司名稱', email: '公司電子郵件',
     submit: '取得型錄（PDF）', sending: '送出中...',
     okTitle: '型錄已準備好', okDesc: '我們也將連結寄到您的信箱。可在下方下載：',
     download: '下載型錄（PDF）', invalid: '請輸入有效的公司電子郵件。',
-    err: '發生錯誤，請來信 contact@sungenelite.com。',
+    err: '發生錯誤，請來信 contact@sungeneiot.com。',
   },
 } as const
 

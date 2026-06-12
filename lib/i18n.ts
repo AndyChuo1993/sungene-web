@@ -38,7 +38,7 @@ const en = {
     form_success_title: 'Request Received',
     form_success_desc: 'Thank you. Our team will get back to you shortly.',
     form_error_title: 'Submission Failed',
-    form_error_desc: 'Please try again later or email contact@sungenelite.com.',
+    form_error_desc: 'Please try again later or email contact@sungeneiot.com.',
 }
 
 export type Dictionary = typeof en
@@ -72,7 +72,7 @@ const zh: Dictionary = {
     form_success_title: '已收到您的需求',
     form_success_desc: '感謝您，我們的團隊將盡快與您聯繫。',
     form_error_title: '提交失敗',
-    form_error_desc: '請稍後再試，或來信 contact@sungenelite.com。',
+    form_error_desc: '請稍後再試，或來信 contact@sungeneiot.com。',
 }
 
 const dict: Record<Lang, Dictionary> = { en, zh }

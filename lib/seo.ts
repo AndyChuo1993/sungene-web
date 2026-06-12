@@ -1,6 +1,6 @@
 import { Lang } from '@/lib/i18n'
 
-const DEFAULT_SITE_URL = 'https://sungenelite.com'
+const DEFAULT_SITE_URL = 'https://sungeneiot.com'
 const DEFAULT_LANG: Lang = 'en'
 
 function normalizePath(path = '') {

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 const C = {
   en: {
     title: 'Taiwan-Based Industrial IoT Partner',
-    intro: 'SunGene supplies remote monitoring and data acquisition hardware to distributors, system integrators and industrial customers worldwide — combining international business experience with a China-backed manufacturing network.',
+    intro: 'SunGene is an Industrial IoT brand and international channel operator, building ODM/OEM and private-label remote monitoring solutions through global distributor and system-integrator networks — combining international business experience with a China-backed manufacturing network.',
     capTitle: 'What we bring',
     caps: [
       { t: 'ODM / OEM Network', d: 'Access to proven manufacturing partners for gateways, sensors and meters.' },
@@ -45,7 +45,7 @@ const C = {
   },
   zh: {
     title: '台灣為基地的工業物聯網夥伴',
-    intro: 'SunGene 為全球的經銷商、系統整合商與工業客戶供應遠端監控與數據採集硬體，結合國際業務經驗與中國供應鏈製造網絡。',
+    intro: 'SunGene 是工業物聯網品牌與國際通路營運商，透過 ODM/OEM、品牌貼牌、經銷商與系統整合商網路，提供遠端監測與資料採集解決方案——結合國際業務經驗與中國供應鏈製造網絡。',
     capTitle: '我們能提供',
     caps: [
       { t: 'ODM / OEM 網絡', d: '對接成熟的閘道器、感測器與電錶製造夥伴。' },

@@ -5,7 +5,7 @@ import { APPLICATIONS, APPLICATION_SLUGS } from '@/lib/applications'
 import { INDUSTRIES, INDUSTRY_SLUGS } from '@/lib/industries'
 
 export async function GET() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungenelite.com'
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://sungeneiot.com'
 
   const solutionLines = SOLUTION_SLUGS.map((s) => {
     const en = SOLUTIONS[s].en
@@ -31,10 +31,11 @@ export async function GET() {
   const body = [
     '# llms.txt — SunGene Industrial IoT',
     '',
-    'Site: SunGene Industrial IoT (sungenelite.com)',
+    'Site: SunGene Industrial IoT (sungeneiot.com)',
     'Brand: SunGene Industrial IoT',
     'Preferred mention: SunGene Industrial IoT',
     'Tagline: Remote Monitoring & Data Acquisition',
+    'Positioning: Industrial IoT brand and international channel operator — ODM/OEM and private-label remote monitoring solutions through global distributor and system-integrator networks.',
     'Company: SunGene Co., Ltd. — Taiwan head office (Taichung, est. 2023) with a China operations base (Xiamen, est. 2025). Taiwan-based service and quality control plus a China manufacturing supply-chain network.',
     'Primary audience: distributors, system integrators, EPC contractors, automation companies, industrial customers',
     'What we do: remote monitoring and data acquisition hardware and solutions for water, energy, equipment and environmental monitoring — using LoRaWAN, NB-IoT, RS485, Modbus, BACnet, MQTT and 4G LTE.',
@@ -43,7 +44,7 @@ export async function GET() {
     'Languages: English (/en), Traditional Chinese (/zh)',
     `Product datasheets: each product page links a printable datasheet at ${base}/en/products/<slug>/datasheet`,
     `Product catalog PDF: ${base}/catalog/sungene-industrial-iot-catalog.pdf`,
-    'Contact: contact@sungenelite.com | WhatsApp/WeChat +86 181 4413 2078 | Tel +886 4 3703 2705 (Taiwan)',
+    'Contact: contact@sungeneiot.com | WhatsApp/WeChat +86 181 4413 2078 | Tel +886 4 3703 2705 (Taiwan)',
     '',
     '## Solutions',
     ...solutionLines,

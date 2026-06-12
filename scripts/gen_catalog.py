@@ -50,7 +50,7 @@ class PDF(FPDF):
         self.cell(0, 6, "SunGene Industrial IoT", align="L")
         self.set_font("Helvetica", "", 8)
         self.set_text_color(*GRAY)
-        self.cell(0, 6, "sungenelite.com", align="R", new_x="LMARGIN", new_y="NEXT")
+        self.cell(0, 6, "sungeneiot.com", align="R", new_x="LMARGIN", new_y="NEXT")
         self.set_draw_color(*LIGHT)
         self.line(15, 18, 195, 18)
 
@@ -60,7 +60,7 @@ class PDF(FPDF):
         self.set_y(-14)
         self.set_font("Helvetica", "", 8)
         self.set_text_color(*GRAY)
-        self.cell(0, 6, "contact@sungenelite.com  |  Remote Monitoring & Data Acquisition  |  Page %d" % self.page_no(), align="C")
+        self.cell(0, 6, "contact@sungeneiot.com  |  Remote Monitoring & Data Acquisition  |  Page %d" % self.page_no(), align="C")
 
 def section_title(pdf, kicker, title):
     pdf.set_font("Helvetica", "B", 9)
@@ -110,7 +110,7 @@ pdf.cell(0, 7, "LoRaWAN   .   NB-IoT   .   RS485   .   Modbus   .   4G LTE", ali
 pdf.set_y(255)
 pdf.set_font("Helvetica", "", 11)
 pdf.set_text_color(220, 228, 248)
-pdf.cell(0, 6, "sungenelite.com   |   contact@sungenelite.com", align="C", new_x="LMARGIN", new_y="NEXT")
+pdf.cell(0, 6, "sungeneiot.com   |   contact@sungeneiot.com", align="C", new_x="LMARGIN", new_y="NEXT")
 pdf.set_font("Helvetica", "", 9)
 pdf.set_text_color(150, 165, 200)
 pdf.cell(0, 6, "Product Catalog 2026  -  Edition v2", align="C")
@@ -160,7 +160,7 @@ def product_page(pdf, cat_en, name, tagline, img, specs):
     pdf.set_y(max(top + 82, pdf.get_y() + 8))
     pdf.set_font("Helvetica", "I", 10)
     pdf.set_text_color(*BLUE_LT)
-    pdf.cell(0, 6, "Request a quote: contact@sungenelite.com", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 6, "Request a quote: contact@sungeneiot.com", new_x="LMARGIN", new_y="NEXT")
 
 for cat in DATA["categories"]:
     items = [p for p in DATA["products"] if p["category"] == cat["key"]]
@@ -184,11 +184,11 @@ pdf.add_page()
 section_title(pdf, "Contact", "Let's talk")
 pdf.set_font("Helvetica", "", 12); pdf.set_text_color(*NAVY)
 for line in [
-    "Email:     contact@sungenelite.com",
+    "Email:     contact@sungeneiot.com",
     "WhatsApp:  +86 181 4413 2078",
     "WeChat:    +86 181 4413 2078",
     "LinkedIn:  linkedin.com/company/108298466",
-    "Web:       sungenelite.com",
+    "Web:       sungeneiot.com",
 ]:
     pdf.cell(0, 9, line, new_x="LMARGIN", new_y="NEXT")
 pdf.ln(6)

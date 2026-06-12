@@ -93,7 +93,7 @@ export default async function Contact({
             <ul className="mt-6 space-y-5 text-gray-700">
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 flex-shrink-0 text-blue-700" />
-                <a href="mailto:contact@sungenelite.com" className="hover:text-blue-700">contact@sungenelite.com</a>
+                <a href="mailto:contact@sungeneiot.com" className="hover:text-blue-700">contact@sungeneiot.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-700" />

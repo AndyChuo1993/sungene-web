@@ -3,7 +3,8 @@ import type { NextRequest } from 'next/server'
 import { SUPPORTED_LANGS, defaultLocale } from '@/lib/i18n'
 
 const locales = SUPPORTED_LANGS
-const primaryHost = 'sungenelite.com'
+const primaryHost = 'sungeneiot.com'
+const legacyHost = 'sungenelite.com'
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
@@ -11,7 +12,15 @@ export function middleware(request: NextRequest) {
   const hostname = (host || '').toLowerCase()
   const pathnameWithoutLocale = pathname.replace(/^\/(zh|cn|en)(?=\/|$)/, '')
 
-  // Canonicalize www → apex (sungenelite.com is the IoT brand domain)
+  // Domain migration: sungenelite.com (and www) → sungeneiot.com, same path + query.
+  if (hostname === legacyHost || hostname === `www.${legacyHost}`) {
+    const redirectUrl = new URL(request.url)
+    redirectUrl.host = primaryHost
+    redirectUrl.protocol = 'https:'
+    return NextResponse.redirect(redirectUrl, 301)
+  }
+
+  // Canonicalize www → apex (sungeneiot.com is the IoT brand domain)
   if (
     hostname &&
     !hostname.includes('localhost') &&

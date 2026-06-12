@@ -46,7 +46,7 @@ steps:
       - '8080'
       # Non-secret mail config (safe to keep in git):
       - '--update-env-vars'
-      - 'SMTP_HOST=smtp.gmail.com,SMTP_PORT=587,INQUIRY_TO=contact@sungenelite.com,INQUIRY_REPLY_TO=contact@sungenelite.com,MAIL_FROM=SunGene Industrial IoT'
+      - 'SMTP_HOST=smtp.gmail.com,SMTP_PORT=587,INQUIRY_TO=contact@sungeneiot.com,INQUIRY_REPLY_TO=contact@sungeneiot.com,MAIL_FROM=SunGene Industrial IoT,NEXT_PUBLIC_SITE_URL=https://sungeneiot.com'
       # Credentials from Secret Manager (never in git or image):
       - '--update-secrets'
       - 'SMTP_USER=SMTP_USER:latest,SMTP_PASS=SMTP_PASS:latest'

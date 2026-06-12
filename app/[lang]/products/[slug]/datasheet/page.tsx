@@ -104,7 +104,7 @@ export default async function Datasheet({ params }: { params: Promise<{ lang: st
 
           {/* footer */}
           <div className="mt-8 border-t border-gray-200 pt-5 text-xs text-gray-500">
-            <p>{L.contact}: contact@sungenelite.com · sungenelite.com</p>
+            <p>{L.contact}: contact@sungeneiot.com · sungeneiot.com</p>
             <p className="mt-1">{L.note}</p>
           </div>
         </article>

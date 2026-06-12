@@ -168,7 +168,7 @@ function getTransporter() {
   const rawPass = process.env.MAIL_PASS || process.env.SMTP_PASS
   const pass = rawPass ? rawPass.replace(/\s+/g, '') : undefined
 
-  const to = process.env.INQUIRY_TO || 'contact@sungenelite.com'
+  const to = process.env.INQUIRY_TO || 'contact@sungeneiot.com'
   let transporter: any
 
   if (host && user && pass) {
@@ -251,9 +251,9 @@ async function sendAckEmail(args: {
   const ackSubj = isCatalog
     ? `Your SunGene Industrial IoT catalog (Ref ${id})`
     : `我們已收到您的詢價（編號 ${id}） | We received your inquiry (${id})`
-  const contactEmail = 'contact@sungenelite.com'
+  const contactEmail = 'contact@sungeneiot.com'
   const contactPhone = '+886 4 3703 2705'
-  const catalogUrl = 'https://sungenelite.com/catalog/sungene-industrial-iot-catalog.pdf'
+  const catalogUrl = 'https://sungeneiot.com/catalog/sungene-industrial-iot-catalog.pdf'
   const catalogLine = isCatalog ? `\nDownload the catalog: ${catalogUrl}\n` : ''
   const ackText =
 `您好 ${item.name}：

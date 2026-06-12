@@ -8,12 +8,12 @@ const META = {
   en: {
     title: 'SunGene Industrial IoT | Remote Monitoring & Data Acquisition',
     description:
-      'SunGene Industrial IoT supplies remote monitoring and data acquisition solutions for water, energy and industrial equipment — using LoRaWAN, NB-IoT, RS485 and 4G LTE. Distributor, system integrator and OEM partners welcome.',
+      'SunGene is an Industrial IoT brand and international channel operator — remote monitoring and data acquisition solutions for water, energy and equipment, using LoRaWAN, NB-IoT, RS485 and 4G LTE. Distributor, system integrator and OEM/private-label partners welcome.',
   },
   zh: {
     title: 'SunGene 工業物聯網 | 遠端監控與數據採集',
     description:
-      'SunGene 工業物聯網提供水、能源與工業設備的遠端監控與數據採集方案，採用 LoRaWAN、NB-IoT、RS485 與 4G LTE 技術，歡迎經銷商、系統整合商與 OEM 合作夥伴洽詢。',
+      'SunGene 是工業物聯網品牌與國際通路營運商——提供水、能源與設備的遠端監測與數據採集方案，採用 LoRaWAN、NB-IoT、RS485 與 4G LTE 技術，歡迎經銷商、系統整合商與 OEM/貼牌合作夥伴洽詢。',
   },
 } as const
 
@@ -87,7 +87,7 @@ export default async function RootLayout({ children, params }: { children: React
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      email: 'contact@sungenelite.com',
+      email: 'contact@sungeneiot.com',
       telephone: '+886-4-3703-2705',
       availableLanguage: ['en', 'zh-Hant'],
     },
