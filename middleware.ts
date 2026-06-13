@@ -15,8 +15,9 @@ export function middleware(request: NextRequest) {
   // Domain migration: sungenelite.com (and www) → sungeneiot.com, same path + query.
   if (hostname === legacyHost || hostname === `www.${legacyHost}`) {
     const redirectUrl = new URL(request.url)
-    redirectUrl.host = primaryHost
     redirectUrl.protocol = 'https:'
+    redirectUrl.hostname = primaryHost
+    redirectUrl.port = ''
     return NextResponse.redirect(redirectUrl, 301)
   }
 
@@ -27,8 +28,9 @@ export function middleware(request: NextRequest) {
     hostname === `www.${primaryHost}`
   ) {
     const redirectUrl = new URL(request.url)
-    redirectUrl.host = primaryHost
     redirectUrl.protocol = 'https:'
+    redirectUrl.hostname = primaryHost
+    redirectUrl.port = ''
     return NextResponse.redirect(redirectUrl, 301)
   }
 
