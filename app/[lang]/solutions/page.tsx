@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Lang } from '@/lib/i18n'
-import { getAlternates } from '@/lib/seo'
+import { breadcrumbLd, getAlternates, getLocalizedUrl, itemListLd } from '@/lib/seo'
 import { SOLUTION_SLUGS, SOLUTIONS } from '@/lib/solutions'
 import { ArrowRight } from 'lucide-react'
 
@@ -28,9 +28,21 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function SolutionsIndex({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
   const lang = pickLang(rawLang)
+  const listSchema = itemListLd(
+    SOLUTION_SLUGS.map((slug) => ({
+      name: SOLUTIONS[slug][lang].title,
+      url: getLocalizedUrl(lang, `/solutions/${slug}`),
+    }))
+  )
+  const breadcrumbSchema = breadcrumbLd([
+    { name: lang === 'en' ? 'Home' : '首頁', url: getLocalizedUrl(lang) },
+    { name: lang === 'en' ? 'Solutions' : '解決方案', url: getLocalizedUrl(lang, '/solutions') },
+  ])
 
   return (
     <main className="px-6 pb-20 pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="mx-auto max-w-6xl">
         <header className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">

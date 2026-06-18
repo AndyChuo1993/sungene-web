@@ -2,6 +2,7 @@ import { Lang } from '@/lib/i18n'
 
 const DEFAULT_SITE_URL = 'https://sungeneiot.com'
 const DEFAULT_LANG: Lang = 'en'
+const ORGANIZATION_ID = '#organization'
 
 function normalizePath(path = '') {
   if (!path) return ''
@@ -10,6 +11,10 @@ function normalizePath(path = '') {
 
 export function getSiteUrl() {
   return (process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL).replace(/\/+$/, '')
+}
+
+export function getOrganizationId() {
+  return `${getSiteUrl()}${ORGANIZATION_ID}`
 }
 
 export function getLocalizedUrl(lang: Lang, path = '') {
@@ -89,13 +94,15 @@ export function productLd(opts: {
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    '@id': `${opts.url}#product`,
     name: opts.name,
     description: opts.description,
     image: opts.image.startsWith('http') ? opts.image : `${getSiteUrl()}${opts.image}`,
     url: opts.url,
+    mainEntityOfPage: opts.url,
     ...(opts.category ? { category: opts.category } : {}),
     brand: { '@type': 'Brand', name: 'SunGene Industrial IoT' },
-    manufacturer: { '@type': 'Organization', name: 'SunGene Industrial IoT' },
+    manufacturer: { '@type': 'Organization', '@id': getOrganizationId(), name: 'SunGene Industrial IoT' },
     ...(opts.specs && opts.specs.length
       ? {
           additionalProperty: opts.specs.map((s) => ({
@@ -105,5 +112,33 @@ export function productLd(opts: {
           })),
         }
       : {}),
+  }
+}
+
+/** Service JSON-LD for solution pages. */
+export function serviceLd(opts: {
+  name: string
+  description: string
+  url: string
+  serviceType: string
+  keywords?: string[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${opts.url}#service`,
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    serviceType: opts.serviceType,
+    provider: { '@type': 'Organization', '@id': getOrganizationId(), name: 'SunGene Industrial IoT' },
+    areaServed: ['Taiwan', 'China', 'Global'],
+    audience: [
+      { '@type': 'BusinessAudience', audienceType: 'Industrial customers' },
+      { '@type': 'BusinessAudience', audienceType: 'Distributors' },
+      { '@type': 'BusinessAudience', audienceType: 'System integrators' },
+      { '@type': 'BusinessAudience', audienceType: 'OEM / ODM partners' },
+    ],
+    ...(opts.keywords?.length ? { keywords: opts.keywords.join(', ') } : {}),
   }
 }

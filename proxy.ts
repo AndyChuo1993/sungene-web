@@ -6,13 +6,13 @@ const locales = SUPPORTED_LANGS
 const primaryHost = 'sungeneiot.com'
 const legacyHost = 'sungenelite.com'
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
   const hostname = (host || '').toLowerCase()
   const pathnameWithoutLocale = pathname.replace(/^\/(zh|cn|en)(?=\/|$)/, '')
 
-  // Domain migration: sungenelite.com (and www) → sungeneiot.com, same path + query.
+  // Domain migration: sungenelite.com (and www) to sungeneiot.com, same path + query.
   if (hostname === legacyHost || hostname === `www.${legacyHost}`) {
     const redirectUrl = new URL(request.url)
     redirectUrl.protocol = 'https:'
@@ -21,7 +21,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, 301)
   }
 
-  // Canonicalize www → apex (sungeneiot.com is the IoT brand domain)
+  // Canonicalize www to apex (sungeneiot.com is the IoT brand domain)
   if (
     hostname &&
     !hostname.includes('localhost') &&
@@ -34,17 +34,20 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, 301)
   }
 
-  // 舊站 410 Gone：已停用的 lead-gen / 包裝盒殘留頁面（注意：不含 /solutions、/products，那是新站正式路由）
+  // Legacy 410 Gone routes: retired lead-gen/package remnants.
+  // Keep /solutions and /products live because those are current IoT routes.
   const gonePatterns = [
     '/product', '/cooperation', '/news', '/category', '/tag', '/author',
     '/machines', '/machinery',
+    '/electronics', '/hardware', '/medical', '/packaging', '/industrial',
+    '/chemical', '/automotive', '/plastic', '/industrial-equipment',
     '/services', '/buyers-list', '/buyer-database-building', '/overseas-buyer-lists',
     '/distributor-list', '/distributor-network', '/cold-email-outreach',
     '/export-market-analysis', '/export-marketing', '/market-entry-strategy',
     '/free-market-analysis', '/qualified-b2b-leads', '/linkedin-prospecting',
     '/pricing', '/how-it-works', '/market', '/markets', '/faq', '/blog',
     '/case-studies',
-    // Former lead-gen landing pages (previously 301→410 chains via next.config) —
+    // Former lead-gen landing pages (previously 301 to 410 chains via next.config).
     // now return 410 directly so Google drops them faster. Note: '/resources/blog'
     // and the old article slug below are scoped so the live '/resources' page stays 200.
     '/export-lead-generation', '/distributor-development', '/export-sales-outsourcing',
@@ -56,10 +59,12 @@ export function middleware(request: NextRequest) {
     '/products/floor-heating-thermostat-wifi',
   ]
   if (gonePatterns.some(pattern => pathnameWithoutLocale === pattern || pathnameWithoutLocale.startsWith(pattern + '/'))) {
-    return new NextResponse(null, { status: 410 })
+    const response = new NextResponse(null, { status: 410 })
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive')
+    return response
   }
 
-  // 舊簡中(cn)路由 → 英文
+  // Legacy Simplified Chinese route to English.
   if (/^\/cn(?=\/|$)/.test(pathname)) {
     return NextResponse.redirect(new URL(pathname.replace(/^\/cn/, '/en'), request.url), 301)
   }

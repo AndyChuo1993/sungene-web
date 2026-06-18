@@ -1,13 +1,19 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { Lang } from '@/lib/i18n'
 import { getAlternates } from '@/lib/seo'
 import { Droplets, Zap, Cpu, CloudSun, ArrowRight, Users, Factory, Wrench, Boxes, Languages, Globe, Package } from 'lucide-react'
 import { KITS, KIT_SLUGS } from '@/lib/kits'
 
+function pickLang(raw: string): Lang {
+  if (raw === 'en' || raw === 'zh') return raw
+  notFound()
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: rawLang } = await params
-  const lang = (['en', 'zh'].includes(rawLang) ? rawLang : 'en') as Lang
+  const lang = pickLang(rawLang)
   return {
     title:
       lang === 'en'
@@ -113,7 +119,7 @@ const whyIcons = [Users, Factory, Wrench, Boxes, Languages, Globe]
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params
-  const lang = (['en', 'zh'].includes(rawLang) ? rawLang : 'en') as Lang
+  const lang = pickLang(rawLang)
   const c = C[lang]
 
   const cards = [

@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { Lang } from '@/lib/i18n'
-import { getAlternates, getLocalizedUrl, getSiteUrl } from '@/lib/seo'
+import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
+import { getAlternates, getLocalizedUrl, getOrganizationId, getSiteUrl } from '@/lib/seo'
 
 const META = {
   en: {
@@ -16,6 +16,12 @@ const META = {
       'SunGene 是工業物聯網品牌與國際通路營運商——提供水、能源與設備的遠端監測與數據採集方案，採用 LoRaWAN、NB-IoT、RS485 與 4G LTE 技術，歡迎經銷商、系統整合商與 OEM/貼牌合作夥伴洽詢。',
   },
 } as const
+
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return SUPPORTED_LANGS.map((lang) => ({ lang }))
+}
 
 function pickLang(raw: string): Lang {
   return (['en', 'zh'].includes(raw) ? raw : 'en') as Lang
@@ -50,25 +56,70 @@ export default async function RootLayout({ children, params }: { children: React
   const lang = pickLang(rawLang)
 
   const baseUrl = getSiteUrl()
+  const orgId = getOrganizationId()
+  const websiteId = `${baseUrl}/#website`
   const logoUrl = `${baseUrl}/logo/sungene.png`
+  const canonicalDescription =
+    'SunGene Industrial IoT provides remote monitoring and data acquisition hardware and solutions for water, energy, industrial equipment and environmental monitoring.'
 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': websiteId,
     name: 'SunGene Industrial IoT',
+    alternateName: ['SunGene IoT', 'SunGene', 'SunGene Co., Ltd.'],
+    description: canonicalDescription,
     url: baseUrl,
+    inLanguage: ['en', 'zh-Hant'],
+    publisher: { '@type': 'Organization', '@id': orgId },
+    hasPart: [
+      { '@type': 'CollectionPage', name: 'Industrial IoT Products', url: `${baseUrl}/en/products` },
+      { '@type': 'CollectionPage', name: 'Remote Monitoring Solutions', url: `${baseUrl}/en/solutions` },
+      { '@type': 'CollectionPage', name: 'Monitoring Kits', url: `${baseUrl}/en/kits` },
+      { '@type': 'CollectionPage', name: 'Industrial IoT Applications', url: `${baseUrl}/en/applications` },
+      { '@type': 'CollectionPage', name: 'Product Catalog and Datasheets', url: `${baseUrl}/en/resources` },
+    ],
   }
 
   const org = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': orgId,
     name: 'SunGene Industrial IoT',
+    alternateName: ['SunGene IoT', 'SunGene', '上瑾錸有限公司'],
     legalName: 'SunGene Co., Ltd.',
     foundingDate: '2023',
-    description: META[lang].description,
+    description: canonicalDescription,
+    slogan: 'Remote Monitoring & Data Acquisition',
     url: baseUrl,
-    logo: logoUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrl,
+    },
+    brand: {
+      '@type': 'Brand',
+      name: 'SunGene Industrial IoT',
+      url: baseUrl,
+    },
     sameAs: ['https://www.linkedin.com/company/108298466/'],
+    areaServed: ['Taiwan', 'China', 'Global'],
+    knowsAbout: [
+      'Industrial IoT',
+      'Remote monitoring',
+      'Data acquisition',
+      'LoRaWAN',
+      'NB-IoT',
+      'RS485',
+      'Modbus',
+      'BACnet',
+      'MQTT',
+      '4G LTE',
+      'Water monitoring',
+      'Energy monitoring',
+      'Equipment monitoring',
+      'Environmental monitoring',
+      'OEM / ODM industrial hardware',
+    ],
     address: [
       {
         '@type': 'PostalAddress',
@@ -90,7 +141,24 @@ export default async function RootLayout({ children, params }: { children: React
       email: 'contact@sungeneiot.com',
       telephone: '+886-4-3703-2705',
       availableLanguage: ['en', 'zh-Hant'],
+      url: `${baseUrl}/en/contact`,
     },
+    makesOffer: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Industrial IoT remote monitoring solutions',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'OEM / ODM and private-label Industrial IoT hardware programs',
+        },
+      },
+    ],
   }
 
   return (

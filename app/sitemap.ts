@@ -6,6 +6,7 @@ import { SOLUTION_SLUGS } from '@/lib/solutions'
 import { KIT_SLUGS } from '@/lib/kits'
 import { APPLICATION_SLUGS } from '@/lib/applications'
 import { INDUSTRY_SLUGS } from '@/lib/industries'
+import { RESOURCE_SLUGS } from '@/lib/resources'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const langs = SUPPORTED_LANGS
@@ -23,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/industries',
     ...INDUSTRY_SLUGS.map((s) => `/industries/${s}`),
     '/resources',
+    ...RESOURCE_SLUGS.map((s) => `/resources/${s}`),
     '/partners',
     '/about',
     '/contact',

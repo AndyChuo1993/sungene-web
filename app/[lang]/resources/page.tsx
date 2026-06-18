@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Lang } from '@/lib/i18n'
-import { getAlternates } from '@/lib/seo'
-import { PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products'
+import { ArrowRight, FileText } from 'lucide-react'
 import CatalogDownload from '@/components/CatalogDownload'
-import { FileText } from 'lucide-react'
+import { Lang } from '@/lib/i18n'
+import { getAlternates, getLocalizedUrl, itemListLd } from '@/lib/seo'
+import { PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products'
+import { RESOURCES, RESOURCE_SLUGS } from '@/lib/resources'
 
 function pickLang(raw: string): Lang {
   return (['en', 'zh'].includes(raw) ? raw : 'en') as Lang
@@ -14,11 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang: rawLang } = await params
   const lang = pickLang(rawLang)
   return {
-    title: lang === 'en' ? 'Resources & Catalog | SunGene Industrial IoT' : '資源與型錄 | SunGene 工業物聯網',
+    title: lang === 'en' ? 'Resources, Catalog & Datasheets | SunGene Industrial IoT' : '資源、型錄與規格表 | SunGene Industrial IoT',
     description:
       lang === 'en'
-        ? 'Download the SunGene Industrial IoT product catalog — remote monitoring solutions, controllers and partner programs.'
-        : '下載 SunGene 工業物聯網產品型錄——遠端監控方案、控制器與合作夥伴計畫。',
+        ? 'Download the SunGene Industrial IoT product catalog and read buyer-focused resources for RS485 gateways, LoRaWAN tank monitoring, NB-IoT energy monitoring and Modbus data acquisition.'
+        : '下載 SunGene Industrial IoT 產品型錄，閱讀 RS485 閘道器、LoRaWAN 水槽監控、NB-IoT 能源監控與 Modbus 資料採集等採購導向資源。',
     alternates: getAlternates(lang, '/resources'),
   }
 }
@@ -26,23 +27,30 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 const C = {
   en: {
     kicker: 'Resources',
-    title: 'Product Catalog',
-    intro: 'Get the full SunGene Industrial IoT catalog — solutions, applications, controllers and partner programs in one PDF. Enter your details and we will give you the download and email you the link.',
-    card: 'SunGene Industrial IoT — Product Catalog (PDF)',
-    cardSub: 'Solutions · Applications · Controllers · Partner & OEM programs',
+    title: 'Catalog, datasheets and Industrial IoT guides',
+    intro:
+      'Use these resources to evaluate SunGene remote monitoring hardware, gateway architectures and distributor / OEM-ready solution bundles.',
+    card: 'SunGene Industrial IoT Product Catalog (PDF)',
+    cardSub: 'Solutions / Applications / Controllers / Partner & OEM programs',
+    guideTitle: 'High-intent resource pages',
+    guideSub: 'Focused pages for buyers searching by protocol, network type or monitoring scenario.',
     dsTitle: 'Product Datasheets',
-    dsSub: 'Per-product specification sheets — open and save or print as PDF.',
+    dsSub: 'Per-product specification sheets. Open them and save or print as PDF.',
     view: 'Datasheet',
+    read: 'Read resource',
   },
   zh: {
     kicker: '資源',
-    title: '產品型錄',
-    intro: '取得完整 SunGene 工業物聯網型錄——方案、應用、控制器與合作夥伴計畫,一份 PDF。填寫資料即可下載,我們也會將連結寄到您的信箱。',
-    card: 'SunGene 工業物聯網 — 產品型錄（PDF）',
-    cardSub: '方案 · 應用 · 控制器 · 合作夥伴與 OEM 計畫',
+    title: '型錄、規格表與工業 IoT 指南',
+    intro: '這些資料可協助評估 SunGene 遠端監控硬體、閘道器架構，以及適合通路與 OEM 合作的方案組合。',
+    card: 'SunGene Industrial IoT 產品型錄（PDF）',
+    cardSub: '解決方案 / 應用場景 / 控制器 / 通路與 OEM 合作',
+    guideTitle: '高意圖資源頁',
+    guideSub: '針對採購常用的協定、網路類型與監控場景建立的主題頁。',
     dsTitle: '產品規格表',
-    dsSub: '各產品規格表——可開啟後儲存或列印為 PDF。',
+    dsSub: '每個產品都有獨立規格頁，可開啟後另存或列印為 PDF。',
     view: '規格表',
+    read: '閱讀資源',
   },
 } as const
 
@@ -50,15 +58,22 @@ export default async function Resources({ params }: { params: Promise<{ lang: st
   const { lang: rawLang } = await params
   const lang = pickLang(rawLang)
   const c = C[lang]
+  const listSchema = itemListLd(
+    RESOURCE_SLUGS.map((slug) => ({
+      name: RESOURCES[slug].content[lang].title,
+      url: getLocalizedUrl(lang, `/resources/${slug}`),
+    }))
+  )
 
   return (
     <main className="px-6 pb-20 pt-32">
-      <div className="mx-auto max-w-3xl">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }} />
+      <div className="mx-auto max-w-5xl">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{c.kicker}</p>
-        <h1 className="mt-2 text-4xl font-bold text-gray-900">{c.title}</h1>
-        <p className="mt-4 text-lg text-gray-600">{c.intro}</p>
+        <h1 className="mt-2 max-w-4xl text-4xl font-bold text-gray-900">{c.title}</h1>
+        <p className="mt-4 max-w-3xl text-lg text-gray-600">{c.intro}</p>
 
-        <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+        <div className="mt-10 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
           <div className="mb-6 flex items-start gap-4">
             <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
               <FileText className="h-6 w-6" />
@@ -70,6 +85,29 @@ export default async function Resources({ params }: { params: Promise<{ lang: st
           </div>
           <CatalogDownload lang={lang} />
         </div>
+
+        <section className="mt-14">
+          <h2 className="text-2xl font-bold text-gray-900">{c.guideTitle}</h2>
+          <p className="mt-2 text-gray-600">{c.guideSub}</p>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            {RESOURCE_SLUGS.map((slug) => {
+              const resource = RESOURCES[slug].content[lang]
+              return (
+                <Link
+                  key={slug}
+                  href={`/${lang}/resources/${slug}`}
+                  className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+                >
+                  <h3 className="text-lg font-bold text-gray-900">{resource.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{resource.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-700">
+                    {c.read} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
 
         <section className="mt-14">
           <h2 className="text-2xl font-bold text-gray-900">{c.dsTitle}</h2>

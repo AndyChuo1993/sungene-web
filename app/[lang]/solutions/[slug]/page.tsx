@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
-import { getAlternates, getLocalizedUrl, breadcrumbLd, faqLd } from '@/lib/seo'
+import { getAlternates, getLocalizedUrl, breadcrumbLd, faqLd, serviceLd } from '@/lib/seo'
 import { SOLUTION_SLUGS, SOLUTIONS, SolutionSlug } from '@/lib/solutions'
 import { getApplicationsForSolution } from '@/lib/applications'
 import { PRODUCTS } from '@/lib/products'
@@ -63,6 +63,13 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
     { name: lang === 'en' ? 'Solutions' : '解決方案', url: getLocalizedUrl(lang, '/solutions') },
     { name: s.title, url: getLocalizedUrl(lang, `/solutions/${slug}`) },
   ])
+  const serviceSchema = serviceLd({
+    name: s.title,
+    description: s.tagline,
+    url: getLocalizedUrl(lang, `/solutions/${slug}`),
+    serviceType: 'Industrial IoT remote monitoring solution',
+    keywords: [...s.capabilities, ...s.products, ...s.industries],
+  })
 
   const faqs = lang === 'en'
     ? [
@@ -84,6 +91,7 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
     <main className="px-6 pb-20 pt-32">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <div className="mx-auto max-w-4xl">
         <Link href={`/${lang}/solutions`} className="text-sm font-medium text-blue-700 hover:underline">
           ← {L.back}
