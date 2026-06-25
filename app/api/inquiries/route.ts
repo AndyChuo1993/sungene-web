@@ -30,6 +30,9 @@ type Inquiry = {
   integrationType?: string
   details?: string
   scope?: string
+  powerRequirement?: string
+  productionStage?: string
+  certificates?: string
   budget?: string
   timeline?: string
 }
@@ -76,6 +79,9 @@ function sanitizeBody(body: Record<string, unknown>): SanitizeResult {
     integrationType: getText(body.integrationType, 240),
     details: getText(body.details, 3000),
     scope: getText(body.scope, 1000),
+    powerRequirement: getText(body.powerRequirement, 240),
+    productionStage: getText(body.productionStage, 240),
+    certificates: getText(body.certificates, 240),
     budget: getText(body.budget, 120),
     timeline: getText(body.timeline, 120),
   }
@@ -212,6 +218,16 @@ async function sendAdminEmail(args: {
 公司: ${item.company || '-'}
 Email: ${item.email}
 電話: ${item.phone || '-'}
+目標國家 / 頻段: ${item.targetCountry || '-'}
+產品 / 方案: ${item.productName || '-'}
+應用場景: ${item.topic || '-'}
+量測範圍: ${item.scope || '-'}
+平台需求: ${item.integrationType || '-'}
+供電方式: ${item.powerRequirement || '-'}
+數量: ${item.quantity || '-'}
+專案階段: ${item.productionStage || '-'}
+認證需求: ${item.certificates || '-'}
+時程: ${item.timeline || '-'}
 訊息: ${item.message || '-'}
 擴充: ${JSON.stringify(rawBody || {}, null, 2)}
 來源: ${meta.ref}

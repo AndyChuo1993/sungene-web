@@ -6,12 +6,13 @@ import { t, Lang } from '@/lib/i18n'
 export type FormField = {
   name: string
   label: string
-  type: 'text' | 'email' | 'textarea' | 'tel'
+  type: 'text' | 'email' | 'textarea' | 'tel' | 'select'
   required?: boolean
   rows?: number
   defaultValue?: string
   placeholder?: string
   autoComplete?: string
+  options?: { value: string; label: string }[]
 }
 
 interface InquiryFormProps {
@@ -177,6 +178,23 @@ export default function InquiryForm({
               placeholder={field.placeholder}
               className="w-full rounded-sm border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
             />
+          ) : field.type === 'select' ? (
+            <select
+              id={field.name}
+              name={field.name}
+              required={field.required}
+              defaultValue={field.defaultValue || ''}
+              className="w-full rounded-sm border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="" disabled>
+                {field.placeholder || (lang === 'en' ? 'Select an option' : '請選擇')}
+              </option>
+              {field.options?.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           ) : (
             <input
               type={field.type}

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Lang, SUPPORTED_LANGS } from '@/lib/i18n'
-import { breadcrumbLd, getAlternates, getLocalizedUrl, itemListLd } from '@/lib/seo'
+import { breadcrumbLd, faqLd, getAlternates, getLocalizedUrl, itemListLd } from '@/lib/seo'
 import { RESOURCES, RESOURCE_SLUGS, ResourceSlug } from '@/lib/resources'
 
 function pickLang(raw: string): Lang {
@@ -56,6 +56,7 @@ export default async function ResourceDetail({ params }: { params: Promise<{ lan
       products: 'Relevant products',
       technologies: 'Technologies',
       related: 'Related pages',
+      faq: 'FAQ',
       quote: 'Discuss a Project',
       catalog: 'Request Catalog',
     },
@@ -66,6 +67,7 @@ export default async function ResourceDetail({ params }: { params: Promise<{ lan
       products: '相關產品',
       technologies: '相關技術',
       related: '相關頁面',
+      faq: '常見問題',
       quote: '討論專案',
       catalog: '索取型錄',
     },
@@ -77,6 +79,7 @@ export default async function ResourceDetail({ params }: { params: Promise<{ lan
     { name: resource.title, url },
   ])
   const itemListSchema = itemListLd(resource.relatedLinks.map((link) => ({ name: link.label, url: getLocalizedUrl(lang, link.href) })))
+  const faqSchema = faqLd(resource.faqs)
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
@@ -94,6 +97,7 @@ export default async function ResourceDetail({ params }: { params: Promise<{ lan
     <main className="px-6 pb-20 pt-32">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <article className="mx-auto max-w-4xl">
@@ -166,6 +170,18 @@ export default async function ResourceDetail({ params }: { params: Promise<{ lan
               >
                 {link.label} <ArrowRight className="h-4 w-4" />
               </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-blue-700">{L.faq}</h2>
+          <div className="mt-4 divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+            {resource.faqs.map((item) => (
+              <div key={item.q} className="p-5">
+                <h3 className="font-semibold text-gray-900">{item.q}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.a}</p>
+              </div>
             ))}
           </div>
         </section>

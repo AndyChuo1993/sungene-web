@@ -75,12 +75,22 @@ export default async function SolutionDetail({ params }: { params: Promise<{ lan
     ? [
         { q: `Which devices does the ${s.title} solution use?`, a: `${s.title} combines SunGene gateways, sensors and meters — see "Products used" and "Related products" on this page. We match the hardware to your site, range and protocols.` },
         { q: 'Can it integrate with my existing SCADA, BMS or cloud platform?', a: 'Yes. Our devices use open protocols (Modbus, BACnet, MQTT, OPC UA) and output standardized data, so they integrate with most existing SCADA, BMS, ERP and cloud platforms.' },
+        { q: 'Is RS485 the same as Modbus RTU?', a: 'No. RS485 is the physical electrical interface, while Modbus RTU is a protocol commonly used over RS485 wiring. A quotation should confirm both the wiring interface and the register map.' },
+        { q: 'Are you a SaaS platform provider?', a: 'SunGene is not a SaaS-only platform provider. We focus on hardware, monitoring kits, gateway bundles and OEM / ODM solution support; dashboards or customer-cloud integration can be included when required.' },
+        { q: 'Can I buy only a gateway, or a complete monitoring package?', a: 'Both are possible. SunGene can supply gateway-only hardware, or a complete package with sensors, meters, enclosure, power accessories, dashboard and alarm workflow.' },
+        { q: 'What information is needed for a quotation?', a: 'Please share target country and LTE band region, application, sensor list, measured parameters, gateway or platform requirement, power source, certificates, quantity and timeline.' },
+        { q: 'How do you confirm EU868, LoRaWAN, ChirpStack or payload decoder support?', a: 'We confirm the deployment country, regional frequency plan, network server, payload fields, decoder format, certification needs and sample test register map before finalizing the configuration.' },
         { q: 'Do you support OEM / ODM and customization?', a: 'Yes — custom firmware, protocols, enclosure, labeling and packaging are available. Send your requirements through the contact form.' },
         { q: `How do I get pricing or a sample for ${s.title}?`, a: 'Use the Request a Quote or Request Catalog button on this page. MOQ and pricing depend on the configuration and order volume.' },
       ]
     : [
         { q: `${s.title}解決方案會用到哪些裝置?`, a: `${s.title}整合 SunGene 的閘道器、感測器與電錶——請見本頁「使用的產品」與「相關產品」。我們會依您的場域、量程與協議搭配硬體。` },
         { q: '能與我現有的 SCADA、BMS 或雲端平台整合嗎?', a: '可以。我們的裝置採用開放協議（Modbus、BACnet、MQTT、OPC UA）並輸出標準化數據，可接入多數既有 SCADA、BMS、ERP 與雲端平台。' },
+        { q: 'RS485 和 Modbus RTU 是一樣的嗎?', a: '不是。RS485 是實體電氣介面，Modbus RTU 是常跑在 RS485 配線上的通訊協定。報價前應同時確認配線介面與暫存器表。' },
+        { q: '你們是 SaaS 平台商嗎?', a: 'SunGene 不是純 SaaS 平台商。我們以硬體、監控套件、閘道器組合與 OEM / ODM 方案支援為核心；如專案需要，可搭配儀表板或客戶雲整合。' },
+        { q: '可以只買閘道器，或採購完整監控套件嗎?', a: '兩者都可以。SunGene 可供應單一閘道器，也可提供包含感測器、電表、箱體、供電配件、儀表板與告警流程的完整套件。' },
+        { q: '報價需要哪些資料?', a: '請提供目標國家與 LTE 頻段區域、應用場景、感測器清單、量測參數、閘道器或平台需求、供電、認證、數量與時程。' },
+        { q: '如何確認 EU868、LoRaWAN、ChirpStack 或 payload decoder 支援?', a: '我們會先確認部署國家、區域頻段、網路伺服器、payload 欄位、decoder 格式、認證需求與樣品測試暫存器表，再定案配置。' },
         { q: '你們提供 OEM / ODM 與客製嗎?', a: '提供——客製韌體、協議、外殼、貼牌與包裝皆可，歡迎透過聯絡表單告訴我們需求。' },
         { q: `如何取得${s.title}的報價或樣品?`, a: '點本頁的「索取報價」或「索取型錄」按鈕。最低訂購量與價格依配置與訂購量而定。' },
       ]
